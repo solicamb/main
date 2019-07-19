@@ -14,9 +14,11 @@ The Ardunio code can be uploaded to any compatable board, testing has been perfo
 The supporting Python script used from a PC or Rasberry Pi is used to generate a csv file and display live sensor feedback. To run the python script some libraries should first be installed:
 
 ## Mac users
+Python 3.x
 pip install pyqt5, pyqtgraph, pyserial
 
 ## Windows users
+Python 3.x
 If using Anaconda or similar install pyserial, pyqtgraph and pyqt5
 
 
