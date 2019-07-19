@@ -15,11 +15,11 @@ The supporting Python script used from a PC or Rasberry Pi is used to generate a
 
 ## Mac users
 Python 3.x
-pip install pyqt5, pyqtgraph, pyserial
+	pip install pyqt5, pyqtgraph, pyserial
 
 ## Windows users
 Python 3.x
-If using Anaconda or similar install pyserial, pyqtgraph and pyqt5
+	If using Anaconda or similar install pyserial, pyqtgraph and pyqt5
 
 
 
