@@ -8,3 +8,17 @@ TBD This will consist of Arduino code that transmits a set of calculated, meanin
 
 # Authorship
 Initial version, 2019-07-16, jh2109
+
+# Installation and dependencies
+The Ardunio code can be uploaded to any compatable board, testing has been performed on an Ardunio Uno and Micro.
+The supporting Python script used from a PC or Rasberry Pi is used to generate a csv file and display live sensor feedback. To run the python script some libraries should first be installed:
+
+## Mac users
+pip install pyqt5, pyqtgraph, pyserial
+
+## Windows users
+If using Anaconda or similar install pyserial, pyqtgraph and pyqt5
+
+
+
+	
