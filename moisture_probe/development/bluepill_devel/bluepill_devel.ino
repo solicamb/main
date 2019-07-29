@@ -1,5 +1,5 @@
 /*
- * Development (debugging) setup for the Arduino controlling the moisture probe
+ * Development (debugging) setup for the BluePill controlling the moisture probe
  *
  * Authors:
  *  Jan (jh2109)
@@ -7,17 +7,19 @@
  */
 
 #include <Wire.h>
-#include "LedControl.h"
 
 // Config
 #define BAUDRATE 38400   // Arduino <=> PC serial baudrate
-#define DOWNSAMPLING 200 // number of ADC readings to average per serial message
-#define LED_BRIGHTNESS 9 // 0..15
-#define LED_CONTROLLER 0 // Index of LED controller to use
+#define DOWNSAMPLING 10000 // number of ADC readings to average per serial message
+
+#define ADC_FULL_SCALE_VOLTAGE 4.0f // full scale ADC voltage for scaling
+// TODO/NB While this will correspond to VCC, don't assume the VCC=3.3V pin will have exactly that voltage
+// One measurement gave 4V when powered via USB from a PC, hence this choice
+// Ultimately, we should control/know what VCC we are referencing to
+#define ADC_RESOLUTION 4096 // 12 bit resolution for blue pill
 
 // Global scope
-//                 pins:   DIN CLK CS  number of controllers
-LedControl lc = LedControl(12, 11, 10, 1);
+// (none so far)
 
 void setup() {
 	// Initialise serial
@@ -29,11 +31,6 @@ void setup() {
 	Serial.flush();
 	Serial.println();
 	Serial.println("START");
-
-	// Initialise 7-segment display
-  lc.shutdown(LED_CONTROLLER, false);
-  lc.setIntensity(LED_CONTROLLER, LED_BRIGHTNESS);
-  lc.clearDisplay(LED_CONTROLLER);
 }
 
 float read_average_ADC(int pin, int n){
@@ -44,7 +41,7 @@ float read_average_ADC(int pin, int n){
 	}
 
 	float voltage = (float)sum/n; // average
-	voltage *= 5./1023; // convert to volt (5V / 0..1023 ADC levels)
+	voltage *= ADC_FULL_SCALE_VOLTAGE/ADC_RESOLUTION; // convert to volt
 
 	return voltage;
 }
@@ -59,62 +56,14 @@ void write_measurement_to_serial(char const variable_name[], float value){
 	Serial.println(value);
 }
 
-void display_number_on_7segment(int display_position, int number, int decimal_point_position){
-	// Hardcoded: number up to 9999; LED controller id 0
-	// To keep this function simple, we only handle integers and are told the decimal point position explicitly
-	// TODO: implement negative numbers if needed
-	int unit_place, tens_place, hundreds_place, thousands_place = 0;
-
-	// First, make sure we can actually display the number
-	if (number >= 10000 or number < 0){
-		// not enough space on display: show "overflow" warning
-		lc.setDigit(LED_CONTROLLER, display_position + 3, 0 , false);  // O
-		lc.setRow(LED_CONTROLLER,   display_position + 2, B00111110);  // V
-		lc.setChar(LED_CONTROLLER,  display_position + 1, 'F', false); // F
-		lc.setChar(LED_CONTROLLER,  display_position + 0, 'L', false); // L
-		return;
-	}
-
-	// Next, we go through the decimal digits of the number and extract the digit to display in that decimal position
-	unit_place = ((int)(number / 1) % 10);
-	lc.setDigit(LED_CONTROLLER, display_position, unit_place, decimal_point_position == display_position);
-
-	display_position++;
-	if (number >= 10){
-		tens_place = ((int)(number / 10) % 10);
-		lc.setDigit(LED_CONTROLLER, display_position, tens_place, decimal_point_position == display_position);
-	} else {
-		lc.setChar(LED_CONTROLLER, display_position, ' ', decimal_point_position == display_position);
-	}
- 
-	display_position++;
-	if (number >= 100){
-		hundreds_place = ((int)(number / 100) % 10);
-		lc.setDigit(LED_CONTROLLER, display_position, hundreds_place, decimal_point_position == display_position);
-	} else {
-		lc.setChar(LED_CONTROLLER, display_position, ' ', decimal_point_position == display_position);
-	}
-
-	display_position++;
-	if (number >= 1000){
-		thousands_place = ((int)(number / 1000) % 10);
-		lc.setDigit(LED_CONTROLLER, display_position, thousands_place, decimal_point_position == display_position);
-	} else {
-		lc.setChar(LED_CONTROLLER, display_position, ' ', decimal_point_position == display_position);
-	}
-}
-
 void loop() {
 	// Measure and report data via serial and LED display
-	float voltage_A0 = read_average_ADC(A0, DOWNSAMPLING);
-	write_measurement_to_serial("y0", voltage_A0);
-	display_number_on_7segment(0, (int)(voltage_A0*1000), 3);
+	float voltage_PA0 = read_average_ADC(PA0, DOWNSAMPLING);
+	write_measurement_to_serial("y0", voltage_PA0);
 
-	float voltage_A1 = read_average_ADC(A1, DOWNSAMPLING);
-	write_measurement_to_serial("y1", voltage_A1);
-	display_number_on_7segment(4, (int)(voltage_A1*1000), 7);
+	float voltage_PA1 = read_average_ADC(PA1, DOWNSAMPLING);
+	write_measurement_to_serial("y1", voltage_PA1);
 		
-	float voltage_A2 = read_average_ADC(A2, DOWNSAMPLING);
-	write_measurement_to_serial("y2", voltage_A2);
-	/*display_number_on_7segment(...); // Not enough space on LED display for three numbers*/
+	float voltage_PA2 = read_average_ADC(PA2, DOWNSAMPLING);
+	write_measurement_to_serial("y2", voltage_PA2);
 }
