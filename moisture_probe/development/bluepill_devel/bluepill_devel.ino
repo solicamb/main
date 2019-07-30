@@ -15,10 +15,11 @@
 #define ADC_FULL_SCALE_VOLTAGE 4.0f // full scale ADC voltage for scaling
 // TODO/NB While this will correspond to VCC, don't assume the VCC=3.3V pin will have exactly that voltage
 // One measurement gave 4V when powered via USB from a PC, hence this choice
-// Ultimately, we should control/know what VCC we are referencing to
+// Ultimately, we should control/know what VCC we are referencing to. On the other hand, this scaling is only
+// to make it more physically meaningful; we can also just think in terms of percentage of full scale
 #define ADC_RESOLUTION 4096 // 12 bit resolution for blue pill
 
-// Global scope
+// Global scope variables
 // (none so far)
 
 void setup() {
