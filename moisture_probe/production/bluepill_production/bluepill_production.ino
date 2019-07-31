@@ -1,5 +1,5 @@
 /*
- * Development (debugging) setup for the BluePill controlling the moisture probe
+ * Production setup for the BluePill controlling the moisture probe (i.e. the slave, the sensor probe)
  *
  * Authors:
  *  Jan (jh2109)
