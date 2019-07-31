@@ -58,7 +58,7 @@ void write_measurement_to_serial(char const variable_name[], float value){
 }
 
 void loop() {
-	// Measure and report data via serial and LED display
+	// Measure and report data via serial
 	float voltage_PA0 = read_average_ADC(PA0, DOWNSAMPLING);
 	write_measurement_to_serial("y0", voltage_PA0);
 
