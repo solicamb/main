@@ -36,8 +36,9 @@ YLABEL1 = u'ADC voltage / V'
 files_to_process = sys.argv[1:]
 OUTPUT_FOLDER = './graphs'
 
-if files_to_process == None:
+if files_to_process == []:
 	print("Missing command line arguments of .csv files to plot")
+	print("Please specify the .csv files to plot (e.g. ./data/*.csv)")
 	sys.exit(1)
 
 if not os.path.exists(OUTPUT_FOLDER):
@@ -102,3 +103,5 @@ for DATA_FILENAME in files_to_process:
 	plt.savefig('{}/graph-{}.pdf'.format(OUTPUT_FOLDER, os.path.basename(DATA_FILENAME)), dpi=300, bbox_inches='tight')
 	plt.savefig('{}/graph-{}.png'.format(OUTPUT_FOLDER, os.path.basename(DATA_FILENAME)), dpi=300, bbox_inches='tight')
 	plt.close()
+
+print("Done.")
