@@ -91,7 +91,10 @@ ptr_y2 = 0 # Plot data buffer pointer
 # Global variables
 start_time = None # will be set to first ever data microcontroller timestamp to make times relative to start
 TIME_START = datetime.datetime.now() # time of program start (from PC's point of view)
-start_received = False # wait until microcontroller is ready and sends START. Otherwise we might catch trash still left in the serial buffer from previous runs
+start_received = True # wait until microcontroller is ready and sends START. Otherwise we might catch trash still left in the serial buffer from previous runs
+# TODO we set start_received to always on. This is because the bluepills don't self-reset on serial connection, so the user would need to press their reset button every time. Instead, log immediately
+# TODO note that the downside of this is (and the reason why I implemented this code path in the first place) that the time axis now has an arbitrary offset (time since μC boot, not serial connection/program execution)
+# TODO -> user should autoscale axis at beginning
 gui_command = None # the main loop checks this global variable to act on GUI commands. Full rewrite to support interprocess signalling would be nice, but...
 
 # Create subdirectories for data storage if they don't exist
