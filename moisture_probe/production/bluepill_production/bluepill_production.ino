@@ -117,12 +117,12 @@ void loop() {
 
 	float voltage_PA1 = read_average_ADC(PA1, DOWNSAMPLING);
 	write_measurement_to_serial("y1", voltage_PA1);
-		
+
 	float voltage_PA2 = read_average_ADC(PA2, DOWNSAMPLING);
 	write_measurement_to_serial("y2", voltage_PA2);
 
 	// Communicate result to master via SPI
 	uint8_t measurement_type = 3;
-	uint8_t measurement_value = (uint8_t)(voltage_PA0*100); // TODO dummy; implement algorithm on what to send to master
+	uint8_t measurement_value = (uint8_t)constrain(voltage_PA0*100, 0, 255); // TODO dummy; implement algorithm on what to send to master
 	send_measurement_to_master(measurement_type, measurement_value);
 }
