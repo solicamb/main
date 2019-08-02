@@ -61,7 +61,8 @@ typedef enum mInstruct{
   SendDataPlease,
   WhoAreYou,
   HowLongShouldIWait,
-  BeginMeasurement
+  BeginMeasurement,
+  SitRep
 };
 
 typedef struct sCmd{
@@ -78,6 +79,7 @@ typedef struct mCmd{
 };
 
 typedef struct Identity{
+  int namelength = 50;
   char SensorName[50];
   int sensorID;
   int sensorChipSelect;

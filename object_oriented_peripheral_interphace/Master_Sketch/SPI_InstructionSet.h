@@ -1,33 +1,5 @@
-#include <Arduino.h>
-
-template <typename T> unsigned int SPI_writeAnything (const T& value)
-  {
-    const byte * p = (const byte*) &value;
-    unsigned int i;
-    for (i = 0; i < sizeof value; i++)
-          SPI.transfer(*p++);
-    return i;
-  }  // end of SPI_writeAnything
-
-template <typename T> unsigned int SPI_readAnything(T& value)
-  {
-    byte * p = (byte*) &value;
-    unsigned int i;
-    for (i = 0; i < sizeof value; i++)
-          *p++ = SPI.transfer (0);
-    return i;
-  }  // end of SPI_readAnything
-  
-  
-template <typename T> unsigned int SPI_readAnything_ISR(T& value)
-  {
-    byte * p = (byte*) &value;
-    unsigned int i;
-    *p++ = SPDR;  // get first byte
-    for (i = 1; i < sizeof value; i++)
-          *p++ = SPI.transfer (0);
-    return i;
-  }  // end of SPI_readAnything_ISR  
+#ifndef SPIINSTRUCTIONSET_H
+#define SPIINSTRUCTIONSET_H
 
 typedef enum sInstruct{
   DisplayInstructionAndWait,
@@ -70,9 +42,8 @@ typedef struct mCmd{
   float fParam;
 };
 
-
 typedef struct Identity{
-  int namelength;
+  int namelength = 50;
   char SensorName[50];
   int sensorID;
   int sensorChipSelect;
@@ -85,3 +56,5 @@ typedef struct Data{
   char rowUnits[3][5];
   float DataPoints[3][128];
 };
+
+#endif

@@ -1,7 +1,7 @@
 #include <SPI.h>
 #include "SPI_Anything_Slave.h"
 
-const Identity ThisSensorID = {"Test Sensor",1,10};
+const Identity ThisSensorID = {50,"Test Sensor",1,10};
 
 void setup (void)
 {
@@ -38,18 +38,34 @@ ISR (SPI_STC_vect)
       Serial.println();
       Serial.println(Request.Instruction);
 
-      if (Request.Instruction == WhoAreYou){
-        Serial.println("Enter Who");
-            SPI_writeAnything(ThisSensorID);
-          Serial.println("Who Are you");
-      }
+//      if (Request.Instruction == WhoAreYou){
+//        Serial.println("Enter Who");
+//            SPI_writeAnything(ThisSensorID);
+//          Serial.println("Who Are you");
+//      }
+//
+//      if (Request.Instruction == IsThereData){
+//        Serial.println("Enter Is");
+//          sCmd Reply = {Yes,"This is a test message",Request.iParam +1, Request.fParam*2.0};
+//          SPI_writeAnything(Reply);
+//          Serial.println("Is there data");
+//      }
 
-      if (Request.Instruction == IsThereData){
-        Serial.println("Enter Is");
+
+      switch (Request.Instruction){
+        case WhoAreYou:
+          //Serial.println("Enter Who");
+          SPI_writeAnything(ThisSensorID);
+          //Serial.println("Who Are you");
+          break;
+         case IsThereData:
+          //Serial.println("Enter Is");
           sCmd Reply = {Yes,"This is a test message",Request.iParam +1, Request.fParam*2.0};
           SPI_writeAnything(Reply);
-          Serial.println("Is there data");
+          //Serial.println("Is there data");
+          break;
       }
+      
   
     }
 
