@@ -1,74 +1,5 @@
 #include <SPI.h>
-#include <Arduino.h>
-
-template <typename T> unsigned int SPI_writeAnything (const T& value)
-  {
-    const byte * p = (const byte*) &value;
-    unsigned int i;
-    for (i = 0; i < sizeof value; i++)
-          transferAndWait(*p++);
-    return i;
-  }  // end of SPI_writeAnything
-
-template <typename T> unsigned int SPI_readAnything(T& value)
-  {
-    byte * p = (byte*) &value;
-    unsigned int i;
-    for (i = 0; i < sizeof value; i++)
-          *p++ = transferAndWait (0);
-    return i;
-  }  // end of SPI_readAnything
-  
-  
-template <typename T> unsigned int SPI_readAnything_ISR(T& value)
-  {
-    byte * p = (byte*) &value;
-    unsigned int i;
-    *p++ = SPDR;  // get first byte
-    for (i = 1; i < sizeof value; i++)
-          *p++ = transferAndWait (0);
-    return i;
-  }  // end of SPI_readAnything_ISR  
-
-typedef enum sInstruct{
-  DisplayInstructionAndWait,
-  DisplayInstructionAndWaitForUser,
-  DontDisplayAndWait,
-  DontDisplayAndContinue,
-  ACK,
-  Yes,
-  No,
-  NAK,
-  ReferToInt,
-  ReferToFloat,
-  ReferToString
-};
-
-typedef enum mInstruct{
-  PauseMeasurementForiParam,
-  RestartMeasurementProcedure,
-  ResetDevice,
-  HowManyInstructions,
-  NextCommandPlease,
-  IsThereData,
-  SendDataPlease,
-  WhoAreYou,
-  HowLongShouldIWait,
-  BeginMeasurement
-};
-
-typedef struct sCmd{
-  sInstruct Instruction; 
-  char sParam[128];
-  int iParam;
-  float fParam;
-};
-
-typedef struct mCmd{
-  mInstruct Instruction;
-  int iParam;
-  float fParam;
-};
+#include "SPI_Anything.h"
 
 //############################################################################################################
 
@@ -89,36 +20,55 @@ void setup (void)
   
 }  // end of setup
 
-byte transferAndWait (const byte what)
-{
-  byte a = SPI.transfer (what);
-  delayMicroseconds (20);
-  return a;
-} // end of transferAndWait
-
 void loop (void)
 {
 
-  byte a;
-  // enable Slave Select
-  digitalWrite(SS, LOW);    
+   ///////////////////////////////////////////////////////
+  
+  digitalWrite(SS, LOW);  // enable Slave Select 
+  
+  //Initial Handshake  
+    transferAndWait ('?');  // add command
+   byte a = transferAndWait (0x00);
 
-  transferAndWait ('?');  // add command
-  a = transferAndWait (0x00);
+  //Send Request
+    mCmd Request = {(mInstruct)IsThereData, (int)10,(float)1.5 };
+    SPI_writeAnything(Request);
+    delay(100);
 
-  ///////////////////////////////////////////////////////
-  mCmd Request = {(mInstruct)IsThereData, (int)10,(float)1.5 };
-  SPI_writeAnything(Request);
+ //Recieve Reply
+    sCmd Reply;
+    SPI_readAnything(Reply);
+
+
+     // disable Slave Select
+    digitalWrite(SS, HIGH);
+  //////////////////////////////////////////////////////
 
   delay(100);
-  sCmd Reply;
-  SPI_readAnything(Reply);
- 
-  ///////////////////////////////////////////////////////
+  
+ ///////////////////////////////////////////////////////
+  
+ digitalWrite(SS, LOW);  // enable Slave Select 
+  
+  //Initial Handshake  
+    transferAndWait ('?');  // add command
+     a = transferAndWait (0x00);
 
+  //Send Request
+    mCmd Request2 = {(mInstruct)WhoAreYou, (int)2,(float)6.2 };
+    SPI_writeAnything(Request2);
+    delay(100);
 
-  // disable Slave Select
-  digitalWrite(SS, HIGH);
+ //Recieve Reply
+      Identity Repli;
+      SPI_readAnything(Repli);
+
+     // disable Slave Select
+    digitalWrite(SS, HIGH);
+  //////////////////////////////////////////////////////
+  
+
 
   Serial.println ("Reply From Slave");
   Serial.println (a);
@@ -126,6 +76,10 @@ void loop (void)
   Serial.println((String)Reply.sParam);  
   Serial.println(Reply.iParam);
   Serial.println(Reply.fParam);
+  Serial.println("And");
+  Serial.println((String)Repli.SensorName);
+  Serial.println(Repli.sensorID);
+  Serial.println(Repli.sensorChipSelect);
   
   delay (1000);  // 1 second delay 
 }  // end of loop

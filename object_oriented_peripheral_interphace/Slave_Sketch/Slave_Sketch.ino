@@ -1,81 +1,13 @@
 #include <SPI.h>
-#include <Arduino.h>
+#include "SPI_Anything_Slave.h"
 
-template <typename T> unsigned int SPI_writeAnything (const T& value)
-  {
-    const byte * p = (const byte*) &value;
-    unsigned int i;
-    for (i = 0; i < sizeof value; i++)
-          SPI.transfer(*p++);
-    return i;
-  }  // end of SPI_writeAnything
-
-template <typename T> unsigned int SPI_readAnything(T& value)
-  {
-    byte * p = (byte*) &value;
-    unsigned int i;
-    for (i = 0; i < sizeof value; i++)
-          *p++ = SPI.transfer (0);
-    return i;
-  }  // end of SPI_readAnything
-  
-  
-template <typename T> unsigned int SPI_readAnything_ISR(T& value)
-  {
-    byte * p = (byte*) &value;
-    unsigned int i;
-    *p++ = SPDR;  // get first byte
-    for (i = 1; i < sizeof value; i++)
-          *p++ = SPI.transfer (0);
-    return i;
-  }  // end of SPI_readAnything_ISR  
-
-typedef enum sInstruct{
-  DisplayInstructionAndWait,
-  DisplayInstructionAndWaitForUser,
-  DontDisplayAndWait,
-  DontDisplayAndContinue,
-  ACK,
-  Yes,
-  No,
-  NAK,
-  ReferToInt,
-  ReferToFloat,
-  ReferToString
-};
-
-typedef enum mInstruct{
-  PauseMeasurementForiParam,
-  RestartMeasurementProcedure,
-  ResetDevice,
-  HowManyInstructions,
-  NextCommandPlease,
-  IsThereData,
-  SendDataPlease,
-  WhoAreYou,
-  HowLongShouldIWait,
-  BeginMeasurement
-};
-
-typedef struct sCmd{
-  sInstruct Instruction; 
-  char sParam[128];
-  int iParam;
-  float fParam;
-};
-
-typedef struct mCmd{
-  mInstruct Instruction;
-  int iParam;
-  float fParam;
-};
-
-
-
+const Identity ThisSensorID = {"Test Sensor",1,10};
 
 void setup (void)
 {
-
+   Serial.begin (115200);
+  Serial.println ();
+  
   // have to send on master in, *slave out*
   pinMode(MISO, OUTPUT);
 
@@ -91,23 +23,35 @@ void setup (void)
 // SPI interrupt routine
 ISR (SPI_STC_vect)
 {
-  byte c = SPDR;
 
-  if (c == '?'){
-    SPI.transfer(0x06);
-  }
+  //Inital Handshake to confirm connection
+    byte Ping = SPDR;
+    if (Ping == '?'){
+      SPI.transfer(0x06); //If the intial byte is the 'Are you alive?' byte (defined as '?') then reply with an 'ACK'==0x06
+    
 
+    //Retrieve the request from Master
+      mCmd Request;
+      SPI_readAnything(Request); 
+  
+    //Send Reply to request
+      Serial.println();
+      Serial.println(Request.Instruction);
 
-/////////////////////////////////////////////////////////////////
+      if (Request.Instruction == WhoAreYou){
+        Serial.println("Enter Who");
+            SPI_writeAnything(ThisSensorID);
+          Serial.println("Who Are you");
+      }
 
-  mCmd Request;
-  SPI_readAnything(Request);
-
-  if (Request.Instruction == IsThereData){
-     sCmd Reply = {Yes,"This is a test message",Request.iParam +1, Request.fParam*2.0};
-     SPI_writeAnything(Reply);
-  }
-
+      if (Request.Instruction == IsThereData){
+        Serial.println("Enter Is");
+          sCmd Reply = {Yes,"This is a test message",Request.iParam +1, Request.fParam*2.0};
+          SPI_writeAnything(Reply);
+          Serial.println("Is there data");
+      }
+  
+    }
 
 }  // end of interrupt service routine (ISR) SPI_STC_vect
 
