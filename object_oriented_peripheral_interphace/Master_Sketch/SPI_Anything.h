@@ -79,7 +79,7 @@ typedef struct mCmd{
 };
 
 typedef struct Identity{
-  int namelength = 50;
+  int namelength;
   char SensorName[50];
   int sensorID;
   int sensorChipSelect;
@@ -88,7 +88,7 @@ typedef struct Identity{
 typedef struct Data{
   uint8_t NumColumns;
   uint8_t NumRows;
-  char RowHeadings[20][3];
+  char RowHeadings[3][20];
   char rowUnits[3][5];
   float DataPoints[3][128];
 };

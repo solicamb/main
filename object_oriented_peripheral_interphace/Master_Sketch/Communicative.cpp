@@ -1,16 +1,3 @@
-/*
-  Test.h - Test library for Wiring - implementation
-  Copyright (c) 2006 John Doe.  All right reserved.
-*/
-
-// include core Wiring API
-//#include "WProgram.h"
-
-// include this library's description file
-//#include "Test.h"
-
-// include description files for other libraries used (if any)
-//#include "HardwareSerial.h"
 
 #include <Arduino.h>
 #include "Communicative.h"
@@ -25,6 +12,10 @@ Communicative::Communicative(void)
 
   ThisSensor.sensorChipSelect = SS;
   SPISetup();
+  
+  if (isPeripheralConnected()){
+    updatePeripheralInfo();
+  }
 
 }
 
@@ -33,6 +24,9 @@ Communicative::Communicative(int ChipSelect){
   ThisSensor.sensorChipSelect = ChipSelect;
   SPISetup();
 
+  if (isPeripheralConnected()){
+    updatePeripheralInfo();
+  }
 }
 
 void Communicative::SPISetup(void){

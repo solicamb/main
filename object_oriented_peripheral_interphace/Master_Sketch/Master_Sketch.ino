@@ -90,6 +90,15 @@ void loop (void)
     Serial.println("Sensor not found");
   }
 
+  mCmd Request = {(mInstruct)IsThereData, (int)10,(float)1.5 };
+  sCmd Reply = Sensor.RequestReply(Request);
+
+    Serial.println ("Reply From Slave");
+//  Serial.println (a);
+  Serial.println(Reply.Instruction);
+  Serial.println((String)Reply.sParam);  
+  Serial.println(Reply.iParam);
+  Serial.println(Reply.fParam);
   
   delay (1000);  // 1 second delay 
 }  // end of loop

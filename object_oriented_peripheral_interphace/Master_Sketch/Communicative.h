@@ -18,7 +18,7 @@ class Communicative
     bool hasPerihperalChanged(void);
     void updatePeripheralInfo(void);
 
-    
+  //protected:  
     sCmd RequestReply(const mCmd);
     Identity RequestIdentity(const mCmd);
     Data RequestData(const mCmd);
