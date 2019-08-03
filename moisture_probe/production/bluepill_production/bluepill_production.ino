@@ -40,6 +40,7 @@ const bool DEBUG_WAIT_FOR_MASTER = true;
 // Global scope variables
 bool spi_initiated = 0;
 float calibration[NUMBER_OF_SIGNALS] = {};
+bool measurement_in_progress = false;
 
 void setup() {
 	// Initialise serial
@@ -134,7 +135,12 @@ float return_calibrated_value(float raw_voltage, int signal_id){
 }
 	
 int evaluate_moisture_retention_score(float signals[]){
-	// TODO dummy function
+	// TODO stub function
+	return 42;
+}
+
+int threshold_detection(float signals[]){
+	// TODO stub function
 	return 42;
 }
 
@@ -145,7 +151,7 @@ void loop() {
 	int adc_pin = PA0; // We assume three sequential pins, starting with this one. If not, need to implement pin mapping
 
 	// For all signals (measurements):
-	for (int i = 0; i <= 2; i++){
+	for (int i = 0; i < NUMBER_OF_SIGNALS; i++){
 		// Measure and report raw data via serial
 		raw_voltages[i] = read_average_ADC(adc_pin, DOWNSAMPLING);
 		char signal_name[20] = "y"; // maximum length hardcoded, adjust if using longer signal names
@@ -160,9 +166,24 @@ void loop() {
 		write_measurement_to_serial(signal_name, signals[i]);
 	}
 
-	// Moisture retention algorithm
-	int moisture_retention_score = evaluate_moisture_retention_score(signals);
-	
-	// Communicate result to master via SPI
-	send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_RETENTION, moisture_retention_score);
+	if (measurement_in_progress == true){
+		if (calibration[0] == 0){
+			// Not yet calibrated
+			Serial.println("INFO: Setting calibration from previous reading");
+			memcpy(&calibration, &raw_voltages, NUMBER_OF_SIGNALS);
+			return;
+		}
+		
+		if (threshold_detection(signals)){
+			// Moisture intrusion event detected
+			Serial.println("INFO: Moisture intrusion detected for probes number:(stub)");
+			//TODO stub
+
+			// Moisture retention algorithm
+			int moisture_retention_score = evaluate_moisture_retention_score(signals);
+		
+			// Communicate result to master via SPI
+			send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_RETENTION, moisture_retention_score);
+		}
+	}
 }
