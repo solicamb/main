@@ -14,8 +14,7 @@ class Communicative
     Communicative(const int CS = SS);
     ~Communicative(void);
     bool isPeripheralConnected(void);
-    void setChipSelect(const int CS);
-
+  
   //protected:  
     sCmd RequestReply(const mCmd);
     Identity RequestIdentity(const mCmd);
@@ -24,7 +23,7 @@ class Communicative
 
   // library-accessible "private" interface
   private:
-    void SPISetup(const int ChipSelect = SS);
+    void SPISetup(void);
     byte transferAndPause(const byte);
     template <typename T> unsigned int SPI_write (const T& value);
     template <typename T> unsigned int SPI_read(T& value);

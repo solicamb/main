@@ -14,7 +14,7 @@ class Instructable
   public:
 
     //Instructable(void);
-    Instructable(const int ChipSelect = SS);
+    Instructable(const int ChipSelect);
 
     int issueCommand(mInstruct);
     int issueCommand(mInstruct, int);

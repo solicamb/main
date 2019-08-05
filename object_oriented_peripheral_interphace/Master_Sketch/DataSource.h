@@ -14,7 +14,7 @@ class DataSource
   // user-accessible "public" interface
   public:
 
-    DataSource(int ChipSelect);
+    DataSource(const int ChipSelect = SS);
 
     bool isThereData(void);
     Data loadData(void);

@@ -18,7 +18,6 @@ class Identifiable
 
     bool hasIdentityChanged(void);
     void updateIdentity(void);
-    void setChipSelect(const int ChipSelect);
 
   // library-accessible "private" interface
   private:

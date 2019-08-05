@@ -7,7 +7,7 @@
 // Function that handles the creation and setup of instances
 
 
-Instructor::Instructor(int ChipSelect): CommsModule(ChipSelect){
+Instructor::Instructor(const int ChipSelect): CommsModule(ChipSelect){
 	CurrentCommand.Instruction = NAK;
 	CurrentCommand.sParam[0] = '\n';
 	CurrentCommand.iParam = 0;
@@ -22,20 +22,20 @@ Instructor::Instructor(int ChipSelect): CommsModule(ChipSelect){
 
 int Instructor::howManyInstructions(void){
 	mCmd Request = {(mInstruct)HowManyInstructions,0,0.0};
-	sCmd Reply = RequestReply(Request);
+	sCmd Reply = CommsModule.RequestReply(Request);
 	return Reply.iParam;
 }
 
 
 int Instructor::howLongShouldIWait(void){
 	mCmd Request = {(mInstruct)HowLongShouldIWait,0,0.0};
-	sCmd Reply = RequestReply(Request);
+	sCmd Reply = CommsModule.RequestReply(Request);
 	return Reply.iParam;
 }
 
 sCmd Instructor::loadNextCommand(void){
 	mCmd Request = {(mInstruct)NextCommandPlease,0,0.0};
-	CurrentCommand = RequestReply(Request);
+	CurrentCommand = CommsModule.RequestReply(Request);
 	return CurrentCommand;
 }
 

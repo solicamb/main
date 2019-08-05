@@ -1,13 +1,13 @@
 
 #include <Arduino.h>
-#include "Communicative.h"
+#include "Identifiable.h"
 #include "SPI_InstructionSet.h"
 #include <SPI.h>
 
 // Constructor /////////////////////////////////////////////////////////////////
 // Function that handles the creation and setup of instances
 
-Communicative::Communicative(const int CS)
+Identifiable::Identifiable(const int CS)
 {
 
   if (CommsModule.isPeripheralConnected()){
@@ -22,7 +22,7 @@ Communicative::Communicative(const int CS)
 // Public Methods //////////////////////////////////////////////////////////////
 // Functions available in Wiring sketches, this library, and other libraries
 
-bool Communicative::hasIdentityChanged(void){
+bool Identifiable::hasIdentityChanged(void){
 
   Identity connectedID;
   mCmd Request = {(mInstruct)WhoAreYou, (int)0,(float)0.0};
@@ -37,7 +37,7 @@ bool Communicative::hasIdentityChanged(void){
 
 }
 
-void Communicative::updateIdentity(void){
+void Identifiable::updateIdentity(void){
 
   Identity connectedID;
   mCmd Request = {(mInstruct)WhoAreYou, (int)0,(float)0.0};
@@ -51,8 +51,4 @@ void Communicative::updateIdentity(void){
   }
   
 
-}
-
-void setChipSelect(const int ChipSelect){
-  CommsModule.setChipSelect(ChipSelect);
 }

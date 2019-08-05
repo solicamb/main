@@ -13,7 +13,7 @@ class Instructor
   // user-accessible "public" interface
   public:
 
-    Instructor(int ChipSelect);
+    Instructor(const int ChipSelect = SS);
 
     int howManyInstructions(void);
     int howLongShouldIWait(void);

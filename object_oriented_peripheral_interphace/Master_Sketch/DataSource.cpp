@@ -7,7 +7,7 @@
 // Function that handles the creation and setup of instances
 
 
-DataSource::DataSource(int ChipSelect): CommsModule(ChipSelect){
+DataSource::DataSource(const int ChipSelect): CommsModule(ChipSelect){
 
 	CurrentData.NumColumns = 0;
 	CurrentData.NumRows = 0;
@@ -30,7 +30,7 @@ DataSource::DataSource(int ChipSelect): CommsModule(ChipSelect){
 
 bool DataSource::isThereData(void){
 	mCmd Request = {(mInstruct)IsThereData,0,0.0};
-	sCmd Reply = RequestReply(Request);
+	sCmd Reply = CommsModule.RequestReply(Request);
 
 	if (Reply.Instruction == Yes){
 		return true;
@@ -41,7 +41,7 @@ bool DataSource::isThereData(void){
 
 Data DataSource::loadData(void){
 	mCmd Request = {(mInstruct)SendDataPlease,0,0.0};
-	CurrentData = RequestData(Request);
+	CurrentData = CommsModule.RequestData(Request);
 	return CurrentData;
 }
 

@@ -9,17 +9,19 @@
 #include "Instructor.h"
 #include "DataSource.h"
 #include "Instructable.h"
+#include "Identifiable.h"
 
 // library interface description
-class Sensor: public Instructable, public Instructor, public DataSource
+
+// class Sensor: public Instructable, public Instructor, public DataSource, public Identifiable
+class Sensor: public Instructable
 {
   // user-accessible "public" interface
   public:
 
-    Sensor(void);
-    Sensor(int ChipSelect);
+    Sensor(const int ChipSelect);
 
-    int BeginMeasurement(void);
+    int StartMeasurement(void);
     int PauseMeasurementForMillis(int);
     int RestartMeasurement(void);
 

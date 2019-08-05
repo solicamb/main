@@ -11,11 +11,7 @@ Communicative::Communicative(const int CS)
 {
 
   ChipSelect = CS;
-  SPISetup(ChipSelect);
-  
-  if (isPeripheralConnected()){
-    updatePeripheralInfo();
-  }
+  SPISetup();
 
 }
 
@@ -38,10 +34,6 @@ Communicative::~Communicative(void){
 
 // Public Methods //////////////////////////////////////////////////////////////
 // Functions available in Wiring sketches, this library, and other libraries
-
-void Communicative::SetChipSelect(const int CS){
-  ChipSelect = CS;
-}
 
 bool Communicative::isPeripheralConnected(void){
 

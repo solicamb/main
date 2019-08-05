@@ -31,7 +31,7 @@ int Instructable::issueCommand(mInstruct Command){
 int Instructable::issueCommand(mInstruct Command, int intParam){
 	mCmd Request = {Command,intParam,0.0};
 
-	sCmd Reply = CommsMoldule.RequestReply(Request);
+	sCmd Reply = CommsModule.RequestReply(Request);
 
 	if (Reply.Instruction == ACK){
 		return 0;

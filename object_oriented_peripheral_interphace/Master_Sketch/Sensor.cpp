@@ -2,19 +2,22 @@
 #include "DataSource.h"
 #include "Instructor.h"
 #include "Instructable.h"
+#include "Identifiable.h"
 #include "Sensor.h"
 #include "SPI_InstructionSet.h"
 
 // Constructor /////////////////////////////////////////////////////////////////
 // Function that handles the creation and setup of instances
 
-Sensor::Sensor(void) : Instructable(), Instructor(), DataSource(){
+
+
+// Sensor::Sensor(const int ChipSelect): Instructable(ChipSelect), Instructor(ChipSelect), DataSource(ChipSelect), Identifiable(ChipSelect){
+
+// }
+Sensor::Sensor(const int ChipSelect): Instructable(ChipSelect){
 
 }
 
-Sensor::Sensor(int ChipSelect): Instructable(ChipSelect), Instructor(ChipSelect), DataSource(ChipSelect){
-
-}
 
 
 
@@ -22,9 +25,11 @@ Sensor::Sensor(int ChipSelect): Instructable(ChipSelect), Instructor(ChipSelect)
 // Functions available in Wiring sketches, this library, and other libraries
 
 
-int Sensor::BeginMeasurement(void){
+int Sensor::StartMeasurement(void){
 
-	return issueCommand(BeginMeasurement);
+	bool Ans = issueCommand(BeginMeasurement);
+
+	return Ans;
 
 }
 
