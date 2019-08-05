@@ -1,16 +1,17 @@
 
 // ensure this library description is only included once
-#ifndef DataSource_h
-#define DataSource_h
+#ifndef Sensor_h
+#define Sensor_h
 
 // include types & constants of Wiring core API
 #include <Arduino.h>
 #include "SPI_InstructionSet.h"
 #include "Instructor.h"
 #include "DataSource.h"
+#include "Instructable.h"
 
 // library interface description
-class Sensor: public Instructor, DataSource
+class Sensor: public Instructable, public Instructor, public DataSource
 {
   // user-accessible "public" interface
   public:
@@ -24,5 +25,7 @@ class Sensor: public Instructor, DataSource
 
   // library-accessible "private" interface
   private:
+
+};
 
 #endif

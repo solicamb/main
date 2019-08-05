@@ -9,12 +9,11 @@
 #include "Instructable.h"
 
 // library interface description
-class DataSource: virtual public Instructable
+class DataSource
 {
   // user-accessible "public" interface
   public:
 
-    DataSource(void);
     DataSource(int ChipSelect);
 
     bool isThereData(void);
@@ -33,5 +32,8 @@ class DataSource: virtual public Instructable
   // library-accessible "private" interface
   private:
     Data CurrentData;
+    Communicative CommsModule;
+
+  };
 
 #endif

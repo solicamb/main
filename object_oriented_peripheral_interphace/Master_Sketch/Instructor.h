@@ -8,12 +8,11 @@
 #include "SPI_InstructionSet.h"
 #include "Instructable.h"
 // library interface description
-class Instructor: virtual public Instructable
+class Instructor
 {
   // user-accessible "public" interface
   public:
 
-    Instructor(void);
     Instructor(int ChipSelect);
 
     int howManyInstructions(void);
@@ -27,6 +26,7 @@ class Instructor: virtual public Instructable
   // library-accessible "private" interface
   private:
     sCmd CurrentCommand;
+    Communicative CommsModule;
 };
 
 #endif

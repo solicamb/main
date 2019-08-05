@@ -1,34 +1,20 @@
 #include <Arduino.h>
 #include "Instructable.h"
-#include "Instructor.h"
+#include "DataSource.h"
 #include "SPI_InstructionSet.h"
 
 // Constructor /////////////////////////////////////////////////////////////////
 // Function that handles the creation and setup of instances
 
-DataSource::DataSource(void) : Instructable(){
+
+DataSource::DataSource(int ChipSelect): CommsModule(ChipSelect){
 
 	CurrentData.NumColumns = 0;
 	CurrentData.NumRows = 0;
 
 	for (int i = 0; i<NUMBER_OF_DATA_ROWS; i++){
-		CurrentData.RowHeadings[i] = '\n';
-		CurrentData.rowUnits[i] = '\n';
-
-		for (int j = 0 ; j<DATA_ROW_LENGTH; j++){
-			CurrentData.DataPoints[i][j] = 0.0;
-		}
-	}
-}
-
-DataSource::DataSource(int ChipSelect): Instructable(ChipSelect){
-
-	CurrentData.NumColumns = 0;
-	CurrentData.NumRows = 0;
-
-	for (int i = 0; i<NUMBER_OF_DATA_ROWS; i++){
-		CurrentData.RowHeadings[i] = '\n';
-		CurrentData.rowUnits[i] = '\n';
+		CurrentData.RowHeadings[0][i] = '\n';
+		CurrentData.rowUnits[0][i] = '\n';
 
 		for (int j = 0 ; j<DATA_ROW_LENGTH; j++){
 			CurrentData.DataPoints[i][j] = 0.0;
@@ -55,7 +41,7 @@ bool DataSource::isThereData(void){
 
 Data DataSource::loadData(void){
 	mCmd Request = {(mInstruct)SendDataPlease,0,0.0};
-	CurrentData = RequestReply(Request);
+	CurrentData = RequestData(Request);
 	return CurrentData;
 }
 
@@ -67,7 +53,7 @@ int DataSource::getNumberOfDataRows(void){
 	return CurrentData.NumRows;
 }
 
-void DataSource::getRowHeadings(char[NUMBER_OF_DATA_ROWS][ROW_HEADING_LENGTH] Headings){
+void DataSource::getRowHeadings(char Headings[NUMBER_OF_DATA_ROWS][ROW_HEADING_LENGTH]){
 
 	for (int i = 0; i<NUMBER_OF_DATA_ROWS; i++){
 		
@@ -79,7 +65,7 @@ void DataSource::getRowHeadings(char[NUMBER_OF_DATA_ROWS][ROW_HEADING_LENGTH] He
 	}
 }
 
-void DataSource::getRowUnits(char[NUMBER_OF_DATA_ROWS][ROW_UNIT_LENGTH] Units){
+void DataSource::getRowUnits(char Units[NUMBER_OF_DATA_ROWS][ROW_UNIT_LENGTH]){
 
 	for (int i = 0; i<NUMBER_OF_DATA_ROWS; i++){
 		
@@ -91,7 +77,7 @@ void DataSource::getRowUnits(char[NUMBER_OF_DATA_ROWS][ROW_UNIT_LENGTH] Units){
 	}
 }
 
-void DataSource::getDataArray(float[NUMBER_OF_DATA_ROWS][DATA_ROW_LENGTH] DataVals){
+void DataSource::getDataArray(float DataVals[NUMBER_OF_DATA_ROWS][DATA_ROW_LENGTH]){
 
 	for (int i = 0; i<NUMBER_OF_DATA_ROWS; i++){
 		

@@ -11,12 +11,10 @@ class Communicative
 {
   // user-accessible "public" interface
   public:
-    Communicative(void);
-    Communicative(int);
+    Communicative(const int CS = SS);
     ~Communicative(void);
     bool isPeripheralConnected(void);
-    bool hasPerihperalChanged(void);
-    void updatePeripheralInfo(void);
+    void setChipSelect(const int CS);
 
   //protected:  
     sCmd RequestReply(const mCmd);
@@ -26,12 +24,14 @@ class Communicative
 
   // library-accessible "private" interface
   private:
-    void SPISetup(void);
+    void SPISetup(const int ChipSelect = SS);
     byte transferAndPause(const byte);
     template <typename T> unsigned int SPI_write (const T& value);
     template <typename T> unsigned int SPI_read(T& value);
-    byte areYouAlive(void);
-    Identity ThisSensor;
+    byte areYouAlive(const int ChipSelect = SS);
+
+    int ChipSelect;
+   // Identity ThisSensor;
 };
 
 #endif

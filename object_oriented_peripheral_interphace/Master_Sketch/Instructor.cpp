@@ -6,14 +6,8 @@
 // Constructor /////////////////////////////////////////////////////////////////
 // Function that handles the creation and setup of instances
 
-Instructor::Instructor(void) : Communicative(){
-	CurrentCommand.Instruction = NAK;
-	CurrentCommand.sParam[0] = '\n';
-	CurrentCommand.iParam = 0;
-	CurrentCommand.fParam = 0.0;
-}
 
-Instructor::Instructor(int ChipSelect): Communicative(ChipSelect){
+Instructor::Instructor(int ChipSelect): CommsModule(ChipSelect){
 	CurrentCommand.Instruction = NAK;
 	CurrentCommand.sParam[0] = '\n';
 	CurrentCommand.iParam = 0;
@@ -45,7 +39,7 @@ sCmd Instructor::loadNextCommand(void){
 	return CurrentCommand;
 }
 
-void Instructor::getCurrentCommandString(char[128] Instruction){
+void Instructor::getCurrentCommandString(char Instruction[128]){
 	for (int i = 0; i < 128; i++){
 		Instruction[i] = CurrentCommand.sParam[i];
 	}

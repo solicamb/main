@@ -7,11 +7,11 @@
 // Constructor /////////////////////////////////////////////////////////////////
 // Function that handles the creation and setup of instances
 
-Communicative::Communicative(void)
+Communicative::Communicative(const int CS)
 {
 
-  ThisSensor.sensorChipSelect = SS;
-  SPISetup();
+  ChipSelect = CS;
+  SPISetup(ChipSelect);
   
   if (isPeripheralConnected()){
     updatePeripheralInfo();
@@ -19,19 +19,9 @@ Communicative::Communicative(void)
 
 }
 
-Communicative::Communicative(int ChipSelect){
+void Communicative::SPISetup(){
 
-  ThisSensor.sensorChipSelect = ChipSelect;
-  SPISetup();
-
-  if (isPeripheralConnected()){
-    updatePeripheralInfo();
-  }
-}
-
-void Communicative::SPISetup(void){
-
-  digitalWrite(ThisSensor.sensorChipSelect, HIGH);  // ensure SS stays high for now
+  digitalWrite(ChipSelect, HIGH);  // ensure SS stays high for now
 
   // Put SCK, MOSI, SS pins into output mode
   // also put SCK, MOSI into LOW state, and SS into HIGH state.
@@ -49,6 +39,10 @@ Communicative::~Communicative(void){
 // Public Methods //////////////////////////////////////////////////////////////
 // Functions available in Wiring sketches, this library, and other libraries
 
+void Communicative::SetChipSelect(const int CS){
+  ChipSelect = CS;
+}
+
 bool Communicative::isPeripheralConnected(void){
 
   if (areYouAlive() == 0x06){
@@ -59,41 +53,41 @@ bool Communicative::isPeripheralConnected(void){
 
 }
 
-bool Communicative::hasPerihperalChanged(void){
+// bool Communicative::hasPerihperalChanged(void){
 
-  Identity connectedID;
-  mCmd Request = {(mInstruct)WhoAreYou, (int)0,(float)0.0};
+//   Identity connectedID;
+//   mCmd Request = {(mInstruct)WhoAreYou, (int)0,(float)0.0};
 
-  connectedID = RequestIdentity(Request);
+//   connectedID = RequestIdentity(Request);
 
-  if (connectedID.sensorID == ThisSensor.sensorID){
-    return false;
-  }else{
-    return true;
-  }
+//   if (connectedID.sensorID == ThisSensor.sensorID){
+//     return false;
+//   }else{
+//     return true;
+//   }
 
-}
+// }
 
-void Communicative::updatePeripheralInfo(void){
+// void Communicative::updatePeripheralInfo(void){
 
-  Identity connectedID;
-  mCmd Request = {(mInstruct)WhoAreYou, (int)0,(float)0.0};
+//   Identity connectedID;
+//   mCmd Request = {(mInstruct)WhoAreYou, (int)0,(float)0.0};
 
-  connectedID = RequestIdentity(Request);
+//   connectedID = RequestIdentity(Request);
 
-  ThisSensor.sensorID = connectedID.sensorID;
+//   ThisSensor.sensorID = connectedID.sensorID;
 
-  for (int i =0; i<ThisSensor.namelength; i++){
-    ThisSensor.SensorName[i] = connectedID.SensorName[i];
-  }
+//   for (int i =0; i<ThisSensor.namelength; i++){
+//     ThisSensor.SensorName[i] = connectedID.SensorName[i];
+//   }
   
 
-}
+// }
 
 
 sCmd Communicative::RequestReply(const mCmd Request){
 
-  digitalWrite(ThisSensor.sensorChipSelect, LOW);  // enable Slave Select 
+  digitalWrite(ChipSelect, LOW);  // enable Slave Select 
 
   sCmd Reply;
   
@@ -116,7 +110,7 @@ sCmd Communicative::RequestReply(const mCmd Request){
 
 
   // disable Slave Select
-    digitalWrite(ThisSensor.sensorChipSelect, HIGH);
+    digitalWrite(ChipSelect, HIGH);
 
 
   return Reply;
@@ -126,7 +120,7 @@ sCmd Communicative::RequestReply(const mCmd Request){
 
 Identity Communicative::RequestIdentity(const mCmd Request){
   
-  digitalWrite(ThisSensor.sensorChipSelect, LOW);  // enable Slave Select 
+  digitalWrite(ChipSelect, LOW);  // enable Slave Select 
   Identity Reply;
   
   //Initial Handshake  
@@ -148,7 +142,7 @@ Identity Communicative::RequestIdentity(const mCmd Request){
 
 
   // disable Slave Select
-    digitalWrite(ThisSensor.sensorChipSelect, HIGH);
+    digitalWrite(ChipSelect, HIGH);
 
 
   return Reply;
@@ -158,7 +152,7 @@ Identity Communicative::RequestIdentity(const mCmd Request){
 
 Data Communicative::RequestData(const mCmd Request){
 
-  digitalWrite(ThisSensor.sensorChipSelect, LOW);  // enable Slave Select 
+  digitalWrite(ChipSelect, LOW);  // enable Slave Select 
   Data Reply;
   
   //Initial Handshake  
@@ -180,7 +174,7 @@ Data Communicative::RequestData(const mCmd Request){
 
 
   // disable Slave Select
-    digitalWrite(ThisSensor.sensorChipSelect, HIGH);
+    digitalWrite(ChipSelect, HIGH);
 
 
   return Reply;
@@ -217,12 +211,12 @@ template <typename T> unsigned int Communicative::SPI_read(T& value){
 
 }
 
-byte Communicative::areYouAlive(void){
+byte Communicative::areYouAlive(const int ChipSelect){
 
    mCmd Request = {(mInstruct)IsThereData, (int)0,(float)0.0 };
    sCmd Reply;
 
-  digitalWrite(ThisSensor.sensorChipSelect, LOW);  // enable Slave Select 
+  digitalWrite(ChipSelect, LOW);  // enable Slave Select 
   //digitalWrite(SS, LOW);
   
   //Initial Handshake  
@@ -244,7 +238,7 @@ byte Communicative::areYouAlive(void){
 
 
   // disable Slave Select
-    digitalWrite(ThisSensor.sensorChipSelect, HIGH);
+    digitalWrite(ChipSelect, HIGH);
     //digitalWrite(SS, HIGH);
 
   return a;

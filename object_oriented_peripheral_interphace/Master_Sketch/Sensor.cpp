@@ -1,16 +1,18 @@
 #include <Arduino.h>
 #include "DataSource.h"
 #include "Instructor.h"
+#include "Instructable.h"
+#include "Sensor.h"
 #include "SPI_InstructionSet.h"
 
 // Constructor /////////////////////////////////////////////////////////////////
 // Function that handles the creation and setup of instances
 
-Sensor::Sensor(void) : Instructable(){
+Sensor::Sensor(void) : Instructable(), Instructor(), DataSource(){
 
 }
 
-Sensor::Sensor(int ChipSelect): Instructable(ChipSelect){
+Sensor::Sensor(int ChipSelect): Instructable(ChipSelect), Instructor(ChipSelect), DataSource(ChipSelect){
 
 }
 
