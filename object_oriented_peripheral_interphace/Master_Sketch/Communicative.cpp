@@ -45,37 +45,6 @@ bool Communicative::isPeripheralConnected(void){
 
 }
 
-// bool Communicative::hasPerihperalChanged(void){
-
-//   Identity connectedID;
-//   mCmd Request = {(mInstruct)WhoAreYou, (int)0,(float)0.0};
-
-//   connectedID = RequestIdentity(Request);
-
-//   if (connectedID.sensorID == ThisSensor.sensorID){
-//     return false;
-//   }else{
-//     return true;
-//   }
-
-// }
-
-// void Communicative::updatePeripheralInfo(void){
-
-//   Identity connectedID;
-//   mCmd Request = {(mInstruct)WhoAreYou, (int)0,(float)0.0};
-
-//   connectedID = RequestIdentity(Request);
-
-//   ThisSensor.sensorID = connectedID.sensorID;
-
-//   for (int i =0; i<ThisSensor.namelength; i++){
-//     ThisSensor.SensorName[i] = connectedID.SensorName[i];
-//   }
-  
-
-// }
-
 
 sCmd Communicative::RequestReply(const mCmd Request){
 

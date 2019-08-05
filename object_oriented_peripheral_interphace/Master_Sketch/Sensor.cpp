@@ -11,12 +11,10 @@
 
 
 
-// Sensor::Sensor(const int ChipSelect): Instructable(ChipSelect), Instructor(ChipSelect), DataSource(ChipSelect), Identifiable(ChipSelect){
-
-// }
-Sensor::Sensor(const int ChipSelect): Instructable(ChipSelect){
+Sensor::Sensor(const int ChipSelect): Instructable(ChipSelect), Instructor(ChipSelect), DataSource(ChipSelect), Identifiable(ChipSelect){
 
 }
+
 
 
 

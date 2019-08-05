@@ -29,9 +29,11 @@ typedef enum mInstruct{
   SitRep
 };
 
+const int SLAVE_COMMMAND_STRING_LENGTH = 128;
+
 typedef struct sCmd{
   sInstruct Instruction; 
-  char sParam[128];
+  char sParam[SLAVE_COMMMAND_STRING_LENGTH];
   int iParam;
   float fParam;
 };
@@ -42,9 +44,11 @@ typedef struct mCmd{
   float fParam;
 };
 
+const int IDENTITY_SENSOR_NAME_LENGTH = 50;
+
 typedef struct Identity{
   int namelength;
-  char SensorName[50];
+  char SensorName[IDENTITY_SENSOR_NAME_LENGTH];
   int sensorID;
   int sensorChipSelect;
 };

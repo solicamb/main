@@ -18,7 +18,7 @@ class Instructor
     int howManyInstructions(void);
     int howLongShouldIWait(void);
     sCmd loadNextCommand(void);
-    void getCurrentCommandString(char[128]);
+    void getCurrentCommandString(char[SLAVE_COMMMAND_STRING_LENGTH]);
     int getCurrentCommandInt(void);
     float getCurrentCommandFloat(void);
     sInstruct getCurrentCommandInstruction(void);

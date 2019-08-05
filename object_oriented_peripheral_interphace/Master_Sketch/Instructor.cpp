@@ -39,8 +39,8 @@ sCmd Instructor::loadNextCommand(void){
 	return CurrentCommand;
 }
 
-void Instructor::getCurrentCommandString(char Instruction[128]){
-	for (int i = 0; i < 128; i++){
+void Instructor::getCurrentCommandString(char Instruction[SLAVE_COMMMAND_STRING_LENGTH]){
+	for (int i = 0; i < SLAVE_COMMMAND_STRING_LENGTH; i++){
 		Instruction[i] = CurrentCommand.sParam[i];
 	}
 }

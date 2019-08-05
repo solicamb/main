@@ -13,8 +13,7 @@
 
 // library interface description
 
-// class Sensor: public Instructable, public Instructor, public DataSource, public Identifiable
-class Sensor: public Instructable
+ class Sensor: public Instructable, public Instructor, public DataSource, public Identifiable
 {
   // user-accessible "public" interface
   public:
