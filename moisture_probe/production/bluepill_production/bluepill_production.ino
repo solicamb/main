@@ -139,8 +139,9 @@ int evaluate_moisture_retention_score(float signals[]){
 	return 42;
 }
 
-int threshold_detection(float signals[]){
+bool threshold_detection(float signals[]){
 	// TODO stub function
+	// Return true if all needed measurements have been done (i.e., water has reached all the probes)
 	return 42;
 }
 
