@@ -42,6 +42,7 @@ sCmd Instructor::loadNextCommand(void){
 void Instructor::getCurrentCommandString(char Instruction[SLAVE_COMMMAND_STRING_LENGTH]){
 	for (int i = 0; i < SLAVE_COMMMAND_STRING_LENGTH; i++){
 		Instruction[i] = CurrentCommand.sParam[i];
+		if (CurrentCommand.sParam[i] == '\n') break;
 	}
 }
 

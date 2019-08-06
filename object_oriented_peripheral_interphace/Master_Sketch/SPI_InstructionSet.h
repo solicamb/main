@@ -29,7 +29,7 @@ typedef enum mInstruct{
   SitRep
 };
 
-const int SLAVE_COMMMAND_STRING_LENGTH = 128;
+const int SLAVE_COMMMAND_STRING_LENGTH = 64;
 
 typedef struct sCmd{
   sInstruct Instruction; 
@@ -56,14 +56,20 @@ typedef struct Identity{
 const int NUMBER_OF_DATA_ROWS = 3;
 const int ROW_HEADING_LENGTH = 20;
 const int ROW_UNIT_LENGTH = 5;
-const int DATA_ROW_LENGTH = 128;
+const int DATA_ROW_LENGTH = 64;
 
 typedef struct Data{
-  uint8_t NumColumns;
+  uint8_t NumColumns[NUMBER_OF_DATA_ROWS];
   uint8_t NumRows;
   char RowHeadings[NUMBER_OF_DATA_ROWS][ROW_HEADING_LENGTH];
   char rowUnits[NUMBER_OF_DATA_ROWS][ROW_UNIT_LENGTH];
   float DataPoints[NUMBER_OF_DATA_ROWS][DATA_ROW_LENGTH];
+};
+
+typedef enum MeasurementVectors{
+    First,
+    Second,
+    Third
 };
 
 #endif

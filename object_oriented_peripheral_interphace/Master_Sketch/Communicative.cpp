@@ -4,6 +4,8 @@
 #include "SPI_InstructionSet.h"
 #include <SPI.h>
 
+const int REQUEST_DELAY_MICROS = 100;
+
 // Constructor /////////////////////////////////////////////////////////////////
 // Function that handles the creation and setup of instances
 
@@ -60,7 +62,7 @@ sCmd Communicative::RequestReply(const mCmd Request){
 
     //Send Request
       SPI_write(Request);
-      delay(100);
+      delay(REQUEST_DELAY_MICROS);
 
     //Recieve Reply
       SPI_read(Reply);
@@ -92,7 +94,7 @@ Identity Communicative::RequestIdentity(const mCmd Request){
 
     //Send Request
       SPI_write(Request);
-      delay(100);
+      delay(REQUEST_DELAY_MICROS);
 
     //Recieve Reply
       SPI_read(Reply);
@@ -124,7 +126,7 @@ Data Communicative::RequestData(const mCmd Request){
 
     //Send Request
       SPI_write(Request);
-      delay(100);
+      delay(REQUEST_DELAY_MICROS);
 
     //Recieve Reply
       SPI_read(Reply);
@@ -188,7 +190,7 @@ byte Communicative::areYouAlive(const int ChipSelect){
 
     //Send Request
       SPI_write(Request);
-      delay(100);
+      delay(REQUEST_DELAY_MICROS);
 
     //Recieve Reply
       SPI_read(Reply);

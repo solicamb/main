@@ -19,11 +19,19 @@ class DataSource
     bool isThereData(void);
     Data loadData(void);
 
-    int getNumberOfDataColumns(void);
+    int getNumberOfDataColumns(const MeasurementVectors VectorNumber);
     int getNumberOfDataRows(void);
-    void getRowHeadings(char[NUMBER_OF_DATA_ROWS][ROW_HEADING_LENGTH]);
-    void getRowUnits(char[NUMBER_OF_DATA_ROWS][ROW_UNIT_LENGTH]);
-    void getDataArray(float[NUMBER_OF_DATA_ROWS][DATA_ROW_LENGTH]);
+
+    //For handling data as square array
+      void getRowHeadings(char[NUMBER_OF_DATA_ROWS][ROW_HEADING_LENGTH]);
+      void getRowUnits(char[NUMBER_OF_DATA_ROWS][ROW_UNIT_LENGTH]);
+      void getDataArray(float[NUMBER_OF_DATA_ROWS][DATA_ROW_LENGTH]);
+
+    //For handling data as collection of 'vectors'
+      void getDataVector(const MeasurementVectors VectorNumber, float[DATA_ROW_LENGTH]);
+      void getVectorHeading(const MeasurementVectors VectorNumber, char[ROW_HEADING_LENGTH]);
+      void getVectorUnits(const MeasurementVectors VectorNumber, char[ROW_UNIT_LENGTH]);
+
     float getValueOne(void);
     float getValueTwo(void);
     float getValueThree(void);
