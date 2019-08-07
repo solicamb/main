@@ -50,17 +50,14 @@ void setup() {
 	pinMode(SPI1_SS, INPUT);
   
   SPI.setModule(1);
-  SPI.beginTransactionSlave(SPISettings(18000000, MSBFIRST, SPI_MODE0, DATA_SIZE_8BIT));
+  SPI.beginTransactionSlave(SPISettings(0, MSBFIRST, SPI_MODE0, DATA_SIZE_8BIT));
+  /*SPI.beginTransactionSlave(SPISettings(18000000, MSBFIRST, SPI_MODE0, DATA_SIZE_8BIT));*/
   // NB The clock value is not used, as we are a slave device TODO can we set it to 0 to make this obvious?
 
   // Data that master will receive when transferring a data frame over SPI
-  SPI.dev()->regs->DR = 0; // TODO think about what is most meaningful here
+	SPI.dev()->regs->DR = 10; // TODO think about what is most meaningful here
 
-
-	/*while (spi_initiated == false){*/
-		initiate_communication_with_master();
-	/*}*/
-
+	initiate_communication_with_master();
 }
 
 float read_average_ADC(int pin, int n){

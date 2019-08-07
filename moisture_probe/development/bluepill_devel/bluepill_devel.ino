@@ -10,7 +10,7 @@
 
 // Config
 #define BAUDRATE 38400   // Arduino <=> PC serial baudrate
-#define DOWNSAMPLING 5000 // number of ADC readings to average per serial message
+#define DOWNSAMPLING 10000 // number of ADC readings to average per serial message
 
 #define ADC_FULL_SCALE_VOLTAGE 4.0f // full scale ADC voltage for scaling
 // TODO/NB While this will correspond to VCC, don't assume the VCC=3.3V pin will have exactly that voltage
