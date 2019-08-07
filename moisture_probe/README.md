@@ -1,7 +1,7 @@
 This directory contains the code for the moisture retention probe.
 
 # Development (debugging) version
-There is a backend, which is the Arduino code for the microcontroller handling the measurements and transmitting them; and a frontend consisting of Python code plotting the data. It's purpose is to show the full data acquired during testing, and to save this data for further analysis.
+There is a backend, which is [the Arduino code](./development/arduino_devel) for the microcontroller handling the measurements and transmitting them; and a frontend consisting of Python code plotting the data. It's purpose is to show the full data acquired during testing, and to save this data for further analysis.
 
 For the latest moisture probe revisions based on BluePills, you can use the production version with a compile time flag set. See the `README` within [the BluePill development folder](./development/bluepill_devel).
 
