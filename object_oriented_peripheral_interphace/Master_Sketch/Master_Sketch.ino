@@ -1,7 +1,9 @@
-#include <SPI.h>
+  #include <SPI.h>
 //#include "SPI_Anything.h"
 #include "Communicative.h"
 #include "Sensor.h"
+
+Sensor MySensor(13);
 
 //###########################################################################################################
 
@@ -10,15 +12,15 @@ void setup (void)
   Serial.begin (115200);
   Serial.println ();
   
-  digitalWrite(SS, HIGH);  // ensure SS stays high for now
-
-  // Put SCK, MOSI, SS pins into output mode
-  // also put SCK, MOSI into LOW state, and SS into HIGH state.
-  // Then put SPI hardware into Master mode and turn SPI on
-  SPI.begin ();
-
-  // Slow down the master a bit
-  SPI.setClockDivider(SPI_CLOCK_DIV8);
+//  digitalWrite(SS, HIGH);  // ensure SS stays high for now
+//
+//  // Put SCK, MOSI, SS pins into output mode
+//  // also put SCK, MOSI into LOW state, and SS into HIGH state.
+//  // Then put SPI hardware into Master mode and turn SPI on
+//  SPI.begin ();
+//
+//  // Slow down the master a bit
+//  SPI.setClockDivider(SPI_CLOCK_DIV8);
   
 }  // end of setup
 
@@ -62,8 +64,8 @@ void loop (void)
 //  Serial.println(RawReply.fParam);
 
 /////////////////////////////////////////////////////////
-Serial.println("Instantiating Sensor");
-Sensor MySensor(SS);
+//Serial.println("Instantiating Sensor");
+//Sensor MySensor(SS);
 
 Serial.println("Checking Sensot...");
 if (MySensor.areYouConnected()){
@@ -72,18 +74,43 @@ if (MySensor.areYouConnected()){
   Serial.println("NOT CONNECTED");
 }
 
-sCmd Reply = MySensor.loadNextCommand();
-char command[SLAVE_COMMMAND_STRING_LENGTH];
-MySensor.getCurrentCommandString(command);
+//sCmd Reply = MySensor.loadNextCommand();
+//char command[SLAVE_COMMMAND_STRING_LENGTH];
+//MySensor.getCurrentCommandString(command);
+//
+//Serial.println("\n\nComand String");
+//Serial.println((String)command);
+//
 
-Serial.println("\n\nComand String");
-Serial.println((String)command);
+//
+//Serial.println("\n Checking Data");
+//if (MySensor.isThereData()){
+//  Serial.println("Sensor reports data present");
+//}else{
+//  Serial.println("NO DATA");
+//}
 
-Serial.println("RAW output");
-  Serial.println(Reply.Instruction);
-  Serial.println((String)Reply.sParam);  
-  Serial.println(Reply.iParam);
-  Serial.println(Reply.fParam);
+
+MySensor.loadData();
+float DataVect[DATA_ROW_LENGTH];
+MySensor.getDataVector(First,DataVect);
+int vectLen = MySensor.getVectorLength(First);
+Serial.print("Vector length: ");
+Serial.println(vectLen);
+Serial.print("First Data vector: ");
+for (int i = 0; i<vectLen; i++){
+  Serial.print(DataVect[i]);
+  Serial.print(",");
+}
+
+
+//Serial.println("\n Checking Sensor Identity");
+//MySensor.updateIdentity();
+//char sName[IDENTITY_SENSOR_NAME_LENGTH];
+//MySensor.getSensorName(sName);
+//Serial.print("Sensor Name:   ");
+//Serial.println((String)sName);
+Serial.println("*******************************************");
   
-  delay (1000);  // 1 second delay 
+  delay (2000);  // 1 second delay 
 }  // end of loop

@@ -18,6 +18,8 @@ class Identifiable
 
     bool hasIdentityChanged(void);
     void updateIdentity(void);
+    int getIDNumber(void);
+    void getSensorName(char name[IDENTITY_SENSOR_NAME_LENGTH]);
 
   // library-accessible "private" interface
   private:

@@ -14,6 +14,8 @@ typedef struct UserInstructions{
   int InstructionCounter;
   char InstructionSet[MAX_USER_INSTRUCTION_NUMBER][SLAVE_COMMMAND_STRING_LENGTH];
   sInstruct MasterInstructionSet[MAX_USER_INSTRUCTION_NUMBER];
+  int iParams[MAX_USER_INSTRUCTION_NUMBER];
+  float fParams[MAX_USER_INSTRUCTION_NUMBER];
 };
 
 // library interface description
@@ -21,7 +23,7 @@ class Master
 {
   // user-accessible "public" interface
   public:
-    Master(const int SensorIDNumber, const char SensorName[], const int SensorNameLength, const char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, const sInstruct MasterInstructionSet[]);
+    Master(const int SensorIDNumber, const char SensorName[], const char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, const sInstruct MasterInstructionSet[], const int intParams[], const float floatParams[]);
     ~Master(void);
 
     //Communications Interface
@@ -32,6 +34,7 @@ class Master
       float getCurrentInstructionFloatParameter(void);
 
       void sendReply(const sCmd Reply);
+      void sendReply(const sInstruct Instruction);
       void sendReply(const sInstruct Instruction, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]);
       void sendReply(const sInstruct Instruction, const int iParam);
       void sendReply(const sInstruct Instruction, const float fParam);
@@ -39,8 +42,6 @@ class Master
       void sendReply(const sInstruct Instruction, const int iParam, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]);
       void sendReply(const sInstruct Instruction, const float fParam, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]);
       void sendReply(const sInstruct Instruction, const int iParam, const float fParam, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]);
-
-
 
       void sendData(void);
       void sendIdentity(void);
@@ -55,8 +56,8 @@ class Master
 
     //User Instruction Interface
       void sendTotalNumOfInstructions(void);
-      void getCurrentInstructionNumber(void);
-      void sendNextUserInstruction(void);
+      int getCurrentInstructionNumber(void);
+      bool sendNextUserInstruction(void);
       void resendCurrentUserInstruction(void);
       void restartUserInstructionCycle(void);
 

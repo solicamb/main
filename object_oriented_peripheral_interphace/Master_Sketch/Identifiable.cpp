@@ -46,9 +46,23 @@ void Identifiable::updateIdentity(void){
 
   ThisSensor.sensorID = connectedID.sensorID;
 
-  for (int i =0; i<ThisSensor.namelength; i++){
+  for (int i =0; i<IDENTITY_SENSOR_NAME_LENGTH; i++){
     ThisSensor.SensorName[i] = connectedID.SensorName[i];
+    if ('\n' == connectedID.SensorName[i]) break;
   }
   
+
+}
+
+int Identifiable::getIDNumber(void){
+  return ThisSensor.sensorID;
+}
+
+void Identifiable::getSensorName(char name[IDENTITY_SENSOR_NAME_LENGTH]){
+
+  for (int i = 0; i<IDENTITY_SENSOR_NAME_LENGTH; i++){
+    name[i] = ThisSensor.SensorName[i];
+    if ('\n' == ThisSensor.SensorName[i]) break;
+  }
 
 }

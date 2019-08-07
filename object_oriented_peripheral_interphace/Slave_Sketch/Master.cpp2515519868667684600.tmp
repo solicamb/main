@@ -181,7 +181,7 @@ Master::~Master(void){
 
 
       void Master::sendData(void){
-          SPI_write(MeasurementData);
+        SPI_write(MeasurementData);
       }
 
       void Master::sendIdentity(void){
@@ -348,7 +348,7 @@ Master::~Master(void){
         sendReply(UserInstructionSet.MasterInstructionSet[Counter], UserInstructionSet.iParams[Counter], UserInstructionSet.fParams[Counter], UserInstructionSet.InstructionSet[Counter]);
       
         UserInstructionSet.InstructionCounter++;
-
+      
         return true;
       }
 
@@ -381,5 +381,3 @@ template <typename T> unsigned int Master::SPI_read(T& value){
           *p++ = SPI.transfer (0);
     return i;
 }
-
-

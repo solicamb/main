@@ -29,6 +29,7 @@ class DataSource
 
     //For handling data as collection of 'vectors'
       void getDataVector(const MeasurementVectors VectorNumber, float[DATA_ROW_LENGTH]);
+      int getVectorLength(const MeasurementVectors VectorNumber);
       void getVectorHeading(const MeasurementVectors VectorNumber, char[ROW_HEADING_LENGTH]);
       void getVectorUnits(const MeasurementVectors VectorNumber, char[ROW_UNIT_LENGTH]);
 

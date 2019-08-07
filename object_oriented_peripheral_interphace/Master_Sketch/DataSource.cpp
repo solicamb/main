@@ -95,7 +95,7 @@ void DataSource::getDataArray(float DataVals[NUMBER_OF_DATA_ROWS][DATA_ROW_LENGT
 
 }
 
-void getDataVector(const MeasurementVectors VectorNumber, float DataVect[DATA_ROW_LENGTH]){
+void DataSource::getDataVector(const MeasurementVectors VectorNumber, float DataVect[DATA_ROW_LENGTH]){
 
 	switch (VectorNumber){
 
@@ -118,6 +118,10 @@ void getDataVector(const MeasurementVectors VectorNumber, float DataVect[DATA_RO
 			break;
 	}
 
+}
+
+int DataSource::getVectorLength(const MeasurementVectors VectorNumber){
+	return CurrentData.NumColumns[VectorNumber];
 }
 
  void DataSource::getVectorHeading(const MeasurementVectors VectorNumber, char Heading[ROW_HEADING_LENGTH]){
@@ -145,7 +149,7 @@ void getDataVector(const MeasurementVectors VectorNumber, float DataVect[DATA_RO
 
  }
 
- void getVectorUnits(const MeasurementVectors VectorNumber, char Units[ROW_UNIT_LENGTH]){
+ void DataSource::getVectorUnits(const MeasurementVectors VectorNumber, char Units[ROW_UNIT_LENGTH]){
 
  	switch (VectorNumber){
 
