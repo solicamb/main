@@ -27,15 +27,19 @@ void setup (void)
 {
   Serial.begin (115200);
   Serial.println ();
+
+SPI.beginTransactionSlave(SPISettings(18000000, MSBFIRST, SPI_MODE0, DATA_SIZE_8BIT)); //STM32
+
+//////////////////////////////////////////////////
   
-  // have to send on master in, *slave out*
-  pinMode(MISO, OUTPUT);
-
-  // turn on SPI in slave mode
-  SPCR |= _BV(SPE);
-
-  // turn on interrupts
-  SPCR |= _BV(SPIE);
+//  // have to send on master in, *slave out*
+//  pinMode(MISO, OUTPUT);
+//
+//  // turn on SPI in slave mode
+//  SPCR |= _BV(SPE);
+//
+//  // turn on interrupts
+//  SPCR |= _BV(SPIE);
 
   ////////////////////////////////////////////////////
   //MeasurementData.NumColumns = 0;
