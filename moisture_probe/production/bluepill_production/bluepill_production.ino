@@ -16,6 +16,19 @@
 #define SLAVE_DEVICE_TYPE 0b00100000 // Identifies us to the master as a moisture sensor slave device
 #define SLAVE_DEVICE_SERIAL_NUMBER 1  // Serial number for our devices. 0..15
 
+#define NUMBER_OF_SIGNALS 3
+
+// #defines other than constants for which I prefer real variables to make the code more readable
+// they will be optimised away by the compiler anyway
+const bool DEBUGGING = true;
+const bool DEBUG_WAIT_FOR_MASTER = true;
+
+// Constants
+const uint8_t SPI_CMD_PROBE_INSERTED = 0xF1;
+const uint8_t MEASUREMENT_TYPE_MOISTURE_LEVEL = 0x3;
+const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION = 0x4;
+
+
 // Pin Config
 #define SPI1_SS PA4
 // All other SPI1 pins are pre-defined
@@ -29,6 +42,9 @@
 
 // Global scope variables
 bool spi_initiated = 0;
+float calibration[NUMBER_OF_SIGNALS] = {};
+bool measurement_in_progress = false;
+unsigned long signal_detected_timer[NUMBER_OF_SIGNALS] = {};
 
 void setup() {
 	// Initialise serial
@@ -55,7 +71,11 @@ void setup() {
   // NB The clock value is not used, as we are a slave device TODO can we set it to 0 to make this obvious?
 
   // Data that master will receive when transferring a data frame over SPI
+<<<<<<< HEAD
 	SPI.dev()->regs->DR = 10; // TODO think about what is most meaningful here
+=======
+  SPI.dev()->regs->DR = 0; // TODO think about what is most meaningful here
+>>>>>>> 19fbe08
 
 	initiate_communication_with_master();
 }
@@ -89,37 +109,124 @@ void initiate_communication_with_master(){
 	Serial.print("INFO: Identifying ourselves to Master with ID+S/N 0x");
 	Serial.println(SLAVE_DEVICE_TYPE | SLAVE_DEVICE_SERIAL_NUMBER, HEX);
 	
-	SPI.transfer(SLAVE_DEVICE_TYPE | SLAVE_DEVICE_SERIAL_NUMBER);
+	if (DEBUG_WAIT_FOR_MASTER){
+		SPI.transfer(SLAVE_DEVICE_TYPE | SLAVE_DEVICE_SERIAL_NUMBER);
+		spi_initiated = true;
+	}
 
-	spi_initiated = true;
 	return;
 }
 
 void send_measurement_to_master(uint8_t measurement_type, uint8_t measurement_value){
 	// Report a measurement $value of type $measurement_type to the master
 	// TODO extend to non-measurements once needed (e.g., GUI changes)
-	Serial.print("INFO: Sending to master: measurement_type: 0x");
-	Serial.println(measurement_type, HEX);
-	uint8_t msg = SPI.transfer(measurement_type);
+	if (DEBUG_WAIT_FOR_MASTER){
+		Serial.print("INFO: Sending to master: measurement_type: 0x");
+		Serial.println(measurement_type, HEX);
+		SPI.transfer(measurement_type);
 
-	Serial.print("INFO: Sending to master: measurement_value: ");
-	Serial.println(measurement_value);
-	msg = SPI.transfer(measurement_value);
+		Serial.print("INFO: Sending to master: measurement_value: ");
+		Serial.println(measurement_value);
+		SPI.transfer(measurement_value);
+	}
+	else {
+		Serial.print("INFO: Skipping SPI transfer (DEBUG_WAIT_FOR_MASTER=false): type=");
+		Serial.print(measurement_type);
+		Serial.print(" val=");
+		Serial.println(measurement_value);
+	}
+}
+
+float return_calibrated_value(float raw_voltage, int signal_id){
+	// Return calibrated measurement of signal $signal_id, with raw voltage reading $raw_voltage
+	// Calibration values are held in the global variable calibration[]
+	return raw_voltage - calibration[signal_id];
+}
+	
+int evaluate_moisture_retention_score(float signals[]){
+	// TODO stub function
+	return 42;
+}
+
+bool threshold_detection(float signals[], unsigned long signal_detected_timer[]){
+	// TODO stub function
+	// Return true if all needed measurements have been done (i.e., water has reached all the probes)
+	return 42;
+}
+
+uint8_t getMoistureLevel(float raw_voltages[]){
+	// TODO stub function
+	return 23;
 }
 
 void loop() {
-	// Measure and report data via serial
-	float voltage_PA0 = read_average_ADC(PA0, DOWNSAMPLING);
-	write_measurement_to_serial("y0", voltage_PA0);
+	float raw_voltages[NUMBER_OF_SIGNALS];
+	float signals[NUMBER_OF_SIGNALS];
+	char signal_id_string[2] = ""; // will hold the (ASCII) number added to the signal name
+	int adc_pin = PA0; // We assume three sequential pins, starting with this one. If not, need to implement pin mapping
 
-	float voltage_PA1 = read_average_ADC(PA1, DOWNSAMPLING);
-	write_measurement_to_serial("y1", voltage_PA1);
+	// For all signals (measurements):
+	for (int i = 0; i < NUMBER_OF_SIGNALS; i++){
+		// Measure and report raw data via serial
+		raw_voltages[i] = read_average_ADC(adc_pin + i, DOWNSAMPLING);
+		char signal_name[20] = "y"; // maximum length hardcoded, adjust if using longer signal names
+		signal_id_string[0] = '0' + i; // convert int->ASCII by simple addition. itoa() not in stdlib
+		strcat(signal_name, signal_id_string); // append signal index to form "y0" etc
+		write_measurement_to_serial(signal_name, raw_voltages[i]);
 
-	float voltage_PA2 = read_average_ADC(PA2, DOWNSAMPLING);
-	write_measurement_to_serial("y2", voltage_PA2);
+		// Calibrate values, send to serial
+		signals[i] = return_calibrated_value(raw_voltages[i], i);
+		strcpy(signal_name, "calibrated");
+		strcat(signal_name, signal_id_string);
+		write_measurement_to_serial(signal_name, signals[i]);
+	}
 
-	// Communicate result to master via SPI
-	uint8_t measurement_type = 3;
-	uint8_t measurement_value = (uint8_t)constrain(voltage_PA0*100, 0, 255); // TODO dummy; implement algorithm on what to send to master
-	send_measurement_to_master(measurement_type, measurement_value);
+	if (measurement_in_progress == true){
+		if (calibration[0] == 0){
+			// Not yet calibrated: user has now confirmed that probe has been inserted into ground
+			Serial.println("INFO: Setting calibration from previous reading");
+			memcpy(&calibration, &raw_voltages, sizeof(calibration));
+
+			// We determine the absolute moisture level (wetness) before irrigation
+			Serial.println("INFO: Calculating absolute moisture level (wetness)");
+			uint8_t moisture_level = getMoistureLevel(raw_voltages);
+
+			// Send it out to master
+			send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_LEVEL, moisture_level);
+
+			// Start timer for irrigation measurement (moisture retention)
+			memset(&signal_detected_timer, millis(), sizeof(signal_detected_timer));
+
+			// Return to main loop, starting continuous measurements
+			return;
+		}
+		
+		if (threshold_detection(signals)){
+			// Moisture intrusion event detected
+			Serial.println("INFO: Moisture intrusion detected for probes number:(stub)");
+			//TODO stub
+
+			// Moisture retention algorithm
+			int moisture_retention_score = evaluate_moisture_retention_score(signals, signal_detected_timer);
+		
+			// Communicate result to master via SPI
+			send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_RETENTION, moisture_retention_score);
+		}
+	}
+	else {
+		// No measurement in progress yet (i.e. probe has not been inserted into ground)
+		Serial.println("INFO: Waiting for master to confirm probe has been inserted");
+
+		// Read from master
+		uint8_t spi_rec_msg = SPI.transfer(0);
+
+		// Compare to expected command constant
+		if (spi_rec_msg == SPI_CMD_PROBE_INSERTED){
+			measurement_in_progress = true;
+		}
+		else {
+			Serial.print("WARN: received unexpected code from master: 0x");
+			Serial.println(spi_rec_msg, HEX);
+		}
+	}
 }
