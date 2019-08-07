@@ -25,6 +25,8 @@ const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION = 3;
 const bool DEBUGGING = true;
 const bool DEBUG_WAIT_FOR_MASTER = true;
 
+// Constants
+#define SPI_CMD_PROBE_INSERTED 0xF1
 
 // Pin Config
 #define SPI1_SS PA4
@@ -185,6 +187,21 @@ void loop() {
 		
 			// Communicate result to master via SPI
 			send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_RETENTION, moisture_retention_score);
+		}
+	}
+	else {
+		Serial.println("INFO: Waiting for master to confirm probe has been inserted");
+
+		// Read from master
+		uint8_t spi_rec_msg = SPI.transfer(0);
+
+		// Compare to expected command constant
+		if (spi_rec_msg == SPI_CMD_PROBE_INSERTED){
+			measurement_in_progress = true;
+		}
+		else {
+			Serial.print("WARN: received unexpected code from master: 0x");
+			Serial.println(spi_rec_msg, HEX);
 		}
 	}
 }
