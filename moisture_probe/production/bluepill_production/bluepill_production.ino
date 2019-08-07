@@ -11,7 +11,7 @@
 
 // Config
 #define BAUDRATE 38400		// Arduino <=> PC serial baudrate
-#define DOWNSAMPLING 5000 // number of ADC readings to average per measurement
+#define DOWNSAMPLING 10000 // number of ADC readings to average per measurement
 
 #define SLAVE_DEVICE_TYPE 0b00100000 // Identifies us to the master as a moisture sensor slave device
 #define SLAVE_DEVICE_SERIAL_NUMBER 1  // Serial number for our devices. 0..15
@@ -119,7 +119,6 @@ void initiate_communication_with_master(){
 
 void send_measurement_to_master(uint8_t measurement_type, uint8_t measurement_value){
 	// Report a measurement $value of type $measurement_type to the master
-	// TODO extend to non-measurements once needed (e.g., GUI changes)
 	if (DEBUG_WAIT_FOR_MASTER){
 		Serial.print("INFO: Sending to master: measurement_type: 0x");
 		Serial.println(measurement_type, HEX);
