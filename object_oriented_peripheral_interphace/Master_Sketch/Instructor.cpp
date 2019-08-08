@@ -33,10 +33,14 @@ int Instructor::howLongShouldIWait(void){
 	return Reply.iParam;
 }
 
-sCmd Instructor::loadNextCommand(void){
-	mCmd Request = {(mInstruct)NextCommandPlease,0,0.0};
-	CurrentCommand = CommsModule.RequestReply(Request);
-	return CurrentCommand;
+void Instructor::loadNextCommand(void){
+	 mCmd Request = {(mInstruct)NextCommandPlease,0,0.0};
+	// sCmd Reply = CommsModule.RequestReply(Request);
+	// CurrentCommand = Reply;
+	//return CurrentCommand;
+	//mCmd Request = {(mInstruct)IsThereData,0,0.0};
+	sCmd Reply = CommsModule.RequestReply(Request);
+	CurrentCommand = Reply;
 }
 
 void Instructor::getCurrentCommandString(char Instruction[SLAVE_COMMMAND_STRING_LENGTH]){

@@ -133,18 +133,21 @@ int DataSource::getVectorLength(const MeasurementVectors VectorNumber){
  				Heading[i] = CurrentData.RowHeadings[First][i];
  				if ('\n' == CurrentData.RowHeadings[First][i]) break;
  			}
+ 			break;
 
  		case Second:
 			for (int i = 0; i < ROW_HEADING_LENGTH; i++){
 				Heading[i] = CurrentData.RowHeadings[Second][i];
 				if ('\n' == CurrentData.RowHeadings[Second][i]) break;
  			}
+ 			break;
 
  		case Third:
  			for (int i = 0; i < ROW_HEADING_LENGTH; i++){
 				Heading[i] = CurrentData.RowHeadings[Third][i];
 				if ('\n' == CurrentData.RowHeadings[Third][i]) break;
  			}
+ 			break;
  	}
 
  }
@@ -158,18 +161,21 @@ int DataSource::getVectorLength(const MeasurementVectors VectorNumber){
  				Units[i] = CurrentData.rowUnits[First][i];
  				if ('\n' == CurrentData.rowUnits[First][i]) break;
  			}
+ 			break;
 
  		case Second:
 			for (int i = 0; i < ROW_UNIT_LENGTH; i++){
 				Units[i] = CurrentData.rowUnits[Second][i];
 				if ('\n' == CurrentData.rowUnits[Second][i]) break;
  			}
+ 			break;
 
  		case Third:
  			for (int i = 0; i < ROW_UNIT_LENGTH; i++){
 				Units[i] = CurrentData.rowUnits[Third][i];
 				if ('\n' == CurrentData.rowUnits[Third][i]) break;
  			}
+ 			break;
  	}
 
  }

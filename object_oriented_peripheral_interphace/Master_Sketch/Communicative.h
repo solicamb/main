@@ -11,7 +11,7 @@ class Communicative
 {
   // user-accessible "public" interface
   public:
-    Communicative(const int CS = SS);
+    Communicative(const int CS);
     ~Communicative(void);
     bool isPeripheralConnected(void);
   

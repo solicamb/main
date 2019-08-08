@@ -2,8 +2,9 @@
 //#include "SPI_Anything.h"
 #include "Communicative.h"
 #include "Sensor.h"
+#define SPI1_NSS_PIN PA4 
 
-Sensor MySensor(13);
+//Sensor MySensor(SPI1_NSS_PIN);
 
 //###########################################################################################################
 
@@ -11,6 +12,13 @@ void setup (void)
 {
   Serial.begin (115200);
   Serial.println ();
+  Serial.println("Setup complete");
+//
+//  SPI.begin(); //Initialize the SPI_1 port.
+//  SPI.setBitOrder(MSBFIRST); // Set the SPI_1 bit order
+//  SPI.setDataMode(SPI_MODE0); //Set the  SPI_2 data mode 0
+//  SPI.setClockDivider(SPI_CLOCK_DIV16);      // Slow speed (72 / 16 = 4.5 MHz SPI_1 speed)
+//  pinMode(SPI1_NSS_PIN, OUTPUT);
   
 //  digitalWrite(SS, HIGH);  // ensure SS stays high for now
 //
@@ -64,8 +72,7 @@ void loop (void)
 //  Serial.println(RawReply.fParam);
 
 /////////////////////////////////////////////////////////
-//Serial.println("Instantiating Sensor");
-//Sensor MySensor(SS);
+Sensor MySensor(SPI1_NSS_PIN);
 
 Serial.println("Checking Sensot...");
 if (MySensor.areYouConnected()){
@@ -74,22 +81,34 @@ if (MySensor.areYouConnected()){
   Serial.println("NOT CONNECTED");
 }
 
-//sCmd Reply = MySensor.loadNextCommand();
-//char command[SLAVE_COMMMAND_STRING_LENGTH];
-//MySensor.getCurrentCommandString(command);
-//
-//Serial.println("\n\nComand String");
-//Serial.println((String)command);
-//
+//Test Instructor
+Serial.print("Num Instructions: ");
+Serial.println(MySensor.howManyInstructions());
+MySensor.loadNextCommand();
+char command[SLAVE_COMMMAND_STRING_LENGTH];
+MySensor.getCurrentCommandString(command);
+Serial.println("\n\nComand String");
+Serial.println((String)command);
 
-//
-//Serial.println("\n Checking Data");
-//if (MySensor.isThereData()){
-//  Serial.println("Sensor reports data present");
-//}else{
-//  Serial.println("NO DATA");
-//}
+Serial.print("Sensor asks: Please wait for: ");
+Serial.println(MySensor.howLongShouldIWait());
 
+
+//Test Identifiable
+Serial.println("\n Checking Sensor Identity");
+MySensor.updateIdentity();
+char sName[IDENTITY_SENSOR_NAME_LENGTH];
+MySensor.getSensorName(sName);
+Serial.print("Sensor Name:   ");
+Serial.println((String)sName);
+
+//Test Data Source
+Serial.println("\n Checking Data");
+if (MySensor.isThereData()){
+  Serial.println("Sensor reports data present");
+}else{
+  Serial.println("NO DATA");
+}
 
 MySensor.loadData();
 float DataVect[DATA_ROW_LENGTH];
@@ -97,19 +116,74 @@ MySensor.getDataVector(First,DataVect);
 int vectLen = MySensor.getVectorLength(First);
 Serial.print("Vector length: ");
 Serial.println(vectLen);
-Serial.print("First Data vector: ");
+char Heading[ROW_HEADING_LENGTH];
+MySensor.getVectorHeading(First,Heading);
+Serial.print((String)Heading);
+char Units[ROW_UNIT_LENGTH];
+MySensor.getVectorUnits(First,Units);
 for (int i = 0; i<vectLen; i++){
   Serial.print(DataVect[i]);
+  Serial.print((String)Units);
+  Serial.print(",");
+}
+Serial.println();
+MySensor.getDataVector(Second,DataVect);
+vectLen = MySensor.getVectorLength(Second);
+Serial.print("Vector length: ");
+Serial.println(vectLen);
+MySensor.getVectorHeading(Second,Heading);
+Serial.print((String)Heading);
+ Units[ROW_UNIT_LENGTH];
+MySensor.getVectorUnits(Second,Units);
+for (int i = 0; i<vectLen; i++){
+  Serial.print(DataVect[i]);
+  Serial.print((String)Units);
   Serial.print(",");
 }
 
+Serial.println();
+MySensor.getDataVector(Third,DataVect);
+vectLen = MySensor.getVectorLength(Third);
+Serial.print("Vector length: ");
+Serial.println(vectLen);
+MySensor.getVectorHeading(Third,Heading);
+Serial.print((String)Heading);
+ Units[ROW_UNIT_LENGTH];
+MySensor.getVectorUnits(Third,Units);
+for (int i = 0; i<vectLen; i++){
+  Serial.print(DataVect[i]);
+  Serial.print(Units);
+  Serial.print(",");
+}
 
-//Serial.println("\n Checking Sensor Identity");
-//MySensor.updateIdentity();
-//char sName[IDENTITY_SENSOR_NAME_LENGTH];
-//MySensor.getSensorName(sName);
-//Serial.print("Sensor Name:   ");
-//Serial.println((String)sName);
+Serial.println();
+
+//Test Instructable
+if(MySensor.issueCommand(PauseMeasurementForiParam,100)){
+  Serial.println("Pause Command ACK");
+}else{
+  Serial.println("PAUSE COMMAND FAILED");
+}
+
+
+if(MySensor.issueCommand(RestartMeasurementProcedure)){
+  Serial.println("Restart Command ACK");
+}else{
+  Serial.println("RESTART COMMAND FAILED");
+}
+
+if(MySensor.issueCommand(ResetDevice)){
+  Serial.println("Reset Command ACK");
+}else{
+  Serial.println("RESET COMMAND FAILED");
+}
+
+
+//Test Error
+
+
+
+
 Serial.println("*******************************************");
   
   delay (2000);  // 1 second delay 

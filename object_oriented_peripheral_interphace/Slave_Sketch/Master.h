@@ -16,6 +16,36 @@ typedef struct UserInstructions{
   sInstruct MasterInstructionSet[MAX_USER_INSTRUCTION_NUMBER];
   int iParams[MAX_USER_INSTRUCTION_NUMBER];
   float fParams[MAX_USER_INSTRUCTION_NUMBER];
+
+  UserInstructions& operator = (const volatile UserInstructions& rhs) volatile{
+    this->NumOfInstructions = rhs.NumOfInstructions;
+    this->InstructionCounter = rhs.InstructionCounter;
+
+    for (int i =0; i<MAX_USER_INSTRUCTION_NUMBER;i++){
+      this->iParams[i] = rhs.iParams[i];
+      this->fParams[i] = rhs.fParams[i];
+      this->MasterInstructionSet[i] = rhs.MasterInstructionSet[i];
+
+      for (int j=0;j<SLAVE_COMMMAND_STRING_LENGTH;j++){
+        this->InstructionSet[i][j] = rhs.InstructionSet[i][j];
+      }
+    }
+  }
+
+  volatile UserInstructions& operator = (const  UserInstructions& rhs) volatile{
+    this->NumOfInstructions = rhs.NumOfInstructions;
+    this->InstructionCounter = rhs.InstructionCounter;
+
+    for (int i =0; i<MAX_USER_INSTRUCTION_NUMBER;i++){
+      this->iParams[i] = rhs.iParams[i];
+      this->fParams[i] = rhs.fParams[i];
+      this->MasterInstructionSet[i] = rhs.MasterInstructionSet[i];
+
+      for (int j=0;j<SLAVE_COMMMAND_STRING_LENGTH;j++){
+        this->InstructionSet[i][j] = rhs.InstructionSet[i][j];
+      }
+    }
+  }
 };
 
 // library interface description
@@ -24,49 +54,64 @@ class Master
   // user-accessible "public" interface
   public:
     Master(const int SensorIDNumber, const char SensorName[], const char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, const sInstruct MasterInstructionSet[], const int intParams[], const float floatParams[]);
+    Master(void);
     ~Master(void);
+    Master(volatile const Master&);
+    volatile Master& operator = (const  Master& rhs) volatile{
+      this->CurrentRequest = rhs.CurrentRequest;
+      this->ThisSensorID = rhs.ThisSensorID;
+      this->MeasurementData = rhs.MeasurementData;
+      this->UserInstructionSet = rhs.UserInstructionSet;
+    }
+
+    volatile Master& operator = (volatile const  Master& rhs) volatile{
+      this->CurrentRequest = rhs.CurrentRequest;
+      this->ThisSensorID = rhs.ThisSensorID;
+      this->MeasurementData = rhs.MeasurementData;
+      this->UserInstructionSet = rhs.UserInstructionSet;
+    }
 
     //Communications Interface
-      bool Handshake(void);
-      mCmd loadRequest(void);
-      mInstruct getCurrentInstruction(void);
-      int getCurrentInstructionIntParameter(void);
-      float getCurrentInstructionFloatParameter(void);
+      bool Handshake(void) volatile;
+      mCmd loadRequest(void) volatile;
+      mInstruct getCurrentInstruction(void) volatile;
+      int getCurrentInstructionIntParameter(void) volatile;
+      float getCurrentInstructionFloatParameter(void) volatile;
 
-      void sendReply(const sCmd Reply);
-      void sendReply(const sInstruct Instruction);
-      void sendReply(const sInstruct Instruction, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]);
-      void sendReply(const sInstruct Instruction, const int iParam);
-      void sendReply(const sInstruct Instruction, const float fParam);
-      void sendReply(const sInstruct Instruction, const int iParam, const int fParam);
-      void sendReply(const sInstruct Instruction, const int iParam, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]);
-      void sendReply(const sInstruct Instruction, const float fParam, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]);
-      void sendReply(const sInstruct Instruction, const int iParam, const float fParam, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]);
+      void sendReply(const sCmd Reply) volatile;
+      void sendReply(const sInstruct Instruction) volatile;
+      void sendReply(const sInstruct Instruction, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile;
+      void sendReply(const sInstruct Instruction, const int iParam) volatile;
+      void sendReply(const sInstruct Instruction, const float fParam) volatile;
+      void sendReply(const sInstruct Instruction, const int iParam, const int fParam) volatile;
+      void sendReply(sInstruct Instruction, int iParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile;
+      void sendReply(sInstruct Instruction, float fParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile;
+      void sendReply( sInstruct Instruction, int iParam, float fParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile;
 
-      void sendData(void);
-      void sendIdentity(void);
+      void sendData(void) volatile;
+      void sendIdentity(void) volatile;
 
     //Data handling interface
-      bool PushMeasurementVector(const MeasurementVectors VectorNumber, const float Measurement);
-      bool PopMeasurementVector(const MeasurementVectors VectorNumber);
-      void ClearMeasurementVector(const MeasurementVectors VectorNumber);
-      void setMeasurementVectorHeading(const MeasurementVectors VectorNumber, const char Heading[ROW_HEADING_LENGTH]);
-      void setMeasurementVectorUnits(const MeasurementVectors VectorNumber, const char Units[ROW_UNIT_LENGTH]);
-      bool isThereData(void);
+      bool PushMeasurementVector(const MeasurementVectors VectorNumber, const float Measurement) volatile;
+      bool PopMeasurementVector( MeasurementVectors VectorNumber) volatile;
+      void ClearMeasurementVector(MeasurementVectors VectorNumber) volatile;
+      void setMeasurementVectorHeading(MeasurementVectors VectorNumber, volatile char Heading[ROW_HEADING_LENGTH]) volatile;
+      void setMeasurementVectorUnits(MeasurementVectors VectorNumber, volatile char Units[ROW_UNIT_LENGTH]) volatile;
+      bool isThereData(void) volatile;
 
     //User Instruction Interface
-      void sendTotalNumOfInstructions(void);
-      int getCurrentInstructionNumber(void);
-      bool sendNextUserInstruction(void);
-      void resendCurrentUserInstruction(void);
-      void restartUserInstructionCycle(void);
+      void sendTotalNumOfInstructions(void) volatile;
+      int getCurrentInstructionNumber(void) volatile;
+      bool sendNextUserInstruction(void) volatile;
+      void resendCurrentUserInstruction(void) volatile;
+      void restartUserInstructionCycle(void) volatile;
 
 
   // library-accessible "private" interface
   private:
     void SPISetup(void);
-    template <typename T> unsigned int SPI_write (const T& value);
-    template <typename T> unsigned int SPI_read(T& value);
+    template <typename T> unsigned int SPI_write (const T& value) volatile;
+    template <typename T> unsigned int SPI_read(T& value) volatile;
 
     mCmd CurrentRequest;
   

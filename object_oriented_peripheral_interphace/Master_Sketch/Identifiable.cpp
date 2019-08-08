@@ -7,14 +7,14 @@
 // Constructor /////////////////////////////////////////////////////////////////
 // Function that handles the creation and setup of instances
 
-Identifiable::Identifiable(const int CS)
+Identifiable::Identifiable(const int ChipSelect): CommsModule(ChipSelect)
 {
 
   if (CommsModule.isPeripheralConnected()){
     updateIdentity();
   }
 
-  ThisSensor.sensorChipSelect = CS;
+  ThisSensor.sensorChipSelect = ChipSelect;
 
 }
 

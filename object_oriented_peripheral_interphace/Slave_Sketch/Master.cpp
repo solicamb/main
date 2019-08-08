@@ -3,9 +3,54 @@
 #include "Master.h"
 #include "SPI_InstructionSet.h"
 #include <SPI.h>
+#include "SPI_Anything_Slave.h"
 
 // Constructor /////////////////////////////////////////////////////////////////
 // Function that handles the creation and setup of instances
+
+  Master::Master(){
+  //   CurrentRequest = (mCmd){SitRep,0,0.0};
+
+  //   //Initialise Identity
+  //   ThisSensorID.sensorID = 0;
+  //   ThisSensorID.sensorChipSelect = 0;
+
+  //   for (int i =0; i< IDENTITY_SENSOR_NAME_LENGTH; i++){
+  //     ThisSensorID.SensorName[i] = '\n';
+  //   }
+
+  // //Initialise User Instruction Set
+  //   UserInstructionSet.NumOfInstructions = 0;
+  //   UserInstructionSet.InstructionCounter = 0;
+
+  //   for (int i = 0; i<MAX_USER_INSTRUCTION_NUMBER; i++){
+
+  //     UserInstructionSet.MasterInstructionSet[i] = NAK;
+  //     UserInstructionSet.iParams[i] = 0;
+  //     UserInstructionSet.fParams[i] = 0.0;
+
+  //     for (int j = 0; j<SLAVE_COMMMAND_STRING_LENGTH;j++){
+  //       UserInstructionSet.InstructionSet[i][j] = '\n';
+  //     }
+  //   }
+
+  // //Initialise Data
+  //   //MeasurementData.NumColumns = 0;
+  //   MeasurementData.NumRows = 0;
+
+  //   for (int i = 0; i<NUMBER_OF_DATA_ROWS; i++){
+  //     MeasurementData.RowHeadings[i][0] = '\n';
+  //     MeasurementData.rowUnits[i][0] = '\n';
+  //     MeasurementData.NumColumns[i] = 0;
+
+  //     for (int j = 0 ; j<DATA_ROW_LENGTH; j++){
+  //       MeasurementData.DataPoints[i][j] = 0.0;
+  //     }
+  //   }
+
+  //Setup Slave SPI
+    //SPISetup();
+  }
 
   Master::Master(const int SensorIDNumber, const char SensorName[], const char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, const sInstruct MasterInstructionSet[], const int intParams[], const float floatParams[]){
 
@@ -49,31 +94,45 @@
     }
 
   //Setup Slave SPI
-    SPISetup();
+    //SPISetup();
 
 }
 
-void Master::SPISetup(){
+void Master::SPISetup() {
 
-   // have to send on master in, *slave out*
-  pinMode(MISO, OUTPUT);
+  //  // have to send on master in, *slave out*
+  // pinMode(MISO, OUTPUT);
 
-  // turn on SPI in slave mode
-  SPCR |= _BV(SPE);
+  // // turn on SPI in slave mode
+  // SPCR |= _BV(SPE);
 
-  // turn on interrupts
-  SPCR |= _BV(SPIE);
+  // // turn on interrupts
+  // SPCR |= _BV(SPIE);
+
+  SPI.beginTransactionSlave(SPISettings(18000000, MSBFIRST, SPI_MODE0, DATA_SIZE_8BIT));
+
 }
 
 Master::~Master(void){
   //SPI.end();
 }
 
+Master::Master(volatile const Master& rhs){
+  Serial.println("Copy");
+  Serial.println(millis());
+  this->CurrentRequest = rhs.CurrentRequest;
+  this->ThisSensorID = rhs.ThisSensorID;
+  this->MeasurementData = rhs.MeasurementData;
+  this->UserInstructionSet = rhs.UserInstructionSet;;
+}
+
+
 // Public Methods //////////////////////////////////////////////////////////////
 // Functions available in Wiring sketches, this library, and other libraries
   //Communications Interface
-      bool Master::Handshake(void){
-        byte Ping = SPDR;
+      bool Master::Handshake(void) volatile{
+        // byte Ping = SPDR;
+        uint8_t Ping = SPI.read();
         if (Ping == '?'){
           SPI.transfer(0x06);
           return true;
@@ -82,34 +141,35 @@ Master::~Master(void){
         }
       }
 
-      mCmd Master::loadRequest(void){
+      mCmd Master::loadRequest(void) volatile{
         SPI_read(CurrentRequest);
         return CurrentRequest;
       }
 
-      mInstruct Master::getCurrentInstruction(void){
+      mInstruct Master::getCurrentInstruction(void) volatile{
         return CurrentRequest.Instruction;
       }
 
-      int Master::getCurrentInstructionIntParameter(void){
+      int Master::getCurrentInstructionIntParameter(void) volatile{
         return CurrentRequest.iParam;
       }
 
-      float Master::getCurrentInstructionFloatParameter(void){
+      float Master::getCurrentInstructionFloatParameter(void) volatile{
         return CurrentRequest.fParam;
       }
 
-      void Master::sendReply(const sCmd Reply){
-        SPI_write(Reply);
+      void Master::sendReply(const sCmd Reply) volatile{
+        // SPI_write(Reply);
+        SPI_writeAnything(Reply);
       }
 
-      void Master::sendReply(const sInstruct Instruction){
+      void Master::sendReply(const sInstruct Instruction) volatile{
         sCmd Reply = {Instruction,"",0,0.0};
       
         SPI_write(Reply);
       }
 
-      void Master::sendReply(const sInstruct Instruction, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]){
+      void Master::sendReply(const sInstruct Instruction, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile{
         sCmd Reply = {Instruction,"",0,0.0};
 
         for (int i = 0; i<SLAVE_COMMMAND_STRING_LENGTH; i++){
@@ -121,25 +181,25 @@ Master::~Master(void){
 
       }
 
-      void Master::sendReply(const sInstruct Instruction, const int iParam){
+      void Master::sendReply(const sInstruct Instruction, const int iParam) volatile{
       
         SPI_write((sCmd){Instruction,"",iParam,0.0});
       
       }
 
-      void Master::sendReply(const sInstruct Instruction, const float fParam){
+      void Master::sendReply(const sInstruct Instruction, const float fParam) volatile{
 
         SPI_write((sCmd){Instruction,"",0,fParam});
 
       }
 
-      void Master::sendReply(const sInstruct Instruction, const int iParam, const int fParam){
+      void Master::sendReply(const sInstruct Instruction, const int iParam, const int fParam) volatile{
 
         SPI_write((sCmd){Instruction,"",iParam,fParam});
 
       }
 
-      void Master::sendReply(const sInstruct Instruction, const int iParam, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]){
+      void Master::sendReply( sInstruct Instruction,  int iParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile{
 
         sCmd Reply = {Instruction,"",iParam,0.0};
 
@@ -152,7 +212,7 @@ Master::~Master(void){
 
       }
       
-      void Master::sendReply(const sInstruct Instruction, const float fParam, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]){
+      void Master::sendReply( sInstruct Instruction,  float fParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile{
 
         sCmd Reply = {Instruction,"",0,fParam};
 
@@ -165,7 +225,7 @@ Master::~Master(void){
 
       }
 
-      void Master::sendReply(const sInstruct Instruction, const int iParam, const float fParam, const char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]){
+      void Master::sendReply( sInstruct Instruction, int iParam, float fParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile{
 
 
       sCmd Reply = {Instruction,"",iParam,fParam};
@@ -180,16 +240,16 @@ Master::~Master(void){
       }
 
 
-      void Master::sendData(void){
+      void Master::sendData(void) volatile{
           SPI_write(MeasurementData);
       }
 
-      void Master::sendIdentity(void){
+      void Master::sendIdentity(void) volatile{
         SPI_write(ThisSensorID);
       }
 
     //Data handling interface
-      bool Master::PushMeasurementVector(const MeasurementVectors VectorNumber, const float Measurement){
+      bool Master::PushMeasurementVector(const MeasurementVectors VectorNumber, const float Measurement) volatile{
 
         switch (VectorNumber){
 
@@ -201,13 +261,13 @@ Master::~Master(void){
 
           case Second:
             if (MeasurementData.NumColumns[Second] == DATA_ROW_LENGTH) return false;
-            MeasurementData.DataPoints[Second][MeasurementData.NumColumns[First]] = Measurement;
+            MeasurementData.DataPoints[Second][MeasurementData.NumColumns[Second]] = Measurement;
             MeasurementData.NumColumns[Second]++;
             break;
 
           case Third:
             if (MeasurementData.NumColumns[Third] == DATA_ROW_LENGTH) return false;
-            MeasurementData.DataPoints[Third][MeasurementData.NumColumns[First]] = Measurement;
+            MeasurementData.DataPoints[Third][MeasurementData.NumColumns[Third]] = Measurement;
             MeasurementData.NumColumns[Third]++;
             break;
 
@@ -217,7 +277,7 @@ Master::~Master(void){
 
       }
 
-      bool Master::PopMeasurementVector(const MeasurementVectors VectorNumber){
+      bool Master::PopMeasurementVector( MeasurementVectors VectorNumber)volatile{
 
         switch (VectorNumber){
 
@@ -242,7 +302,7 @@ Master::~Master(void){
 
       }
 
-      void Master::ClearMeasurementVector(const MeasurementVectors VectorNumber){
+      void Master::ClearMeasurementVector( MeasurementVectors VectorNumber)volatile{
 
         switch (VectorNumber){
 
@@ -262,7 +322,7 @@ Master::~Master(void){
 
       }
 
-      void Master::setMeasurementVectorHeading(const MeasurementVectors VectorNumber, const char Heading[ROW_HEADING_LENGTH]){
+      void Master::setMeasurementVectorHeading( MeasurementVectors VectorNumber, volatile char Heading[ROW_HEADING_LENGTH])volatile{
 
         switch (VectorNumber){
 
@@ -291,7 +351,7 @@ Master::~Master(void){
 
       }
 
-      void Master::setMeasurementVectorUnits(const MeasurementVectors VectorNumber, const char Units[ROW_UNIT_LENGTH]){
+      void Master::setMeasurementVectorUnits(MeasurementVectors VectorNumber, volatile char Units[ROW_UNIT_LENGTH])volatile{
 
         switch (VectorNumber){
 
@@ -320,7 +380,7 @@ Master::~Master(void){
 
     }
 
-      bool Master::isThereData(void){
+      bool Master::isThereData(void) volatile{
 
         if ((MeasurementData.NumColumns[First] > 0) || (MeasurementData.NumColumns[Second] > 0) ||(MeasurementData.NumColumns[Third] > 0)){
           return true;
@@ -330,15 +390,15 @@ Master::~Master(void){
       }
 
     //User Instruction Interface
-      void Master::sendTotalNumOfInstructions(void){
+      void Master::sendTotalNumOfInstructions(void) volatile{
         sendReply((sInstruct)ReferToInt,UserInstructionSet.NumOfInstructions);
       }
 
-      int Master::getCurrentInstructionNumber(void){
+      int Master::getCurrentInstructionNumber(void) volatile{
         return UserInstructionSet.InstructionCounter;
       }
 
-      bool Master::sendNextUserInstruction(void){
+      bool Master::sendNextUserInstruction(void) volatile{
 
         if (UserInstructionSet.InstructionCounter == UserInstructionSet.NumOfInstructions){
           return false;
@@ -352,12 +412,12 @@ Master::~Master(void){
         return true;
       }
 
-      void Master::resendCurrentUserInstruction(void){
+      void Master::resendCurrentUserInstruction(void) volatile{
         int Counter = UserInstructionSet.InstructionCounter;
         sendReply(UserInstructionSet.MasterInstructionSet[Counter], UserInstructionSet.iParams[Counter], UserInstructionSet.fParams[Counter], UserInstructionSet.InstructionSet[Counter]);
        }
 
-      void Master::restartUserInstructionCycle(void){
+      void Master::restartUserInstructionCycle(void) volatile{
         UserInstructionSet.InstructionCounter = 0;
       }
 
@@ -365,7 +425,7 @@ Master::~Master(void){
 // Private Methods /////////////////////////////////////////////////////////////
 // Functions only available to other functions in this library
 
-template <typename T> unsigned int Master::SPI_write (const T& value){
+template <typename T> unsigned int Master::SPI_write (const T& value) volatile{
   const byte * p = (const byte*) &value;
     unsigned int i;
     for (i = 0; i < sizeof value; i++)
@@ -374,12 +434,10 @@ template <typename T> unsigned int Master::SPI_write (const T& value){
 }
 
 
-template <typename T> unsigned int Master::SPI_read(T& value){
+template <typename T> unsigned int Master::SPI_read(T& value) volatile{
   byte * p = (byte*) &value;
     unsigned int i;
     for (i = 0; i < sizeof value; i++)
           *p++ = SPI.transfer (0);
     return i;
 }
-
-

@@ -13,11 +13,11 @@ class Instructor
   // user-accessible "public" interface
   public:
 
-    Instructor(const int ChipSelect = SS);
+    Instructor(const int ChipSelect);
 
     int howManyInstructions(void);
     int howLongShouldIWait(void);
-    sCmd loadNextCommand(void);
+    void loadNextCommand(void);
     void getCurrentCommandString(char[SLAVE_COMMMAND_STRING_LENGTH]);
     int getCurrentCommandInt(void);
     float getCurrentCommandFloat(void);

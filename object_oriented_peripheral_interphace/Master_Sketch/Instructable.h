@@ -16,10 +16,10 @@ class Instructable
     //Instructable(void);
     Instructable(const int ChipSelect);
 
-    int issueCommand(mInstruct);
-    int issueCommand(mInstruct, int);
-    int issueCommand(mInstruct, float);
-    int issueCommand(mInstruct, int, float);
+    bool issueCommand(mInstruct);
+    bool issueCommand(mInstruct, int);
+    bool issueCommand(mInstruct, float);
+    bool issueCommand(mInstruct, int, float);
 
     bool areYouConnected(void);
 

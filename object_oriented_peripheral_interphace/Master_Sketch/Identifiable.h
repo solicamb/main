@@ -14,7 +14,7 @@ class Identifiable
   public:
 
     //Instructable(void);
-    Identifiable(const int ChipSelect = SS);
+    Identifiable(const int ChipSelect);
 
     bool hasIdentityChanged(void);
     void updateIdentity(void);

@@ -26,7 +26,8 @@ void setupSPI(void)
 uint8_t count = 0;
 void SPI_IRQ(void){
     // Blocking call to read SPI message
-  uint8_t msg = SPI.transfer(++count);
+  //uint8_t msg = SPI.transfer(++count);
+  uint8_t msg = SPI.read();
   Serial.print("Received = 0b");
   Serial.print(msg, BIN);
   Serial.print(", 0x");
