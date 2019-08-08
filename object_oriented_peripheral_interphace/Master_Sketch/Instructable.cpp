@@ -65,7 +65,7 @@ bool Instructable::issueCommand(mInstruct Command, int intParam, float floatPara
 }
 
 bool Instructable::areYouConnected(void){
-	return CommsModule.isPeripheralConnected();
+  return CommsModule.isPeripheralConnected();
 }
 
 

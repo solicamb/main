@@ -194,8 +194,8 @@ byte Communicative::areYouAlive(const int ChipSelect){
    transferAndPause ('?');  // add command
    byte a = transferAndPause (0x00);
 
-   // Serial.print("Recieved: ");
-   // Serial.println(a);
+//    Serial.print("Recieved: ");
+//    Serial.println(a);
 
   if (a == 0x06){
 

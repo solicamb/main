@@ -13,7 +13,7 @@ typedef enum sInstruct{
   ReferToInt,
   ReferToFloat,
   ReferToString
-};
+}; 
 
 typedef enum mInstruct{
   PauseMeasurementForiParam,
