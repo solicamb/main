@@ -6,7 +6,6 @@
  *
  */
 
-/*#include <Wire.h>*/
 #include <SPI.h>
 
 // User Config
@@ -33,14 +32,14 @@ const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION = 0x4;
 // NB we use the default pin and therefore don't configure it (only setting it as input with pinMode())
 
 #define ADC_FULL_SCALE_VOLTAGE 4.0f // full scale ADC voltage for scaling
-// TODO/NB While this will correspond to VCC, don't assume the VCC=3.3V pin will have exactly that voltage
-// One measurement gave 4V when powered via USB from a PC, hence this choice
+// NB While this will correspond to VCC, don't assume the VCC=3.3V pin will have exactly that voltage
+// One measurement gave 4V when powered via USB from a PC, hence this choice; other power sources will differ
 // Ultimately, we should control/know what VCC we are referencing to. On the other hand, this scaling is only
 // to make it more physically meaningful; we can also just think in terms of percentage of full scale
+// All derived algorithms are scale invariant, hence this is not an issue
 #define ADC_FULL_SCALE_VALUE 4095 // 12 bit resolution for blue pill
 
 // Global scope variables
-bool spi_initiated = 0;
 float calibration[NUMBER_OF_SIGNALS] = {};
 bool measurement_in_progress = false;
 unsigned long signal_detected_timer[NUMBER_OF_SIGNALS] = {};
@@ -104,7 +103,6 @@ void initiate_communication_with_master(){
 	
 	if (DEBUG_WAIT_FOR_MASTER){
 		SPI.transfer(SLAVE_DEVICE_TYPE | SLAVE_DEVICE_SERIAL_NUMBER);
-		spi_initiated = true;
 	}
 
 	return;
