@@ -137,6 +137,11 @@
         MeasurementData.DataPoints[i][j] = 0.0;
       }
     }
+
+  //Setup SPI and interrup
+
+    SPISetup();
+    
  }
 
 

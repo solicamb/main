@@ -2,73 +2,6 @@
 #include "Master.h"
 #include <cstdint>
 
-//volatile Master SensorMaster(50, 
-//                    "Test SLAVE Sensor",  
-//                    (char[][SLAVE_COMMMAND_STRING_LENGTH]){"This is the first instruction",
-//                    "This is the Second instruction",
-//                    "This is the third instruction"}, 
-//                    3, 
-//                    (sInstruct[]){DisplayInstructionAndWait,
-//                    DisplayInstructionAndWait,
-//                    DisplayInstructionAndWait},
-//                    (int[]){1000,
-//                    1000,
-//                    1000},
-//                    (float[]){0.0,
-//                    0.0,
-//                    0.0}
-//                    );
-//volatile Master SensorMaster;
-
-//void SPI_IRQ(void){
-//  
-//      if (SensorMaster.Handshake()){
-//        
-//      //Retrieve the request from Master
-//          mCmd Request = SensorMaster.loadRequest();
-//
-//      //Switch to appropriate repsonse
-//          
-//         if (Request.Instruction == NextCommandPlease){
-//          if (!SensorMaster.sendNextUserInstruction()){
-//            SensorMaster.restartUserInstructionCycle();
-//            volatile char cmmd[] = "Measurement Cycle completed, restarting...";
-//            SensorMaster.sendReply((sInstruct)ReferToString,cmmd);
-//          }
-//        }else if (Request.Instruction == WhoAreYou){
-//              SensorMaster.sendIdentity();//SPI_writeAnything(ThisSensorID);
-//        }else if (Request.Instruction == IsThereData){
-//            if (SensorMaster.isThereData()){
-//              SensorMaster.sendReply((sInstruct)Yes);
-//            }else{
-//              SensorMaster.sendReply((sInstruct)No);
-//            }
-//        }else if (Request.Instruction == PauseMeasurementForiParam){
-//            SensorMaster.sendReply(ACK);
-//        }else if (Request.Instruction == RestartMeasurementProcedure){
-//            SensorMaster.sendReply(ACK);
-//        }else if (Request.Instruction == ResetDevice){
-//            SensorMaster.sendReply(ACK);
-//        }else if (Request.Instruction == HowManyInstructions){
-//            SensorMaster.sendTotalNumOfInstructions();
-//        }else if (Request.Instruction == SendDataPlease){
-//            SensorMaster.sendData();
-//        }else if (Request.Instruction == HowLongShouldIWait){
-//            SensorMaster.sendReply(ReferToInt,(int)100);
-//        }else if (Request.Instruction == BeginMeasurement){
-//            SensorMaster.sendReply(ACK);
-//        }else if (Request.Instruction == SitRep){
-//            SensorMaster.sendReply(ACK);
-//        }else {
-//          volatile char err[] = "COMMAND NOT RECOGNISED";
-//          SensorMaster.sendReply((sInstruct)NAK,err);
-//        }
-//
-//    }//End of transaction
-//
-////////////////////////////////////////////////////////////////////////////////////////
-//}
-
 void RequestHandler(mCmd& Request){
   
   //Switch to appropriate repsonse
@@ -139,9 +72,6 @@ void setup (void)
                     FloatParameters
                     );
 
-  //Setup SPI
-  SensorMaster.SPISetup();
-//  attachInterrupt(PA4 , SPI_IRQ, FALLING);
 
 }  // end of setup
 
