@@ -9,21 +9,20 @@
 /*#include <Wire.h>*/
 #include <SPI.h>
 
-// Config
-#define BAUDRATE 38400		// Arduino <=> PC serial baudrate
-#define DOWNSAMPLING 10000 // number of ADC readings to average per measurement
+// User Config
+#define BAUDRATE 38400			// μC <=> PC serial baudrate
+#define DOWNSAMPLING 10000	// number of ADC readings to average per measurement
 
-#define SLAVE_DEVICE_TYPE 0b00100000 // Identifies us to the master as a moisture sensor slave device
-#define SLAVE_DEVICE_SERIAL_NUMBER 1  // Serial number for our devices. 0..15
+#define SLAVE_DEVICE_SERIAL_NUMBER 1 // Serial number for our devices. 0..15
 
-#define NUMBER_OF_SIGNALS 3
+#define NUMBER_OF_SIGNALS 3 // Number of individual capacitive sensing elements (i.e. depths)
 
-// #defines other than constants for which I prefer real variables to make the code more readable
-// they will be optimised away by the compiler anyway
+// Debugging Switches
 const bool DEBUGGING = true;
 const bool DEBUG_WAIT_FOR_MASTER = true;
 
-// Constants
+// Protocol Constants
+const int SLAVE_DEVICE_TYPE = 0b00100000;		// Identifies us to the master as a moisture sensor slave device
 const uint8_t SPI_CMD_PROBE_INSERTED = 0xF1;
 const uint8_t MEASUREMENT_TYPE_MOISTURE_LEVEL = 0x3;
 const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION = 0x4;
@@ -31,6 +30,7 @@ const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION = 0x4;
 // Pin Config
 #define SPI1_SS PA4
 // All other SPI1 pins are pre-defined
+// NB we use the default pin and therefore don't configure it (only setting it as input with pinMode())
 
 #define ADC_FULL_SCALE_VOLTAGE 4.0f // full scale ADC voltage for scaling
 // TODO/NB While this will correspond to VCC, don't assume the VCC=3.3V pin will have exactly that voltage
