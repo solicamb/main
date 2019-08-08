@@ -157,7 +157,7 @@ void Master::SPISetup() volatile{
   // SPCR |= _BV(SPIE);
 
    SPI.beginTransactionSlave(SPISettings(18000000, MSBFIRST, SPI_MODE0, DATA_SIZE_8BIT));
-   attachInterrupt(PA4 , SPI_IRQ, FALLING);
+   attachInterrupt(SPI1_NSS_PIN , SPI_IRQ, FALLING);
 
 }
 

@@ -6,6 +6,7 @@
 // include types & constants of Wiring core API
 #include <Arduino.h>
 #include "SPI_InstructionSet.h"
+#define SPI1_NSS_PIN PA4 
 
 const int MAX_USER_INSTRUCTION_NUMBER = 5;
 
