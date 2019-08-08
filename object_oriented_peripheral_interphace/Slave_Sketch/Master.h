@@ -71,6 +71,9 @@ class Master
       this->UserInstructionSet = rhs.UserInstructionSet;
     }
 
+    void SETUP(const int SensorIDNumber, volatile char SensorName[], volatile char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, volatile sInstruct MasterInstructionSet[], volatile int intParams[], volatile float floatParams[]) volatile;
+    void SPISetup(void) volatile;
+
     //Communications Interface
       bool Handshake(void) volatile;
       mCmd loadRequest(void) volatile;
@@ -109,7 +112,6 @@ class Master
 
   // library-accessible "private" interface
   private:
-    void SPISetup(void);
     template <typename T> unsigned int SPI_write (const T& value) volatile;
     template <typename T> unsigned int SPI_read(T& value) volatile;
 
@@ -119,5 +121,10 @@ class Master
     Data MeasurementData;
     UserInstructions UserInstructionSet;
 };
+
+void SPI_IRQ(void);
+void RequestHandler(mCmd& Request);
+
+volatile extern Master SensorMaster;
 
 #endif

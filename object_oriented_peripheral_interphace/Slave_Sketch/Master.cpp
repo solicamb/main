@@ -98,7 +98,49 @@
 
 }
 
-void Master::SPISetup() {
+ void Master::SETUP(const int SensorIDNumber, volatile char SensorName[], volatile char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, volatile sInstruct MasterInstructionSet[], volatile int intParams[], volatile float floatParams[]) volatile{
+    //Initialise Identity
+    ThisSensorID.sensorID = SensorIDNumber;
+    ThisSensorID.sensorChipSelect = 0;
+
+    for (int i =0; i< IDENTITY_SENSOR_NAME_LENGTH; i++){
+      ThisSensorID.SensorName[i] = SensorName[i];
+      if ('\n' == SensorName[i]) break;
+    }
+
+  //Initialise User Instruction Set
+    UserInstructionSet.NumOfInstructions = NumberOfInstructions;
+    UserInstructionSet.InstructionCounter = 0;
+
+    for (int i = 0; i<NumberOfInstructions; i++){
+
+      UserInstructionSet.MasterInstructionSet[i] = MasterInstructionSet[i];
+      UserInstructionSet.iParams[i] = intParams[i];
+      UserInstructionSet.fParams[i] = floatParams[i];
+
+      for (int j = 0; j<SLAVE_COMMMAND_STRING_LENGTH;j++){
+        UserInstructionSet.InstructionSet[i][j] = InstructionSet[i][j];
+        if (InstructionSet[i][j] == '\n') break;
+      }
+    }
+
+  //Initialise Data
+    //MeasurementData.NumColumns = 0;
+    MeasurementData.NumRows = 0;
+
+    for (int i = 0; i<NUMBER_OF_DATA_ROWS; i++){
+      MeasurementData.RowHeadings[i][0] = '\n';
+      MeasurementData.rowUnits[i][0] = '\n';
+      MeasurementData.NumColumns[i] = 0;
+
+      for (int j = 0 ; j<DATA_ROW_LENGTH; j++){
+        MeasurementData.DataPoints[i][j] = 0.0;
+      }
+    }
+ }
+
+
+void Master::SPISetup() volatile{
 
   //  // have to send on master in, *slave out*
   // pinMode(MISO, OUTPUT);
@@ -109,7 +151,8 @@ void Master::SPISetup() {
   // // turn on interrupts
   // SPCR |= _BV(SPIE);
 
-  SPI.beginTransactionSlave(SPISettings(18000000, MSBFIRST, SPI_MODE0, DATA_SIZE_8BIT));
+   SPI.beginTransactionSlave(SPISettings(18000000, MSBFIRST, SPI_MODE0, DATA_SIZE_8BIT));
+   attachInterrupt(PA4 , SPI_IRQ, FALLING);
 
 }
 
@@ -440,4 +483,23 @@ template <typename T> unsigned int Master::SPI_read(T& value) volatile{
     for (i = 0; i < sizeof value; i++)
           *p++ = SPI.transfer (0);
     return i;
+}
+
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+
+volatile Master SensorMaster;
+
+void SPI_IRQ(void){
+  
+      if (SensorMaster.Handshake()){
+        
+      //Retrieve the request from Master
+          mCmd Request = SensorMaster.loadRequest();
+
+      //Call Request Handler
+          RequestHandler(Request);
+    }//End of transaction
+
+//////////////////////////////////////////////////////////////////////////////////////
 }
