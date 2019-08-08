@@ -6,7 +6,7 @@
  *
  */
 
-#include <Wire.h>
+/*#include <Wire.h>*/
 #include <SPI.h>
 
 // Config
@@ -27,7 +27,6 @@ const bool DEBUG_WAIT_FOR_MASTER = true;
 const uint8_t SPI_CMD_PROBE_INSERTED = 0xF1;
 const uint8_t MEASUREMENT_TYPE_MOISTURE_LEVEL = 0x3;
 const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION = 0x4;
-
 
 // Pin Config
 #define SPI1_SS PA4
@@ -62,20 +61,14 @@ void setup() {
 	/*pinMode(SPI1_CLK, INPUT);*/
 	/*pinMode(SPI1_MISO, OUTPUT);*/
 	/*pinMode(SPI1_MOSI, INPUT);*/
-	// TODO check if this is needed & used correctly (assignment of SS by default?)
 	pinMode(SPI1_SS, INPUT);
   
   SPI.setModule(1);
   SPI.beginTransactionSlave(SPISettings(0, MSBFIRST, SPI_MODE0, DATA_SIZE_8BIT));
-  /*SPI.beginTransactionSlave(SPISettings(18000000, MSBFIRST, SPI_MODE0, DATA_SIZE_8BIT));*/
-  // NB The clock value is not used, as we are a slave device TODO can we set it to 0 to make this obvious?
+  // NB The clock value is not used, as we are a slave device; hence arbitrarily choose 0
 
   // Data that master will receive when transferring a data frame over SPI
-<<<<<<< HEAD
 	SPI.dev()->regs->DR = 10; // TODO think about what is most meaningful here
-=======
-  SPI.dev()->regs->DR = 0; // TODO think about what is most meaningful here
->>>>>>> 19fbe08
 
 	initiate_communication_with_master();
 }
@@ -142,15 +135,28 @@ float return_calibrated_value(float raw_voltage, int signal_id){
 	return raw_voltage - calibration[signal_id];
 }
 	
-int evaluate_moisture_retention_score(float signals[]){
+int evaluate_moisture_retention_score(float signals[], unsigned long signal_detected_timer[]){
 	// TODO stub function
 	return 42;
 }
 
-bool threshold_detection(float signals[], unsigned long signal_detected_timer[]){
+bool is_measurement_complete(float signals[], unsigned long signal_detected_timer[]){
 	// TODO stub function
+	Serial.println("DEBUG: Pretending that all signals have been measured");
 	// Return true if all needed measurements have been done (i.e., water has reached all the probes)
-	return 42;
+
+	/* PSEUDOCODE
+	for each signal[i]:
+		if signal[i] has reached threshold criterion:
+			set signal_detected_timer[i] to millis()
+
+	if all signal[i] are nonzero (i.e. have been set):
+		return true
+	else
+		return false
+	*/
+
+	return true;
 }
 
 uint8_t getMoistureLevel(float raw_voltages[]){
@@ -200,16 +206,21 @@ void loop() {
 			return;
 		}
 		
-		if (threshold_detection(signals)){
-			// Moisture intrusion event detected
-			Serial.println("INFO: Moisture intrusion detected for probes number:(stub)");
-			//TODO stub
+		if (is_measurement_complete(signals, signal_detected_timer)){
+			// All depths of the probe have received a signal from irrigated water
+			Serial.println("INFO: All depths of the probe have received a signal from irrigated water:");
 
 			// Moisture retention algorithm
 			int moisture_retention_score = evaluate_moisture_retention_score(signals, signal_detected_timer);
 		
 			// Communicate result to master via SPI
 			send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_RETENTION, moisture_retention_score);
+
+			// We are done with what we are meant to do. We could now nop forever, instead be a bit more verbose:
+			while (true){
+				Serial.println("INFO: Finished. You may disconnect the probe from the main device. Execution stopped");
+				delay(1000);
+			}
 		}
 	}
 	else {
