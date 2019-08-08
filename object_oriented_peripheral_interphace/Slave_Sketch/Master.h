@@ -1,6 +1,6 @@
 
 // ensure this library description is only included once
-#ifndef Master_h
+#ifndef Master_h 
 #define Master_h
 
 // include types & constants of Wiring core API
@@ -109,12 +109,16 @@ class Master
       bool sendNextUserInstruction(void) volatile;
       void resendCurrentUserInstruction(void) volatile;
       void restartUserInstructionCycle(void) volatile;
+      void beginMeasurement(void) volatile;
+      bool shallIStart(void) volatile;
 
 
   // library-accessible "private" interface
   private:
     template <typename T> unsigned int SPI_write (const T& value) volatile;
     template <typename T> unsigned int SPI_read(T& value) volatile;
+
+    bool beginMeasurementYet;
 
     mCmd CurrentRequest;
   

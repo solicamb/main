@@ -54,6 +54,8 @@
 
   Master::Master(const int SensorIDNumber, const char SensorName[], const char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, const sInstruct MasterInstructionSet[], const int intParams[], const float floatParams[]){
 
+    beginMeasurementYet = false;
+
   //Initialise Identity
     ThisSensorID.sensorID = SensorIDNumber;
     ThisSensorID.sensorChipSelect = 0;
@@ -99,6 +101,9 @@
 }
 
  void Master::SETUP(const int SensorIDNumber, volatile char SensorName[], volatile char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, volatile sInstruct MasterInstructionSet[], volatile int intParams[], volatile float floatParams[]) volatile{
+    
+    beginMeasurementYet = false;  
+
     //Initialise Identity
     ThisSensorID.sensorID = SensorIDNumber;
     ThisSensorID.sensorChipSelect = 0;
@@ -467,6 +472,21 @@ Master::Master(volatile const Master& rhs){
 
       void Master::restartUserInstructionCycle(void) volatile{
         UserInstructionSet.InstructionCounter = 0;
+      }
+
+      void Master::beginMeasurement(void) volatile{
+        beginMeasurementYet = true;
+        SensorMaster.sendReply(ACK);
+      }
+
+      bool Master::shallIStart(void) volatile{
+        if (beginMeasurementYet){
+          beginMeasurementYet = false; //reset
+          return true;
+        } else{
+          return beginMeasurementYet;
+        }
+
       }
 
 

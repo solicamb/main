@@ -14,7 +14,7 @@ typedef enum sInstruct{
   ReferToFloat,
   ReferToString
 };
-
+ 
 typedef enum mInstruct{
   PauseMeasurementForiParam,
   RestartMeasurementProcedure,
