@@ -18,11 +18,12 @@
 
 // Debugging Switches
 const bool DEBUGGING = true;
-const bool DEBUG_WAIT_FOR_MASTER = true;
+const bool DEBUG_WAIT_FOR_MASTER = false;
 
 // Protocol Constants
-const int SLAVE_DEVICE_TYPE = 0b00100000;		// Identifies us to the master as a moisture sensor slave device
-const uint8_t SPI_CMD_PROBE_INSERTED = 0xF1;
+const int SLAVE_DEVICE_TYPE = 0b00100000;				// Identifies us to the master as a moisture sensor slave device
+const uint8_t SPI_CMD_PROBE_INSERTED = 0xF1;		// Sent by master to confirm probe is in ground
+// Measurement types precede values sent to master, indicating what kind of data we are sending:
 const uint8_t MEASUREMENT_TYPE_MOISTURE_LEVEL = 0x3;
 const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION = 0x4;
 
@@ -140,7 +141,6 @@ int evaluate_moisture_retention_score(float signals[], unsigned long signal_dete
 
 bool is_measurement_complete(float signals[], unsigned long signal_detected_timer[]){
 	// TODO stub function
-	Serial.println("DEBUG: Pretending that all signals have been measured");
 	// Return true if all needed measurements have been done (i.e., water has reached all the probes)
 
 	/* PSEUDOCODE
@@ -154,7 +154,7 @@ bool is_measurement_complete(float signals[], unsigned long signal_detected_time
 		return false
 	*/
 
-	return true;
+	return DEBUG_WAIT_FOR_MASTER; // This means we never reach measurement done during debugging mode
 }
 
 uint8_t getMoistureLevel(float raw_voltages[]){
@@ -182,6 +182,11 @@ void loop() {
 		strcpy(signal_name, "calibrated");
 		strcat(signal_name, signal_id_string);
 		write_measurement_to_serial(signal_name, signals[i]);
+	}
+
+	if (DEBUG_WAIT_FOR_MASTER == false){
+		// Immediately go to measurement mode when debugging flag is set
+		measurement_in_progress = true;
 	}
 
 	if (measurement_in_progress == true){
