@@ -163,12 +163,7 @@ void evaluate_moisture_retention_score(float signals[], unsigned long signal_det
 	}
 	else {
 		float moisture_velocity = PROBE_SPACING_CM / (time_difference / MOISTURE_RETENTION_SCORE_TIMESCALE_TOPMID);
-		if (moisture_velocity < MOISTURE_RETENTION_SCORE_MINIMUM_VELOCITY){
-			moisture_retention_scores[0] = 1; // constrain to lowest quality
-		}
-		else {
-			moisture_retention_scores[0] = (uint8_t)(1.0 / moisture_velocity);
-		}
+		moisture_retention_scores[0] = constrain((uint8_t)moisture_velocity, 1, 100);
 	}
 
 	// Midsoil to Bottomsoil
@@ -180,12 +175,7 @@ void evaluate_moisture_retention_score(float signals[], unsigned long signal_det
 	}
 	else {
 		float moisture_velocity = PROBE_SPACING_CM / (time_difference / MOISTURE_RETENTION_SCORE_TIMESCALE_MIDBOT);
-		if (moisture_velocity < MOISTURE_RETENTION_SCORE_MINIMUM_VELOCITY){
-			moisture_retention_scores[1] = 1; // constrain to lowest quality
-		}
-		else {
-			moisture_retention_scores[1] = (uint8_t)(1.0 / moisture_velocity);
-		}
+		moisture_retention_scores[1] = constrain((uint8_t)moisture_velocity, 1, 100);
 	}
 }
 
