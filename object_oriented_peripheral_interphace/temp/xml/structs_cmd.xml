@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="structs_cmd" kind="struct" language="C++" prot="public">
+    <compoundname>sCmd</compoundname>
+    <includes refid="_s_p_i___instruction_set_8h" local="no">SPI_InstructionSet.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+        <definition>sInstruct Instruction</definition>
+        <argsstring></argsstring>
+        <name>Instruction</name>
+        <briefdescription>
+<para>Instruction to master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines the reply made by the slave in repsonse to the request posed by the master during a single transaction. Used to confirm commands issued by the master or issue commands to the master. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="57" column="1" bodyfile="SPI_InstructionSet.h" bodystart="57" bodyend="-1"/>
+        <referencedby refid="class_data_source_1a7d92295e088894b5417729a814e49e01" compoundref="_data_source_8cpp" startline="32" endline="41">DataSource::isThereData</referencedby>
+        <referencedby refid="class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f" compoundref="_instructable_8cpp" startline="19" endline="29">Instructable::issueCommand</referencedby>
+        <referencedby refid="class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823" compoundref="_instructor_8cpp" startline="10" endline="15">Instructor::Instructor</referencedby>
+        <referencedby refid="class_instructor_1a1e54d05ded7ecf88f0205b52901df681" compoundref="_instructor_8cpp" startline="61" endline="63">Instructor::getCurrentCommandInstruction</referencedby>
+        <referencedby refid="structs_cmd_1a3b1f47c680cdde48d2c8679599547516" compoundref="_s_p_i___instruction_set_8h" startline="65" endline="74">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char sParam[SLAVE_COMMMAND_STRING_LENGTH]</definition>
+        <argsstring>[SLAVE_COMMMAND_STRING_LENGTH]</argsstring>
+        <name>sParam</name>
+        <briefdescription>
+<para>String parameter which qualifies the instruction. Often used to convey instructions which are to be displayed to the user. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="59" column="1" bodyfile="SPI_InstructionSet.h" bodystart="59" bodyend="-1"/>
+        <referencedby refid="class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823" compoundref="_instructor_8cpp" startline="10" endline="15">Instructor::Instructor</referencedby>
+        <referencedby refid="class_instructor_1a8c66f480a7b5a6b434f613bc7197e824" compoundref="_instructor_8cpp" startline="46" endline="51">Instructor::getCurrentCommandString</referencedby>
+        <referencedby refid="class_master_1abebea7ffc56886ac9b59980312ea19f9" compoundref="_master_8cpp" startline="225" endline="235">Master::sendReply</referencedby>
+        <referencedby refid="structs_cmd_1a3b1f47c680cdde48d2c8679599547516" compoundref="_s_p_i___instruction_set_8h" startline="65" endline="74">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int iParam</definition>
+        <argsstring></argsstring>
+        <name>iParam</name>
+        <briefdescription>
+<para>Integer parameter which qualifies the instruction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="61" column="1" bodyfile="SPI_InstructionSet.h" bodystart="61" bodyend="-1"/>
+        <referencedby refid="class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823" compoundref="_instructor_8cpp" startline="10" endline="15">Instructor::Instructor</referencedby>
+        <referencedby refid="class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8" compoundref="_instructor_8cpp" startline="23" endline="27">Instructor::howManyInstructions</referencedby>
+        <referencedby refid="class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f" compoundref="_instructor_8cpp" startline="30" endline="34">Instructor::howLongShouldIWait</referencedby>
+        <referencedby refid="class_instructor_1adcbf1cb6d2739539465edc6d996d2987" compoundref="_instructor_8cpp" startline="53" endline="55">Instructor::getCurrentCommandInt</referencedby>
+        <referencedby refid="structs_cmd_1a3b1f47c680cdde48d2c8679599547516" compoundref="_s_p_i___instruction_set_8h" startline="65" endline="74">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float fParam</definition>
+        <argsstring></argsstring>
+        <name>fParam</name>
+        <briefdescription>
+<para>Floating point parameter which qualifies the instruction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="63" column="1" bodyfile="SPI_InstructionSet.h" bodystart="63" bodyend="-1"/>
+        <referencedby refid="class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823" compoundref="_instructor_8cpp" startline="10" endline="15">Instructor::Instructor</referencedby>
+        <referencedby refid="class_instructor_1ae81f8123893b582fd32a71601471cff8" compoundref="_instructor_8cpp" startline="57" endline="59">Instructor::getCurrentCommandFloat</referencedby>
+        <referencedby refid="structs_cmd_1a3b1f47c680cdde48d2c8679599547516" compoundref="_s_p_i___instruction_set_8h" startline="65" endline="74">operator=</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structs_cmd_1a3b1f47c680cdde48d2c8679599547516" prot="public" static="no" const="no" explicit="no" inline="yes" volatile="yes" virt="non-virtual">
+        <type><ref refid="structs_cmd" kindref="compound">sCmd</ref> &amp;</type>
+        <definition>sCmd&amp; operator=</definition>
+        <argsstring>(const volatile sCmd &amp;rhs) volatile</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const volatile <ref refid="structs_cmd" kindref="compound">sCmd</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="65" column="1" bodyfile="SPI_InstructionSet.h" bodystart="65" bodyend="74"/>
+        <references refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" compoundref="_s_p_i___instruction_set_8h" startline="57">Instruction</references>
+        <references refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" compoundref="_s_p_i___instruction_set_8h" startline="61">iParam</references>
+        <references refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" compoundref="_s_p_i___instruction_set_8h" startline="63">fParam</references>
+        <references refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" compoundref="_s_p_i___instruction_set_8h" startline="43">SLAVE_COMMMAND_STRING_LENGTH</references>
+        <references refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" compoundref="_s_p_i___instruction_set_8h" startline="59">sParam</references>
+      </memberdef>
+      <memberdef kind="function" id="structs_cmd_1a88ec1d5b2730bd3e2e2c9902c3ccde34" prot="public" static="no" const="no" explicit="no" inline="yes" volatile="yes" virt="non-virtual">
+        <type><ref refid="structs_cmd" kindref="compound">sCmd</ref> &amp;</type>
+        <definition>volatile sCmd&amp; operator=</definition>
+        <argsstring>(const sCmd &amp;rhs) volatile</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structs_cmd" kindref="compound">sCmd</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="76" column="1" bodyfile="SPI_InstructionSet.h" bodystart="76" bodyend="85"/>
+        <references refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" compoundref="_s_p_i___instruction_set_8h" startline="57">Instruction</references>
+        <references refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" compoundref="_s_p_i___instruction_set_8h" startline="61">iParam</references>
+        <references refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" compoundref="_s_p_i___instruction_set_8h" startline="63">fParam</references>
+        <references refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" compoundref="_s_p_i___instruction_set_8h" startline="43">SLAVE_COMMMAND_STRING_LENGTH</references>
+        <references refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" compoundref="_s_p_i___instruction_set_8h" startline="59">sParam</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Type used by slave to send reply to master,. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Each transaction, following the initial handshake, the master will send a request and the slave will send a reply. Replied made by the slave are generally in the form of an <ref refid="structs_cmd" kindref="compound">sCmd</ref> object, which contains a parameterised instance of the slave instruction set, sInstruct, which defines the action which the slave requires the master to carry out. Other acceptable replies to particular requests from the master are <ref refid="struct_data" kindref="compound">Data</ref> and <ref refid="struct_identity" kindref="compound">Identity</ref> objects. </para>
+    </detaileddescription>
+    <location file="SPI_InstructionSet.h" line="51" column="1" bodyfile="SPI_InstructionSet.h" bodystart="51" bodyend="86"/>
+    <listofallmembers>
+      <member refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" prot="public" virt="non-virtual"><scope>sCmd</scope><name>fParam</name></member>
+      <member refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" prot="public" virt="non-virtual"><scope>sCmd</scope><name>Instruction</name></member>
+      <member refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" prot="public" virt="non-virtual"><scope>sCmd</scope><name>iParam</name></member>
+      <member refid="structs_cmd_1a3b1f47c680cdde48d2c8679599547516" prot="public" virt="non-virtual"><scope>sCmd</scope><name>operator=</name></member>
+      <member refid="structs_cmd_1a88ec1d5b2730bd3e2e2c9902c3ccde34" prot="public" virt="non-virtual"><scope>sCmd</scope><name>operator=</name></member>
+      <member refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" prot="public" virt="non-virtual"><scope>sCmd</scope><name>sParam</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

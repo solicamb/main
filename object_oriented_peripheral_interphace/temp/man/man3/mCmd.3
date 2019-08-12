@@ -1,0 +1,83 @@
+.TH "mCmd" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+mCmd \- Type used by master to send requests to slave\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SPI_InstructionSet\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBmCmd\fP (\fBmInstruct\fP Instruct, int i, float f)"
+.br
+.ti -1c
+.RI "\fBmCmd\fP ()"
+.br
+.ti -1c
+.RI "\fBmCmd\fP (volatile \fBmCmd\fP &rhs)"
+.br
+.ti -1c
+.RI "\fBmCmd\fP & \fBoperator=\fP (const volatile \fBmCmd\fP &rhs) volatile"
+.br
+.ti -1c
+.RI "volatile \fBmCmd\fP & \fBoperator=\fP (const \fBmCmd\fP &rhs) volatile"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBmInstruct\fP \fBInstruction\fP"
+.br
+.RI "Instruction to slave\&. "
+.ti -1c
+.RI "int \fBiParam\fP"
+.br
+.RI "Integer paramter which qualifies the instruction\&. "
+.ti -1c
+.RI "float \fBfParam\fP"
+.br
+.RI "Floating point parameter which wualifies the instruction\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Type used by master to send requests to slave\&. 
+
+Each transaction, following the initial handshake, the master will send a request and the slave will send a reply\&. Requests made by the master will always take the form of an \fBmCmd\fP object, which contains a parameterised instance of the instruction set, mInstruct, which defines the class of repsonse expected by the slave\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBmCmd\fP (\fBmInstruct\fP Instruct, int i, float f)\fC [inline]\fP"
+
+.SS "\fBmCmd\fP ()\fC [inline]\fP"
+
+.SS "\fBmCmd\fP (volatile \fBmCmd\fP & rhs)\fC [inline]\fP"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBmCmd\fP& operator= (const volatile \fBmCmd\fP & rhs) volatile\fC [inline]\fP"
+
+.SS "volatile \fBmCmd\fP& operator= (const \fBmCmd\fP & rhs) volatile\fC [inline]\fP"
+
+.SH "Field Documentation"
+.PP 
+.SS "float fParam"
+
+.PP
+Floating point parameter which wualifies the instruction\&. 
+.SS "\fBmInstruct\fP Instruction"
+
+.PP
+Instruction to slave\&. Defines the request made of the slave by the master during any transacion\&. mInstruct defines a finite set of requests which the master can make of the slave\&. 
+.SS "int iParam"
+
+.PP
+Integer paramter which qualifies the instruction\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

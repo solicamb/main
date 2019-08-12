@@ -1,0 +1,18 @@
+.TH "md_api" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+md_api \- Summary 
+Members  Descriptions   \fCclass\fP\fC\fCCommunicative\fP\fP  A class to manage communication with slave module\&.   \fCclass\fP\fC\fCDataSource\fP\fP  A class which models a Sensor/peripheral as an entity which is a source of data\&.   \fCclass\fP\fC\fCIdentifiable\fP\fP  A class which models a Sensor/peripheral as an identifiable entity\&.   \fCclass\fP\fC\fCInstructable\fP\fP  A class which models a Sensor/peripheral as entity which can recieve commands\&.   \fCclass\fP\fC\fCInstructor\fP\fP  A class which models a Sensor/peripheral as entity which can issue instructions to the master\&.   \fCclass\fP\fC\fCMaster\fP\fP  A monolithic class to encapsulate and abstract the slave's communication with the master\&.   \fCclass\fP\fC\fCSensor\fP\fP  A class which models a Sensor/peripheral\&.   \fCstruct\fP\fC\fCData\fP\fP  Type used to encapsulate the data collected by the slave\&.   \fCstruct\fP\fC\fCIdentity\fP\fP  Type used to convey the Slave identity\&.   \fCstruct\fP\fC\fCmCmd\fP\fP  Type used by master to send requests to slave\&.   \fCstruct\fP\fC\fCsCmd\fP\fP  Type used by slave to send reply to master,\&.   \fCstruct\fP\fC\fCUserInstructions\fP\fP |
+.SH "class <tt>Communicative</tt>"
+.PP
+A class to manage communication with slave module\&.
+.PP
+This class is designed for SPI communication with a slave device\&. The class responsibilities include both SPI initialisation and fundamental transactions\&. The transaction protocol implemented follows the following flow: Clear SS -> Send '?' to slave -> recieve 'ACK' (0x06) from slave -> send request \fCmCmd\fP -> recieve sCmd/Data/Identity as expected -> set SS\&. Where \fCmCmd\fP, \fCsCmd\fP, \fCData\fP and \fCIdentity\fP are structures defined as types\&.
+.PP
+.SS "Summary"
+.PP
+Members  Descriptions   \fCpublic\fP\fC\fCCommunicative\fP\fP\fC(const int CS)\fP  Constructor\&.   \fCpublic\fP\fC\fC~Communicative\fP\fP\fC(void)\fP  Destructor\&.   \fCpublic bool\fP\fC\fCisPeripheralConnected\fP\fP\fC(void)\fP  Checks whether Slave is connected\&.   \fCpublic\fP\fC\fCsCmd\fP\fP\fC\fCRequestReply\fP\fP\fC(const \fBmCmd\fP)\fP  Performs a complete transaction; expects Slave to Reply with \fCsCmd\fP object\&.   \fCpublic\fP\fC\fCIdentity\fP\fP\fC\fCRequestIdentity\fP\fP\fC(const \fBmCmd\fP)\fP  Performs a complete transaction; expects Slave to Reply with \fCIdentity\fP object\&.   \fCpublic\fP\fC\fCData\fP\fP\fC\fCRequestData\fP\fP\fC(const \fBmCmd\fP)\fP  Performs a complete transaction; expects Slave to Reply with a \fCData\fP object\&.   
+.PP
+.SS "Members"
+

@@ -1,0 +1,142 @@
+\hypertarget{class_sensor}{}\section{Sensor Class Reference}
+\label{class_sensor}\index{Sensor@{Sensor}}
+
+
+A class which models a Sensor/peripheral.  
+
+
+
+
+{\ttfamily \#include $<$Sensor.\+h$>$}
+
+
+
+Inheritance diagram for Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sensor__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Sensor\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sensor__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_sensor_a370005d04d3566c21b9190e1442fa4e8}{Sensor}} (const int Chip\+Select)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_sensor_af0e64874a3d1b8ae19e3b623d244342a}{Start\+Measurement}} (void)
+\begin{DoxyCompactList}\small\item\em Instruct the sensor to initiate the measurement procedure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_sensor_afdcc3b63357bd24f519e0cbc85454a52}{Pause\+Measurement\+For\+Millis}} (int)
+\begin{DoxyCompactList}\small\item\em Instruct the sensor to pause the measurement procedure for a brief period. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_sensor_ad58e9acfc23f07af433f0e2596d786d7}{Restart\+Measurement}} (void)
+\begin{DoxyCompactList}\small\item\em Instruct the sensor to restart the measurement procedure. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class which models a Sensor/peripheral. 
+
+This class models a sensor peripheral as an entity which has a queriable \mbox{\hyperlink{struct_identity}{Identity}}, is a source of \mbox{\hyperlink{struct_data}{Data}}, can be issued commands and can issue a series of instructions in turn. In particular, a sensor is considered to perform a measurement procedure consisting of a series of steps; at each step, the sensor will issue instructions to the master to be acted upon and/or displayed to the user. The sensor may also require feedback from the user such as confirmation of the completion of an instruction, before proceeding to the next instruction in the measurement procedure. While the sensor dictates the flow of the measurement procedure, a master reserves the right to initiate the procedure, pause the procedure and restart the procedure. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_sensor_a370005d04d3566c21b9190e1442fa4e8}\label{class_sensor_a370005d04d3566c21b9190e1442fa4e8}} 
+\index{Sensor@{Sensor}!Sensor@{Sensor}}
+\index{Sensor@{Sensor}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{Sensor()}{Sensor()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_sensor}{Sensor}} (\begin{DoxyParamCaption}\item[{const int}]{Chip\+Select }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Chip\+Select} & is the Slave Select pin of the S\+PI peripheral in question. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_sensor_afdcc3b63357bd24f519e0cbc85454a52}\label{class_sensor_afdcc3b63357bd24f519e0cbc85454a52}} 
+\index{Sensor@{Sensor}!PauseMeasurementForMillis@{PauseMeasurementForMillis}}
+\index{PauseMeasurementForMillis@{PauseMeasurementForMillis}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{PauseMeasurementForMillis()}{PauseMeasurementForMillis()}}
+{\footnotesize\ttfamily int Pause\+Measurement\+For\+Millis (\begin{DoxyParamCaption}\item[{int}]{Pause\+Time }\end{DoxyParamCaption})}
+
+
+
+Instruct the sensor to pause the measurement procedure for a brief period. 
+
+Instructs the sensor to temporarily pause the measurement procedure for a period defined in milliseconds. 
+\begin{DoxyParams}{Parameters}
+{\em int} & is the number of milliseconds for which the sensor is to pause. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the sensor acknowledges the request. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sensor_afdcc3b63357bd24f519e0cbc85454a52_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_sensor_ad58e9acfc23f07af433f0e2596d786d7}\label{class_sensor_ad58e9acfc23f07af433f0e2596d786d7}} 
+\index{Sensor@{Sensor}!RestartMeasurement@{RestartMeasurement}}
+\index{RestartMeasurement@{RestartMeasurement}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{RestartMeasurement()}{RestartMeasurement()}}
+{\footnotesize\ttfamily int Restart\+Measurement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Instruct the sensor to restart the measurement procedure. 
+
+Instructs the sensor to restart the measurement procedure. The sensor will wait revert to its initial state, waiting for a \mbox{\hyperlink{class_sensor_af0e64874a3d1b8ae19e3b623d244342a}{Start\+Measurement()}} command before proceeding to the first instruction in the procedure. \begin{DoxyReturn}{Returns}
+True if the sensor acknowledges the request. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sensor_ad58e9acfc23f07af433f0e2596d786d7_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_sensor_af0e64874a3d1b8ae19e3b623d244342a}\label{class_sensor_af0e64874a3d1b8ae19e3b623d244342a}} 
+\index{Sensor@{Sensor}!StartMeasurement@{StartMeasurement}}
+\index{StartMeasurement@{StartMeasurement}!Sensor@{Sensor}}
+\subsubsection{\texorpdfstring{StartMeasurement()}{StartMeasurement()}}
+{\footnotesize\ttfamily int Start\+Measurement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Instruct the sensor to initiate the measurement procedure. 
+
+Informs the sensor to start the measurement procedure and proceed to the first instruction step. \begin{DoxyReturn}{Returns}
+True if the sensor acknowledges the request. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_sensor_af0e64874a3d1b8ae19e3b623d244342a_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_sensor_8h}{Sensor.\+h}}\item 
+\mbox{\hyperlink{_sensor_8cpp}{Sensor.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,155 @@
+\hypertarget{class_identifiable}{}\section{Identifiable Class Reference}
+\label{class_identifiable}\index{Identifiable@{Identifiable}}
+
+
+A class which models a Sensor/peripheral as an identifiable entity.  
+
+
+
+
+{\ttfamily \#include $<$Identifiable.\+h$>$}
+
+
+
+Inheritance diagram for Identifiable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=142pt]{class_identifiable__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_identifiable_a107ce612ee60e9be98085abdfbfdc83e}{Identifiable}} (const int Chip\+Select)
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_identifiable_adbc1a3f62e543a0df002a43413998a26}{has\+Identity\+Changed}} (void)
+\begin{DoxyCompactList}\small\item\em Checks to seee whether the \mbox{\hyperlink{struct_identity}{Identity}} in local memory is different to the \mbox{\hyperlink{struct_identity}{Identity}} advertised by peripheral. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_identifiable_ae99f8914426041ea02932d0ed00b29c3}{update\+Identity}} (void)
+\begin{DoxyCompactList}\small\item\em Loads the \mbox{\hyperlink{struct_identity}{Identity}} advertised by the peripheral into local memory. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_identifiable_a85d8439d79bd15eeb1c40d694d3d49ae}{get\+I\+D\+Number}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the identity number of the attached peripheral. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_identifiable_a7942e337c1303ce42cc822032465c66a}{get\+Sensor\+Name}} (char name\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_addd001d124aca0fe92b3e484732fb7c8}{I\+D\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Gets the sensor name of the attached peripheral. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class which models a Sensor/peripheral as an identifiable entity. 
+
+This class models a peripheral as an identifiable entity with ID number and string name. The class allows for the identity to be loaded from the peripheral and interrogated. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_identifiable_a107ce612ee60e9be98085abdfbfdc83e}\label{class_identifiable_a107ce612ee60e9be98085abdfbfdc83e}} 
+\index{Identifiable@{Identifiable}!Identifiable@{Identifiable}}
+\index{Identifiable@{Identifiable}!Identifiable@{Identifiable}}
+\subsubsection{\texorpdfstring{Identifiable()}{Identifiable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_identifiable}{Identifiable}} (\begin{DoxyParamCaption}\item[{const int}]{Chip\+Select }\end{DoxyParamCaption})}
+
+
+
+A constructor. 
+
+Constructor for class which loads the identity of any connected S\+PI peripheral into local memory. 
+\begin{DoxyParams}{Parameters}
+{\em The} & Slave Select pin of the S\+PI peripheral in question. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_identifiable_ae99f8914426041ea02932d0ed00b29c3}{update\+Identity}}. 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_identifiable_a107ce612ee60e9be98085abdfbfdc83e_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_identifiable_a85d8439d79bd15eeb1c40d694d3d49ae}\label{class_identifiable_a85d8439d79bd15eeb1c40d694d3d49ae}} 
+\index{Identifiable@{Identifiable}!getIDNumber@{getIDNumber}}
+\index{getIDNumber@{getIDNumber}!Identifiable@{Identifiable}}
+\subsubsection{\texorpdfstring{getIDNumber()}{getIDNumber()}}
+{\footnotesize\ttfamily int get\+I\+D\+Number (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets the identity number of the attached peripheral. 
+
+Reports the identity number of the peripheral currently stored in local memory. \begin{DoxyReturn}{Returns}
+The sensor ID number. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_identifiable_a7942e337c1303ce42cc822032465c66a}\label{class_identifiable_a7942e337c1303ce42cc822032465c66a}} 
+\index{Identifiable@{Identifiable}!getSensorName@{getSensorName}}
+\index{getSensorName@{getSensorName}!Identifiable@{Identifiable}}
+\subsubsection{\texorpdfstring{getSensorName()}{getSensorName()}}
+{\footnotesize\ttfamily void get\+Sensor\+Name (\begin{DoxyParamCaption}\item[{char}]{name\mbox{[}\+I\+D\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Gets the sensor name of the attached peripheral. 
+
+Reports the sensor name of the peripheral currently stored in local memory. 
+\begin{DoxyParams}{Parameters}
+{\em name} & is the character array into which the sensor name is loaded. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_identifiable_adbc1a3f62e543a0df002a43413998a26}\label{class_identifiable_adbc1a3f62e543a0df002a43413998a26}} 
+\index{Identifiable@{Identifiable}!hasIdentityChanged@{hasIdentityChanged}}
+\index{hasIdentityChanged@{hasIdentityChanged}!Identifiable@{Identifiable}}
+\subsubsection{\texorpdfstring{hasIdentityChanged()}{hasIdentityChanged()}}
+{\footnotesize\ttfamily bool has\+Identity\+Changed (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks to seee whether the \mbox{\hyperlink{struct_identity}{Identity}} in local memory is different to the \mbox{\hyperlink{struct_identity}{Identity}} advertised by peripheral. 
+
+\begin{DoxyReturn}{Returns}
+True if the stored \mbox{\hyperlink{struct_identity}{Identity}} is different than the \mbox{\hyperlink{struct_identity}{Identity}} advertised by the peripheral. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_identity}{Identity}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_identifiable_adbc1a3f62e543a0df002a43413998a26_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_identifiable_ae99f8914426041ea02932d0ed00b29c3}\label{class_identifiable_ae99f8914426041ea02932d0ed00b29c3}} 
+\index{Identifiable@{Identifiable}!updateIdentity@{updateIdentity}}
+\index{updateIdentity@{updateIdentity}!Identifiable@{Identifiable}}
+\subsubsection{\texorpdfstring{updateIdentity()}{updateIdentity()}}
+{\footnotesize\ttfamily void update\+Identity (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Loads the \mbox{\hyperlink{struct_identity}{Identity}} advertised by the peripheral into local memory. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{class_identifiable_ae99f8914426041ea02932d0ed00b29c3_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=255pt]{class_identifiable_ae99f8914426041ea02932d0ed00b29c3_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_identifiable_8h}{Identifiable.\+h}}\item 
+\mbox{\hyperlink{_identifiable_8cpp}{Identifiable.\+cpp}}\end{DoxyCompactItemize}

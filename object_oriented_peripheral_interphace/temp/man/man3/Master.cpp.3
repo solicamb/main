@@ -1,0 +1,50 @@
+.TH "Master.cpp" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Master.cpp
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <Arduino\&.h>\fP
+.br
+\fC#include 'Master\&.h'\fP
+.br
+\fC#include 'SPI_InstructionSet\&.h'\fP
+.br
+\fC#include <SPI\&.h>\fP
+.br
+\fC#include 'SPI_Anything_Slave\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSPI_IRQ\fP (void)"
+.br
+.RI "Innaccesible IRQ, called on SS falling\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "volatile \fBMaster\fP \fBSensorMaster\fP"
+.br
+.RI "Auto-instantiated instance of \fBMaster\fP class, called during the privately implemented IRQ routine and accessible externally by main code\&. "
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void SPI_IRQ (void)"
+
+.PP
+Innaccesible IRQ, called on SS falling\&. 
+.SH "Variable Documentation"
+.PP 
+.SS "volatile \fBMaster\fP SensorMaster"
+
+.PP
+Auto-instantiated instance of \fBMaster\fP class, called during the privately implemented IRQ routine and accessible externally by main code\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

@@ -1,0 +1,1209 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="class_master" kind="class" language="C++" prot="public">
+    <compoundname>Master</compoundname>
+    <includes refid="_master_8h" local="no">Master.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_master_1abec6a5b26c05771f7e9f0943ac9db6d7" prot="private" static="no" mutable="no">
+        <type>bool</type>
+        <definition>bool beginMeasurementYet</definition>
+        <argsstring></argsstring>
+        <name>beginMeasurementYet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="259" column="1" bodyfile="Master.h" bodystart="259" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_master_1a260afb14cd2fbe1b90ae67f9c69a78a5" prot="private" static="no" mutable="no">
+        <type><ref refid="structm_cmd" kindref="compound">mCmd</ref></type>
+        <definition>mCmd CurrentRequest</definition>
+        <argsstring></argsstring>
+        <name>CurrentRequest</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="261" column="1" bodyfile="Master.h" bodystart="261" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_master_1a53d49f548ccfefd7f2e955cd226a4392" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_identity" kindref="compound">Identity</ref></type>
+        <definition>Identity ThisSensorID</definition>
+        <argsstring></argsstring>
+        <name>ThisSensorID</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="263" column="1" bodyfile="Master.h" bodystart="263" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_master_1a20caba1a12c946e5c8cf408152fc8da2" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_data" kindref="compound">Data</ref></type>
+        <definition>Data MeasurementData</definition>
+        <argsstring></argsstring>
+        <name>MeasurementData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="264" column="1" bodyfile="Master.h" bodystart="264" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_master_1a99b6912a8b53fd0199409b5d1e10ae04" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_user_instructions" kindref="compound">UserInstructions</ref></type>
+        <definition>UserInstructions UserInstructionSet</definition>
+        <argsstring></argsstring>
+        <name>UserInstructionSet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="265" column="1" bodyfile="Master.h" bodystart="265" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_master_1afd2e9903066a53c737be92639cfa15b0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Master</definition>
+        <argsstring>(const int SensorIDNumber, const char SensorName[], const char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, const sInstruct MasterInstructionSet[], const int intParams[], const float floatParams[])</argsstring>
+        <name>Master</name>
+        <param>
+          <type>const int</type>
+          <declname>SensorIDNumber</declname>
+        </param>
+        <param>
+          <type>const char</type>
+          <declname>SensorName</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>const char</type>
+          <declname>InstructionSet</declname>
+          <array>[][SLAVE_COMMMAND_STRING_LENGTH]</array>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>NumberOfInstructions</declname>
+        </param>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+          <declname>MasterInstructionSet</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>intParams</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>floatParams</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="64" column="1" bodyfile="Master.cpp" bodystart="55" bodyend="101"/>
+        <references refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" compoundref="_s_p_i___instruction_set_8h" startline="150">Identity::sensorID</references>
+        <references refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" compoundref="_s_p_i___instruction_set_8h" startline="152">Identity::sensorChipSelect</references>
+        <references refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" compoundref="_s_p_i___instruction_set_8h" startline="142">IDENTITY_SENSOR_NAME_LENGTH</references>
+        <references refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" compoundref="_s_p_i___instruction_set_8h" startline="148">Identity::SensorName</references>
+        <references refid="struct_user_instructions_1a801574205a73598195471b820f1763be" compoundref="_master_8h" startline="14">UserInstructions::NumOfInstructions</references>
+        <references refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" compoundref="_master_8h" startline="15">UserInstructions::InstructionCounter</references>
+        <references refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" compoundref="_master_8h" startline="17">UserInstructions::MasterInstructionSet</references>
+        <references refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" compoundref="_master_8h" startline="18">UserInstructions::iParams</references>
+        <references refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" compoundref="_master_8h" startline="19">UserInstructions::fParams</references>
+        <references refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" compoundref="_s_p_i___instruction_set_8h" startline="43">SLAVE_COMMMAND_STRING_LENGTH</references>
+        <references refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" compoundref="_master_8h" startline="16">UserInstructions::InstructionSet</references>
+        <references refid="struct_data_1ac0883de785701631da0e099578c748ca" compoundref="_s_p_i___instruction_set_8h" startline="190">Data::NumRows</references>
+        <references refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" compoundref="_s_p_i___instruction_set_8h" startline="177">NUMBER_OF_DATA_ROWS</references>
+        <references refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" compoundref="_s_p_i___instruction_set_8h" startline="192">Data::RowHeadings</references>
+        <references refid="struct_data_1a004891d89fb41172310a55947f922a54" compoundref="_s_p_i___instruction_set_8h" startline="194">Data::rowUnits</references>
+        <references refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" compoundref="_s_p_i___instruction_set_8h" startline="188">Data::NumColumns</references>
+        <references refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" compoundref="_s_p_i___instruction_set_8h" startline="180">DATA_ROW_LENGTH</references>
+        <references refid="struct_data_1a1984363a7b509590c1bae03601360a0e" compoundref="_s_p_i___instruction_set_8h" startline="196">Data::DataPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a89241ed8839b9fe5ec29d904630a9d3e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Master</definition>
+        <argsstring>(void)</argsstring>
+        <name>Master</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="65" column="1" bodyfile="Master.cpp" bodystart="11" bodyend="53"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a58d721f62d1c8bbf84840b864f2e482a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~Master</definition>
+        <argsstring>(void)</argsstring>
+        <name>~Master</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="66" column="1" bodyfile="Master.cpp" bodystart="169" bodyend="171"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a339116daf8910b52da4d608c8c7b3944" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Master</definition>
+        <argsstring>(volatile const Master &amp;)</argsstring>
+        <name>Master</name>
+        <param>
+          <type>volatile const <ref refid="class_master" kindref="compound">Master</ref> &amp;</type>
+          <defname>rhs</defname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="67" column="1" bodyfile="Master.cpp" bodystart="173" bodyend="180"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a54259c8db640b88dcf5de5594a947b1c" prot="public" static="no" const="no" explicit="no" inline="yes" volatile="yes" virt="non-virtual">
+        <type><ref refid="class_master" kindref="compound">Master</ref> &amp;</type>
+        <definition>volatile Master&amp; operator=</definition>
+        <argsstring>(const Master &amp;rhs) volatile</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="class_master" kindref="compound">Master</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="68" column="1" bodyfile="Master.h" bodystart="68" bodyend="73"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a0ce51778d73a67179e58ecc6e136bef9" prot="public" static="no" const="no" explicit="no" inline="yes" volatile="yes" virt="non-virtual">
+        <type><ref refid="class_master" kindref="compound">Master</ref> &amp;</type>
+        <definition>volatile Master&amp; operator=</definition>
+        <argsstring>(volatile const Master &amp;rhs) volatile</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>volatile const <ref refid="class_master" kindref="compound">Master</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="75" column="1" bodyfile="Master.h" bodystart="75" bodyend="80"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a5af38dc77ec10af275ed892e756aee64" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void SETUP</definition>
+        <argsstring>(const int SensorIDNumber, volatile char SensorName[], volatile char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, volatile sInstruct MasterInstructionSet[], volatile int intParams[], volatile float floatParams[]) volatile</argsstring>
+        <name>SETUP</name>
+        <param>
+          <type>const int</type>
+          <declname>SensorIDNumber</declname>
+        </param>
+        <param>
+          <type>volatile char</type>
+          <declname>SensorName</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>volatile char</type>
+          <declname>InstructionSet</declname>
+          <array>[][SLAVE_COMMMAND_STRING_LENGTH]</array>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>NumberOfInstructions</declname>
+        </param>
+        <param>
+          <type>volatile <ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+          <declname>MasterInstructionSet</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>volatile int</type>
+          <declname>intParams</declname>
+          <array>[]</array>
+        </param>
+        <param>
+          <type>volatile float</type>
+          <declname>floatParams</declname>
+          <array>[]</array>
+        </param>
+        <briefdescription>
+<para>Set up of the commuication mechanism. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Intialised the auto-instantiated <ref refid="class_master" kindref="compound">Master</ref> object, attaches the IRQ and sets up SPI communications. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>SensorIDNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the identity number of th slave. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>SensorName</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the string name of the slave. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>InstructionSet</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the array of strings associated with each instruction in the measuremnt cycle. Generally to be displayed to the user. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>NumberOfInstructions</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the number of instructions in a single measurement cycle/procedure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>MasterInstructionSet</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the array of sInstruct objects associated with each instruction in the measurement cycle. Defines the required action by the master for each step of the measurement procedure. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>IntParams</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the array of integer parameter associated with each instruction. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>FloatParams</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the array of floating point parameters accosiated with each instruction. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="93" column="1" bodyfile="Master.cpp" bodystart="103" bodyend="150"/>
+        <references refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" compoundref="_s_p_i___instruction_set_8h" startline="150">Identity::sensorID</references>
+        <references refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" compoundref="_s_p_i___instruction_set_8h" startline="152">Identity::sensorChipSelect</references>
+        <references refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" compoundref="_s_p_i___instruction_set_8h" startline="142">IDENTITY_SENSOR_NAME_LENGTH</references>
+        <references refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" compoundref="_s_p_i___instruction_set_8h" startline="148">Identity::SensorName</references>
+        <references refid="struct_user_instructions_1a801574205a73598195471b820f1763be" compoundref="_master_8h" startline="14">UserInstructions::NumOfInstructions</references>
+        <references refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" compoundref="_master_8h" startline="15">UserInstructions::InstructionCounter</references>
+        <references refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" compoundref="_master_8h" startline="17">UserInstructions::MasterInstructionSet</references>
+        <references refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" compoundref="_master_8h" startline="18">UserInstructions::iParams</references>
+        <references refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" compoundref="_master_8h" startline="19">UserInstructions::fParams</references>
+        <references refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" compoundref="_s_p_i___instruction_set_8h" startline="43">SLAVE_COMMMAND_STRING_LENGTH</references>
+        <references refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" compoundref="_master_8h" startline="16">UserInstructions::InstructionSet</references>
+        <references refid="struct_data_1ac0883de785701631da0e099578c748ca" compoundref="_s_p_i___instruction_set_8h" startline="190">Data::NumRows</references>
+        <references refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" compoundref="_s_p_i___instruction_set_8h" startline="177">NUMBER_OF_DATA_ROWS</references>
+        <references refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" compoundref="_s_p_i___instruction_set_8h" startline="192">Data::RowHeadings</references>
+        <references refid="struct_data_1a004891d89fb41172310a55947f922a54" compoundref="_s_p_i___instruction_set_8h" startline="194">Data::rowUnits</references>
+        <references refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" compoundref="_s_p_i___instruction_set_8h" startline="188">Data::NumColumns</references>
+        <references refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" compoundref="_s_p_i___instruction_set_8h" startline="180">DATA_ROW_LENGTH</references>
+        <references refid="struct_data_1a1984363a7b509590c1bae03601360a0e" compoundref="_s_p_i___instruction_set_8h" startline="196">Data::DataPoints</references>
+        <references refid="class_master_1a23aca637cd51c40ae469a9ee48725edf" compoundref="_master_8cpp" startline="153" endline="167">SPISetup</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a23aca637cd51c40ae469a9ee48725edf" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void SPISetup</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>SPISetup</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Sets up SPI and attaches interrupt. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="95" column="1" bodyfile="Master.cpp" bodystart="153" bodyend="167"/>
+        <references refid="_master_8h_1a43cf56ddc5e3654069f4df89d4178387" compoundref="_master_8h" startline="9">SPI1_NSS_PIN</references>
+        <references refid="_master_8cpp_1a8858b26518a9d5c7399f8fd6c12b7633" compoundref="_master_8cpp" startline="518" endline="530">SPI_IRQ</references>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">SETUP</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a2bc479ad10a53f31c4833668cc9cfac4" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool Handshake</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>Handshake</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Manages the handshake component of any transaction. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Manages the handshake between master and slave; defined by: Recieve &apos;?&apos; -&gt; send &apos;ACK&apos; (0x06). <simplesect kind="return"><para>True if the handshake was successful. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="103" column="1" bodyfile="Master.cpp" bodystart="186" bodyend="195"/>
+        <referencedby refid="_master_8h_1a8858b26518a9d5c7399f8fd6c12b7633" compoundref="_master_8cpp" startline="518" endline="530">SPI_IRQ</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a3a3fce38be9020bb12ab595c4adc59ed" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type><ref refid="structm_cmd" kindref="compound">mCmd</ref></type>
+        <definition>mCmd loadRequest</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>loadRequest</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Retrieve the request sent by the master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>After each handshake, the master will proceed to send a request, defined by an <ref refid="structm_cmd" kindref="compound">mCmd</ref> object. This function must runafter each handshake. This function reassembles the <ref refid="structm_cmd" kindref="compound">mCmd</ref> request sent by the master, byte by byte and stores it in local memory. <simplesect kind="return"><para>the <ref refid="structm_cmd" kindref="compound">mCmd</ref> object sent by the master. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="110" column="1" bodyfile="Master.cpp" bodystart="197" bodyend="200"/>
+        <referencedby refid="_master_8h_1a8858b26518a9d5c7399f8fd6c12b7633" compoundref="_master_8cpp" startline="518" endline="530">SPI_IRQ</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1af892816882821b107d888f3fe3d7dddd" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref></type>
+        <definition>mInstruct getCurrentInstruction</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>getCurrentInstruction</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns the mInstruct component of the most recently loaded request sent by the master. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="112" column="1" bodyfile="Master.cpp" bodystart="202" bodyend="204"/>
+        <references refid="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" compoundref="_s_p_i___instruction_set_8h" startline="99">mCmd::Instruction</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a918b5964fa7cfc2ef6cf54960a80ced5" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int getCurrentInstructionIntParameter</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>getCurrentInstructionIntParameter</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns the integer parameter of the most recently loaded request sent by the master. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="114" column="1" bodyfile="Master.cpp" bodystart="206" bodyend="208"/>
+        <references refid="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" compoundref="_s_p_i___instruction_set_8h" startline="101">mCmd::iParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a32c23c46b93673a8817bf54cf4a52372" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>float</type>
+        <definition>float getCurrentInstructionFloatParameter</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>getCurrentInstructionFloatParameter</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns the floating point parameter of the most recently loaded request sent by the master. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="116" column="1" bodyfile="Master.cpp" bodystart="210" bodyend="212"/>
+        <references refid="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" compoundref="_s_p_i___instruction_set_8h" startline="103">mCmd::fParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a7d0570bae901dbbd7c88db131fea03c5" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendReply</definition>
+        <argsstring>(const sCmd Reply) volatile</argsstring>
+        <name>sendReply</name>
+        <param>
+          <type>const <ref refid="structs_cmd" kindref="compound">sCmd</ref></type>
+          <declname>Reply</declname>
+        </param>
+        <briefdescription>
+<para>Send an <ref refid="structs_cmd" kindref="compound">sCmd</ref> object in reply to the request recieved from <ref refid="class_master" kindref="compound">Master</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="119" column="1" bodyfile="Master.cpp" bodystart="214" bodyend="217"/>
+        <referencedby refid="class_master_1aa68bb1327d506c42b6b7ab54fd73ca62" compoundref="_master_8cpp" startline="446" endline="448">sendTotalNumOfInstructions</referencedby>
+        <referencedby refid="class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a" compoundref="_master_8cpp" startline="454" endline="466">sendNextUserInstruction</referencedby>
+        <referencedby refid="class_master_1a8a9c9670d31af14e65157879963e0cf1" compoundref="_master_8cpp" startline="468" endline="471">resendCurrentUserInstruction</referencedby>
+        <referencedby refid="class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c" compoundref="_master_8cpp" startline="477" endline="480">beginMeasurement</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a109e347c1b70f26a82d48dfb13af3fe8" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendReply</definition>
+        <argsstring>(const sInstruct Instruction) volatile</argsstring>
+        <name>sendReply</name>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+          <declname>Instruction</declname>
+        </param>
+        <briefdescription>
+<para>Send a reply to the request recieved from master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assembles the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object from the supplied parameters. Overloaded. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="124" column="1" bodyfile="Master.cpp" bodystart="219" bodyend="223"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1abebea7ffc56886ac9b59980312ea19f9" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendReply</definition>
+        <argsstring>(const sInstruct Instruction, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile</argsstring>
+        <name>sendReply</name>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+          <declname>Instruction</declname>
+        </param>
+        <param>
+          <type>volatile char</type>
+          <declname>InstructionString</declname>
+          <array>[SLAVE_COMMMAND_STRING_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Send a reply to the request recieved from master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assembles the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object from the supplied parameters. Overloaded. Note the need for the char* to be defined locally as volatile char[]. Cannot pass string literals. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="130" column="1" bodyfile="Master.cpp" bodystart="225" bodyend="235"/>
+        <references refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" compoundref="_s_p_i___instruction_set_8h" startline="43">SLAVE_COMMMAND_STRING_LENGTH</references>
+        <references refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" compoundref="_s_p_i___instruction_set_8h" startline="59">sCmd::sParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a26d84a77b85fdd81db98ccd23d0e882f" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendReply</definition>
+        <argsstring>(const sInstruct Instruction, const int iParam) volatile</argsstring>
+        <name>sendReply</name>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+          <declname>Instruction</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>iParam</declname>
+        </param>
+        <briefdescription>
+<para>Send a reply to the request recieved from master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assembles the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object from the supplied parameters. Overloaded. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="135" column="1" bodyfile="Master.cpp" bodystart="237" bodyend="241"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a68d7ac6a3680ac2b4c3620b6e175d97f" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendReply</definition>
+        <argsstring>(const sInstruct Instruction, const float fParam) volatile</argsstring>
+        <name>sendReply</name>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+          <declname>Instruction</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>fParam</declname>
+        </param>
+        <briefdescription>
+<para>Send a reply to the request recieved from master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assembles the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object from the supplied parameters. Overloaded. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="140" column="1" bodyfile="Master.cpp" bodystart="243" bodyend="247"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1aa0f969c879b7d6ca105162ea2ca2c87e" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendReply</definition>
+        <argsstring>(const sInstruct Instruction, const int iParam, const int fParam) volatile</argsstring>
+        <name>sendReply</name>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+          <declname>Instruction</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>iParam</declname>
+        </param>
+        <param>
+          <type>const int</type>
+          <declname>fParam</declname>
+        </param>
+        <briefdescription>
+<para>Send a reply to the request recieved from master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assembles the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object from the supplied parameters. Overloaded. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="145" column="1" bodyfile="Master.cpp" bodystart="249" bodyend="253"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a075da7da71f50da0a5973ff65cc1a485" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendReply</definition>
+        <argsstring>(sInstruct Instruction, int iParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile</argsstring>
+        <name>sendReply</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+          <declname>Instruction</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iParam</declname>
+        </param>
+        <param>
+          <type>volatile char</type>
+          <declname>InstructionString</declname>
+          <array>[SLAVE_COMMMAND_STRING_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Send a reply to the request recieved from master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assembles the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object from the supplied parameters. Overloaded. Note the need for the char* to be defined locally as volatile char[]. Cannot pass string literals. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="151" column="1" bodyfile="Master.cpp" bodystart="255" bodyend="266"/>
+        <references refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" compoundref="_s_p_i___instruction_set_8h" startline="43">SLAVE_COMMMAND_STRING_LENGTH</references>
+        <references refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" compoundref="_s_p_i___instruction_set_8h" startline="59">sCmd::sParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1acca62a1478bc305cdd8496f684ea3f9d" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendReply</definition>
+        <argsstring>(sInstruct Instruction, float fParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile</argsstring>
+        <name>sendReply</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+          <declname>Instruction</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fParam</declname>
+        </param>
+        <param>
+          <type>volatile char</type>
+          <declname>InstructionString</declname>
+          <array>[SLAVE_COMMMAND_STRING_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Send a reply to the request recieved from master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assembles the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object from the supplied parameters. Overloaded. Note the need for the char* to be defined locally as volatile char[]. Cannot pass string literals. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="157" column="1" bodyfile="Master.cpp" bodystart="268" bodyend="279"/>
+        <references refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" compoundref="_s_p_i___instruction_set_8h" startline="43">SLAVE_COMMMAND_STRING_LENGTH</references>
+        <references refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" compoundref="_s_p_i___instruction_set_8h" startline="59">sCmd::sParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a88fd38997e4ee0c26fd09a85477487fa" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendReply</definition>
+        <argsstring>(sInstruct Instruction, int iParam, float fParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile</argsstring>
+        <name>sendReply</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+          <declname>Instruction</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>iParam</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>fParam</declname>
+        </param>
+        <param>
+          <type>volatile char</type>
+          <declname>InstructionString</declname>
+          <array>[SLAVE_COMMMAND_STRING_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Send a reply to the request recieved from master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Assembles the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object from the supplied parameters. Overloaded. Note the need for the char* to be defined locally as volatile char[]. Cannot pass string literals. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="163" column="1" bodyfile="Master.cpp" bodystart="281" bodyend="293"/>
+        <references refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" compoundref="_s_p_i___instruction_set_8h" startline="43">SLAVE_COMMMAND_STRING_LENGTH</references>
+        <references refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" compoundref="_s_p_i___instruction_set_8h" startline="59">sCmd::sParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a7e73d29d4d8d714b9c5ea69f18cad396" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendData</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>sendData</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Sends the local <ref refid="struct_data" kindref="compound">Data</ref> object to the master in reply to appropriate request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends <ref refid="struct_data" kindref="compound">Data</ref> object to the master in reponse to a request made by the master for <ref refid="struct_data" kindref="compound">Data</ref>. NOTE: This must be used as the response to the appropriate mInstruct request. In paricular, (mInstruct)SendDataPlease </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="170" column="1" bodyfile="Master.cpp" bodystart="296" bodyend="298"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a9ebd71ad45ea73524c87724b9c5e5e2f" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendIdentity</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>sendIdentity</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Sends slave <ref refid="struct_identity" kindref="compound">Identity</ref> object to the master in reply to appropriate request. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends the slave <ref refid="struct_identity" kindref="compound">Identity</ref> object in response to an appropriate request made by master. NOTE: This must be used as the response to the appropriate mInstruct request. In paricular, (mInstruct)WhoAreYou </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="176" column="1" bodyfile="Master.cpp" bodystart="300" bodyend="302"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1ac907bfa48b84098a906c63c933cc373d" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PushMeasurementVector</definition>
+        <argsstring>(const MeasurementVectors VectorNumber, const float Measurement) volatile</argsstring>
+        <name>PushMeasurementVector</name>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref></type>
+          <declname>VectorNumber</declname>
+        </param>
+        <param>
+          <type>const float</type>
+          <declname>Measurement</declname>
+        </param>
+        <briefdescription>
+<para>Pushes a data point onto one of the data vectors. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Adds a data point to the next available slot in a particular vector until the vector (row) in the data array is full. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VectorNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the enumerated reference to the row/vector in the data array being accessed. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Measurement</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the data point to be stored. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>False if the vector/row in question is full. (See DATA_ROW_LENGTH). </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="186" column="1" bodyfile="Master.cpp" bodystart="305" bodyend="331"/>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" compoundref="_s_p_i___instruction_set_8h" startline="249">First</references>
+        <references refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" compoundref="_s_p_i___instruction_set_8h" startline="188">Data::NumColumns</references>
+        <references refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" compoundref="_s_p_i___instruction_set_8h" startline="180">DATA_ROW_LENGTH</references>
+        <references refid="struct_data_1a1984363a7b509590c1bae03601360a0e" compoundref="_s_p_i___instruction_set_8h" startline="196">Data::DataPoints</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" compoundref="_s_p_i___instruction_set_8h" startline="250">Second</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" compoundref="_s_p_i___instruction_set_8h" startline="251">Third</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1ad64bb8e32e356747d0f80fce966a3574" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool PopMeasurementVector</definition>
+        <argsstring>(MeasurementVectors VectorNumber) volatile</argsstring>
+        <name>PopMeasurementVector</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref></type>
+          <declname>VectorNumber</declname>
+        </param>
+        <briefdescription>
+<para>Pops a data point from the tail end of a designated vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Removes the most recent data point from the vector in question by marking said data slot writeable to be the next <ref refid="class_master_1ac907bfa48b84098a906c63c933cc373d" kindref="member">PushMeasurementVector()</ref>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VectorNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the enumerated reference to the row/vector in the data array being accessed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>False if the vector/row in question is empty. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="193" column="1" bodyfile="Master.cpp" bodystart="333" bodyend="356"/>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" compoundref="_s_p_i___instruction_set_8h" startline="249">First</references>
+        <references refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" compoundref="_s_p_i___instruction_set_8h" startline="188">Data::NumColumns</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" compoundref="_s_p_i___instruction_set_8h" startline="250">Second</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" compoundref="_s_p_i___instruction_set_8h" startline="251">Third</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a94625b59aceffeceeae3b050885968ef" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void ClearMeasurementVector</definition>
+        <argsstring>(MeasurementVectors VectorNumber) volatile</argsstring>
+        <name>ClearMeasurementVector</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref></type>
+          <declname>VectorNumber</declname>
+        </param>
+        <briefdescription>
+<para>Clears all data points from a particular vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VectorNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the enumerated reference to the row/vector in the data array being accessed. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="198" column="1" bodyfile="Master.cpp" bodystart="358" bodyend="376"/>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" compoundref="_s_p_i___instruction_set_8h" startline="249">First</references>
+        <references refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" compoundref="_s_p_i___instruction_set_8h" startline="188">Data::NumColumns</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" compoundref="_s_p_i___instruction_set_8h" startline="250">Second</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" compoundref="_s_p_i___instruction_set_8h" startline="251">Third</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a49e434ca3d09d56bac2a2d45c86661ac" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setMeasurementVectorHeading</definition>
+        <argsstring>(MeasurementVectors VectorNumber, volatile char Heading[ROW_HEADING_LENGTH]) volatile</argsstring>
+        <name>setMeasurementVectorHeading</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref></type>
+          <declname>VectorNumber</declname>
+        </param>
+        <param>
+          <type>volatile char</type>
+          <declname>Heading</declname>
+          <array>[ROW_HEADING_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Sets the string heading assigned to a paritcular data vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>NOTE: The Heading parameter must be declared locally as volatile char[]. Literal strings cannot be passed to this function. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VectorNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the enumerated reference to the row/vector in the data array in question. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Heading[]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the character array containing the string heading. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="205" column="1" bodyfile="Master.cpp" bodystart="378" bodyend="405"/>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" compoundref="_s_p_i___instruction_set_8h" startline="249">First</references>
+        <references refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" compoundref="_s_p_i___instruction_set_8h" startline="178">ROW_HEADING_LENGTH</references>
+        <references refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" compoundref="_s_p_i___instruction_set_8h" startline="192">Data::RowHeadings</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" compoundref="_s_p_i___instruction_set_8h" startline="250">Second</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" compoundref="_s_p_i___instruction_set_8h" startline="251">Third</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a5f955da291f31441d726c4ded74c32bd" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void setMeasurementVectorUnits</definition>
+        <argsstring>(MeasurementVectors VectorNumber, volatile char Units[ROW_UNIT_LENGTH]) volatile</argsstring>
+        <name>setMeasurementVectorUnits</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref></type>
+          <declname>VectorNumber</declname>
+        </param>
+        <param>
+          <type>volatile char</type>
+          <declname>Units</declname>
+          <array>[ROW_UNIT_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Sets the string Units assigned to a paritcular data vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>NOTE: The Units parameter must be declared locally as volatile char[]. Literal strings cannot be passed to this function. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VectorNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the enumerated reference to the row/vector in the data array in question. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>Units[]</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the character array containing the string heading. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="212" column="1" bodyfile="Master.cpp" bodystart="407" bodyend="434"/>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" compoundref="_s_p_i___instruction_set_8h" startline="249">First</references>
+        <references refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" compoundref="_s_p_i___instruction_set_8h" startline="179">ROW_UNIT_LENGTH</references>
+        <references refid="struct_data_1a004891d89fb41172310a55947f922a54" compoundref="_s_p_i___instruction_set_8h" startline="194">Data::rowUnits</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" compoundref="_s_p_i___instruction_set_8h" startline="250">Second</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" compoundref="_s_p_i___instruction_set_8h" startline="251">Third</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a23536349ac40fc9cc030e9bc5d0c5945" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isThereData</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>isThereData</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Checks to see whether any data has been pushed to any of the data vectors locally. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if any data points exist in the data vectors locally. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="217" column="1" bodyfile="Master.cpp" bodystart="436" bodyend="443"/>
+        <references refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" compoundref="_s_p_i___instruction_set_8h" startline="188">Data::NumColumns</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" compoundref="_s_p_i___instruction_set_8h" startline="249">First</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" compoundref="_s_p_i___instruction_set_8h" startline="250">Second</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" compoundref="_s_p_i___instruction_set_8h" startline="251">Third</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1aa68bb1327d506c42b6b7ab54fd73ca62" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void sendTotalNumOfInstructions</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>sendTotalNumOfInstructions</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Sends a reply to <ref refid="class_master" kindref="compound">Master</ref> specifiying the total number of instructions in a measurement procedure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="221" column="1" bodyfile="Master.cpp" bodystart="446" bodyend="448"/>
+        <references refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" compoundref="_master_8cpp" startline="214" endline="217">sendReply</references>
+        <references refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47ac5878118d3538835789584340c0d2eaa" compoundref="_s_p_i___instruction_set_8h" startline="18">ReferToInt</references>
+        <references refid="struct_user_instructions_1a801574205a73598195471b820f1763be" compoundref="_master_8h" startline="14">UserInstructions::NumOfInstructions</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a250b4f7cdb96abb0be9ffdc54d00be31" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>int getCurrentInstructionNumber</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>getCurrentInstructionNumber</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Gets the value of the counter which tracks the current instruction number throughout the measurement procedure. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="223" column="1" bodyfile="Master.cpp" bodystart="450" bodyend="452"/>
+        <references refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" compoundref="_master_8h" startline="15">UserInstructions::InstructionCounter</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool sendNextUserInstruction</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>sendNextUserInstruction</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Sends the next instruction in the measurement cycle to the master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends the next instruction in the measurement cycle array in reponse to the appropriate request from master. Specifically, (mInstruct)NextCommandPlease. This method will auto-advance the measurement cycle to the next instruction and re-define the &apos;current instruction&apos;. <simplesect kind="return"><para>False if the final instruction in the measurement procedure has already been sent and the measurement procedure is now complete. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="230" column="1" bodyfile="Master.cpp" bodystart="454" bodyend="466"/>
+        <references refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" compoundref="_master_8h" startline="15">UserInstructions::InstructionCounter</references>
+        <references refid="struct_user_instructions_1a801574205a73598195471b820f1763be" compoundref="_master_8h" startline="14">UserInstructions::NumOfInstructions</references>
+        <references refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" compoundref="_master_8cpp" startline="214" endline="217">sendReply</references>
+        <references refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" compoundref="_master_8h" startline="17">UserInstructions::MasterInstructionSet</references>
+        <references refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" compoundref="_master_8h" startline="18">UserInstructions::iParams</references>
+        <references refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" compoundref="_master_8h" startline="19">UserInstructions::fParams</references>
+        <references refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" compoundref="_master_8h" startline="16">UserInstructions::InstructionSet</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a8a9c9670d31af14e65157879963e0cf1" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void resendCurrentUserInstruction</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>resendCurrentUserInstruction</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Resends the cuurent instruction in the measurement procedure to the master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>This method will NOT advance the measurement cycle. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="235" column="1" bodyfile="Master.cpp" bodystart="468" bodyend="471"/>
+        <references refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" compoundref="_master_8h" startline="15">UserInstructions::InstructionCounter</references>
+        <references refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" compoundref="_master_8cpp" startline="214" endline="217">sendReply</references>
+        <references refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" compoundref="_master_8h" startline="17">UserInstructions::MasterInstructionSet</references>
+        <references refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" compoundref="_master_8h" startline="18">UserInstructions::iParams</references>
+        <references refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" compoundref="_master_8h" startline="19">UserInstructions::fParams</references>
+        <references refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" compoundref="_master_8h" startline="16">UserInstructions::InstructionSet</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1ad50d30dbd09d40661bbdbc1527ff07bf" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void restartUserInstructionCycle</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>restartUserInstructionCycle</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Restarts the measurement prcedure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Restarts the measuement procedure such that the next instruction sent will be the first instruction in the measurement cycle. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="240" column="1" bodyfile="Master.cpp" bodystart="473" bodyend="475"/>
+        <references refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" compoundref="_master_8h" startline="15">UserInstructions::InstructionCounter</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>void beginMeasurement</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>beginMeasurement</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Updates state to indicate that <ref refid="class_master" kindref="compound">Master</ref> has requested the intitiation of the measurement procedure. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Designed to allow the IRQ to update the slave state so that the procedural code in main() can initiate the measurement procedure. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="245" column="1" bodyfile="Master.cpp" bodystart="477" bodyend="480"/>
+        <references refid="_master_8cpp_1add0af7125a2b3940fa0497e88b5906c2" compoundref="_master_8cpp" startline="516">SensorMaster</references>
+        <references refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" compoundref="_master_8cpp" startline="214" endline="217">sendReply</references>
+        <references refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e" compoundref="_s_p_i___instruction_set_8h" startline="14">ACK</references>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a5d83f02bd26fbe40f249c052454b327b" prot="public" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool shallIStart</definition>
+        <argsstring>(void) volatile</argsstring>
+        <name>shallIStart</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Checks whether the <ref refid="class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c" kindref="member">beginMeasurement()</ref> method has been called. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Allows procedural code in main() to determine whether the system state has changed during an interrupt in response to a request by the master to initiate the measurement procedure. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="251" column="1" bodyfile="Master.cpp" bodystart="482" bodyend="490"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_master_1a5f512e16b95e40713e16ef27e2f15fbc" prot="private" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>unsigned int</type>
+        <definition>unsigned int SPI_write</definition>
+        <argsstring>(const T &amp;value) volatile</argsstring>
+        <name>SPI_write</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="256" column="1" bodyfile="Master.cpp" bodystart="496" bodyend="502"/>
+      </memberdef>
+      <memberdef kind="function" id="class_master_1a65e9ceb6bcd2dd544a68ccbe7c6daa43" prot="private" static="no" const="no" explicit="no" inline="no" volatile="yes" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>unsigned int</type>
+        <definition>unsigned int SPI_read</definition>
+        <argsstring>(T &amp;value) volatile</argsstring>
+        <name>SPI_read</name>
+        <param>
+          <type>T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="257" column="1" bodyfile="Master.cpp" bodystart="505" bodyend="511"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A monolithic class to encapsulate and abstract the slave&apos;s communication with the master. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>A single transaction is characterised by the following flow of control: Clear SS -&gt; Enter IRQ -&gt; Recieve &apos;?&apos; from master -&gt; send &apos;ACK&apos; (0x06) to master -&gt; recieve request <ref refid="structm_cmd" kindref="compound">mCmd</ref> -&gt; send sCmd/Data/Identity as expected -&gt; exit IRQ. Where <ref refid="structm_cmd" kindref="compound">mCmd</ref>, <ref refid="structs_cmd" kindref="compound">sCmd</ref>, <ref refid="struct_data" kindref="compound">Data</ref> and <ref refid="struct_identity" kindref="compound">Identity</ref> are structures defined as types. The intial Recieve &apos;?&apos; -&gt; send &apos;ACK&apos; is known as the handshake. This class&apos; responsibilities include intitialising and handling the SPI, attaching the interrupt and providing the IRQ, managing the handshake and encapsulating the reponse mechanism. Note the use of a volatile interface to allow for safe use of the interrupt. </para>
+    </detaileddescription>
+    <location file="Master.h" line="61" column="1" bodyfile="Master.h" bodystart="60" bodyend="266"/>
+    <listofallmembers>
+      <member refid="class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c" prot="public" virt="non-virtual"><scope>Master</scope><name>beginMeasurement</name></member>
+      <member refid="class_master_1abec6a5b26c05771f7e9f0943ac9db6d7" prot="private" virt="non-virtual"><scope>Master</scope><name>beginMeasurementYet</name></member>
+      <member refid="class_master_1a94625b59aceffeceeae3b050885968ef" prot="public" virt="non-virtual"><scope>Master</scope><name>ClearMeasurementVector</name></member>
+      <member refid="class_master_1a260afb14cd2fbe1b90ae67f9c69a78a5" prot="private" virt="non-virtual"><scope>Master</scope><name>CurrentRequest</name></member>
+      <member refid="class_master_1af892816882821b107d888f3fe3d7dddd" prot="public" virt="non-virtual"><scope>Master</scope><name>getCurrentInstruction</name></member>
+      <member refid="class_master_1a32c23c46b93673a8817bf54cf4a52372" prot="public" virt="non-virtual"><scope>Master</scope><name>getCurrentInstructionFloatParameter</name></member>
+      <member refid="class_master_1a918b5964fa7cfc2ef6cf54960a80ced5" prot="public" virt="non-virtual"><scope>Master</scope><name>getCurrentInstructionIntParameter</name></member>
+      <member refid="class_master_1a250b4f7cdb96abb0be9ffdc54d00be31" prot="public" virt="non-virtual"><scope>Master</scope><name>getCurrentInstructionNumber</name></member>
+      <member refid="class_master_1a2bc479ad10a53f31c4833668cc9cfac4" prot="public" virt="non-virtual"><scope>Master</scope><name>Handshake</name></member>
+      <member refid="class_master_1a23536349ac40fc9cc030e9bc5d0c5945" prot="public" virt="non-virtual"><scope>Master</scope><name>isThereData</name></member>
+      <member refid="class_master_1a3a3fce38be9020bb12ab595c4adc59ed" prot="public" virt="non-virtual"><scope>Master</scope><name>loadRequest</name></member>
+      <member refid="class_master_1afd2e9903066a53c737be92639cfa15b0" prot="public" virt="non-virtual"><scope>Master</scope><name>Master</name></member>
+      <member refid="class_master_1a89241ed8839b9fe5ec29d904630a9d3e" prot="public" virt="non-virtual"><scope>Master</scope><name>Master</name></member>
+      <member refid="class_master_1a339116daf8910b52da4d608c8c7b3944" prot="public" virt="non-virtual"><scope>Master</scope><name>Master</name></member>
+      <member refid="class_master_1a20caba1a12c946e5c8cf408152fc8da2" prot="private" virt="non-virtual"><scope>Master</scope><name>MeasurementData</name></member>
+      <member refid="class_master_1a54259c8db640b88dcf5de5594a947b1c" prot="public" virt="non-virtual"><scope>Master</scope><name>operator=</name></member>
+      <member refid="class_master_1a0ce51778d73a67179e58ecc6e136bef9" prot="public" virt="non-virtual"><scope>Master</scope><name>operator=</name></member>
+      <member refid="class_master_1ad64bb8e32e356747d0f80fce966a3574" prot="public" virt="non-virtual"><scope>Master</scope><name>PopMeasurementVector</name></member>
+      <member refid="class_master_1ac907bfa48b84098a906c63c933cc373d" prot="public" virt="non-virtual"><scope>Master</scope><name>PushMeasurementVector</name></member>
+      <member refid="class_master_1a8a9c9670d31af14e65157879963e0cf1" prot="public" virt="non-virtual"><scope>Master</scope><name>resendCurrentUserInstruction</name></member>
+      <member refid="class_master_1ad50d30dbd09d40661bbdbc1527ff07bf" prot="public" virt="non-virtual"><scope>Master</scope><name>restartUserInstructionCycle</name></member>
+      <member refid="class_master_1a7e73d29d4d8d714b9c5ea69f18cad396" prot="public" virt="non-virtual"><scope>Master</scope><name>sendData</name></member>
+      <member refid="class_master_1a9ebd71ad45ea73524c87724b9c5e5e2f" prot="public" virt="non-virtual"><scope>Master</scope><name>sendIdentity</name></member>
+      <member refid="class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a" prot="public" virt="non-virtual"><scope>Master</scope><name>sendNextUserInstruction</name></member>
+      <member refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" prot="public" virt="non-virtual"><scope>Master</scope><name>sendReply</name></member>
+      <member refid="class_master_1a109e347c1b70f26a82d48dfb13af3fe8" prot="public" virt="non-virtual"><scope>Master</scope><name>sendReply</name></member>
+      <member refid="class_master_1abebea7ffc56886ac9b59980312ea19f9" prot="public" virt="non-virtual"><scope>Master</scope><name>sendReply</name></member>
+      <member refid="class_master_1a26d84a77b85fdd81db98ccd23d0e882f" prot="public" virt="non-virtual"><scope>Master</scope><name>sendReply</name></member>
+      <member refid="class_master_1a68d7ac6a3680ac2b4c3620b6e175d97f" prot="public" virt="non-virtual"><scope>Master</scope><name>sendReply</name></member>
+      <member refid="class_master_1aa0f969c879b7d6ca105162ea2ca2c87e" prot="public" virt="non-virtual"><scope>Master</scope><name>sendReply</name></member>
+      <member refid="class_master_1a075da7da71f50da0a5973ff65cc1a485" prot="public" virt="non-virtual"><scope>Master</scope><name>sendReply</name></member>
+      <member refid="class_master_1acca62a1478bc305cdd8496f684ea3f9d" prot="public" virt="non-virtual"><scope>Master</scope><name>sendReply</name></member>
+      <member refid="class_master_1a88fd38997e4ee0c26fd09a85477487fa" prot="public" virt="non-virtual"><scope>Master</scope><name>sendReply</name></member>
+      <member refid="class_master_1aa68bb1327d506c42b6b7ab54fd73ca62" prot="public" virt="non-virtual"><scope>Master</scope><name>sendTotalNumOfInstructions</name></member>
+      <member refid="class_master_1a49e434ca3d09d56bac2a2d45c86661ac" prot="public" virt="non-virtual"><scope>Master</scope><name>setMeasurementVectorHeading</name></member>
+      <member refid="class_master_1a5f955da291f31441d726c4ded74c32bd" prot="public" virt="non-virtual"><scope>Master</scope><name>setMeasurementVectorUnits</name></member>
+      <member refid="class_master_1a5af38dc77ec10af275ed892e756aee64" prot="public" virt="non-virtual"><scope>Master</scope><name>SETUP</name></member>
+      <member refid="class_master_1a5d83f02bd26fbe40f249c052454b327b" prot="public" virt="non-virtual"><scope>Master</scope><name>shallIStart</name></member>
+      <member refid="class_master_1a65e9ceb6bcd2dd544a68ccbe7c6daa43" prot="private" virt="non-virtual"><scope>Master</scope><name>SPI_read</name></member>
+      <member refid="class_master_1a5f512e16b95e40713e16ef27e2f15fbc" prot="private" virt="non-virtual"><scope>Master</scope><name>SPI_write</name></member>
+      <member refid="class_master_1a23aca637cd51c40ae469a9ee48725edf" prot="public" virt="non-virtual"><scope>Master</scope><name>SPISetup</name></member>
+      <member refid="class_master_1a53d49f548ccfefd7f2e955cd226a4392" prot="private" virt="non-virtual"><scope>Master</scope><name>ThisSensorID</name></member>
+      <member refid="class_master_1a99b6912a8b53fd0199409b5d1e10ae04" prot="private" virt="non-virtual"><scope>Master</scope><name>UserInstructionSet</name></member>
+      <member refid="class_master_1a58d721f62d1c8bbf84840b864f2e482a" prot="public" virt="non-virtual"><scope>Master</scope><name>~Master</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

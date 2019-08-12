@@ -1,0 +1,597 @@
+\hypertarget{class_master}{}\section{Master Class Reference}
+\label{class_master}\index{Master@{Master}}
+
+
+A monolithic class to encapsulate and abstract the slave\textquotesingle{}s communication with the master.  
+
+
+
+
+{\ttfamily \#include $<$Master.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_master_afd2e9903066a53c737be92639cfa15b0}{Master}} (const int Sensor\+I\+D\+Number, const char Sensor\+Name\mbox{[}$\,$\mbox{]}, const char Instruction\+Set\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afb2f23f8980c03317ec47ce151335ec7}{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}, const int Number\+Of\+Instructions, const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} Master\+Instruction\+Set\mbox{[}$\,$\mbox{]}, const int int\+Params\mbox{[}$\,$\mbox{]}, const float float\+Params\mbox{[}$\,$\mbox{]})
+\item 
+\mbox{\hyperlink{class_master_a89241ed8839b9fe5ec29d904630a9d3e}{Master}} (void)
+\item 
+\mbox{\hyperlink{class_master_a58d721f62d1c8bbf84840b864f2e482a}{$\sim$\+Master}} (void)
+\item 
+\mbox{\hyperlink{class_master_a339116daf8910b52da4d608c8c7b3944}{Master}} (volatile const \mbox{\hyperlink{class_master}{Master}} \&)
+\item 
+volatile \mbox{\hyperlink{class_master}{Master}} \& \mbox{\hyperlink{class_master_a54259c8db640b88dcf5de5594a947b1c}{operator=}} (const \mbox{\hyperlink{class_master}{Master}} \&rhs) volatile
+\item 
+volatile \mbox{\hyperlink{class_master}{Master}} \& \mbox{\hyperlink{class_master_a0ce51778d73a67179e58ecc6e136bef9}{operator=}} (volatile const \mbox{\hyperlink{class_master}{Master}} \&rhs) volatile
+\item 
+void \mbox{\hyperlink{class_master_a5af38dc77ec10af275ed892e756aee64}{S\+E\+T\+UP}} (const int Sensor\+I\+D\+Number, volatile char Sensor\+Name\mbox{[}$\,$\mbox{]}, volatile char Instruction\+Set\mbox{[}$\,$\mbox{]}\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afb2f23f8980c03317ec47ce151335ec7}{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}, const int Number\+Of\+Instructions, volatile \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} Master\+Instruction\+Set\mbox{[}$\,$\mbox{]}, volatile int int\+Params\mbox{[}$\,$\mbox{]}, volatile float float\+Params\mbox{[}$\,$\mbox{]}) volatile
+\begin{DoxyCompactList}\small\item\em Set up of the commuication mechanism. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a23aca637cd51c40ae469a9ee48725edf}{S\+P\+I\+Setup}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Sets up S\+PI and attaches interrupt. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_master_a2bc479ad10a53f31c4833668cc9cfac4}{Handshake}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Manages the handshake component of any transaction. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structm_cmd}{m\+Cmd}} \mbox{\hyperlink{class_master_a3a3fce38be9020bb12ab595c4adc59ed}{load\+Request}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Retrieve the request sent by the master. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}} \mbox{\hyperlink{class_master_af892816882821b107d888f3fe3d7dddd}{get\+Current\+Instruction}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Returns the m\+Instruct component of the most recently loaded request sent by the master. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_master_a918b5964fa7cfc2ef6cf54960a80ced5}{get\+Current\+Instruction\+Int\+Parameter}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Returns the integer parameter of the most recently loaded request sent by the master. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_master_a32c23c46b93673a8817bf54cf4a52372}{get\+Current\+Instruction\+Float\+Parameter}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Returns the floating point parameter of the most recently loaded request sent by the master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a7d0570bae901dbbd7c88db131fea03c5}{send\+Reply}} (const \mbox{\hyperlink{structs_cmd}{s\+Cmd}} Reply) volatile
+\begin{DoxyCompactList}\small\item\em Send an \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object in reply to the request recieved from \mbox{\hyperlink{class_master}{Master}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a109e347c1b70f26a82d48dfb13af3fe8}{send\+Reply}} (const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} Instruction) volatile
+\begin{DoxyCompactList}\small\item\em Send a reply to the request recieved from master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_abebea7ffc56886ac9b59980312ea19f9}{send\+Reply}} (const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} Instruction, volatile char Instruction\+String\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afb2f23f8980c03317ec47ce151335ec7}{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}) volatile
+\begin{DoxyCompactList}\small\item\em Send a reply to the request recieved from master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a26d84a77b85fdd81db98ccd23d0e882f}{send\+Reply}} (const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} Instruction, const int i\+Param) volatile
+\begin{DoxyCompactList}\small\item\em Send a reply to the request recieved from master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a68d7ac6a3680ac2b4c3620b6e175d97f}{send\+Reply}} (const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} Instruction, const float f\+Param) volatile
+\begin{DoxyCompactList}\small\item\em Send a reply to the request recieved from master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_aa0f969c879b7d6ca105162ea2ca2c87e}{send\+Reply}} (const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} Instruction, const int i\+Param, const int f\+Param) volatile
+\begin{DoxyCompactList}\small\item\em Send a reply to the request recieved from master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a075da7da71f50da0a5973ff65cc1a485}{send\+Reply}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} Instruction, int i\+Param, volatile char Instruction\+String\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afb2f23f8980c03317ec47ce151335ec7}{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}) volatile
+\begin{DoxyCompactList}\small\item\em Send a reply to the request recieved from master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_acca62a1478bc305cdd8496f684ea3f9d}{send\+Reply}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} Instruction, float f\+Param, volatile char Instruction\+String\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afb2f23f8980c03317ec47ce151335ec7}{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}) volatile
+\begin{DoxyCompactList}\small\item\em Send a reply to the request recieved from master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a88fd38997e4ee0c26fd09a85477487fa}{send\+Reply}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} Instruction, int i\+Param, float f\+Param, volatile char Instruction\+String\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afb2f23f8980c03317ec47ce151335ec7}{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}) volatile
+\begin{DoxyCompactList}\small\item\em Send a reply to the request recieved from master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a7e73d29d4d8d714b9c5ea69f18cad396}{send\+Data}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Sends the local \mbox{\hyperlink{struct_data}{Data}} object to the master in reply to appropriate request. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a9ebd71ad45ea73524c87724b9c5e5e2f}{send\+Identity}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Sends slave \mbox{\hyperlink{struct_identity}{Identity}} object to the master in reply to appropriate request. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_master_ac907bfa48b84098a906c63c933cc373d}{Push\+Measurement\+Vector}} (const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} Vector\+Number, const float Measurement) volatile
+\begin{DoxyCompactList}\small\item\em Pushes a data point onto one of the data vectors. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_master_ad64bb8e32e356747d0f80fce966a3574}{Pop\+Measurement\+Vector}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} Vector\+Number) volatile
+\begin{DoxyCompactList}\small\item\em Pops a data point from the tail end of a designated vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a94625b59aceffeceeae3b050885968ef}{Clear\+Measurement\+Vector}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} Vector\+Number) volatile
+\begin{DoxyCompactList}\small\item\em Clears all data points from a particular vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a49e434ca3d09d56bac2a2d45c86661ac}{set\+Measurement\+Vector\+Heading}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} Vector\+Number, volatile char Heading\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a63a97a0fe356d1b3030dfb633e0d0b8e}{R\+O\+W\+\_\+\+H\+E\+A\+D\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}) volatile
+\begin{DoxyCompactList}\small\item\em Sets the string heading assigned to a paritcular data vector. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a5f955da291f31441d726c4ded74c32bd}{set\+Measurement\+Vector\+Units}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} Vector\+Number, volatile char Units\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_af45194e4246701e52a2d67f27cc3ffb8}{R\+O\+W\+\_\+\+U\+N\+I\+T\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}) volatile
+\begin{DoxyCompactList}\small\item\em Sets the string Units assigned to a paritcular data vector. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_master_a23536349ac40fc9cc030e9bc5d0c5945}{is\+There\+Data}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Checks to see whether any data has been pushed to any of the data vectors locally. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_aa68bb1327d506c42b6b7ab54fd73ca62}{send\+Total\+Num\+Of\+Instructions}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Sends a reply to \mbox{\hyperlink{class_master}{Master}} specifiying the total number of instructions in a measurement procedure. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_master_a250b4f7cdb96abb0be9ffdc54d00be31}{get\+Current\+Instruction\+Number}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Gets the value of the counter which tracks the current instruction number throughout the measurement procedure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_master_a6445732d38d6bac09ab8c8bd66bd4e2a}{send\+Next\+User\+Instruction}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Sends the next instruction in the measurement cycle to the master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a8a9c9670d31af14e65157879963e0cf1}{resend\+Current\+User\+Instruction}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Resends the cuurent instruction in the measurement procedure to the master. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_ad50d30dbd09d40661bbdbc1527ff07bf}{restart\+User\+Instruction\+Cycle}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Restarts the measurement prcedure. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_master_a89cc4d6f65ee9922711cde4ed4bdf31c}{begin\+Measurement}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Updates state to indicate that \mbox{\hyperlink{class_master}{Master}} has requested the intitiation of the measurement procedure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_master_a5d83f02bd26fbe40f249c052454b327b}{shall\+I\+Start}} (void) volatile
+\begin{DoxyCompactList}\small\item\em Checks whether the \mbox{\hyperlink{class_master_a89cc4d6f65ee9922711cde4ed4bdf31c}{begin\+Measurement()}} method has been called. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A monolithic class to encapsulate and abstract the slave\textquotesingle{}s communication with the master. 
+
+A single transaction is characterised by the following flow of control\+: Clear SS -\/$>$ Enter I\+RQ -\/$>$ Recieve \textquotesingle{}?\textquotesingle{} from master -\/$>$ send \textquotesingle{}A\+CK\textquotesingle{} (0x06) to master -\/$>$ recieve request \mbox{\hyperlink{structm_cmd}{m\+Cmd}} -\/$>$ send s\+Cmd/\+Data/\+Identity as expected -\/$>$ exit I\+RQ. Where \mbox{\hyperlink{structm_cmd}{m\+Cmd}}, \mbox{\hyperlink{structs_cmd}{s\+Cmd}}, \mbox{\hyperlink{struct_data}{Data}} and \mbox{\hyperlink{struct_identity}{Identity}} are structures defined as types. The intial Recieve \textquotesingle{}?\textquotesingle{} -\/$>$ send \textquotesingle{}A\+CK\textquotesingle{} is known as the handshake. This class\textquotesingle{} responsibilities include intitialising and handling the S\+PI, attaching the interrupt and providing the I\+RQ, managing the handshake and encapsulating the reponse mechanism. Note the use of a volatile interface to allow for safe use of the interrupt. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_master_afd2e9903066a53c737be92639cfa15b0}\label{class_master_afd2e9903066a53c737be92639cfa15b0}} 
+\index{Master@{Master}!Master@{Master}}
+\index{Master@{Master}!Master@{Master}}
+\subsubsection{\texorpdfstring{Master()}{Master()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_master}{Master}} (\begin{DoxyParamCaption}\item[{const int}]{Sensor\+I\+D\+Number,  }\item[{const char}]{Sensor\+Name\mbox{[}$\,$\mbox{]},  }\item[{const char}]{Instruction\+Set\mbox{[}$\,$\mbox{]}\mbox{[}\+S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]},  }\item[{const int}]{Number\+Of\+Instructions,  }\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}}}]{Master\+Instruction\+Set\mbox{[}$\,$\mbox{]},  }\item[{const int}]{int\+Params\mbox{[}$\,$\mbox{]},  }\item[{const float}]{float\+Params\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_master_a89241ed8839b9fe5ec29d904630a9d3e}\label{class_master_a89241ed8839b9fe5ec29d904630a9d3e}} 
+\index{Master@{Master}!Master@{Master}}
+\index{Master@{Master}!Master@{Master}}
+\subsubsection{\texorpdfstring{Master()}{Master()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_master}{Master}} (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_master_a58d721f62d1c8bbf84840b864f2e482a}\label{class_master_a58d721f62d1c8bbf84840b864f2e482a}} 
+\index{Master@{Master}!````~Master@{$\sim$Master}}
+\index{````~Master@{$\sim$Master}!Master@{Master}}
+\subsubsection{\texorpdfstring{$\sim$Master()}{~Master()}}
+{\footnotesize\ttfamily $\sim$\mbox{\hyperlink{class_master}{Master}} (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{class_master_a339116daf8910b52da4d608c8c7b3944}\label{class_master_a339116daf8910b52da4d608c8c7b3944}} 
+\index{Master@{Master}!Master@{Master}}
+\index{Master@{Master}!Master@{Master}}
+\subsubsection{\texorpdfstring{Master()}{Master()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_master}{Master}} (\begin{DoxyParamCaption}\item[{volatile const \mbox{\hyperlink{class_master}{Master}} \&}]{rhs }\end{DoxyParamCaption})}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_master_a89cc4d6f65ee9922711cde4ed4bdf31c}\label{class_master_a89cc4d6f65ee9922711cde4ed4bdf31c}} 
+\index{Master@{Master}!beginMeasurement@{beginMeasurement}}
+\index{beginMeasurement@{beginMeasurement}!Master@{Master}}
+\subsubsection{\texorpdfstring{beginMeasurement()}{beginMeasurement()}}
+{\footnotesize\ttfamily void begin\+Measurement (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Updates state to indicate that \mbox{\hyperlink{class_master}{Master}} has requested the intitiation of the measurement procedure. 
+
+Designed to allow the I\+RQ to update the slave state so that the procedural code in main() can initiate the measurement procedure. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{class_master_a89cc4d6f65ee9922711cde4ed4bdf31c_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_master_a94625b59aceffeceeae3b050885968ef}\label{class_master_a94625b59aceffeceeae3b050885968ef}} 
+\index{Master@{Master}!ClearMeasurementVector@{ClearMeasurementVector}}
+\index{ClearMeasurementVector@{ClearMeasurementVector}!Master@{Master}}
+\subsubsection{\texorpdfstring{ClearMeasurementVector()}{ClearMeasurementVector()}}
+{\footnotesize\ttfamily void Clear\+Measurement\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}}]{Vector\+Number }\end{DoxyParamCaption}) volatile}
+
+
+
+Clears all data points from a particular vector. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vector\+Number} & is the enumerated reference to the row/vector in the data array being accessed. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_master_af892816882821b107d888f3fe3d7dddd}\label{class_master_af892816882821b107d888f3fe3d7dddd}} 
+\index{Master@{Master}!getCurrentInstruction@{getCurrentInstruction}}
+\index{getCurrentInstruction@{getCurrentInstruction}!Master@{Master}}
+\subsubsection{\texorpdfstring{getCurrentInstruction()}{getCurrentInstruction()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}} get\+Current\+Instruction (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Returns the m\+Instruct component of the most recently loaded request sent by the master. 
+
+\mbox{\Hypertarget{class_master_a32c23c46b93673a8817bf54cf4a52372}\label{class_master_a32c23c46b93673a8817bf54cf4a52372}} 
+\index{Master@{Master}!getCurrentInstructionFloatParameter@{getCurrentInstructionFloatParameter}}
+\index{getCurrentInstructionFloatParameter@{getCurrentInstructionFloatParameter}!Master@{Master}}
+\subsubsection{\texorpdfstring{getCurrentInstructionFloatParameter()}{getCurrentInstructionFloatParameter()}}
+{\footnotesize\ttfamily float get\+Current\+Instruction\+Float\+Parameter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Returns the floating point parameter of the most recently loaded request sent by the master. 
+
+\mbox{\Hypertarget{class_master_a918b5964fa7cfc2ef6cf54960a80ced5}\label{class_master_a918b5964fa7cfc2ef6cf54960a80ced5}} 
+\index{Master@{Master}!getCurrentInstructionIntParameter@{getCurrentInstructionIntParameter}}
+\index{getCurrentInstructionIntParameter@{getCurrentInstructionIntParameter}!Master@{Master}}
+\subsubsection{\texorpdfstring{getCurrentInstructionIntParameter()}{getCurrentInstructionIntParameter()}}
+{\footnotesize\ttfamily int get\+Current\+Instruction\+Int\+Parameter (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Returns the integer parameter of the most recently loaded request sent by the master. 
+
+\mbox{\Hypertarget{class_master_a250b4f7cdb96abb0be9ffdc54d00be31}\label{class_master_a250b4f7cdb96abb0be9ffdc54d00be31}} 
+\index{Master@{Master}!getCurrentInstructionNumber@{getCurrentInstructionNumber}}
+\index{getCurrentInstructionNumber@{getCurrentInstructionNumber}!Master@{Master}}
+\subsubsection{\texorpdfstring{getCurrentInstructionNumber()}{getCurrentInstructionNumber()}}
+{\footnotesize\ttfamily int get\+Current\+Instruction\+Number (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Gets the value of the counter which tracks the current instruction number throughout the measurement procedure. 
+
+\mbox{\Hypertarget{class_master_a2bc479ad10a53f31c4833668cc9cfac4}\label{class_master_a2bc479ad10a53f31c4833668cc9cfac4}} 
+\index{Master@{Master}!Handshake@{Handshake}}
+\index{Handshake@{Handshake}!Master@{Master}}
+\subsubsection{\texorpdfstring{Handshake()}{Handshake()}}
+{\footnotesize\ttfamily bool Handshake (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Manages the handshake component of any transaction. 
+
+Manages the handshake between master and slave; defined by\+: Recieve \textquotesingle{}?\textquotesingle{} -\/$>$ send \textquotesingle{}A\+CK\textquotesingle{} (0x06). \begin{DoxyReturn}{Returns}
+True if the handshake was successful. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=235pt]{class_master_a2bc479ad10a53f31c4833668cc9cfac4_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_master_a23536349ac40fc9cc030e9bc5d0c5945}\label{class_master_a23536349ac40fc9cc030e9bc5d0c5945}} 
+\index{Master@{Master}!isThereData@{isThereData}}
+\index{isThereData@{isThereData}!Master@{Master}}
+\subsubsection{\texorpdfstring{isThereData()}{isThereData()}}
+{\footnotesize\ttfamily bool is\+There\+Data (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Checks to see whether any data has been pushed to any of the data vectors locally. 
+
+\begin{DoxyReturn}{Returns}
+True if any data points exist in the data vectors locally. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_master_a3a3fce38be9020bb12ab595c4adc59ed}\label{class_master_a3a3fce38be9020bb12ab595c4adc59ed}} 
+\index{Master@{Master}!loadRequest@{loadRequest}}
+\index{loadRequest@{loadRequest}!Master@{Master}}
+\subsubsection{\texorpdfstring{loadRequest()}{loadRequest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structm_cmd}{m\+Cmd}} load\+Request (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Retrieve the request sent by the master. 
+
+After each handshake, the master will proceed to send a request, defined by an \mbox{\hyperlink{structm_cmd}{m\+Cmd}} object. This function must runafter each handshake. This function reassembles the \mbox{\hyperlink{structm_cmd}{m\+Cmd}} request sent by the master, byte by byte and stores it in local memory. \begin{DoxyReturn}{Returns}
+the \mbox{\hyperlink{structm_cmd}{m\+Cmd}} object sent by the master. 
+\end{DoxyReturn}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=241pt]{class_master_a3a3fce38be9020bb12ab595c4adc59ed_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_master_a54259c8db640b88dcf5de5594a947b1c}\label{class_master_a54259c8db640b88dcf5de5594a947b1c}} 
+\index{Master@{Master}!operator=@{operator=}}
+\index{operator=@{operator=}!Master@{Master}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{class_master}{Master}}\& operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_master}{Master}} \&}]{rhs }\end{DoxyParamCaption}) volatile\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_master_a0ce51778d73a67179e58ecc6e136bef9}\label{class_master_a0ce51778d73a67179e58ecc6e136bef9}} 
+\index{Master@{Master}!operator=@{operator=}}
+\index{operator=@{operator=}!Master@{Master}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{class_master}{Master}}\& operator= (\begin{DoxyParamCaption}\item[{volatile const \mbox{\hyperlink{class_master}{Master}} \&}]{rhs }\end{DoxyParamCaption}) volatile\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_master_ad64bb8e32e356747d0f80fce966a3574}\label{class_master_ad64bb8e32e356747d0f80fce966a3574}} 
+\index{Master@{Master}!PopMeasurementVector@{PopMeasurementVector}}
+\index{PopMeasurementVector@{PopMeasurementVector}!Master@{Master}}
+\subsubsection{\texorpdfstring{PopMeasurementVector()}{PopMeasurementVector()}}
+{\footnotesize\ttfamily bool Pop\+Measurement\+Vector (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}}]{Vector\+Number }\end{DoxyParamCaption}) volatile}
+
+
+
+Pops a data point from the tail end of a designated vector. 
+
+Removes the most recent data point from the vector in question by marking said data slot writeable to be the next \mbox{\hyperlink{class_master_ac907bfa48b84098a906c63c933cc373d}{Push\+Measurement\+Vector()}}. 
+\begin{DoxyParams}{Parameters}
+{\em Vector\+Number} & is the enumerated reference to the row/vector in the data array being accessed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False if the vector/row in question is empty. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_master_ac907bfa48b84098a906c63c933cc373d}\label{class_master_ac907bfa48b84098a906c63c933cc373d}} 
+\index{Master@{Master}!PushMeasurementVector@{PushMeasurementVector}}
+\index{PushMeasurementVector@{PushMeasurementVector}!Master@{Master}}
+\subsubsection{\texorpdfstring{PushMeasurementVector()}{PushMeasurementVector()}}
+{\footnotesize\ttfamily bool Push\+Measurement\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}}]{Vector\+Number,  }\item[{const float}]{Measurement }\end{DoxyParamCaption}) volatile}
+
+
+
+Pushes a data point onto one of the data vectors. 
+
+Adds a data point to the next available slot in a particular vector until the vector (row) in the data array is full. 
+\begin{DoxyParams}{Parameters}
+{\em Vector\+Number} & is the enumerated reference to the row/vector in the data array being accessed. \\
+\hline
+{\em Measurement} & is the data point to be stored. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+False if the vector/row in question is full. (See D\+A\+T\+A\+\_\+\+R\+O\+W\+\_\+\+L\+E\+N\+G\+TH). 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_master_a8a9c9670d31af14e65157879963e0cf1}\label{class_master_a8a9c9670d31af14e65157879963e0cf1}} 
+\index{Master@{Master}!resendCurrentUserInstruction@{resendCurrentUserInstruction}}
+\index{resendCurrentUserInstruction@{resendCurrentUserInstruction}!Master@{Master}}
+\subsubsection{\texorpdfstring{resendCurrentUserInstruction()}{resendCurrentUserInstruction()}}
+{\footnotesize\ttfamily void resend\+Current\+User\+Instruction (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Resends the cuurent instruction in the measurement procedure to the master. 
+
+This method will N\+OT advance the measurement cycle. Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{class_master_a8a9c9670d31af14e65157879963e0cf1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_master_ad50d30dbd09d40661bbdbc1527ff07bf}\label{class_master_ad50d30dbd09d40661bbdbc1527ff07bf}} 
+\index{Master@{Master}!restartUserInstructionCycle@{restartUserInstructionCycle}}
+\index{restartUserInstructionCycle@{restartUserInstructionCycle}!Master@{Master}}
+\subsubsection{\texorpdfstring{restartUserInstructionCycle()}{restartUserInstructionCycle()}}
+{\footnotesize\ttfamily void restart\+User\+Instruction\+Cycle (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Restarts the measurement prcedure. 
+
+Restarts the measuement procedure such that the next instruction sent will be the first instruction in the measurement cycle. \mbox{\Hypertarget{class_master_a7e73d29d4d8d714b9c5ea69f18cad396}\label{class_master_a7e73d29d4d8d714b9c5ea69f18cad396}} 
+\index{Master@{Master}!sendData@{sendData}}
+\index{sendData@{sendData}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendData()}{sendData()}}
+{\footnotesize\ttfamily void send\+Data (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Sends the local \mbox{\hyperlink{struct_data}{Data}} object to the master in reply to appropriate request. 
+
+Sends \mbox{\hyperlink{struct_data}{Data}} object to the master in reponse to a request made by the master for \mbox{\hyperlink{struct_data}{Data}}. N\+O\+TE\+: This must be used as the response to the appropriate m\+Instruct request. In paricular, (m\+Instruct)Send\+Data\+Please \mbox{\Hypertarget{class_master_a9ebd71ad45ea73524c87724b9c5e5e2f}\label{class_master_a9ebd71ad45ea73524c87724b9c5e5e2f}} 
+\index{Master@{Master}!sendIdentity@{sendIdentity}}
+\index{sendIdentity@{sendIdentity}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendIdentity()}{sendIdentity()}}
+{\footnotesize\ttfamily void send\+Identity (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Sends slave \mbox{\hyperlink{struct_identity}{Identity}} object to the master in reply to appropriate request. 
+
+Sends the slave \mbox{\hyperlink{struct_identity}{Identity}} object in response to an appropriate request made by master. N\+O\+TE\+: This must be used as the response to the appropriate m\+Instruct request. In paricular, (m\+Instruct)Who\+Are\+You \mbox{\Hypertarget{class_master_a6445732d38d6bac09ab8c8bd66bd4e2a}\label{class_master_a6445732d38d6bac09ab8c8bd66bd4e2a}} 
+\index{Master@{Master}!sendNextUserInstruction@{sendNextUserInstruction}}
+\index{sendNextUserInstruction@{sendNextUserInstruction}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendNextUserInstruction()}{sendNextUserInstruction()}}
+{\footnotesize\ttfamily bool send\+Next\+User\+Instruction (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Sends the next instruction in the measurement cycle to the master. 
+
+Sends the next instruction in the measurement cycle array in reponse to the appropriate request from master. Specifically, (m\+Instruct)Next\+Command\+Please. This method will auto-\/advance the measurement cycle to the next instruction and re-\/define the \textquotesingle{}current instruction\textquotesingle{}. \begin{DoxyReturn}{Returns}
+False if the final instruction in the measurement procedure has already been sent and the measurement procedure is now complete. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{class_master_a6445732d38d6bac09ab8c8bd66bd4e2a_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_master_a7d0570bae901dbbd7c88db131fea03c5}\label{class_master_a7d0570bae901dbbd7c88db131fea03c5}} 
+\index{Master@{Master}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendReply()}{sendReply()}\hspace{0.1cm}{\footnotesize\ttfamily [1/9]}}
+{\footnotesize\ttfamily void send\+Reply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structs_cmd}{s\+Cmd}}}]{Reply }\end{DoxyParamCaption}) volatile}
+
+
+
+Send an \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object in reply to the request recieved from \mbox{\hyperlink{class_master}{Master}}. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=321pt]{class_master_a7d0570bae901dbbd7c88db131fea03c5_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_master_a109e347c1b70f26a82d48dfb13af3fe8}\label{class_master_a109e347c1b70f26a82d48dfb13af3fe8}} 
+\index{Master@{Master}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendReply()}{sendReply()}\hspace{0.1cm}{\footnotesize\ttfamily [2/9]}}
+{\footnotesize\ttfamily void send\+Reply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}}}]{Instruction }\end{DoxyParamCaption}) volatile}
+
+
+
+Send a reply to the request recieved from master. 
+
+Assembles the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object from the supplied parameters. Overloaded. \mbox{\Hypertarget{class_master_abebea7ffc56886ac9b59980312ea19f9}\label{class_master_abebea7ffc56886ac9b59980312ea19f9}} 
+\index{Master@{Master}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendReply()}{sendReply()}\hspace{0.1cm}{\footnotesize\ttfamily [3/9]}}
+{\footnotesize\ttfamily void send\+Reply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}}}]{Instruction,  }\item[{volatile char}]{Instruction\+String\mbox{[}\+S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption}) volatile}
+
+
+
+Send a reply to the request recieved from master. 
+
+Assembles the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object from the supplied parameters. Overloaded. Note the need for the char$\ast$ to be defined locally as volatile char\mbox{[}\mbox{]}. Cannot pass string literals. \mbox{\Hypertarget{class_master_a26d84a77b85fdd81db98ccd23d0e882f}\label{class_master_a26d84a77b85fdd81db98ccd23d0e882f}} 
+\index{Master@{Master}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendReply()}{sendReply()}\hspace{0.1cm}{\footnotesize\ttfamily [4/9]}}
+{\footnotesize\ttfamily void send\+Reply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}}}]{Instruction,  }\item[{const int}]{i\+Param }\end{DoxyParamCaption}) volatile}
+
+
+
+Send a reply to the request recieved from master. 
+
+Assembles the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object from the supplied parameters. Overloaded. \mbox{\Hypertarget{class_master_a68d7ac6a3680ac2b4c3620b6e175d97f}\label{class_master_a68d7ac6a3680ac2b4c3620b6e175d97f}} 
+\index{Master@{Master}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendReply()}{sendReply()}\hspace{0.1cm}{\footnotesize\ttfamily [5/9]}}
+{\footnotesize\ttfamily void send\+Reply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}}}]{Instruction,  }\item[{const float}]{f\+Param }\end{DoxyParamCaption}) volatile}
+
+
+
+Send a reply to the request recieved from master. 
+
+Assembles the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object from the supplied parameters. Overloaded. \mbox{\Hypertarget{class_master_aa0f969c879b7d6ca105162ea2ca2c87e}\label{class_master_aa0f969c879b7d6ca105162ea2ca2c87e}} 
+\index{Master@{Master}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendReply()}{sendReply()}\hspace{0.1cm}{\footnotesize\ttfamily [6/9]}}
+{\footnotesize\ttfamily void send\+Reply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}}}]{Instruction,  }\item[{const int}]{i\+Param,  }\item[{const int}]{f\+Param }\end{DoxyParamCaption}) volatile}
+
+
+
+Send a reply to the request recieved from master. 
+
+Assembles the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object from the supplied parameters. Overloaded. \mbox{\Hypertarget{class_master_a075da7da71f50da0a5973ff65cc1a485}\label{class_master_a075da7da71f50da0a5973ff65cc1a485}} 
+\index{Master@{Master}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendReply()}{sendReply()}\hspace{0.1cm}{\footnotesize\ttfamily [7/9]}}
+{\footnotesize\ttfamily void send\+Reply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}}}]{Instruction,  }\item[{int}]{i\+Param,  }\item[{volatile char}]{Instruction\+String\mbox{[}\+S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption}) volatile}
+
+
+
+Send a reply to the request recieved from master. 
+
+Assembles the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object from the supplied parameters. Overloaded. Note the need for the char$\ast$ to be defined locally as volatile char\mbox{[}\mbox{]}. Cannot pass string literals. \mbox{\Hypertarget{class_master_acca62a1478bc305cdd8496f684ea3f9d}\label{class_master_acca62a1478bc305cdd8496f684ea3f9d}} 
+\index{Master@{Master}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendReply()}{sendReply()}\hspace{0.1cm}{\footnotesize\ttfamily [8/9]}}
+{\footnotesize\ttfamily void send\+Reply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}}}]{Instruction,  }\item[{float}]{f\+Param,  }\item[{volatile char}]{Instruction\+String\mbox{[}\+S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption}) volatile}
+
+
+
+Send a reply to the request recieved from master. 
+
+Assembles the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object from the supplied parameters. Overloaded. Note the need for the char$\ast$ to be defined locally as volatile char\mbox{[}\mbox{]}. Cannot pass string literals. \mbox{\Hypertarget{class_master_a88fd38997e4ee0c26fd09a85477487fa}\label{class_master_a88fd38997e4ee0c26fd09a85477487fa}} 
+\index{Master@{Master}!sendReply@{sendReply}}
+\index{sendReply@{sendReply}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendReply()}{sendReply()}\hspace{0.1cm}{\footnotesize\ttfamily [9/9]}}
+{\footnotesize\ttfamily void send\+Reply (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}}}]{Instruction,  }\item[{int}]{i\+Param,  }\item[{float}]{f\+Param,  }\item[{volatile char}]{Instruction\+String\mbox{[}\+S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption}) volatile}
+
+
+
+Send a reply to the request recieved from master. 
+
+Assembles the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object from the supplied parameters. Overloaded. Note the need for the char$\ast$ to be defined locally as volatile char\mbox{[}\mbox{]}. Cannot pass string literals. \mbox{\Hypertarget{class_master_aa68bb1327d506c42b6b7ab54fd73ca62}\label{class_master_aa68bb1327d506c42b6b7ab54fd73ca62}} 
+\index{Master@{Master}!sendTotalNumOfInstructions@{sendTotalNumOfInstructions}}
+\index{sendTotalNumOfInstructions@{sendTotalNumOfInstructions}!Master@{Master}}
+\subsubsection{\texorpdfstring{sendTotalNumOfInstructions()}{sendTotalNumOfInstructions()}}
+{\footnotesize\ttfamily void send\+Total\+Num\+Of\+Instructions (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Sends a reply to \mbox{\hyperlink{class_master}{Master}} specifiying the total number of instructions in a measurement procedure. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=317pt]{class_master_aa68bb1327d506c42b6b7ab54fd73ca62_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_master_a49e434ca3d09d56bac2a2d45c86661ac}\label{class_master_a49e434ca3d09d56bac2a2d45c86661ac}} 
+\index{Master@{Master}!setMeasurementVectorHeading@{setMeasurementVectorHeading}}
+\index{setMeasurementVectorHeading@{setMeasurementVectorHeading}!Master@{Master}}
+\subsubsection{\texorpdfstring{setMeasurementVectorHeading()}{setMeasurementVectorHeading()}}
+{\footnotesize\ttfamily void set\+Measurement\+Vector\+Heading (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}}]{Vector\+Number,  }\item[{volatile char}]{Heading\mbox{[}\+R\+O\+W\+\_\+\+H\+E\+A\+D\+I\+N\+G\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption}) volatile}
+
+
+
+Sets the string heading assigned to a paritcular data vector. 
+
+N\+O\+TE\+: The Heading parameter must be declared locally as volatile char\mbox{[}\mbox{]}. Literal strings cannot be passed to this function. 
+\begin{DoxyParams}{Parameters}
+{\em Vector\+Number} & is the enumerated reference to the row/vector in the data array in question. \\
+\hline
+{\em Heading\mbox{[}$\,$\mbox{]}} & is the character array containing the string heading. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_master_a5f955da291f31441d726c4ded74c32bd}\label{class_master_a5f955da291f31441d726c4ded74c32bd}} 
+\index{Master@{Master}!setMeasurementVectorUnits@{setMeasurementVectorUnits}}
+\index{setMeasurementVectorUnits@{setMeasurementVectorUnits}!Master@{Master}}
+\subsubsection{\texorpdfstring{setMeasurementVectorUnits()}{setMeasurementVectorUnits()}}
+{\footnotesize\ttfamily void set\+Measurement\+Vector\+Units (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}}]{Vector\+Number,  }\item[{volatile char}]{Units\mbox{[}\+R\+O\+W\+\_\+\+U\+N\+I\+T\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption}) volatile}
+
+
+
+Sets the string Units assigned to a paritcular data vector. 
+
+N\+O\+TE\+: The Units parameter must be declared locally as volatile char\mbox{[}\mbox{]}. Literal strings cannot be passed to this function. 
+\begin{DoxyParams}{Parameters}
+{\em Vector\+Number} & is the enumerated reference to the row/vector in the data array in question. \\
+\hline
+{\em Units\mbox{[}$\,$\mbox{]}} & is the character array containing the string heading. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_master_a5af38dc77ec10af275ed892e756aee64}\label{class_master_a5af38dc77ec10af275ed892e756aee64}} 
+\index{Master@{Master}!SETUP@{SETUP}}
+\index{SETUP@{SETUP}!Master@{Master}}
+\subsubsection{\texorpdfstring{SETUP()}{SETUP()}}
+{\footnotesize\ttfamily void S\+E\+T\+UP (\begin{DoxyParamCaption}\item[{const int}]{Sensor\+I\+D\+Number,  }\item[{volatile char}]{Sensor\+Name\mbox{[}$\,$\mbox{]},  }\item[{volatile char}]{Instruction\+Set\mbox{[}$\,$\mbox{]}\mbox{[}\+S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]},  }\item[{const int}]{Number\+Of\+Instructions,  }\item[{volatile \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}}}]{Master\+Instruction\+Set\mbox{[}$\,$\mbox{]},  }\item[{volatile int}]{int\+Params\mbox{[}$\,$\mbox{]},  }\item[{volatile float}]{float\+Params\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption}) volatile}
+
+
+
+Set up of the commuication mechanism. 
+
+Intialised the auto-\/instantiated \mbox{\hyperlink{class_master}{Master}} object, attaches the I\+RQ and sets up S\+PI communications. 
+\begin{DoxyParams}{Parameters}
+{\em Sensor\+I\+D\+Number} & is the identity number of th slave. \\
+\hline
+{\em Sensor\+Name} & is the string name of the slave. \\
+\hline
+{\em Instruction\+Set} & is the array of strings associated with each instruction in the measuremnt cycle. Generally to be displayed to the user. \\
+\hline
+{\em Number\+Of\+Instructions} & is the number of instructions in a single measurement cycle/procedure. \\
+\hline
+{\em Master\+Instruction\+Set} & is the array of s\+Instruct objects associated with each instruction in the measurement cycle. Defines the required action by the master for each step of the measurement procedure. \\
+\hline
+{\em Int\+Params} & is the array of integer parameter associated with each instruction. \\
+\hline
+{\em Float\+Params} & is the array of floating point parameters accosiated with each instruction. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_master_a5af38dc77ec10af275ed892e756aee64_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_master_a5d83f02bd26fbe40f249c052454b327b}\label{class_master_a5d83f02bd26fbe40f249c052454b327b}} 
+\index{Master@{Master}!shallIStart@{shallIStart}}
+\index{shallIStart@{shallIStart}!Master@{Master}}
+\subsubsection{\texorpdfstring{shallIStart()}{shallIStart()}}
+{\footnotesize\ttfamily bool shall\+I\+Start (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Checks whether the \mbox{\hyperlink{class_master_a89cc4d6f65ee9922711cde4ed4bdf31c}{begin\+Measurement()}} method has been called. 
+
+Allows procedural code in main() to determine whether the system state has changed during an interrupt in response to a request by the master to initiate the measurement procedure. \mbox{\Hypertarget{class_master_a23aca637cd51c40ae469a9ee48725edf}\label{class_master_a23aca637cd51c40ae469a9ee48725edf}} 
+\index{Master@{Master}!SPISetup@{SPISetup}}
+\index{SPISetup@{SPISetup}!Master@{Master}}
+\subsubsection{\texorpdfstring{SPISetup()}{SPISetup()}}
+{\footnotesize\ttfamily void S\+P\+I\+Setup (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption}) volatile}
+
+
+
+Sets up S\+PI and attaches interrupt. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_master_a23aca637cd51c40ae469a9ee48725edf_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=223pt]{class_master_a23aca637cd51c40ae469a9ee48725edf_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_master_8h}{Master.\+h}}\item 
+\mbox{\hyperlink{_master_8cpp}{Master.\+cpp}}\end{DoxyCompactItemize}

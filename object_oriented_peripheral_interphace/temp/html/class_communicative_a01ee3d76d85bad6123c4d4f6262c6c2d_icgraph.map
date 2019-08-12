@@ -1,0 +1,6 @@
+<map id="RequestIdentity" name="RequestIdentity">
+<area shape="rect" id="node1" title="Performs a complete transaction; expects Slave to Reply with Identity object." alt="" coords="425,42,537,69"/>
+<area shape="rect" id="node2" href="$class_identifiable.html#adbc1a3f62e543a0df002a43413998a26" title="Checks to seee whether the Identity in local memory is different to the Identity advertised by periph..." alt="" coords="214,5,369,47"/>
+<area shape="rect" id="node3" href="$class_identifiable.html#ae99f8914426041ea02932d0ed00b29c3" title="Loads the Identity advertised by the peripheral into local memory." alt="" coords="205,71,377,98"/>
+<area shape="rect" id="node4" href="$class_identifiable.html#a107ce612ee60e9be98085abdfbfdc83e" title="A constructor." alt="" coords="5,71,157,98"/>
+</map>

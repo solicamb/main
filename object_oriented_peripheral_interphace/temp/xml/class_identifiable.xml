@@ -1,0 +1,199 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="class_identifiable" kind="class" language="C++" prot="public">
+    <compoundname>Identifiable</compoundname>
+    <derivedcompoundref refid="class_sensor" prot="public" virt="non-virtual">Sensor</derivedcompoundref>
+    <includes refid="_identifiable_8h" local="no">Identifiable.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_identifiable_1a8dd12ec5c03ca381f8fac69d1c7994d0" prot="private" static="no" mutable="no">
+        <type><ref refid="class_communicative" kindref="compound">Communicative</ref></type>
+        <definition>Communicative CommsModule</definition>
+        <argsstring></argsstring>
+        <name>CommsModule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Identifiable.h" line="53" column="1" bodyfile="Identifiable.h" bodystart="53" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_identifiable_1a5f921ab3c98fd54f7607dd1a63f47765" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_identity" kindref="compound">Identity</ref></type>
+        <definition>Identity ThisSensor</definition>
+        <argsstring></argsstring>
+        <name>ThisSensor</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Identifiable.h" line="54" column="1" bodyfile="Identifiable.h" bodystart="54" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Identifiable</definition>
+        <argsstring>(const int ChipSelect)</argsstring>
+        <name>Identifiable</name>
+        <param>
+          <type>const int</type>
+          <declname>ChipSelect</declname>
+        </param>
+        <briefdescription>
+<para>A constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor for class which loads the identity of any connected SPI peripheral into local memory. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>The</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slave Select pin of the SPI peripheral in question. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" kindref="member">updateIdentity</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Identifiable.h" line="28" column="1" bodyfile="Identifiable.cpp" bodystart="10" bodyend="19"/>
+        <references refid="class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046" compoundref="_communicative_8cpp" startline="46" endline="54">Communicative::isPeripheralConnected</references>
+        <references refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" compoundref="_identifiable_8cpp" startline="40" endline="55">updateIdentity</references>
+        <references refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" compoundref="_s_p_i___instruction_set_8h" startline="152">Identity::sensorChipSelect</references>
+      </memberdef>
+      <memberdef kind="function" id="class_identifiable_1adbc1a3f62e543a0df002a43413998a26" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool hasIdentityChanged</definition>
+        <argsstring>(void)</argsstring>
+        <name>hasIdentityChanged</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Checks to seee whether the <ref refid="struct_identity" kindref="compound">Identity</ref> in local memory is different to the <ref refid="struct_identity" kindref="compound">Identity</ref> advertised by peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>True if the stored <ref refid="struct_identity" kindref="compound">Identity</ref> is different than the <ref refid="struct_identity" kindref="compound">Identity</ref> advertised by the peripheral. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="struct_identity" kindref="compound">Identity</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Identifiable.h" line="35" column="1" bodyfile="Identifiable.cpp" bodystart="25" bodyend="38"/>
+        <references refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4b25a74b6be49faf4a9356e1565a4b25" compoundref="_s_p_i___instruction_set_8h" startline="37">WhoAreYou</references>
+        <references refid="class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d" compoundref="_communicative_8cpp" startline="90" endline="120">Communicative::RequestIdentity</references>
+        <references refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" compoundref="_s_p_i___instruction_set_8h" startline="150">Identity::sensorID</references>
+      </memberdef>
+      <memberdef kind="function" id="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void updateIdentity</definition>
+        <argsstring>(void)</argsstring>
+        <name>updateIdentity</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Loads the <ref refid="struct_identity" kindref="compound">Identity</ref> advertised by the peripheral into local memory. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Identifiable.h" line="37" column="1" bodyfile="Identifiable.cpp" bodystart="40" bodyend="55"/>
+        <references refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4b25a74b6be49faf4a9356e1565a4b25" compoundref="_s_p_i___instruction_set_8h" startline="37">WhoAreYou</references>
+        <references refid="class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d" compoundref="_communicative_8cpp" startline="90" endline="120">Communicative::RequestIdentity</references>
+        <references refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" compoundref="_s_p_i___instruction_set_8h" startline="150">Identity::sensorID</references>
+        <references refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" compoundref="_s_p_i___instruction_set_8h" startline="142">IDENTITY_SENSOR_NAME_LENGTH</references>
+        <references refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" compoundref="_s_p_i___instruction_set_8h" startline="148">Identity::SensorName</references>
+        <referencedby refid="class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e" compoundref="_identifiable_8cpp" startline="10" endline="19">Identifiable</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getIDNumber</definition>
+        <argsstring>(void)</argsstring>
+        <name>getIDNumber</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Gets the identity number of the attached peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reports the identity number of the peripheral currently stored in local memory. <simplesect kind="return"><para>The sensor ID number. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Identifiable.h" line="43" column="1" bodyfile="Identifiable.cpp" bodystart="57" bodyend="59"/>
+        <references refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" compoundref="_s_p_i___instruction_set_8h" startline="150">Identity::sensorID</references>
+      </memberdef>
+      <memberdef kind="function" id="class_identifiable_1a7942e337c1303ce42cc822032465c66a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void getSensorName</definition>
+        <argsstring>(char name[IDENTITY_SENSOR_NAME_LENGTH])</argsstring>
+        <name>getSensorName</name>
+        <param>
+          <type>char</type>
+          <declname>name</declname>
+          <array>[IDENTITY_SENSOR_NAME_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Gets the sensor name of the attached peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Reports the sensor name of the peripheral currently stored in local memory. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>name</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the character array into which the sensor name is loaded. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Identifiable.h" line="49" column="1" bodyfile="Identifiable.cpp" bodystart="61" bodyend="68"/>
+        <references refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" compoundref="_s_p_i___instruction_set_8h" startline="142">IDENTITY_SENSOR_NAME_LENGTH</references>
+        <references refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" compoundref="_s_p_i___instruction_set_8h" startline="148">Identity::SensorName</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A class which models a Sensor/peripheral as an identifiable entity. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class models a peripheral as an identifiable entity with ID number and string name. The class allows for the identity to be loaded from the peripheral and interrogated. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="7">
+        <label>Identifiable</label>
+        <link refid="class_identifiable"/>
+      </node>
+      <node id="8">
+        <label>Sensor</label>
+        <link refid="class_sensor"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+    </inheritancegraph>
+    <location file="Identifiable.h" line="17" column="1" bodyfile="Identifiable.h" bodystart="16" bodyend="56"/>
+    <listofallmembers>
+      <member refid="class_identifiable_1a8dd12ec5c03ca381f8fac69d1c7994d0" prot="private" virt="non-virtual"><scope>Identifiable</scope><name>CommsModule</name></member>
+      <member refid="class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae" prot="public" virt="non-virtual"><scope>Identifiable</scope><name>getIDNumber</name></member>
+      <member refid="class_identifiable_1a7942e337c1303ce42cc822032465c66a" prot="public" virt="non-virtual"><scope>Identifiable</scope><name>getSensorName</name></member>
+      <member refid="class_identifiable_1adbc1a3f62e543a0df002a43413998a26" prot="public" virt="non-virtual"><scope>Identifiable</scope><name>hasIdentityChanged</name></member>
+      <member refid="class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e" prot="public" virt="non-virtual"><scope>Identifiable</scope><name>Identifiable</name></member>
+      <member refid="class_identifiable_1a5f921ab3c98fd54f7607dd1a63f47765" prot="private" virt="non-virtual"><scope>Identifiable</scope><name>ThisSensor</name></member>
+      <member refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" prot="public" virt="non-virtual"><scope>Identifiable</scope><name>updateIdentity</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

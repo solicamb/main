@@ -1,0 +1,7 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_data_source.html" title="A class which models a Sensor/peripheral as an entity which is a source of data." alt="" coords="5,5,96,32"/>
+<area shape="rect" id="node2" href="$class_sensor.html" title="A class which models a Sensor/peripheral." alt="" coords="144,81,207,108"/>
+<area shape="rect" id="node3" href="$class_identifiable.html" title="A class which models a Sensor/peripheral as an identifiable entity." alt="" coords="9,56,92,83"/>
+<area shape="rect" id="node4" href="$class_instructable.html" title="A class which models a Sensor/peripheral as entity which can recieve commands." alt="" coords="6,107,95,133"/>
+<area shape="rect" id="node5" href="$class_instructor.html" title="A class which models a Sensor/peripheral as entity which can issue instructions to the master." alt="" coords="13,157,89,184"/>
+</map>

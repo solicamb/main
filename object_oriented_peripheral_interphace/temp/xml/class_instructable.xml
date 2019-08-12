@@ -1,0 +1,253 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="class_instructable" kind="class" language="C++" prot="public">
+    <compoundname>Instructable</compoundname>
+    <derivedcompoundref refid="class_sensor" prot="public" virt="non-virtual">Sensor</derivedcompoundref>
+    <includes refid="_instructable_8h" local="no">Instructable.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_instructable_1a8dd12ec5c03ca381f8fac69d1c7994d0" prot="private" static="no" mutable="no">
+        <type><ref refid="class_communicative" kindref="compound">Communicative</ref></type>
+        <definition>Communicative CommsModule</definition>
+        <argsstring></argsstring>
+        <name>CommsModule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructable.h" line="70" column="1" bodyfile="Instructable.h" bodystart="70" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_instructable_1a688587b062ae8f3979bf7567041b86c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Instructable</definition>
+        <argsstring>(const int ChipSelect)</argsstring>
+        <name>Instructable</name>
+        <param>
+          <type>const int</type>
+          <declname>ChipSelect</declname>
+        </param>
+        <briefdescription>
+<para>A constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>The</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>Slave Select pin of the SPI peripheral in question. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructable.h" line="28" column="1" bodyfile="Instructable.cpp" bodystart="10" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool issueCommand</definition>
+        <argsstring>(mInstruct)</argsstring>
+        <name>issueCommand</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref></type>
+          <defname>Command</defname>
+        </param>
+        <briefdescription>
+<para>Issues a command to the peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a command which is an element of the mInstruct type. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mInstruct</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the command issued to the peripheral. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the peripheral acknowledges the command. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructable.h" line="36" column="1" bodyfile="Instructable.cpp" bodystart="19" bodyend="29"/>
+        <references refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" compoundref="_communicative_8cpp" startline="57" endline="87">Communicative::RequestReply</references>
+        <references refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" compoundref="_s_p_i___instruction_set_8h" startline="57">sCmd::Instruction</references>
+        <references refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e" compoundref="_s_p_i___instruction_set_8h" startline="14">ACK</references>
+        <referencedby refid="class_sensor_1af0e64874a3d1b8ae19e3b623d244342a" compoundref="_sensor_8cpp" startline="26" endline="32">Sensor::StartMeasurement</referencedby>
+        <referencedby refid="class_sensor_1afdcc3b63357bd24f519e0cbc85454a52" compoundref="_sensor_8cpp" startline="34" endline="38">Sensor::PauseMeasurementForMillis</referencedby>
+        <referencedby refid="class_sensor_1ad58e9acfc23f07af433f0e2596d786d7" compoundref="_sensor_8cpp" startline="40" endline="44">Sensor::RestartMeasurement</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_instructable_1ae1de225deda4decc52ce8e06efa8c547" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool issueCommand</definition>
+        <argsstring>(mInstruct, int)</argsstring>
+        <name>issueCommand</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref></type>
+          <defname>Command</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>intParam</defname>
+        </param>
+        <briefdescription>
+<para>Issues a command to the peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a command which is an element of the mInstruct type qualified by an integer parameter (generally used to instruct on wait time or similar). <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mInstruct</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the command issued to the peripheral and int is the integer qualifier. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the peripheral acknowledges the command. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructable.h" line="44" column="1" bodyfile="Instructable.cpp" bodystart="31" bodyend="41"/>
+        <references refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" compoundref="_communicative_8cpp" startline="57" endline="87">Communicative::RequestReply</references>
+        <references refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" compoundref="_s_p_i___instruction_set_8h" startline="57">sCmd::Instruction</references>
+        <references refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e" compoundref="_s_p_i___instruction_set_8h" startline="14">ACK</references>
+      </memberdef>
+      <memberdef kind="function" id="class_instructable_1a556e6313ec5ac21a30efe8a5ef28a486" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool issueCommand</definition>
+        <argsstring>(mInstruct, float)</argsstring>
+        <name>issueCommand</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref></type>
+          <defname>Command</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>floatParam</defname>
+        </param>
+        <briefdescription>
+<para>Issues a command to the peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a command which is an element of the mInstruct type qualified by a float parameter. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mInstruct</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the command issued to the peripheral and float is the floating point qualifier. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the peripheral acknowledges the command. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructable.h" line="51" column="1" bodyfile="Instructable.cpp" bodystart="43" bodyend="53"/>
+        <references refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" compoundref="_communicative_8cpp" startline="57" endline="87">Communicative::RequestReply</references>
+        <references refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" compoundref="_s_p_i___instruction_set_8h" startline="57">sCmd::Instruction</references>
+        <references refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e" compoundref="_s_p_i___instruction_set_8h" startline="14">ACK</references>
+      </memberdef>
+      <memberdef kind="function" id="class_instructable_1ac2d69c105880162fed7b7be07228cfa7" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool issueCommand</definition>
+        <argsstring>(mInstruct, int, float)</argsstring>
+        <name>issueCommand</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref></type>
+          <defname>Command</defname>
+        </param>
+        <param>
+          <type>int</type>
+          <defname>intParam</defname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>floatParam</defname>
+        </param>
+        <briefdescription>
+<para>Issues a command to the peripheral. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends a command which is an element of the mInstruct type qualified by an integer parameter (generally used to instruct on wait time or similar) and a floating point parameter. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>mInstruct</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the command issued to the peripheral, int is the integer qualifier and float is the floating point qualifier. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>True if the peripheral acknowledges the command. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructable.h" line="59" column="1" bodyfile="Instructable.cpp" bodystart="55" bodyend="65"/>
+        <references refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" compoundref="_communicative_8cpp" startline="57" endline="87">Communicative::RequestReply</references>
+        <references refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" compoundref="_s_p_i___instruction_set_8h" startline="57">sCmd::Instruction</references>
+        <references refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e" compoundref="_s_p_i___instruction_set_8h" startline="14">ACK</references>
+      </memberdef>
+      <memberdef kind="function" id="class_instructable_1a2bdcc11cead0067e963c524968d0d3e1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool areYouConnected</definition>
+        <argsstring>(void)</argsstring>
+        <name>areYouConnected</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Checks to see whether the peripheral is connected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initiates handshake and nop transaction with the sensor to ensure that it is connected and responding appropriately. <simplesect kind="return"><para>True if the peripheral is connected and communicating effectively. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructable.h" line="66" column="1" bodyfile="Instructable.cpp" bodystart="67" bodyend="69"/>
+        <references refid="class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046" compoundref="_communicative_8cpp" startline="46" endline="54">Communicative::isPeripheralConnected</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A class which models a Sensor/peripheral as entity which can recieve commands. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class models a peripheral as an entity which can be issued commands. The commands issued are elements of the set defined by the mInstruct type. Each instruction can be accompanied by and integer and/or float as required to act as parameters to qualify the command. For example, if the peripheral is commanded to pause for an interval, the integer parameter is used by the peripheral to determine the length of time for which to pause. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="13">
+        <label>Sensor</label>
+        <link refid="class_sensor"/>
+        <childnode refid="12" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="12">
+        <label>Instructable</label>
+        <link refid="class_instructable"/>
+      </node>
+    </inheritancegraph>
+    <location file="Instructable.h" line="19" column="1" bodyfile="Instructable.h" bodystart="18" bodyend="72"/>
+    <listofallmembers>
+      <member refid="class_instructable_1a2bdcc11cead0067e963c524968d0d3e1" prot="public" virt="non-virtual"><scope>Instructable</scope><name>areYouConnected</name></member>
+      <member refid="class_instructable_1a8dd12ec5c03ca381f8fac69d1c7994d0" prot="private" virt="non-virtual"><scope>Instructable</scope><name>CommsModule</name></member>
+      <member refid="class_instructable_1a688587b062ae8f3979bf7567041b86c1" prot="public" virt="non-virtual"><scope>Instructable</scope><name>Instructable</name></member>
+      <member refid="class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f" prot="public" virt="non-virtual"><scope>Instructable</scope><name>issueCommand</name></member>
+      <member refid="class_instructable_1ae1de225deda4decc52ce8e06efa8c547" prot="public" virt="non-virtual"><scope>Instructable</scope><name>issueCommand</name></member>
+      <member refid="class_instructable_1a556e6313ec5ac21a30efe8a5ef28a486" prot="public" virt="non-virtual"><scope>Instructable</scope><name>issueCommand</name></member>
+      <member refid="class_instructable_1ac2d69c105880162fed7b7be07228cfa7" prot="public" virt="non-virtual"><scope>Instructable</scope><name>issueCommand</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

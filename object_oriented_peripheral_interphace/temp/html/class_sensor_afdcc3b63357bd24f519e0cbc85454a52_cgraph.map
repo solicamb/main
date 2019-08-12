@@ -1,0 +1,5 @@
+<map id="PauseMeasurementForMillis" name="PauseMeasurementForMillis">
+<area shape="rect" id="node1" title="Instruct the sensor to pause the measurement procedure for a brief period." alt="" coords="5,5,192,32"/>
+<area shape="rect" id="node2" href="$class_instructable.html#a26afb4fb25fe8a13e268544d0850fe3f" title="Issues a command to the peripheral." alt="" coords="240,5,427,32"/>
+<area shape="rect" id="node3" href="$class_communicative.html#a4fe112ad5a3d693e39ae44dd43eaf0c1" title="Performs a complete transaction; expects Slave to Reply with sCmd object." alt="" coords="475,5,673,32"/>
+</map>

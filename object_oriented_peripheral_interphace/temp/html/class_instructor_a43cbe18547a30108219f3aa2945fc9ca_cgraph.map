@@ -1,0 +1,4 @@
+<map id="loadNextCommand" name="loadNextCommand">
+<area shape="rect" id="node1" title="Fetches the next instruction issued by the sensor in its instruction cycle." alt="" coords="5,5,137,32"/>
+<area shape="rect" id="node2" href="$class_communicative.html#a4fe112ad5a3d693e39ae44dd43eaf0c1" title="Performs a complete transaction; expects Slave to Reply with sCmd object." alt="" coords="185,5,384,32"/>
+</map>

@@ -1,0 +1,147 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_data_source_8h" kind="file" language="C++">
+    <compoundname>DataSource.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="_s_p_i___instruction_set_8h" local="yes">SPI_InstructionSet.h</includes>
+    <includes refid="_instructable_8h" local="yes">Instructable.h</includes>
+    <includedby refid="_data_source_8cpp" local="yes">DataSource.cpp</includedby>
+    <includedby refid="_sensor_8cpp" local="yes">Sensor.cpp</includedby>
+    <includedby refid="_sensor_8h" local="yes">Sensor.h</includedby>
+    <incdepgraph>
+      <node id="34">
+        <label>Communicative.h</label>
+        <link refid="_communicative_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+      </node>
+      <node id="31">
+        <label>Arduino.h</label>
+      </node>
+      <node id="30">
+        <label>DataSource.h</label>
+        <link refid="_data_source_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="33" relation="include">
+        </childnode>
+      </node>
+      <node id="32">
+        <label>SPI_InstructionSet.h</label>
+        <link refid="_s_p_i___instruction_set_8h"/>
+      </node>
+      <node id="33">
+        <label>Instructable.h</label>
+        <link refid="_instructable_8h"/>
+        <childnode refid="31" relation="include">
+        </childnode>
+        <childnode refid="32" relation="include">
+        </childnode>
+        <childnode refid="34" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="37">
+        <label>Sensor.cpp</label>
+        <link refid="_sensor_8cpp"/>
+      </node>
+      <node id="38">
+        <label>Sensor.h</label>
+        <link refid="_sensor_8h"/>
+        <childnode refid="37" relation="include">
+        </childnode>
+      </node>
+      <node id="35">
+        <label>DataSource.h</label>
+        <link refid="_data_source_8h"/>
+        <childnode refid="36" relation="include">
+        </childnode>
+        <childnode refid="37" relation="include">
+        </childnode>
+        <childnode refid="38" relation="include">
+        </childnode>
+      </node>
+      <node id="36">
+        <label>DataSource.cpp</label>
+        <link refid="_data_source_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_data_source" prot="public">DataSource</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>ensure<sp/>this<sp/>library<sp/>description<sp/>is<sp/>only<sp/>included<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>DataSource_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>DataSource_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>include<sp/>types<sp/>&amp;<sp/>constants<sp/>of<sp/>Wiring<sp/>core<sp/>API</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_s_p_i___instruction_set_8h" kindref="compound">SPI_InstructionSet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_instructable_8h" kindref="compound">Instructable.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight><highlight class="comment">//<sp/>library<sp/>interface<sp/>description</highlight></codeline>
+<codeline lineno="13"><highlight class="comment"></highlight></codeline>
+<codeline lineno="18" refid="class_data_source" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_data_source" kindref="compound">DataSource</ref></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>user-accessible<sp/>&quot;public&quot;<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d" kindref="member">DataSource</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ChipSelect);</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a7d92295e088894b5417729a814e49e01" kindref="member">isThereData</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_data" kindref="compound">Data</ref><sp/><ref refid="class_data_source_1a81aac807bfb601c2ac1da78f69d31d48" kindref="member">loadData</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1ac15f241362d7c22c75c42c2bb16315bf" kindref="member">getNumberOfDataColumns</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber);</highlight></codeline>
+<codeline lineno="52"></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a52269fa43b741f1ab431aac56d3aedb5" kindref="member">getNumberOfDataRows</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//For<sp/>handling<sp/>data<sp/>as<sp/>square<sp/>array</highlight></codeline>
+<codeline lineno="62"><highlight class="comment"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d" kindref="member">getRowHeadings</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>][<ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>]);</highlight></codeline>
+<codeline lineno="69"></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e" kindref="member">getRowUnits</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>][<ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>]);</highlight></codeline>
+<codeline lineno="76"></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6" kindref="member">getDataArray</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal">[<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>][<ref refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" kindref="member">DATA_ROW_LENGTH</ref>]);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//For<sp/>handling<sp/>data<sp/>as<sp/>collection<sp/>of<sp/>&apos;vectors&apos;</highlight></codeline>
+<codeline lineno="85"><highlight class="comment"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a924875bd657b56f140604551270cdbc0" kindref="member">getDataVector</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal">[<ref refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" kindref="member">DATA_ROW_LENGTH</ref>]);</highlight></codeline>
+<codeline lineno="93"></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a49998f22c00d924daf7b67af48e10a30" kindref="member">getVectorLength</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber);</highlight></codeline>
+<codeline lineno="102"></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a79d69573a651290750aa8c08d24f3b64" kindref="member">getVectorHeading</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[<ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>]);</highlight></codeline>
+<codeline lineno="108"></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1af2a2f33b9970ecff75894134498ff2cd" kindref="member">getVectorUnits</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[<ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>]);</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="115"></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b" kindref="member">getValueOne</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="121"></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1accbfa79e7afee154b4332483181f27ec" kindref="member">getValueTwo</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="127"></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf" kindref="member">getValueThree</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"></highlight></codeline>
+<codeline lineno="133"><highlight class="normal"></highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>library-accessible<sp/>&quot;private&quot;<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_data" kindref="compound">Data</ref><sp/>CurrentData;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_communicative" kindref="compound">Communicative</ref><sp/>CommsModule;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"></highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>};</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"></highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="DataSource.h"/>
+  </compounddef>
+</doxygen>

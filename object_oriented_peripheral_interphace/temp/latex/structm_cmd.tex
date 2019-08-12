@@ -1,0 +1,112 @@
+\hypertarget{structm_cmd}{}\section{m\+Cmd Struct Reference}
+\label{structm_cmd}\index{mCmd@{mCmd}}
+
+
+Type used by master to send requests to slave.  
+
+
+
+
+{\ttfamily \#include $<$S\+P\+I\+\_\+\+Instruction\+Set.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structm_cmd_a15d47aa62e963ba62b9b5df21ff7c3b3}{m\+Cmd}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}} Instruct, int i, float f)
+\item 
+\mbox{\hyperlink{structm_cmd_a0bc6db1f094500a0605ce488869a1765}{m\+Cmd}} ()
+\item 
+\mbox{\hyperlink{structm_cmd_a390b853a14509e41006a0d873899b234}{m\+Cmd}} (volatile \mbox{\hyperlink{structm_cmd}{m\+Cmd}} \&rhs)
+\item 
+\mbox{\hyperlink{structm_cmd}{m\+Cmd}} \& \mbox{\hyperlink{structm_cmd_a861a79ec71e76fa61603073aa6969551}{operator=}} (const volatile \mbox{\hyperlink{structm_cmd}{m\+Cmd}} \&rhs) volatile
+\item 
+volatile \mbox{\hyperlink{structm_cmd}{m\+Cmd}} \& \mbox{\hyperlink{structm_cmd_a5a637df37056ccbe63f6fe600222c003}{operator=}} (const \mbox{\hyperlink{structm_cmd}{m\+Cmd}} \&rhs) volatile
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}} \mbox{\hyperlink{structm_cmd_a7adb91eb9d020c0f2650e99a857d2c3d}{Instruction}}
+\begin{DoxyCompactList}\small\item\em Instruction to slave. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structm_cmd_a4d0a4aab326d0ba8eb8128adb61c0888}{i\+Param}}
+\begin{DoxyCompactList}\small\item\em Integer paramter which qualifies the instruction. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structm_cmd_af05b89ac7edf2c67bb3386c902369313}{f\+Param}}
+\begin{DoxyCompactList}\small\item\em Floating point parameter which wualifies the instruction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Type used by master to send requests to slave. 
+
+Each transaction, following the initial handshake, the master will send a request and the slave will send a reply. Requests made by the master will always take the form of an \mbox{\hyperlink{structm_cmd}{m\+Cmd}} object, which contains a parameterised instance of the instruction set, m\+Instruct, which defines the class of repsonse expected by the slave. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{structm_cmd_a15d47aa62e963ba62b9b5df21ff7c3b3}\label{structm_cmd_a15d47aa62e963ba62b9b5df21ff7c3b3}} 
+\index{mCmd@{mCmd}!mCmd@{mCmd}}
+\index{mCmd@{mCmd}!mCmd@{mCmd}}
+\subsubsection{\texorpdfstring{mCmd()}{mCmd()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structm_cmd}{m\+Cmd}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}}}]{Instruct,  }\item[{int}]{i,  }\item[{float}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structm_cmd_a0bc6db1f094500a0605ce488869a1765}\label{structm_cmd_a0bc6db1f094500a0605ce488869a1765}} 
+\index{mCmd@{mCmd}!mCmd@{mCmd}}
+\index{mCmd@{mCmd}!mCmd@{mCmd}}
+\subsubsection{\texorpdfstring{mCmd()}{mCmd()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structm_cmd}{m\+Cmd}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structm_cmd_a390b853a14509e41006a0d873899b234}\label{structm_cmd_a390b853a14509e41006a0d873899b234}} 
+\index{mCmd@{mCmd}!mCmd@{mCmd}}
+\index{mCmd@{mCmd}!mCmd@{mCmd}}
+\subsubsection{\texorpdfstring{mCmd()}{mCmd()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structm_cmd}{m\+Cmd}} (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structm_cmd}{m\+Cmd}} \&}]{rhs }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{structm_cmd_a861a79ec71e76fa61603073aa6969551}\label{structm_cmd_a861a79ec71e76fa61603073aa6969551}} 
+\index{mCmd@{mCmd}!operator=@{operator=}}
+\index{operator=@{operator=}!mCmd@{mCmd}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structm_cmd}{m\+Cmd}}\& operator= (\begin{DoxyParamCaption}\item[{const volatile \mbox{\hyperlink{structm_cmd}{m\+Cmd}} \&}]{rhs }\end{DoxyParamCaption}) volatile\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structm_cmd_a5a637df37056ccbe63f6fe600222c003}\label{structm_cmd_a5a637df37056ccbe63f6fe600222c003}} 
+\index{mCmd@{mCmd}!operator=@{operator=}}
+\index{operator=@{operator=}!mCmd@{mCmd}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{structm_cmd}{m\+Cmd}}\& operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structm_cmd}{m\+Cmd}} \&}]{rhs }\end{DoxyParamCaption}) volatile\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structm_cmd_af05b89ac7edf2c67bb3386c902369313}\label{structm_cmd_af05b89ac7edf2c67bb3386c902369313}} 
+\index{mCmd@{mCmd}!fParam@{fParam}}
+\index{fParam@{fParam}!mCmd@{mCmd}}
+\subsubsection{\texorpdfstring{fParam}{fParam}}
+{\footnotesize\ttfamily float f\+Param}
+
+
+
+Floating point parameter which wualifies the instruction. 
+
+\mbox{\Hypertarget{structm_cmd_a7adb91eb9d020c0f2650e99a857d2c3d}\label{structm_cmd_a7adb91eb9d020c0f2650e99a857d2c3d}} 
+\index{mCmd@{mCmd}!Instruction@{Instruction}}
+\index{Instruction@{Instruction}!mCmd@{mCmd}}
+\subsubsection{\texorpdfstring{Instruction}{Instruction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}} Instruction}
+
+
+
+Instruction to slave. 
+
+Defines the request made of the slave by the master during any transacion. m\+Instruct defines a finite set of requests which the master can make of the slave. \mbox{\Hypertarget{structm_cmd_a4d0a4aab326d0ba8eb8128adb61c0888}\label{structm_cmd_a4d0a4aab326d0ba8eb8128adb61c0888}} 
+\index{mCmd@{mCmd}!iParam@{iParam}}
+\index{iParam@{iParam}!mCmd@{mCmd}}
+\subsubsection{\texorpdfstring{iParam}{iParam}}
+{\footnotesize\ttfamily int i\+Param}
+
+
+
+Integer paramter which qualifies the instruction. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h}{S\+P\+I\+\_\+\+Instruction\+Set.\+h}}\end{DoxyCompactItemize}

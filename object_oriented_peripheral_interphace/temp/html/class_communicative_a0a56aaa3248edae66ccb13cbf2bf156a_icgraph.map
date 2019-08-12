@@ -1,0 +1,4 @@
+<map id="RequestData" name="RequestData">
+<area shape="rect" id="node1" title="Performs a complete transaction; expects Slave to Reply with a Data object." alt="" coords="203,5,300,32"/>
+<area shape="rect" id="node2" href="$class_data_source.html#a81aac807bfb601c2ac1da78f69d31d48" title="Loads Data from the Sensor." alt="" coords="5,5,155,32"/>
+</map>

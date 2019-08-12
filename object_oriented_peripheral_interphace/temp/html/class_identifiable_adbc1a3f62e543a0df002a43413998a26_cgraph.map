@@ -1,0 +1,4 @@
+<map id="hasIdentityChanged" name="hasIdentityChanged">
+<area shape="rect" id="node1" title="Checks to seee whether the Identity in local memory is different to the Identity advertised by periph..." alt="" coords="5,5,141,32"/>
+<area shape="rect" id="node2" href="$class_communicative.html#a01ee3d76d85bad6123c4d4f6262c6c2d" title="Performs a complete transaction; expects Slave to Reply with Identity object." alt="" coords="189,5,397,32"/>
+</map>

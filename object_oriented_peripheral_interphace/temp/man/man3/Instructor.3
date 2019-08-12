@@ -1,0 +1,136 @@
+.TH "Instructor" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Instructor \- A class which models a Sensor/peripheral as entity which can issue instructions to the master\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Instructor\&.h>\fP
+.PP
+Inherited by \fBSensor\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBInstructor\fP (const int ChipSelect)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "int \fBhowManyInstructions\fP (void)"
+.br
+.RI "Asks the \fBSensor\fP how many instructions there are in a measurement cycle\&. "
+.ti -1c
+.RI "int \fBhowLongShouldIWait\fP (void)"
+.br
+.RI "Asks the sensor how long the master should pause for\&. Deprecated\&. "
+.ti -1c
+.RI "void \fBloadNextCommand\fP (void)"
+.br
+.RI "Fetches the next instruction issued by the sensor in its instruction cycle\&. "
+.ti -1c
+.RI "void \fBgetCurrentCommandString\fP (char[\fBSLAVE_COMMMAND_STRING_LENGTH\fP])"
+.br
+.RI "Returns the character array which qualifies the instruction currently loaded into local memory as issued by the \fBSensor\fP\&. "
+.ti -1c
+.RI "int \fBgetCurrentCommandInt\fP (void)"
+.br
+.RI "Returns the integer which qualifies the instruction currently loaded into local memory as issued by the \fBSensor\fP\&. "
+.ti -1c
+.RI "float \fBgetCurrentCommandFloat\fP (void)"
+.br
+.RI "Returns the float which qualifies the instruction currently loaded into local memory as issued by the \fBSensor\fP\&. "
+.ti -1c
+.RI "\fBsInstruct\fP \fBgetCurrentCommandInstruction\fP (void)"
+.br
+.RI "Returns the sinstruct object which defines the instruction currently loaded into local memory as issued by the \fBSensor\fP\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A class which models a Sensor/peripheral as entity which can issue instructions to the master\&. 
+
+This class models a peripheral as an entity which can issue commands to the master\&. The premise is that a sensor peripheral will conduct a measurement by cycling through a number of steps\&. At each step the sensor may wish for the \fBMaster\fP to perform certain actions, such as display a message to the user, pause for a certain period of time or wait until the user has acknowledged an instruction by button press\&. In general, the master is expected to iterate through the instruction set, loading an instruction each iteration and repsonding appropriately\&. i\&.e\&. follow the procedure: \fBhowManyInstructions()\fP->start loop->\fBloadNextCommand()\fP->React to command->repeat until all instructions have been processed\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBInstructor\fP (const int ChipSelect)"
+
+.PP
+Constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIChipSelect\fP is the Slave Select pin of the SPI peripheral in question\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "float getCurrentCommandFloat (void)"
+
+.PP
+Returns the float which qualifies the instruction currently loaded into local memory as issued by the \fBSensor\fP\&. The float which qualifies the instruction issued by the sensor is generally used to either augment the information displayed to the user to instruct the master as to how it should carry out the request of the slave\&. 
+.SS "\fBsInstruct\fP getCurrentCommandInstruction (void)"
+
+.PP
+Returns the sinstruct object which defines the instruction currently loaded into local memory as issued by the \fBSensor\fP\&. Elements of the sInstruct type define all the potential instructions which can be issued by a Slave\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The instruction issued by the slave\&. 
+.RE
+.PP
+
+.SS "int getCurrentCommandInt (void)"
+
+.PP
+Returns the integer which qualifies the instruction currently loaded into local memory as issued by the \fBSensor\fP\&. The integer which qualifies the instruction issued by the sensor is generally used to either augment the information displayed to the user to instruct the master as to how it should carry out the request of the slave, such as how long to pasue for\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The integer which qualifies the instruction\&. 
+.RE
+.PP
+
+.SS "void getCurrentCommandString (char Instruction[SLAVE_COMMMAND_STRING_LENGTH])"
+
+.PP
+Returns the character array which qualifies the instruction currently loaded into local memory as issued by the \fBSensor\fP\&. The character array (string) issued by the \fBSensor\fP is generally intended to be displayed to the user, to update the user on the progress of the measurement procedure or instruct the user on the next step in the measurement procedure, such as inserting the probe into the measurement environment\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchar\fP is the character array into which the instruction string is loaded\&. 
+.RE
+.PP
+
+.SS "int howLongShouldIWait (void)"
+
+.PP
+Asks the sensor how long the master should pause for\&. Deprecated\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The duration, in milliseconds, the master should pause for\&. 
+.RE
+.PP
+
+.SS "int howManyInstructions (void)"
+
+.PP
+Asks the \fBSensor\fP how many instructions there are in a measurement cycle\&. In general, the master is expected to iterate through the instrcution set\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The number of instructions in a measurement cycle\&. 
+.RE
+.PP
+
+.SS "void loadNextCommand (void)"
+
+.PP
+Fetches the next instruction issued by the sensor in its instruction cycle\&. Fetches the next instruction from the \fBSensor\fP and loads it into local memory\&. Instructions are issued in the \fBsCmd\fP type and are therefore consititute an element of the sInstruct instruction set, qualified by a character array (string), integer and float\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

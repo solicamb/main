@@ -1,0 +1,95 @@
+.TH "Sensor" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Sensor \- A class which models a Sensor/peripheral\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Sensor\&.h>\fP
+.PP
+Inherits \fBInstructable\fP, \fBInstructor\fP, \fBDataSource\fP, and \fBIdentifiable\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBSensor\fP (const int ChipSelect)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "int \fBStartMeasurement\fP (void)"
+.br
+.RI "Instruct the sensor to initiate the measurement procedure\&. "
+.ti -1c
+.RI "int \fBPauseMeasurementForMillis\fP (int)"
+.br
+.RI "Instruct the sensor to pause the measurement procedure for a brief period\&. "
+.ti -1c
+.RI "int \fBRestartMeasurement\fP (void)"
+.br
+.RI "Instruct the sensor to restart the measurement procedure\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A class which models a Sensor/peripheral\&. 
+
+This class models a sensor peripheral as an entity which has a queriable \fBIdentity\fP, is a source of \fBData\fP, can be issued commands and can issue a series of instructions in turn\&. In particular, a sensor is considered to perform a measurement procedure consisting of a series of steps; at each step, the sensor will issue instructions to the master to be acted upon and/or displayed to the user\&. The sensor may also require feedback from the user such as confirmation of the completion of an instruction, before proceeding to the next instruction in the measurement procedure\&. While the sensor dictates the flow of the measurement procedure, a master reserves the right to initiate the procedure, pause the procedure and restart the procedure\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBSensor\fP (const int ChipSelect)"
+
+.PP
+Constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIChipSelect\fP is the Slave Select pin of the SPI peripheral in question\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int PauseMeasurementForMillis (int PauseTime)"
+
+.PP
+Instruct the sensor to pause the measurement procedure for a brief period\&. Instructs the sensor to temporarily pause the measurement procedure for a period defined in milliseconds\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIint\fP is the number of milliseconds for which the sensor is to pause\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if the sensor acknowledges the request\&. 
+.RE
+.PP
+
+.SS "int RestartMeasurement (void)"
+
+.PP
+Instruct the sensor to restart the measurement procedure\&. Instructs the sensor to restart the measurement procedure\&. The sensor will wait revert to its initial state, waiting for a \fBStartMeasurement()\fP command before proceeding to the first instruction in the procedure\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the sensor acknowledges the request\&. 
+.RE
+.PP
+
+.SS "int StartMeasurement (void)"
+
+.PP
+Instruct the sensor to initiate the measurement procedure\&. Informs the sensor to start the measurement procedure and proceed to the first instruction step\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the sensor acknowledges the request\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

@@ -1,0 +1,545 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="class_data_source" kind="class" language="C++" prot="public">
+    <compoundname>DataSource</compoundname>
+    <derivedcompoundref refid="class_sensor" prot="public" virt="non-virtual">Sensor</derivedcompoundref>
+    <includes refid="_data_source_8h" local="no">DataSource.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_data_source_1a1ace59ad721c589b6e3f31a7723cb889" prot="private" static="no" mutable="no">
+        <type><ref refid="struct_data" kindref="compound">Data</ref></type>
+        <definition>Data CurrentData</definition>
+        <argsstring></argsstring>
+        <name>CurrentData</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="136" column="1" bodyfile="DataSource.h" bodystart="136" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_data_source_1a8dd12ec5c03ca381f8fac69d1c7994d0" prot="private" static="no" mutable="no">
+        <type><ref refid="class_communicative" kindref="compound">Communicative</ref></type>
+        <definition>Communicative CommsModule</definition>
+        <argsstring></argsstring>
+        <name>CommsModule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="137" column="1" bodyfile="DataSource.h" bodystart="137" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>DataSource</definition>
+        <argsstring>(const int ChipSelect)</argsstring>
+        <name>DataSource</name>
+        <param>
+          <type>const int</type>
+          <declname>ChipSelect</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ChipSelect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the Slave Select pin of the SPI peripheral in question. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="27" column="1" bodyfile="DataSource.cpp" bodystart="10" bodyend="25"/>
+        <references refid="struct_data_1ac0883de785701631da0e099578c748ca" compoundref="_s_p_i___instruction_set_8h" startline="190">Data::NumRows</references>
+        <references refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" compoundref="_s_p_i___instruction_set_8h" startline="177">NUMBER_OF_DATA_ROWS</references>
+        <references refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" compoundref="_s_p_i___instruction_set_8h" startline="192">Data::RowHeadings</references>
+        <references refid="struct_data_1a004891d89fb41172310a55947f922a54" compoundref="_s_p_i___instruction_set_8h" startline="194">Data::rowUnits</references>
+        <references refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" compoundref="_s_p_i___instruction_set_8h" startline="188">Data::NumColumns</references>
+        <references refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" compoundref="_s_p_i___instruction_set_8h" startline="180">DATA_ROW_LENGTH</references>
+        <references refid="struct_data_1a1984363a7b509590c1bae03601360a0e" compoundref="_s_p_i___instruction_set_8h" startline="196">Data::DataPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1a7d92295e088894b5417729a814e49e01" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isThereData</definition>
+        <argsstring>(void)</argsstring>
+        <name>isThereData</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Asks Sensor/peripheral whether there is <ref refid="struct_data" kindref="compound">Data</ref> ready to be collected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Asks the sensor whether the data is ready to be retrieved by the master. Slave&apos;s are, however, required to instantiate a <ref refid="struct_data" kindref="compound">Data</ref> object and so premature loads thereof will not fail. <simplesect kind="return"><para>True if the data is ready to be collected from the <ref refid="class_sensor" kindref="compound">Sensor</ref>. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="35" column="1" bodyfile="DataSource.cpp" bodystart="32" bodyend="41"/>
+        <references refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792ae0e86116c94ee3a2de08c331a25a9553" compoundref="_s_p_i___instruction_set_8h" startline="35">IsThereData</references>
+        <references refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" compoundref="_communicative_8cpp" startline="57" endline="87">Communicative::RequestReply</references>
+        <references refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" compoundref="_s_p_i___instruction_set_8h" startline="57">sCmd::Instruction</references>
+        <references refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a695ed835e2b72585493b31c1043fdf25" compoundref="_s_p_i___instruction_set_8h" startline="15">Yes</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1a81aac807bfb601c2ac1da78f69d31d48" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_data" kindref="compound">Data</ref></type>
+        <definition>Data loadData</definition>
+        <argsstring>(void)</argsstring>
+        <name>loadData</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Loads <ref refid="struct_data" kindref="compound">Data</ref> from the <ref refid="class_sensor" kindref="compound">Sensor</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Loads the <ref refid="struct_data" kindref="compound">Data</ref> object from the <ref refid="class_sensor" kindref="compound">Sensor</ref> into local memory. <simplesect kind="return"><para>The <ref refid="struct_data" kindref="compound">Data</ref> object loaded into local memory. User of accessors preffered. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="class_data_source_1ac15f241362d7c22c75c42c2bb16315bf" kindref="member">getNumberOfDataColumns()</ref>, <ref refid="class_data_source_1a52269fa43b741f1ab431aac56d3aedb5" kindref="member">getNumberOfDataRows()</ref>, <ref refid="class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d" kindref="member">getRowHeadings()</ref>, <ref refid="class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e" kindref="member">getRowUnits()</ref>, <ref refid="class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6" kindref="member">getDataArray()</ref>, <ref refid="class_data_source_1a924875bd657b56f140604551270cdbc0" kindref="member">getDataVector()</ref>, <ref refid="class_data_source_1a49998f22c00d924daf7b67af48e10a30" kindref="member">getVectorLength()</ref>, <ref refid="class_data_source_1a79d69573a651290750aa8c08d24f3b64" kindref="member">getVectorHeading()</ref>,<ref refid="class_data_source_1af2a2f33b9970ecff75894134498ff2cd" kindref="member">getVectorUnits()</ref>, <ref refid="class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b" kindref="member">getValueOne()</ref>,<ref refid="class_data_source_1accbfa79e7afee154b4332483181f27ec" kindref="member">getValueTwo()</ref>,<ref refid="class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf" kindref="member">getValueThree()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="42" column="1" bodyfile="DataSource.cpp" bodystart="43" bodyend="47"/>
+        <references refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9972e8050301ea3d5b585bc557bac507" compoundref="_s_p_i___instruction_set_8h" startline="36">SendDataPlease</references>
+        <references refid="class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a" compoundref="_communicative_8cpp" startline="122" endline="152">Communicative::RequestData</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1ac15f241362d7c22c75c42c2bb16315bf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getNumberOfDataColumns</definition>
+        <argsstring>(const MeasurementVectors VectorNumber)</argsstring>
+        <name>getNumberOfDataColumns</name>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref></type>
+          <declname>VectorNumber</declname>
+        </param>
+        <briefdescription>
+<para>Gets the number of data points along a particular row of the data array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VectorNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is an enumerated type referring to the row in the two dimensional data array. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The number of data points along a particular row/vector. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref>, <ref refid="struct_data" kindref="compound">Data</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="50" column="1" bodyfile="DataSource.cpp" bodystart="49" bodyend="51"/>
+        <references refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" compoundref="_s_p_i___instruction_set_8h" startline="188">Data::NumColumns</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1a52269fa43b741f1ab431aac56d3aedb5" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getNumberOfDataRows</definition>
+        <argsstring>(void)</argsstring>
+        <name>getNumberOfDataRows</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Gets the number of rows used in the data array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Returns the number of &apos;vectors&apos; (rows) which the sensor has used to store data. Ideally, one should utilise the result of this function to iterate through the vectors. <simplesect kind="return"><para>The number of vectors in use. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="struct_data" kindref="compound">Data</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="58" column="1" bodyfile="DataSource.cpp" bodystart="53" bodyend="55"/>
+        <references refid="struct_data_1ac0883de785701631da0e099578c748ca" compoundref="_s_p_i___instruction_set_8h" startline="190">Data::NumRows</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void getRowHeadings</definition>
+        <argsstring>(char[NUMBER_OF_DATA_ROWS][ROW_HEADING_LENGTH])</argsstring>
+        <name>getRowHeadings</name>
+        <param>
+          <type>char</type>
+          <defname>Headings</defname>
+          <array>[NUMBER_OF_DATA_ROWS][ROW_HEADING_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Gets string headings of all the vectors in the data array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each vector/row is assigned a heading to describe the nature of the data contained within that vector. Such as &quot;Ambient Temperature&quot;. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the array of character arrays into which the headings are loaded. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="struct_data" kindref="compound">Data</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="67" column="1" bodyfile="DataSource.cpp" bodystart="57" bodyend="69"/>
+        <references refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" compoundref="_s_p_i___instruction_set_8h" startline="177">NUMBER_OF_DATA_ROWS</references>
+        <references refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" compoundref="_s_p_i___instruction_set_8h" startline="178">ROW_HEADING_LENGTH</references>
+        <references refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" compoundref="_s_p_i___instruction_set_8h" startline="192">Data::RowHeadings</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void getRowUnits</definition>
+        <argsstring>(char[NUMBER_OF_DATA_ROWS][ROW_UNIT_LENGTH])</argsstring>
+        <name>getRowUnits</name>
+        <param>
+          <type>char</type>
+          <defname>Units</defname>
+          <array>[NUMBER_OF_DATA_ROWS][ROW_UNIT_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Gets string units of all the vectors in the data array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Each vector/row is assigned a Units string to define the units of the data contained within that vector. Such as &quot;V&quot; or &quot;Amperes&quot;. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the array of character arrays into which the units are loaded. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="struct_data" kindref="compound">Data</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="74" column="1" bodyfile="DataSource.cpp" bodystart="71" bodyend="83"/>
+        <references refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" compoundref="_s_p_i___instruction_set_8h" startline="177">NUMBER_OF_DATA_ROWS</references>
+        <references refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" compoundref="_s_p_i___instruction_set_8h" startline="179">ROW_UNIT_LENGTH</references>
+        <references refid="struct_data_1a004891d89fb41172310a55947f922a54" compoundref="_s_p_i___instruction_set_8h" startline="194">Data::rowUnits</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void getDataArray</definition>
+        <argsstring>(float[NUMBER_OF_DATA_ROWS][DATA_ROW_LENGTH])</argsstring>
+        <name>getDataArray</name>
+        <param>
+          <type>float</type>
+          <defname>DataVals</defname>
+          <array>[NUMBER_OF_DATA_ROWS][DATA_ROW_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Gets the entire data array. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Retrieves the entire two dimensionsal data array, irrespective of which elements/vectors are actually in use. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the array into which the data is written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="struct_data" kindref="compound">Data</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="81" column="1" bodyfile="DataSource.cpp" bodystart="85" bodyend="96"/>
+        <references refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" compoundref="_s_p_i___instruction_set_8h" startline="177">NUMBER_OF_DATA_ROWS</references>
+        <references refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" compoundref="_s_p_i___instruction_set_8h" startline="180">DATA_ROW_LENGTH</references>
+        <references refid="struct_data_1a1984363a7b509590c1bae03601360a0e" compoundref="_s_p_i___instruction_set_8h" startline="196">Data::DataPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1a924875bd657b56f140604551270cdbc0" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void getDataVector</definition>
+        <argsstring>(const MeasurementVectors VectorNumber, float[DATA_ROW_LENGTH])</argsstring>
+        <name>getDataVector</name>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref></type>
+          <declname>VectorNumber</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <defname>DataVect</defname>
+          <array>[DATA_ROW_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Gets the indicated data vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Retrieves a singel row in the two dimesnional data array. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VectorNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the row in the data array to be retrieved. </para>
+</parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>float</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the floating point array into which the data points will be written. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="struct_data" kindref="compound">Data</ref>, <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="91" column="1" bodyfile="DataSource.cpp" bodystart="98" bodyend="121"/>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" compoundref="_s_p_i___instruction_set_8h" startline="249">First</references>
+        <references refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" compoundref="_s_p_i___instruction_set_8h" startline="188">Data::NumColumns</references>
+        <references refid="struct_data_1a1984363a7b509590c1bae03601360a0e" compoundref="_s_p_i___instruction_set_8h" startline="196">Data::DataPoints</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" compoundref="_s_p_i___instruction_set_8h" startline="250">Second</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" compoundref="_s_p_i___instruction_set_8h" startline="251">Third</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1a49998f22c00d924daf7b67af48e10a30" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getVectorLength</definition>
+        <argsstring>(const MeasurementVectors VectorNumber)</argsstring>
+        <name>getVectorLength</name>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref></type>
+          <declname>VectorNumber</declname>
+        </param>
+        <briefdescription>
+<para>Gets the indicated data vector length. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The data vectors (rows) have a max length of DATA_ROW_LENGTH and the <ref refid="class_sensor" kindref="compound">Sensor</ref> will push data points into said vector. As the <ref refid="class_sensor" kindref="compound">Sensor</ref> may not utilise the entire width of the data array, the length indicates the number of values which the <ref refid="class_sensor" kindref="compound">Sensor</ref> has pushed into the vector in question. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VectorNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the row in the data array. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="struct_data" kindref="compound">Data</ref>, <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="100" column="1" bodyfile="DataSource.cpp" bodystart="123" bodyend="125"/>
+        <references refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" compoundref="_s_p_i___instruction_set_8h" startline="188">Data::NumColumns</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1a79d69573a651290750aa8c08d24f3b64" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void getVectorHeading</definition>
+        <argsstring>(const MeasurementVectors VectorNumber, char[ROW_HEADING_LENGTH])</argsstring>
+        <name>getVectorHeading</name>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref></type>
+          <declname>VectorNumber</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <defname>Heading</defname>
+          <array>[ROW_HEADING_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Gets the string heading for the vector in question. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VectorNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the row in the data array to which the heading coresponds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d" kindref="member">getRowHeadings()</ref>, <ref refid="struct_data" kindref="compound">Data</ref>, <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="106" column="1" bodyfile="DataSource.cpp" bodystart="127" bodyend="153"/>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" compoundref="_s_p_i___instruction_set_8h" startline="249">First</references>
+        <references refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" compoundref="_s_p_i___instruction_set_8h" startline="178">ROW_HEADING_LENGTH</references>
+        <references refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" compoundref="_s_p_i___instruction_set_8h" startline="192">Data::RowHeadings</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" compoundref="_s_p_i___instruction_set_8h" startline="250">Second</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" compoundref="_s_p_i___instruction_set_8h" startline="251">Third</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1af2a2f33b9970ecff75894134498ff2cd" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void getVectorUnits</definition>
+        <argsstring>(const MeasurementVectors VectorNumber, char[ROW_UNIT_LENGTH])</argsstring>
+        <name>getVectorUnits</name>
+        <param>
+          <type>const <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref></type>
+          <declname>VectorNumber</declname>
+        </param>
+        <param>
+          <type>char</type>
+          <defname>Units</defname>
+          <array>[ROW_UNIT_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Gets the string units for the vector in question. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>VectorNumber</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the row in the data array to which the heading coresponds. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para><ref refid="class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e" kindref="member">getRowUnits()</ref>, <ref refid="struct_data" kindref="compound">Data</ref>, <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="112" column="1" bodyfile="DataSource.cpp" bodystart="155" bodyend="181"/>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" compoundref="_s_p_i___instruction_set_8h" startline="249">First</references>
+        <references refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" compoundref="_s_p_i___instruction_set_8h" startline="179">ROW_UNIT_LENGTH</references>
+        <references refid="struct_data_1a004891d89fb41172310a55947f922a54" compoundref="_s_p_i___instruction_set_8h" startline="194">Data::rowUnits</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" compoundref="_s_p_i___instruction_set_8h" startline="250">Second</references>
+        <references refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" compoundref="_s_p_i___instruction_set_8h" startline="251">Third</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float getValueOne</definition>
+        <argsstring>(void)</argsstring>
+        <name>getValueOne</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Gets the first data point in the first vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The first data point in the first vector. DataArray[0][0]. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="struct_data" kindref="compound">Data</ref>, <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="119" column="1" bodyfile="DataSource.cpp" bodystart="184" bodyend="186"/>
+        <references refid="struct_data_1a1984363a7b509590c1bae03601360a0e" compoundref="_s_p_i___instruction_set_8h" startline="196">Data::DataPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1accbfa79e7afee154b4332483181f27ec" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float getValueTwo</definition>
+        <argsstring>(void)</argsstring>
+        <name>getValueTwo</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Gets the second data point in the first vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The second data point in the first vector. DataArray[1][0]. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="struct_data" kindref="compound">Data</ref>, <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="125" column="1" bodyfile="DataSource.cpp" bodystart="188" bodyend="190"/>
+        <references refid="struct_data_1a1984363a7b509590c1bae03601360a0e" compoundref="_s_p_i___instruction_set_8h" startline="196">Data::DataPoints</references>
+      </memberdef>
+      <memberdef kind="function" id="class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float getValueThree</definition>
+        <argsstring>(void)</argsstring>
+        <name>getValueThree</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Gets the third data point in the first vector. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The third data point in the first vector. DataArray[2][0]. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="struct_data" kindref="compound">Data</ref>, <ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="DataSource.h" line="131" column="1" bodyfile="DataSource.cpp" bodystart="192" bodyend="194"/>
+        <references refid="struct_data_1a1984363a7b509590c1bae03601360a0e" compoundref="_s_p_i___instruction_set_8h" startline="196">Data::DataPoints</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A class which models a Sensor/peripheral as an entity which is a source of data. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class models a <ref refid="class_sensor" kindref="compound">Sensor</ref> as a source of data. The convention in use is that any <ref refid="class_sensor" kindref="compound">Sensor</ref> can store data such that it occupies a two dimensional float array with maximum dimensions NUMBER_OF_DATA_ROWS x DATA_ROW_LENGTH. The data can either be treated as a square array, the dimensions of which can be requested, or as a series of &apos;vectors&apos;, the length of which can be requested. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="5">
+        <label>Sensor</label>
+        <link refid="class_sensor"/>
+        <childnode refid="4" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="4">
+        <label>DataSource</label>
+        <link refid="class_data_source"/>
+      </node>
+    </inheritancegraph>
+    <location file="DataSource.h" line="19" column="1" bodyfile="DataSource.h" bodystart="18" bodyend="139"/>
+    <listofallmembers>
+      <member refid="class_data_source_1a8dd12ec5c03ca381f8fac69d1c7994d0" prot="private" virt="non-virtual"><scope>DataSource</scope><name>CommsModule</name></member>
+      <member refid="class_data_source_1a1ace59ad721c589b6e3f31a7723cb889" prot="private" virt="non-virtual"><scope>DataSource</scope><name>CurrentData</name></member>
+      <member refid="class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d" prot="public" virt="non-virtual"><scope>DataSource</scope><name>DataSource</name></member>
+      <member refid="class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getDataArray</name></member>
+      <member refid="class_data_source_1a924875bd657b56f140604551270cdbc0" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getDataVector</name></member>
+      <member refid="class_data_source_1ac15f241362d7c22c75c42c2bb16315bf" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getNumberOfDataColumns</name></member>
+      <member refid="class_data_source_1a52269fa43b741f1ab431aac56d3aedb5" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getNumberOfDataRows</name></member>
+      <member refid="class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getRowHeadings</name></member>
+      <member refid="class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getRowUnits</name></member>
+      <member refid="class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getValueOne</name></member>
+      <member refid="class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getValueThree</name></member>
+      <member refid="class_data_source_1accbfa79e7afee154b4332483181f27ec" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getValueTwo</name></member>
+      <member refid="class_data_source_1a79d69573a651290750aa8c08d24f3b64" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getVectorHeading</name></member>
+      <member refid="class_data_source_1a49998f22c00d924daf7b67af48e10a30" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getVectorLength</name></member>
+      <member refid="class_data_source_1af2a2f33b9970ecff75894134498ff2cd" prot="public" virt="non-virtual"><scope>DataSource</scope><name>getVectorUnits</name></member>
+      <member refid="class_data_source_1a7d92295e088894b5417729a814e49e01" prot="public" virt="non-virtual"><scope>DataSource</scope><name>isThereData</name></member>
+      <member refid="class_data_source_1a81aac807bfb601c2ac1da78f69d31d48" prot="public" virt="non-virtual"><scope>DataSource</scope><name>loadData</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

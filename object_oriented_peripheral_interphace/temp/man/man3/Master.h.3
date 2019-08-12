@@ -1,0 +1,79 @@
+.TH "Master.h" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Master.h
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <Arduino\&.h>\fP
+.br
+\fC#include 'SPI_InstructionSet\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBUserInstructions\fP"
+.br
+.ti -1c
+.RI "class \fBMaster\fP"
+.br
+.RI "A monolithic class to encapsulate and abstract the slave's communication with the master\&. "
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSPI1_NSS_PIN\fP   PA4"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBSPI_IRQ\fP (void)"
+.br
+.RI "Innaccesible IRQ, called on SS falling\&. "
+.ti -1c
+.RI "void \fBRequestHandler\fP (\fBmCmd\fP &Request)"
+.br
+.RI "Function prototype for user-implemented IRQ method; called after handshake and the reconstruction of the request from the master\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const int \fBMAX_USER_INSTRUCTION_NUMBER\fP = 5"
+.br
+.ti -1c
+.RI "volatile \fBMaster\fP \fBSensorMaster\fP"
+.br
+.RI "Auto-instantiated instance of \fBMaster\fP class, called during the privately implemented IRQ routine and accessible externally by main code\&. "
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define SPI1_NSS_PIN   PA4"
+
+.SH "Function Documentation"
+.PP 
+.SS "void RequestHandler (\fBmCmd\fP & Request)"
+
+.PP
+Function prototype for user-implemented IRQ method; called after handshake and the reconstruction of the request from the master\&. 
+.SS "void SPI_IRQ (void)"
+
+.PP
+Innaccesible IRQ, called on SS falling\&. 
+.SH "Variable Documentation"
+.PP 
+.SS "const int MAX_USER_INSTRUCTION_NUMBER = 5"
+
+.SS "volatile \fBMaster\fP SensorMaster"
+
+.PP
+Auto-instantiated instance of \fBMaster\fP class, called during the privately implemented IRQ routine and accessible externally by main code\&. 
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

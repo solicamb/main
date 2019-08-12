@@ -1,0 +1,242 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.15">
+  <compound refid="class_communicative" kind="class"><name>Communicative</name>
+    <member refid="class_communicative_1a419c5386ec6b22bbfbd8cd76e6edb18b" kind="variable"><name>ChipSelect</name></member>
+    <member refid="class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a" kind="function"><name>Communicative</name></member>
+    <member refid="class_communicative_1a53c7f2ec58bfb99f0ea10e238705c3ce" kind="function"><name>~Communicative</name></member>
+    <member refid="class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046" kind="function"><name>isPeripheralConnected</name></member>
+    <member refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" kind="function"><name>RequestReply</name></member>
+    <member refid="class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d" kind="function"><name>RequestIdentity</name></member>
+    <member refid="class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a" kind="function"><name>RequestData</name></member>
+    <member refid="class_communicative_1a121973d02ec0a7804f23ca2655290528" kind="function"><name>SPISetup</name></member>
+    <member refid="class_communicative_1ae7bec8869ca105ff5719603058fa3869" kind="function"><name>transferAndPause</name></member>
+    <member refid="class_communicative_1ac023c34d50ec8768269a360f62d61208" kind="function"><name>SPI_write</name></member>
+    <member refid="class_communicative_1a1173b6f0412255b084ad6c904acbaea1" kind="function"><name>SPI_read</name></member>
+    <member refid="class_communicative_1a2741d2934d728f76321eeda7a112e371" kind="function"><name>areYouAlive</name></member>
+  </compound>
+  <compound refid="struct_data" kind="struct"><name>Data</name>
+    <member refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" kind="variable"><name>NumColumns</name></member>
+    <member refid="struct_data_1ac0883de785701631da0e099578c748ca" kind="variable"><name>NumRows</name></member>
+    <member refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kind="variable"><name>RowHeadings</name></member>
+    <member refid="struct_data_1a004891d89fb41172310a55947f922a54" kind="variable"><name>rowUnits</name></member>
+    <member refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kind="variable"><name>DataPoints</name></member>
+    <member refid="struct_data_1a3ae506c712bc36c15533f5499608a047" kind="function"><name>operator=</name></member>
+    <member refid="struct_data_1a7c50ba562a0dcddc5ca2c733f1bbcb61" kind="function"><name>operator=</name></member>
+  </compound>
+  <compound refid="class_data_source" kind="class"><name>DataSource</name>
+    <member refid="class_data_source_1a1ace59ad721c589b6e3f31a7723cb889" kind="variable"><name>CurrentData</name></member>
+    <member refid="class_data_source_1a8dd12ec5c03ca381f8fac69d1c7994d0" kind="variable"><name>CommsModule</name></member>
+    <member refid="class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d" kind="function"><name>DataSource</name></member>
+    <member refid="class_data_source_1a7d92295e088894b5417729a814e49e01" kind="function"><name>isThereData</name></member>
+    <member refid="class_data_source_1a81aac807bfb601c2ac1da78f69d31d48" kind="function"><name>loadData</name></member>
+    <member refid="class_data_source_1ac15f241362d7c22c75c42c2bb16315bf" kind="function"><name>getNumberOfDataColumns</name></member>
+    <member refid="class_data_source_1a52269fa43b741f1ab431aac56d3aedb5" kind="function"><name>getNumberOfDataRows</name></member>
+    <member refid="class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d" kind="function"><name>getRowHeadings</name></member>
+    <member refid="class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e" kind="function"><name>getRowUnits</name></member>
+    <member refid="class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6" kind="function"><name>getDataArray</name></member>
+    <member refid="class_data_source_1a924875bd657b56f140604551270cdbc0" kind="function"><name>getDataVector</name></member>
+    <member refid="class_data_source_1a49998f22c00d924daf7b67af48e10a30" kind="function"><name>getVectorLength</name></member>
+    <member refid="class_data_source_1a79d69573a651290750aa8c08d24f3b64" kind="function"><name>getVectorHeading</name></member>
+    <member refid="class_data_source_1af2a2f33b9970ecff75894134498ff2cd" kind="function"><name>getVectorUnits</name></member>
+    <member refid="class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b" kind="function"><name>getValueOne</name></member>
+    <member refid="class_data_source_1accbfa79e7afee154b4332483181f27ec" kind="function"><name>getValueTwo</name></member>
+    <member refid="class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf" kind="function"><name>getValueThree</name></member>
+  </compound>
+  <compound refid="class_identifiable" kind="class"><name>Identifiable</name>
+    <member refid="class_identifiable_1a8dd12ec5c03ca381f8fac69d1c7994d0" kind="variable"><name>CommsModule</name></member>
+    <member refid="class_identifiable_1a5f921ab3c98fd54f7607dd1a63f47765" kind="variable"><name>ThisSensor</name></member>
+    <member refid="class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e" kind="function"><name>Identifiable</name></member>
+    <member refid="class_identifiable_1adbc1a3f62e543a0df002a43413998a26" kind="function"><name>hasIdentityChanged</name></member>
+    <member refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" kind="function"><name>updateIdentity</name></member>
+    <member refid="class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae" kind="function"><name>getIDNumber</name></member>
+    <member refid="class_identifiable_1a7942e337c1303ce42cc822032465c66a" kind="function"><name>getSensorName</name></member>
+  </compound>
+  <compound refid="struct_identity" kind="struct"><name>Identity</name>
+    <member refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" kind="variable"><name>SensorName</name></member>
+    <member refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" kind="variable"><name>sensorID</name></member>
+    <member refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" kind="variable"><name>sensorChipSelect</name></member>
+    <member refid="struct_identity_1ae7ccf6e408df14fac9dc856f53d81718" kind="function"><name>operator=</name></member>
+    <member refid="struct_identity_1a64f9786e3b6cd410406d14d124be1e7c" kind="function"><name>operator=</name></member>
+  </compound>
+  <compound refid="class_instructable" kind="class"><name>Instructable</name>
+    <member refid="class_instructable_1a8dd12ec5c03ca381f8fac69d1c7994d0" kind="variable"><name>CommsModule</name></member>
+    <member refid="class_instructable_1a688587b062ae8f3979bf7567041b86c1" kind="function"><name>Instructable</name></member>
+    <member refid="class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f" kind="function"><name>issueCommand</name></member>
+    <member refid="class_instructable_1ae1de225deda4decc52ce8e06efa8c547" kind="function"><name>issueCommand</name></member>
+    <member refid="class_instructable_1a556e6313ec5ac21a30efe8a5ef28a486" kind="function"><name>issueCommand</name></member>
+    <member refid="class_instructable_1ac2d69c105880162fed7b7be07228cfa7" kind="function"><name>issueCommand</name></member>
+    <member refid="class_instructable_1a2bdcc11cead0067e963c524968d0d3e1" kind="function"><name>areYouConnected</name></member>
+  </compound>
+  <compound refid="class_instructor" kind="class"><name>Instructor</name>
+    <member refid="class_instructor_1ac82721a9783dc8db498757194131276c" kind="variable"><name>CurrentCommand</name></member>
+    <member refid="class_instructor_1a8dd12ec5c03ca381f8fac69d1c7994d0" kind="variable"><name>CommsModule</name></member>
+    <member refid="class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823" kind="function"><name>Instructor</name></member>
+    <member refid="class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8" kind="function"><name>howManyInstructions</name></member>
+    <member refid="class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f" kind="function"><name>howLongShouldIWait</name></member>
+    <member refid="class_instructor_1a43cbe18547a30108219f3aa2945fc9ca" kind="function"><name>loadNextCommand</name></member>
+    <member refid="class_instructor_1a8c66f480a7b5a6b434f613bc7197e824" kind="function"><name>getCurrentCommandString</name></member>
+    <member refid="class_instructor_1adcbf1cb6d2739539465edc6d996d2987" kind="function"><name>getCurrentCommandInt</name></member>
+    <member refid="class_instructor_1ae81f8123893b582fd32a71601471cff8" kind="function"><name>getCurrentCommandFloat</name></member>
+    <member refid="class_instructor_1a1e54d05ded7ecf88f0205b52901df681" kind="function"><name>getCurrentCommandInstruction</name></member>
+  </compound>
+  <compound refid="class_master" kind="class"><name>Master</name>
+    <member refid="class_master_1abec6a5b26c05771f7e9f0943ac9db6d7" kind="variable"><name>beginMeasurementYet</name></member>
+    <member refid="class_master_1a260afb14cd2fbe1b90ae67f9c69a78a5" kind="variable"><name>CurrentRequest</name></member>
+    <member refid="class_master_1a53d49f548ccfefd7f2e955cd226a4392" kind="variable"><name>ThisSensorID</name></member>
+    <member refid="class_master_1a20caba1a12c946e5c8cf408152fc8da2" kind="variable"><name>MeasurementData</name></member>
+    <member refid="class_master_1a99b6912a8b53fd0199409b5d1e10ae04" kind="variable"><name>UserInstructionSet</name></member>
+    <member refid="class_master_1afd2e9903066a53c737be92639cfa15b0" kind="function"><name>Master</name></member>
+    <member refid="class_master_1a89241ed8839b9fe5ec29d904630a9d3e" kind="function"><name>Master</name></member>
+    <member refid="class_master_1a58d721f62d1c8bbf84840b864f2e482a" kind="function"><name>~Master</name></member>
+    <member refid="class_master_1a339116daf8910b52da4d608c8c7b3944" kind="function"><name>Master</name></member>
+    <member refid="class_master_1a54259c8db640b88dcf5de5594a947b1c" kind="function"><name>operator=</name></member>
+    <member refid="class_master_1a0ce51778d73a67179e58ecc6e136bef9" kind="function"><name>operator=</name></member>
+    <member refid="class_master_1a5af38dc77ec10af275ed892e756aee64" kind="function"><name>SETUP</name></member>
+    <member refid="class_master_1a23aca637cd51c40ae469a9ee48725edf" kind="function"><name>SPISetup</name></member>
+    <member refid="class_master_1a2bc479ad10a53f31c4833668cc9cfac4" kind="function"><name>Handshake</name></member>
+    <member refid="class_master_1a3a3fce38be9020bb12ab595c4adc59ed" kind="function"><name>loadRequest</name></member>
+    <member refid="class_master_1af892816882821b107d888f3fe3d7dddd" kind="function"><name>getCurrentInstruction</name></member>
+    <member refid="class_master_1a918b5964fa7cfc2ef6cf54960a80ced5" kind="function"><name>getCurrentInstructionIntParameter</name></member>
+    <member refid="class_master_1a32c23c46b93673a8817bf54cf4a52372" kind="function"><name>getCurrentInstructionFloatParameter</name></member>
+    <member refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" kind="function"><name>sendReply</name></member>
+    <member refid="class_master_1a109e347c1b70f26a82d48dfb13af3fe8" kind="function"><name>sendReply</name></member>
+    <member refid="class_master_1abebea7ffc56886ac9b59980312ea19f9" kind="function"><name>sendReply</name></member>
+    <member refid="class_master_1a26d84a77b85fdd81db98ccd23d0e882f" kind="function"><name>sendReply</name></member>
+    <member refid="class_master_1a68d7ac6a3680ac2b4c3620b6e175d97f" kind="function"><name>sendReply</name></member>
+    <member refid="class_master_1aa0f969c879b7d6ca105162ea2ca2c87e" kind="function"><name>sendReply</name></member>
+    <member refid="class_master_1a075da7da71f50da0a5973ff65cc1a485" kind="function"><name>sendReply</name></member>
+    <member refid="class_master_1acca62a1478bc305cdd8496f684ea3f9d" kind="function"><name>sendReply</name></member>
+    <member refid="class_master_1a88fd38997e4ee0c26fd09a85477487fa" kind="function"><name>sendReply</name></member>
+    <member refid="class_master_1a7e73d29d4d8d714b9c5ea69f18cad396" kind="function"><name>sendData</name></member>
+    <member refid="class_master_1a9ebd71ad45ea73524c87724b9c5e5e2f" kind="function"><name>sendIdentity</name></member>
+    <member refid="class_master_1ac907bfa48b84098a906c63c933cc373d" kind="function"><name>PushMeasurementVector</name></member>
+    <member refid="class_master_1ad64bb8e32e356747d0f80fce966a3574" kind="function"><name>PopMeasurementVector</name></member>
+    <member refid="class_master_1a94625b59aceffeceeae3b050885968ef" kind="function"><name>ClearMeasurementVector</name></member>
+    <member refid="class_master_1a49e434ca3d09d56bac2a2d45c86661ac" kind="function"><name>setMeasurementVectorHeading</name></member>
+    <member refid="class_master_1a5f955da291f31441d726c4ded74c32bd" kind="function"><name>setMeasurementVectorUnits</name></member>
+    <member refid="class_master_1a23536349ac40fc9cc030e9bc5d0c5945" kind="function"><name>isThereData</name></member>
+    <member refid="class_master_1aa68bb1327d506c42b6b7ab54fd73ca62" kind="function"><name>sendTotalNumOfInstructions</name></member>
+    <member refid="class_master_1a250b4f7cdb96abb0be9ffdc54d00be31" kind="function"><name>getCurrentInstructionNumber</name></member>
+    <member refid="class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a" kind="function"><name>sendNextUserInstruction</name></member>
+    <member refid="class_master_1a8a9c9670d31af14e65157879963e0cf1" kind="function"><name>resendCurrentUserInstruction</name></member>
+    <member refid="class_master_1ad50d30dbd09d40661bbdbc1527ff07bf" kind="function"><name>restartUserInstructionCycle</name></member>
+    <member refid="class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c" kind="function"><name>beginMeasurement</name></member>
+    <member refid="class_master_1a5d83f02bd26fbe40f249c052454b327b" kind="function"><name>shallIStart</name></member>
+    <member refid="class_master_1a5f512e16b95e40713e16ef27e2f15fbc" kind="function"><name>SPI_write</name></member>
+    <member refid="class_master_1a65e9ceb6bcd2dd544a68ccbe7c6daa43" kind="function"><name>SPI_read</name></member>
+  </compound>
+  <compound refid="structm_cmd" kind="struct"><name>mCmd</name>
+    <member refid="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" kind="variable"><name>Instruction</name></member>
+    <member refid="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kind="variable"><name>iParam</name></member>
+    <member refid="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" kind="variable"><name>fParam</name></member>
+    <member refid="structm_cmd_1a15d47aa62e963ba62b9b5df21ff7c3b3" kind="function"><name>mCmd</name></member>
+    <member refid="structm_cmd_1a0bc6db1f094500a0605ce488869a1765" kind="function"><name>mCmd</name></member>
+    <member refid="structm_cmd_1a390b853a14509e41006a0d873899b234" kind="function"><name>mCmd</name></member>
+    <member refid="structm_cmd_1a861a79ec71e76fa61603073aa6969551" kind="function"><name>operator=</name></member>
+    <member refid="structm_cmd_1a5a637df37056ccbe63f6fe600222c003" kind="function"><name>operator=</name></member>
+  </compound>
+  <compound refid="structs_cmd" kind="struct"><name>sCmd</name>
+    <member refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" kind="variable"><name>Instruction</name></member>
+    <member refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" kind="variable"><name>sParam</name></member>
+    <member refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kind="variable"><name>iParam</name></member>
+    <member refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" kind="variable"><name>fParam</name></member>
+    <member refid="structs_cmd_1a3b1f47c680cdde48d2c8679599547516" kind="function"><name>operator=</name></member>
+    <member refid="structs_cmd_1a88ec1d5b2730bd3e2e2c9902c3ccde34" kind="function"><name>operator=</name></member>
+  </compound>
+  <compound refid="class_sensor" kind="class"><name>Sensor</name>
+    <member refid="class_sensor_1a370005d04d3566c21b9190e1442fa4e8" kind="function"><name>Sensor</name></member>
+    <member refid="class_sensor_1af0e64874a3d1b8ae19e3b623d244342a" kind="function"><name>StartMeasurement</name></member>
+    <member refid="class_sensor_1afdcc3b63357bd24f519e0cbc85454a52" kind="function"><name>PauseMeasurementForMillis</name></member>
+    <member refid="class_sensor_1ad58e9acfc23f07af433f0e2596d786d7" kind="function"><name>RestartMeasurement</name></member>
+  </compound>
+  <compound refid="struct_user_instructions" kind="struct"><name>UserInstructions</name>
+    <member refid="struct_user_instructions_1a801574205a73598195471b820f1763be" kind="variable"><name>NumOfInstructions</name></member>
+    <member refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" kind="variable"><name>InstructionCounter</name></member>
+    <member refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" kind="variable"><name>InstructionSet</name></member>
+    <member refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" kind="variable"><name>MasterInstructionSet</name></member>
+    <member refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" kind="variable"><name>iParams</name></member>
+    <member refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" kind="variable"><name>fParams</name></member>
+    <member refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" kind="function"><name>operator=</name></member>
+    <member refid="struct_user_instructions_1a70e5ef4407c43d8e574dfe4b46083d56" kind="function"><name>operator=</name></member>
+  </compound>
+  <compound refid="api_8md" kind="file"><name>api.md</name>
+  </compound>
+  <compound refid="_communicative_8cpp" kind="file"><name>Communicative.cpp</name>
+    <member refid="_communicative_8cpp_1a5c3f0e72a46203dc1f8b28ba0c40bfb3" kind="variable"><name>REQUEST_DELAY_MICROS</name></member>
+  </compound>
+  <compound refid="_communicative_8h" kind="file"><name>Communicative.h</name>
+  </compound>
+  <compound refid="_data_source_8cpp" kind="file"><name>DataSource.cpp</name>
+  </compound>
+  <compound refid="_data_source_8h" kind="file"><name>DataSource.h</name>
+  </compound>
+  <compound refid="_identifiable_8cpp" kind="file"><name>Identifiable.cpp</name>
+  </compound>
+  <compound refid="_identifiable_8h" kind="file"><name>Identifiable.h</name>
+  </compound>
+  <compound refid="_instructable_8cpp" kind="file"><name>Instructable.cpp</name>
+  </compound>
+  <compound refid="_instructable_8h" kind="file"><name>Instructable.h</name>
+  </compound>
+  <compound refid="_instructor_8cpp" kind="file"><name>Instructor.cpp</name>
+  </compound>
+  <compound refid="_instructor_8h" kind="file"><name>Instructor.h</name>
+  </compound>
+  <compound refid="_master_8cpp" kind="file"><name>Master.cpp</name>
+    <member refid="_master_8cpp_1add0af7125a2b3940fa0497e88b5906c2" kind="variable"><name>SensorMaster</name></member>
+    <member refid="_master_8cpp_1a8858b26518a9d5c7399f8fd6c12b7633" kind="function"><name>SPI_IRQ</name></member>
+  </compound>
+  <compound refid="_master_8h" kind="file"><name>Master.h</name>
+    <member refid="_master_8h_1a43cf56ddc5e3654069f4df89d4178387" kind="define"><name>SPI1_NSS_PIN</name></member>
+    <member refid="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" kind="variable"><name>MAX_USER_INSTRUCTION_NUMBER</name></member>
+    <member refid="_master_8h_1add0af7125a2b3940fa0497e88b5906c2" kind="variable"><name>SensorMaster</name></member>
+    <member refid="_master_8h_1a8858b26518a9d5c7399f8fd6c12b7633" kind="function"><name>SPI_IRQ</name></member>
+    <member refid="_master_8h_1a62d16e0382e89bd4e3076bc09c66c4a6" kind="function"><name>RequestHandler</name></member>
+  </compound>
+  <compound refid="mpi-_06s_8md" kind="file"><name>mpi-%s.md</name>
+  </compound>
+  <compound refid="_sensor_8cpp" kind="file"><name>Sensor.cpp</name>
+  </compound>
+  <compound refid="_sensor_8h" kind="file"><name>Sensor.h</name>
+  </compound>
+  <compound refid="_s_p_i___instruction_set_8h" kind="file"><name>SPI_InstructionSet.h</name>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kind="enum"><name>sInstruct</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a2a9fec1d5440b0b43d838b611e9ccb65" kind="enumvalue"><name>DisplayInstructionAndWait</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a7a8bdb0f070d27bda91ad1501bae2108" kind="enumvalue"><name>DisplayInstructionAndWaitForUser</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47acc4a5507e0cd97f2d587cc3c111e6ce6" kind="enumvalue"><name>DontDisplayAndWait</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a600cd8f2a3cd5a8ae93b3b730a41b2c3" kind="enumvalue"><name>DontDisplayAndContinue</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e" kind="enumvalue"><name>ACK</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a695ed835e2b72585493b31c1043fdf25" kind="enumvalue"><name>Yes</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a996e257033c09daf66076efc1ebd3b1c" kind="enumvalue"><name>No</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a5d6a7bf7f9dbd450f30e49215185fcb2" kind="enumvalue"><name>NAK</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47ac5878118d3538835789584340c0d2eaa" kind="enumvalue"><name>ReferToInt</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a3919733d70c696dca64417af443ad6c6" kind="enumvalue"><name>ReferToFloat</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a05d96a660820bb9f0681a045c5e4a884" kind="enumvalue"><name>ReferToString</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kind="enum"><name>mInstruct</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a965f2ec6e1a55050b8bccd7063f904b3" kind="enumvalue"><name>PauseMeasurementForiParam</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4ad074804da746cc861dbb972ac48a22" kind="enumvalue"><name>RestartMeasurementProcedure</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a87079e73086d12bc4001e38b3427fc5d" kind="enumvalue"><name>ResetDevice</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a303b60d37143112142046add7f73d4bf" kind="enumvalue"><name>HowManyInstructions</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9319f300f7a4bc8e0c2c9139cde4fb21" kind="enumvalue"><name>NextCommandPlease</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792ae0e86116c94ee3a2de08c331a25a9553" kind="enumvalue"><name>IsThereData</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9972e8050301ea3d5b585bc557bac507" kind="enumvalue"><name>SendDataPlease</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4b25a74b6be49faf4a9356e1565a4b25" kind="enumvalue"><name>WhoAreYou</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792abd3b3ed0c9b543b6cf7ff2463568fe4f" kind="enumvalue"><name>HowLongShouldIWait</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a95e0f581b12f62fe8be32f5f50b8381e" kind="enumvalue"><name>BeginMeasurement</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a7b437edd37dcf8f275dea91b2d3dae70" kind="enumvalue"><name>SitRep</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kind="enum"><name>MeasurementVectors</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" kind="enumvalue"><name>First</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" kind="enumvalue"><name>Second</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" kind="enumvalue"><name>Third</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kind="variable"><name>SLAVE_COMMMAND_STRING_LENGTH</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" kind="variable"><name>IDENTITY_SENSOR_NAME_LENGTH</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kind="variable"><name>NUMBER_OF_DATA_ROWS</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kind="variable"><name>ROW_HEADING_LENGTH</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kind="variable"><name>ROW_UNIT_LENGTH</name></member>
+    <member refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" kind="variable"><name>DATA_ROW_LENGTH</name></member>
+  </compound>
+  <compound refid="md_api" kind="page"><name>md_api</name>
+  </compound>
+  <compound refid="md_mpi-" kind="page"><name>md_mpi-</name>
+  </compound>
+</doxygenindex>

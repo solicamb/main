@@ -1,0 +1,7 @@
+<map id="sendReply" name="sendReply">
+<area shape="rect" id="node1" title="Send an sCmd object in reply to the request recieved from Master." alt="" coords="244,81,327,108"/>
+<area shape="rect" id="node2" href="$class_master.html#aa68bb1327d506c42b6b7ab54fd73ca62" title="Sends a reply to Master specifiying the total number of instructions in a measurement procedure." alt="" coords="8,5,193,32"/>
+<area shape="rect" id="node3" href="$class_master.html#a6445732d38d6bac09ab8c8bd66bd4e2a" title="Sends the next instruction in the measurement cycle to the master." alt="" coords="19,56,183,83"/>
+<area shape="rect" id="node4" href="$class_master.html#a8a9c9670d31af14e65157879963e0cf1" title="Resends the cuurent instruction in the measurement procedure to the master." alt="" coords="5,107,196,133"/>
+<area shape="rect" id="node5" href="$class_master.html#a89cc4d6f65ee9922711cde4ed4bdf31c" title="Updates state to indicate that Master has requested the intitiation of the measurement procedure." alt="" coords="35,157,167,184"/>
+</map>

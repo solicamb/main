@@ -1,0 +1,113 @@
+\hypertarget{_master_8h}{}\section{Master.\+h File Reference}
+\label{_master_8h}\index{Master.h@{Master.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}S\+P\+I\+\_\+\+Instruction\+Set.\+h\char`\"{}}\newline
+Include dependency graph for Master.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=262pt]{_master_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=145pt]{_master_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_user_instructions}{User\+Instructions}}
+\item 
+class \mbox{\hyperlink{class_master}{Master}}
+\begin{DoxyCompactList}\small\item\em A monolithic class to encapsulate and abstract the slave\textquotesingle{}s communication with the master. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{_master_8h_a43cf56ddc5e3654069f4df89d4178387}{S\+P\+I1\+\_\+\+N\+S\+S\+\_\+\+P\+IN}}~P\+A4
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{_master_8h_a8858b26518a9d5c7399f8fd6c12b7633}{S\+P\+I\+\_\+\+I\+RQ}} (void)
+\begin{DoxyCompactList}\small\item\em Innaccesible I\+RQ, called on SS falling. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_master_8h_a62d16e0382e89bd4e3076bc09c66c4a6}{Request\+Handler}} (\mbox{\hyperlink{structm_cmd}{m\+Cmd}} \&Request)
+\begin{DoxyCompactList}\small\item\em Function prototype for user-\/implemented I\+RQ method; called after handshake and the reconstruction of the request from the master. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{_master_8h_a495826fb50dc325303ad65b8a2e2ca8a}{M\+A\+X\+\_\+\+U\+S\+E\+R\+\_\+\+I\+N\+S\+T\+R\+U\+C\+T\+I\+O\+N\+\_\+\+N\+U\+M\+B\+ER}} = 5
+\item 
+volatile \mbox{\hyperlink{class_master}{Master}} \mbox{\hyperlink{_master_8h_add0af7125a2b3940fa0497e88b5906c2}{Sensor\+Master}}
+\begin{DoxyCompactList}\small\item\em Auto-\/instantiated instance of \mbox{\hyperlink{class_master}{Master}} class, called during the privately implemented I\+RQ routine and accessible externally by main code. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{_master_8h_a43cf56ddc5e3654069f4df89d4178387}\label{_master_8h_a43cf56ddc5e3654069f4df89d4178387}} 
+\index{Master.h@{Master.h}!SPI1\_NSS\_PIN@{SPI1\_NSS\_PIN}}
+\index{SPI1\_NSS\_PIN@{SPI1\_NSS\_PIN}!Master.h@{Master.h}}
+\subsubsection{\texorpdfstring{SPI1\_NSS\_PIN}{SPI1\_NSS\_PIN}}
+{\footnotesize\ttfamily \#define S\+P\+I1\+\_\+\+N\+S\+S\+\_\+\+P\+IN~P\+A4}
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{_master_8h_a62d16e0382e89bd4e3076bc09c66c4a6}\label{_master_8h_a62d16e0382e89bd4e3076bc09c66c4a6}} 
+\index{Master.h@{Master.h}!RequestHandler@{RequestHandler}}
+\index{RequestHandler@{RequestHandler}!Master.h@{Master.h}}
+\subsubsection{\texorpdfstring{RequestHandler()}{RequestHandler()}}
+{\footnotesize\ttfamily void Request\+Handler (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structm_cmd}{m\+Cmd}} \&}]{Request }\end{DoxyParamCaption})}
+
+
+
+Function prototype for user-\/implemented I\+RQ method; called after handshake and the reconstruction of the request from the master. 
+
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=256pt]{_master_8h_a62d16e0382e89bd4e3076bc09c66c4a6_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{_master_8h_a8858b26518a9d5c7399f8fd6c12b7633}\label{_master_8h_a8858b26518a9d5c7399f8fd6c12b7633}} 
+\index{Master.h@{Master.h}!SPI\_IRQ@{SPI\_IRQ}}
+\index{SPI\_IRQ@{SPI\_IRQ}!Master.h@{Master.h}}
+\subsubsection{\texorpdfstring{SPI\_IRQ()}{SPI\_IRQ()}}
+{\footnotesize\ttfamily void S\+P\+I\+\_\+\+I\+RQ (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Innaccesible I\+RQ, called on SS falling. 
+
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=277pt]{_master_8h_a8858b26518a9d5c7399f8fd6c12b7633_cgraph}
+\end{center}
+\end{figure}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_master_8h_a495826fb50dc325303ad65b8a2e2ca8a}\label{_master_8h_a495826fb50dc325303ad65b8a2e2ca8a}} 
+\index{Master.h@{Master.h}!MAX\_USER\_INSTRUCTION\_NUMBER@{MAX\_USER\_INSTRUCTION\_NUMBER}}
+\index{MAX\_USER\_INSTRUCTION\_NUMBER@{MAX\_USER\_INSTRUCTION\_NUMBER}!Master.h@{Master.h}}
+\subsubsection{\texorpdfstring{MAX\_USER\_INSTRUCTION\_NUMBER}{MAX\_USER\_INSTRUCTION\_NUMBER}}
+{\footnotesize\ttfamily const int M\+A\+X\+\_\+\+U\+S\+E\+R\+\_\+\+I\+N\+S\+T\+R\+U\+C\+T\+I\+O\+N\+\_\+\+N\+U\+M\+B\+ER = 5}
+
+\mbox{\Hypertarget{_master_8h_add0af7125a2b3940fa0497e88b5906c2}\label{_master_8h_add0af7125a2b3940fa0497e88b5906c2}} 
+\index{Master.h@{Master.h}!SensorMaster@{SensorMaster}}
+\index{SensorMaster@{SensorMaster}!Master.h@{Master.h}}
+\subsubsection{\texorpdfstring{SensorMaster}{SensorMaster}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{class_master}{Master}} Sensor\+Master}
+
+
+
+Auto-\/instantiated instance of \mbox{\hyperlink{class_master}{Master}} class, called during the privately implemented I\+RQ routine and accessible externally by main code. 
+

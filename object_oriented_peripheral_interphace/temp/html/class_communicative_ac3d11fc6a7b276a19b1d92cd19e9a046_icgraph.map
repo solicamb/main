@@ -1,0 +1,5 @@
+<map id="isPeripheralConnected" name="isPeripheralConnected">
+<area shape="rect" id="node1" title="Checks whether Slave is connected." alt="" coords="253,31,405,57"/>
+<area shape="rect" id="node2" href="$class_identifiable.html#a107ce612ee60e9be98085abdfbfdc83e" title="A constructor." alt="" coords="29,5,181,32"/>
+<area shape="rect" id="node3" href="$class_instructable.html#a2bdcc11cead0067e963c524968d0d3e1" title="Checks to see whether the peripheral is connected." alt="" coords="5,56,205,83"/>
+</map>

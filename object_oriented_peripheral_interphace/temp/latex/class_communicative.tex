@@ -1,0 +1,182 @@
+\hypertarget{class_communicative}{}\section{Communicative Class Reference}
+\label{class_communicative}\index{Communicative@{Communicative}}
+
+
+A class to manage communication with slave module.  
+
+
+
+
+{\ttfamily \#include $<$Communicative.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_communicative_aa92e21c2c2b3ee8dda993872f6b0c73a}{Communicative}} (const int CS)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_communicative_a53c7f2ec58bfb99f0ea10e238705c3ce}{$\sim$\+Communicative}} (void)
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_communicative_ac3d11fc6a7b276a19b1d92cd19e9a046}{is\+Peripheral\+Connected}} (void)
+\begin{DoxyCompactList}\small\item\em Checks whether Slave is connected. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structs_cmd}{s\+Cmd}} \mbox{\hyperlink{class_communicative_a4fe112ad5a3d693e39ae44dd43eaf0c1}{Request\+Reply}} (const \mbox{\hyperlink{structm_cmd}{m\+Cmd}})
+\begin{DoxyCompactList}\small\item\em Performs a complete transaction; expects Slave to Reply with \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_identity}{Identity}} \mbox{\hyperlink{class_communicative_a01ee3d76d85bad6123c4d4f6262c6c2d}{Request\+Identity}} (const \mbox{\hyperlink{structm_cmd}{m\+Cmd}})
+\begin{DoxyCompactList}\small\item\em Performs a complete transaction; expects Slave to Reply with \mbox{\hyperlink{struct_identity}{Identity}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_data}{Data}} \mbox{\hyperlink{class_communicative_a0a56aaa3248edae66ccb13cbf2bf156a}{Request\+Data}} (const \mbox{\hyperlink{structm_cmd}{m\+Cmd}})
+\begin{DoxyCompactList}\small\item\em Performs a complete transaction; expects Slave to Reply with a \mbox{\hyperlink{struct_data}{Data}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class to manage communication with slave module. 
+
+This class is designed for S\+PI communication with a slave device. The class responsibilities include both S\+PI initialisation and fundamental transactions. The transaction protocol implemented follows the following flow\+: Clear SS -\/$>$ Send \textquotesingle{}?\textquotesingle{} to slave -\/$>$ recieve \textquotesingle{}A\+CK\textquotesingle{} (0x06) from slave -\/$>$ send request \mbox{\hyperlink{structm_cmd}{m\+Cmd}} -\/$>$ recieve s\+Cmd/\+Data/\+Identity as expected -\/$>$ set SS. Where \mbox{\hyperlink{structm_cmd}{m\+Cmd}}, \mbox{\hyperlink{structs_cmd}{s\+Cmd}}, \mbox{\hyperlink{struct_data}{Data}} and \mbox{\hyperlink{struct_identity}{Identity}} are structures defined as types. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_communicative_aa92e21c2c2b3ee8dda993872f6b0c73a}\label{class_communicative_aa92e21c2c2b3ee8dda993872f6b0c73a}} 
+\index{Communicative@{Communicative}!Communicative@{Communicative}}
+\index{Communicative@{Communicative}!Communicative@{Communicative}}
+\subsubsection{\texorpdfstring{Communicative()}{Communicative()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_communicative}{Communicative}} (\begin{DoxyParamCaption}\item[{const int}]{CS }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructor initialises the SS pin to be used in communications and initialises S\+PI as \mbox{\hyperlink{class_master}{Master}}. 
+\begin{DoxyParams}{Parameters}
+{\em CS} & is the Slave Select pin designation; most commonly P\+A4. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+S\+P\+I\+Setup() 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_communicative_a53c7f2ec58bfb99f0ea10e238705c3ce}\label{class_communicative_a53c7f2ec58bfb99f0ea10e238705c3ce}} 
+\index{Communicative@{Communicative}!````~Communicative@{$\sim$Communicative}}
+\index{````~Communicative@{$\sim$Communicative}!Communicative@{Communicative}}
+\subsubsection{\texorpdfstring{$\sim$Communicative()}{~Communicative()}}
+{\footnotesize\ttfamily $\sim$\mbox{\hyperlink{class_communicative}{Communicative}} (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Destructor. 
+
+Executes S\+P\+I.\+end(); 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_communicative_ac3d11fc6a7b276a19b1d92cd19e9a046}\label{class_communicative_ac3d11fc6a7b276a19b1d92cd19e9a046}} 
+\index{Communicative@{Communicative}!isPeripheralConnected@{isPeripheralConnected}}
+\index{isPeripheralConnected@{isPeripheralConnected}!Communicative@{Communicative}}
+\subsubsection{\texorpdfstring{isPeripheralConnected()}{isPeripheralConnected()}}
+{\footnotesize\ttfamily bool is\+Peripheral\+Connected (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks whether Slave is connected. 
+
+Executes a nop transaction. \begin{DoxyReturn}{Returns}
+true if handshake is successful and Slave responds to \textquotesingle{}?\textquotesingle{} with \textquotesingle{}A\+CK\textquotesingle{} 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+are\+You\+Alive() 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_communicative_ac3d11fc6a7b276a19b1d92cd19e9a046_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_communicative_a0a56aaa3248edae66ccb13cbf2bf156a}\label{class_communicative_a0a56aaa3248edae66ccb13cbf2bf156a}} 
+\index{Communicative@{Communicative}!RequestData@{RequestData}}
+\index{RequestData@{RequestData}!Communicative@{Communicative}}
+\subsubsection{\texorpdfstring{RequestData()}{RequestData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_data}{Data}} Request\+Data (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structm_cmd}{m\+Cmd}}}]{Request }\end{DoxyParamCaption})}
+
+
+
+Performs a complete transaction; expects Slave to Reply with a \mbox{\hyperlink{struct_data}{Data}} object. 
+
+Executes a complete transaction\+: Clear SS -\/$>$ Send \textquotesingle{}?\textquotesingle{} to slave -\/$>$ recieve \textquotesingle{}A\+CK\textquotesingle{} (0x06) from slave -\/$>$ send request \mbox{\hyperlink{structm_cmd}{m\+Cmd}} -\/$>$ recieve \mbox{\hyperlink{struct_data}{Data}} -\/$>$ set SS. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{structm_cmd}{m\+Cmd}}} & is the \mbox{\hyperlink{structm_cmd}{m\+Cmd}} object which constitutes the Request made to the slave. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{struct_data}{Data}} object generated by the Slave containing a two dimensional array of data points and the length, headings and units of the data array rows. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_communicative_a4fe112ad5a3d693e39ae44dd43eaf0c1}{Request\+Reply()}}, \mbox{\hyperlink{class_communicative_a01ee3d76d85bad6123c4d4f6262c6c2d}{Request\+Identity()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=301pt]{class_communicative_a0a56aaa3248edae66ccb13cbf2bf156a_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_communicative_a01ee3d76d85bad6123c4d4f6262c6c2d}\label{class_communicative_a01ee3d76d85bad6123c4d4f6262c6c2d}} 
+\index{Communicative@{Communicative}!RequestIdentity@{RequestIdentity}}
+\index{RequestIdentity@{RequestIdentity}!Communicative@{Communicative}}
+\subsubsection{\texorpdfstring{RequestIdentity()}{RequestIdentity()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_identity}{Identity}} Request\+Identity (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structm_cmd}{m\+Cmd}}}]{Request }\end{DoxyParamCaption})}
+
+
+
+Performs a complete transaction; expects Slave to Reply with \mbox{\hyperlink{struct_identity}{Identity}} object. 
+
+Executes a complete transaction\+: Clear SS -\/$>$ Send \textquotesingle{}?\textquotesingle{} to slave -\/$>$ recieve \textquotesingle{}A\+CK\textquotesingle{} (0x06) from slave -\/$>$ send request \mbox{\hyperlink{structm_cmd}{m\+Cmd}} -\/$>$ recieve \mbox{\hyperlink{struct_identity}{Identity}} -\/$>$ set SS. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{structm_cmd}{m\+Cmd}}} & is the \mbox{\hyperlink{structm_cmd}{m\+Cmd}} object which constitutes the Request made to the slave. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The Idenity object generated by the Slave containing the Slave ID and name. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_communicative_a4fe112ad5a3d693e39ae44dd43eaf0c1}{Request\+Reply()}}, \mbox{\hyperlink{class_communicative_a0a56aaa3248edae66ccb13cbf2bf156a}{Request\+Data()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_communicative_a01ee3d76d85bad6123c4d4f6262c6c2d_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_communicative_a4fe112ad5a3d693e39ae44dd43eaf0c1}\label{class_communicative_a4fe112ad5a3d693e39ae44dd43eaf0c1}} 
+\index{Communicative@{Communicative}!RequestReply@{RequestReply}}
+\index{RequestReply@{RequestReply}!Communicative@{Communicative}}
+\subsubsection{\texorpdfstring{RequestReply()}{RequestReply()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structs_cmd}{s\+Cmd}} Request\+Reply (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structm_cmd}{m\+Cmd}}}]{Request }\end{DoxyParamCaption})}
+
+
+
+Performs a complete transaction; expects Slave to Reply with \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object. 
+
+Executes a complete transaction\+: Clear SS -\/$>$ Send \textquotesingle{}?\textquotesingle{} to slave -\/$>$ recieve \textquotesingle{}A\+CK\textquotesingle{} (0x06) from slave -\/$>$ send request \mbox{\hyperlink{structm_cmd}{m\+Cmd}} -\/$>$ recieve \mbox{\hyperlink{structs_cmd}{s\+Cmd}} -\/$>$ set SS. 
+\begin{DoxyParams}{Parameters}
+{\em \mbox{\hyperlink{structm_cmd}{m\+Cmd}}} & is the \mbox{\hyperlink{structm_cmd}{m\+Cmd}} object which constitutes the Request made to the slave. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object generated by the Slave as the reply to the request. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_communicative_a01ee3d76d85bad6123c4d4f6262c6c2d}{Request\+Identity()}}, \mbox{\hyperlink{class_communicative_a0a56aaa3248edae66ccb13cbf2bf156a}{Request\+Data()}} 
+\end{DoxySeeAlso}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_communicative_a4fe112ad5a3d693e39ae44dd43eaf0c1_icgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_communicative_8h}{Communicative.\+h}}\item 
+\mbox{\hyperlink{_communicative_8cpp}{Communicative.\+cpp}}\end{DoxyCompactItemize}

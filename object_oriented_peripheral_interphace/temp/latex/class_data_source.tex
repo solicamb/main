@@ -1,0 +1,344 @@
+\hypertarget{class_data_source}{}\section{Data\+Source Class Reference}
+\label{class_data_source}\index{DataSource@{DataSource}}
+
+
+A class which models a Sensor/peripheral as an entity which is a source of data.  
+
+
+
+
+{\ttfamily \#include $<$Data\+Source.\+h$>$}
+
+
+
+Inheritance diagram for Data\+Source\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=148pt]{class_data_source__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_data_source_a9c3258c608e4fdf9436e8cd32d677e7d}{Data\+Source}} (const int Chip\+Select)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_data_source_a7d92295e088894b5417729a814e49e01}{is\+There\+Data}} (void)
+\begin{DoxyCompactList}\small\item\em Asks Sensor/peripheral whether there is \mbox{\hyperlink{struct_data}{Data}} ready to be collected. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{struct_data}{Data}} \mbox{\hyperlink{class_data_source_a81aac807bfb601c2ac1da78f69d31d48}{load\+Data}} (void)
+\begin{DoxyCompactList}\small\item\em Loads \mbox{\hyperlink{struct_data}{Data}} from the \mbox{\hyperlink{class_sensor}{Sensor}}. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_data_source_ac15f241362d7c22c75c42c2bb16315bf}{get\+Number\+Of\+Data\+Columns}} (const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} Vector\+Number)
+\begin{DoxyCompactList}\small\item\em Gets the number of data points along a particular row of the data array. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_data_source_a52269fa43b741f1ab431aac56d3aedb5}{get\+Number\+Of\+Data\+Rows}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the number of rows used in the data array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_source_acdeb2ae03f2c70d19565381d111a1a4d}{get\+Row\+Headings}} (char\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a63a97a0fe356d1b3030dfb633e0d0b8e}{R\+O\+W\+\_\+\+H\+E\+A\+D\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Gets string headings of all the vectors in the data array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_source_abf7e2f4954b1c314fba8f0ac3194306e}{get\+Row\+Units}} (char\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_af45194e4246701e52a2d67f27cc3ffb8}{R\+O\+W\+\_\+\+U\+N\+I\+T\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Gets string units of all the vectors in the data array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_source_a83bdf3c6a0c54d468dad3e73509c90e6}{get\+Data\+Array}} (float\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afaade7aab877c51eaea08012fa5a7ce2}{D\+A\+T\+A\+\_\+\+R\+O\+W\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Gets the entire data array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_source_a924875bd657b56f140604551270cdbc0}{get\+Data\+Vector}} (const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} Vector\+Number, float\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afaade7aab877c51eaea08012fa5a7ce2}{D\+A\+T\+A\+\_\+\+R\+O\+W\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Gets the indicated data vector. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_data_source_a49998f22c00d924daf7b67af48e10a30}{get\+Vector\+Length}} (const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} Vector\+Number)
+\begin{DoxyCompactList}\small\item\em Gets the indicated data vector length. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_source_a79d69573a651290750aa8c08d24f3b64}{get\+Vector\+Heading}} (const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} Vector\+Number, char\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a63a97a0fe356d1b3030dfb633e0d0b8e}{R\+O\+W\+\_\+\+H\+E\+A\+D\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Gets the string heading for the vector in question. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_data_source_af2a2f33b9970ecff75894134498ff2cd}{get\+Vector\+Units}} (const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} Vector\+Number, char\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_af45194e4246701e52a2d67f27cc3ffb8}{R\+O\+W\+\_\+\+U\+N\+I\+T\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]})
+\begin{DoxyCompactList}\small\item\em Gets the string units for the vector in question. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_data_source_ac70e056b629dd62379c42af3e6ca6b1b}{get\+Value\+One}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the first data point in the first vector. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_data_source_accbfa79e7afee154b4332483181f27ec}{get\+Value\+Two}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the second data point in the first vector. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{class_data_source_ad7870f61cbf33ac7a284b47930ff5bcf}{get\+Value\+Three}} (void)
+\begin{DoxyCompactList}\small\item\em Gets the third data point in the first vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class which models a Sensor/peripheral as an entity which is a source of data. 
+
+This class models a \mbox{\hyperlink{class_sensor}{Sensor}} as a source of data. The convention in use is that any \mbox{\hyperlink{class_sensor}{Sensor}} can store data such that it occupies a two dimensional float array with maximum dimensions N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS x D\+A\+T\+A\+\_\+\+R\+O\+W\+\_\+\+L\+E\+N\+G\+TH. The data can either be treated as a square array, the dimensions of which can be requested, or as a series of \textquotesingle{}vectors\textquotesingle{}, the length of which can be requested. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_data_source_a9c3258c608e4fdf9436e8cd32d677e7d}\label{class_data_source_a9c3258c608e4fdf9436e8cd32d677e7d}} 
+\index{DataSource@{DataSource}!DataSource@{DataSource}}
+\index{DataSource@{DataSource}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{DataSource()}{DataSource()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_data_source}{Data\+Source}} (\begin{DoxyParamCaption}\item[{const int}]{Chip\+Select }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Chip\+Select} & is the Slave Select pin of the S\+PI peripheral in question. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_data_source_a83bdf3c6a0c54d468dad3e73509c90e6}\label{class_data_source_a83bdf3c6a0c54d468dad3e73509c90e6}} 
+\index{DataSource@{DataSource}!getDataArray@{getDataArray}}
+\index{getDataArray@{getDataArray}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getDataArray()}{getDataArray()}}
+{\footnotesize\ttfamily void get\+Data\+Array (\begin{DoxyParamCaption}\item[{float}]{Data\+Vals\mbox{[}\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+W\+S\mbox{]}\mbox{[}\+D\+A\+T\+A\+\_\+\+R\+O\+W\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Gets the entire data array. 
+
+Retrieves the entire two dimensionsal data array, irrespective of which elements/vectors are actually in use. 
+\begin{DoxyParams}{Parameters}
+{\em float} & is the array into which the data is written. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_data}{Data}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_a924875bd657b56f140604551270cdbc0}\label{class_data_source_a924875bd657b56f140604551270cdbc0}} 
+\index{DataSource@{DataSource}!getDataVector@{getDataVector}}
+\index{getDataVector@{getDataVector}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getDataVector()}{getDataVector()}}
+{\footnotesize\ttfamily void get\+Data\+Vector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}}]{Vector\+Number,  }\item[{float}]{Data\+Vect\mbox{[}\+D\+A\+T\+A\+\_\+\+R\+O\+W\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Gets the indicated data vector. 
+
+Retrieves a singel row in the two dimesnional data array. 
+\begin{DoxyParams}{Parameters}
+{\em Vector\+Number} & is the row in the data array to be retrieved. \\
+\hline
+{\em float} & is the floating point array into which the data points will be written. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_data}{Data}}, \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_ac15f241362d7c22c75c42c2bb16315bf}\label{class_data_source_ac15f241362d7c22c75c42c2bb16315bf}} 
+\index{DataSource@{DataSource}!getNumberOfDataColumns@{getNumberOfDataColumns}}
+\index{getNumberOfDataColumns@{getNumberOfDataColumns}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getNumberOfDataColumns()}{getNumberOfDataColumns()}}
+{\footnotesize\ttfamily int get\+Number\+Of\+Data\+Columns (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}}]{Vector\+Number }\end{DoxyParamCaption})}
+
+
+
+Gets the number of data points along a particular row of the data array. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vector\+Number} & is an enumerated type referring to the row in the two dimensional data array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The number of data points along a particular row/vector. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}, \mbox{\hyperlink{struct_data}{Data}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_a52269fa43b741f1ab431aac56d3aedb5}\label{class_data_source_a52269fa43b741f1ab431aac56d3aedb5}} 
+\index{DataSource@{DataSource}!getNumberOfDataRows@{getNumberOfDataRows}}
+\index{getNumberOfDataRows@{getNumberOfDataRows}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getNumberOfDataRows()}{getNumberOfDataRows()}}
+{\footnotesize\ttfamily int get\+Number\+Of\+Data\+Rows (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets the number of rows used in the data array. 
+
+Returns the number of \textquotesingle{}vectors\textquotesingle{} (rows) which the sensor has used to store data. Ideally, one should utilise the result of this function to iterate through the vectors. \begin{DoxyReturn}{Returns}
+The number of vectors in use. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_data}{Data}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_acdeb2ae03f2c70d19565381d111a1a4d}\label{class_data_source_acdeb2ae03f2c70d19565381d111a1a4d}} 
+\index{DataSource@{DataSource}!getRowHeadings@{getRowHeadings}}
+\index{getRowHeadings@{getRowHeadings}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getRowHeadings()}{getRowHeadings()}}
+{\footnotesize\ttfamily void get\+Row\+Headings (\begin{DoxyParamCaption}\item[{char}]{Headings\mbox{[}\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+W\+S\mbox{]}\mbox{[}\+R\+O\+W\+\_\+\+H\+E\+A\+D\+I\+N\+G\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Gets string headings of all the vectors in the data array. 
+
+Each vector/row is assigned a heading to describe the nature of the data contained within that vector. Such as \char`\"{}\+Ambient Temperature\char`\"{}. 
+\begin{DoxyParams}{Parameters}
+{\em char} & is the array of character arrays into which the headings are loaded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_data}{Data}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_abf7e2f4954b1c314fba8f0ac3194306e}\label{class_data_source_abf7e2f4954b1c314fba8f0ac3194306e}} 
+\index{DataSource@{DataSource}!getRowUnits@{getRowUnits}}
+\index{getRowUnits@{getRowUnits}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getRowUnits()}{getRowUnits()}}
+{\footnotesize\ttfamily void get\+Row\+Units (\begin{DoxyParamCaption}\item[{char}]{Units\mbox{[}\+N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+W\+S\mbox{]}\mbox{[}\+R\+O\+W\+\_\+\+U\+N\+I\+T\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Gets string units of all the vectors in the data array. 
+
+Each vector/row is assigned a Units string to define the units of the data contained within that vector. Such as \char`\"{}\+V\char`\"{} or \char`\"{}\+Amperes\char`\"{}. 
+\begin{DoxyParams}{Parameters}
+{\em char} & is the array of character arrays into which the units are loaded. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_data}{Data}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_ac70e056b629dd62379c42af3e6ca6b1b}\label{class_data_source_ac70e056b629dd62379c42af3e6ca6b1b}} 
+\index{DataSource@{DataSource}!getValueOne@{getValueOne}}
+\index{getValueOne@{getValueOne}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getValueOne()}{getValueOne()}}
+{\footnotesize\ttfamily float get\+Value\+One (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets the first data point in the first vector. 
+
+\begin{DoxyReturn}{Returns}
+The first data point in the first vector. Data\+Array\mbox{[}0\mbox{]}\mbox{[}0\mbox{]}. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_data}{Data}}, \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_ad7870f61cbf33ac7a284b47930ff5bcf}\label{class_data_source_ad7870f61cbf33ac7a284b47930ff5bcf}} 
+\index{DataSource@{DataSource}!getValueThree@{getValueThree}}
+\index{getValueThree@{getValueThree}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getValueThree()}{getValueThree()}}
+{\footnotesize\ttfamily float get\+Value\+Three (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets the third data point in the first vector. 
+
+\begin{DoxyReturn}{Returns}
+The third data point in the first vector. Data\+Array\mbox{[}2\mbox{]}\mbox{[}0\mbox{]}. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_data}{Data}}, \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_accbfa79e7afee154b4332483181f27ec}\label{class_data_source_accbfa79e7afee154b4332483181f27ec}} 
+\index{DataSource@{DataSource}!getValueTwo@{getValueTwo}}
+\index{getValueTwo@{getValueTwo}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getValueTwo()}{getValueTwo()}}
+{\footnotesize\ttfamily float get\+Value\+Two (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Gets the second data point in the first vector. 
+
+\begin{DoxyReturn}{Returns}
+The second data point in the first vector. Data\+Array\mbox{[}1\mbox{]}\mbox{[}0\mbox{]}. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_data}{Data}}, \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_a79d69573a651290750aa8c08d24f3b64}\label{class_data_source_a79d69573a651290750aa8c08d24f3b64}} 
+\index{DataSource@{DataSource}!getVectorHeading@{getVectorHeading}}
+\index{getVectorHeading@{getVectorHeading}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getVectorHeading()}{getVectorHeading()}}
+{\footnotesize\ttfamily void get\+Vector\+Heading (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}}]{Vector\+Number,  }\item[{char}]{Heading\mbox{[}\+R\+O\+W\+\_\+\+H\+E\+A\+D\+I\+N\+G\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Gets the string heading for the vector in question. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vector\+Number} & is the row in the data array to which the heading coresponds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_data_source_acdeb2ae03f2c70d19565381d111a1a4d}{get\+Row\+Headings()}}, \mbox{\hyperlink{struct_data}{Data}}, \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_a49998f22c00d924daf7b67af48e10a30}\label{class_data_source_a49998f22c00d924daf7b67af48e10a30}} 
+\index{DataSource@{DataSource}!getVectorLength@{getVectorLength}}
+\index{getVectorLength@{getVectorLength}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getVectorLength()}{getVectorLength()}}
+{\footnotesize\ttfamily int get\+Vector\+Length (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}}]{Vector\+Number }\end{DoxyParamCaption})}
+
+
+
+Gets the indicated data vector length. 
+
+The data vectors (rows) have a max length of D\+A\+T\+A\+\_\+\+R\+O\+W\+\_\+\+L\+E\+N\+G\+TH and the \mbox{\hyperlink{class_sensor}{Sensor}} will push data points into said vector. As the \mbox{\hyperlink{class_sensor}{Sensor}} may not utilise the entire width of the data array, the length indicates the number of values which the \mbox{\hyperlink{class_sensor}{Sensor}} has pushed into the vector in question. 
+\begin{DoxyParams}{Parameters}
+{\em Vector\+Number} & is the row in the data array. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{struct_data}{Data}}, \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_af2a2f33b9970ecff75894134498ff2cd}\label{class_data_source_af2a2f33b9970ecff75894134498ff2cd}} 
+\index{DataSource@{DataSource}!getVectorUnits@{getVectorUnits}}
+\index{getVectorUnits@{getVectorUnits}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{getVectorUnits()}{getVectorUnits()}}
+{\footnotesize\ttfamily void get\+Vector\+Units (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}}]{Vector\+Number,  }\item[{char}]{Units\mbox{[}\+R\+O\+W\+\_\+\+U\+N\+I\+T\+\_\+\+L\+E\+N\+G\+T\+H\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+Gets the string units for the vector in question. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Vector\+Number} & is the row in the data array to which the heading coresponds. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_data_source_abf7e2f4954b1c314fba8f0ac3194306e}{get\+Row\+Units()}}, \mbox{\hyperlink{struct_data}{Data}}, \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{class_data_source_a7d92295e088894b5417729a814e49e01}\label{class_data_source_a7d92295e088894b5417729a814e49e01}} 
+\index{DataSource@{DataSource}!isThereData@{isThereData}}
+\index{isThereData@{isThereData}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{isThereData()}{isThereData()}}
+{\footnotesize\ttfamily bool is\+There\+Data (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Asks Sensor/peripheral whether there is \mbox{\hyperlink{struct_data}{Data}} ready to be collected. 
+
+Asks the sensor whether the data is ready to be retrieved by the master. Slave\textquotesingle{}s are, however, required to instantiate a \mbox{\hyperlink{struct_data}{Data}} object and so premature loads thereof will not fail. \begin{DoxyReturn}{Returns}
+True if the data is ready to be collected from the \mbox{\hyperlink{class_sensor}{Sensor}}. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=333pt]{class_data_source_a7d92295e088894b5417729a814e49e01_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_data_source_a81aac807bfb601c2ac1da78f69d31d48}\label{class_data_source_a81aac807bfb601c2ac1da78f69d31d48}} 
+\index{DataSource@{DataSource}!loadData@{loadData}}
+\index{loadData@{loadData}!DataSource@{DataSource}}
+\subsubsection{\texorpdfstring{loadData()}{loadData()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_data}{Data}} load\+Data (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Loads \mbox{\hyperlink{struct_data}{Data}} from the \mbox{\hyperlink{class_sensor}{Sensor}}. 
+
+Loads the \mbox{\hyperlink{struct_data}{Data}} object from the \mbox{\hyperlink{class_sensor}{Sensor}} into local memory. \begin{DoxyReturn}{Returns}
+The \mbox{\hyperlink{struct_data}{Data}} object loaded into local memory. User of accessors preffered. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_data_source_ac15f241362d7c22c75c42c2bb16315bf}{get\+Number\+Of\+Data\+Columns()}}, \mbox{\hyperlink{class_data_source_a52269fa43b741f1ab431aac56d3aedb5}{get\+Number\+Of\+Data\+Rows()}}, \mbox{\hyperlink{class_data_source_acdeb2ae03f2c70d19565381d111a1a4d}{get\+Row\+Headings()}}, \mbox{\hyperlink{class_data_source_abf7e2f4954b1c314fba8f0ac3194306e}{get\+Row\+Units()}}, \mbox{\hyperlink{class_data_source_a83bdf3c6a0c54d468dad3e73509c90e6}{get\+Data\+Array()}}, \mbox{\hyperlink{class_data_source_a924875bd657b56f140604551270cdbc0}{get\+Data\+Vector()}}, \mbox{\hyperlink{class_data_source_a49998f22c00d924daf7b67af48e10a30}{get\+Vector\+Length()}}, \mbox{\hyperlink{class_data_source_a79d69573a651290750aa8c08d24f3b64}{get\+Vector\+Heading()}},\mbox{\hyperlink{class_data_source_af2a2f33b9970ecff75894134498ff2cd}{get\+Vector\+Units()}}, \mbox{\hyperlink{class_data_source_ac70e056b629dd62379c42af3e6ca6b1b}{get\+Value\+One()}},\mbox{\hyperlink{class_data_source_accbfa79e7afee154b4332483181f27ec}{get\+Value\+Two()}},\mbox{\hyperlink{class_data_source_ad7870f61cbf33ac7a284b47930ff5bcf}{get\+Value\+Three()}} 
+\end{DoxySeeAlso}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=316pt]{class_data_source_a81aac807bfb601c2ac1da78f69d31d48_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_data_source_8h}{Data\+Source.\+h}}\item 
+\mbox{\hyperlink{_data_source_8cpp}{Data\+Source.\+cpp}}\end{DoxyCompactItemize}

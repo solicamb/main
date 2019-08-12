@@ -1,0 +1,8 @@
+<map id="SETUP" name="SETUP">
+<area shape="rect" id="node1" title="Set up of the commuication mechanism." alt="" coords="5,56,71,83"/>
+<area shape="rect" id="node2" href="$class_master.html#a23aca637cd51c40ae469a9ee48725edf" title="Sets up SPI and attaches interrupt." alt="" coords="119,56,196,83"/>
+<area shape="rect" id="node3" href="$_master_8cpp.html#a8858b26518a9d5c7399f8fd6c12b7633" title="Innaccesible IRQ, called on SS falling." alt="" coords="244,56,316,83"/>
+<area shape="rect" id="node4" href="$class_master.html#a2bc479ad10a53f31c4833668cc9cfac4" title="Manages the handshake component of any transaction." alt="" coords="378,5,465,32"/>
+<area shape="rect" id="node5" href="$class_master.html#a3a3fce38be9020bb12ab595c4adc59ed" title="Retrieve the request sent by the master." alt="" coords="374,56,469,83"/>
+<area shape="rect" id="node6" href="$_master_8h.html#a62d16e0382e89bd4e3076bc09c66c4a6" title="Function prototype for user&#45;implemented IRQ method; called after handshake and the reconstruction of ..." alt="" coords="364,107,479,133"/>
+</map>

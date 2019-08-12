@@ -1,0 +1,4 @@
+<map id="areYouConnected" name="areYouConnected">
+<area shape="rect" id="node1" title="Checks to see whether the peripheral is connected." alt="" coords="5,13,131,39"/>
+<area shape="rect" id="node2" href="$class_communicative.html#ac3d11fc6a7b276a19b1d92cd19e9a046" title="Checks whether Slave is connected." alt="" coords="179,5,365,47"/>
+</map>

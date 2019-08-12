@@ -1,0 +1,109 @@
+\hypertarget{struct_data}{}\section{Data Struct Reference}
+\label{struct_data}\index{Data@{Data}}
+
+
+Type used to encapsulate the data collected by the slave.  
+
+
+
+
+{\ttfamily \#include $<$S\+P\+I\+\_\+\+Instruction\+Set.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_data}{Data}} \& \mbox{\hyperlink{struct_data_a3ae506c712bc36c15533f5499608a047}{operator=}} (const volatile \mbox{\hyperlink{struct_data}{Data}} \&rhs) volatile
+\item 
+volatile \mbox{\hyperlink{struct_data}{Data}} \& \mbox{\hyperlink{struct_data_a7c50ba562a0dcddc5ca2c733f1bbcb61}{operator=}} (const \mbox{\hyperlink{struct_data}{Data}} \&rhs) volatile
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{struct_data_ab7ad5d3d8f1e4b3f42c5aedb1e74b336}{Num\+Columns}} \mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Number of data points currently stored in each row. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_data_ac0883de785701631da0e099578c748ca}{Num\+Rows}}
+\begin{DoxyCompactList}\small\item\em Number of rows. Defined at compilation. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{struct_data_a653f4e0cb59f5c3f36f5664be1f11c01}{Row\+Headings}} \mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a63a97a0fe356d1b3030dfb633e0d0b8e}{R\+O\+W\+\_\+\+H\+E\+A\+D\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em String headings to describe the data in each row. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{struct_data_a004891d89fb41172310a55947f922a54}{row\+Units}} \mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_af45194e4246701e52a2d67f27cc3ffb8}{R\+O\+W\+\_\+\+U\+N\+I\+T\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em String units to qualify the data in each row. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{struct_data_a1984363a7b509590c1bae03601360a0e}{Data\+Points}} \mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afaade7aab877c51eaea08012fa5a7ce2}{D\+A\+T\+A\+\_\+\+R\+O\+W\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em Two dimensional array of data. Each row generally treated as an independent vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Type used to encapsulate the data collected by the slave. 
+
+\mbox{\hyperlink{struct_data}{Data}} is contained in a two dimensional array but generally modelled as a collection of \textquotesingle{}vectors\textquotesingle{} or rows of data. Each row is allowed a variable number of data points, a string heading and a string unit. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_data_a3ae506c712bc36c15533f5499608a047}\label{struct_data_a3ae506c712bc36c15533f5499608a047}} 
+\index{Data@{Data}!operator=@{operator=}}
+\index{operator=@{operator=}!Data@{Data}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_data}{Data}}\& operator= (\begin{DoxyParamCaption}\item[{const volatile \mbox{\hyperlink{struct_data}{Data}} \&}]{rhs }\end{DoxyParamCaption}) volatile\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_data_a7c50ba562a0dcddc5ca2c733f1bbcb61}\label{struct_data_a7c50ba562a0dcddc5ca2c733f1bbcb61}} 
+\index{Data@{Data}!operator=@{operator=}}
+\index{operator=@{operator=}!Data@{Data}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{struct_data}{Data}}\& operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_data}{Data}} \&}]{rhs }\end{DoxyParamCaption}) volatile\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{struct_data_a1984363a7b509590c1bae03601360a0e}\label{struct_data_a1984363a7b509590c1bae03601360a0e}} 
+\index{Data@{Data}!DataPoints@{DataPoints}}
+\index{DataPoints@{DataPoints}!Data@{Data}}
+\subsubsection{\texorpdfstring{DataPoints}{DataPoints}}
+{\footnotesize\ttfamily float Data\+Points\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afaade7aab877c51eaea08012fa5a7ce2}{D\+A\+T\+A\+\_\+\+R\+O\+W\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}}
+
+
+
+Two dimensional array of data. Each row generally treated as an independent vector. 
+
+\mbox{\Hypertarget{struct_data_ab7ad5d3d8f1e4b3f42c5aedb1e74b336}\label{struct_data_ab7ad5d3d8f1e4b3f42c5aedb1e74b336}} 
+\index{Data@{Data}!NumColumns@{NumColumns}}
+\index{NumColumns@{NumColumns}!Data@{Data}}
+\subsubsection{\texorpdfstring{NumColumns}{NumColumns}}
+{\footnotesize\ttfamily int Num\+Columns\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}}\mbox{]}}
+
+
+
+Number of data points currently stored in each row. 
+
+\mbox{\Hypertarget{struct_data_ac0883de785701631da0e099578c748ca}\label{struct_data_ac0883de785701631da0e099578c748ca}} 
+\index{Data@{Data}!NumRows@{NumRows}}
+\index{NumRows@{NumRows}!Data@{Data}}
+\subsubsection{\texorpdfstring{NumRows}{NumRows}}
+{\footnotesize\ttfamily int Num\+Rows}
+
+
+
+Number of rows. Defined at compilation. 
+
+\mbox{\Hypertarget{struct_data_a653f4e0cb59f5c3f36f5664be1f11c01}\label{struct_data_a653f4e0cb59f5c3f36f5664be1f11c01}} 
+\index{Data@{Data}!RowHeadings@{RowHeadings}}
+\index{RowHeadings@{RowHeadings}!Data@{Data}}
+\subsubsection{\texorpdfstring{RowHeadings}{RowHeadings}}
+{\footnotesize\ttfamily char Row\+Headings\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a63a97a0fe356d1b3030dfb633e0d0b8e}{R\+O\+W\+\_\+\+H\+E\+A\+D\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}}
+
+
+
+String headings to describe the data in each row. 
+
+\mbox{\Hypertarget{struct_data_a004891d89fb41172310a55947f922a54}\label{struct_data_a004891d89fb41172310a55947f922a54}} 
+\index{Data@{Data}!rowUnits@{rowUnits}}
+\index{rowUnits@{rowUnits}!Data@{Data}}
+\subsubsection{\texorpdfstring{rowUnits}{rowUnits}}
+{\footnotesize\ttfamily char row\+Units\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}}\mbox{]}\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_af45194e4246701e52a2d67f27cc3ffb8}{R\+O\+W\+\_\+\+U\+N\+I\+T\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}}
+
+
+
+String units to qualify the data in each row. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h}{S\+P\+I\+\_\+\+Instruction\+Set.\+h}}\end{DoxyCompactItemize}

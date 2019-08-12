@@ -1,0 +1,375 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="class_communicative" kind="class" language="C++" prot="public">
+    <compoundname>Communicative</compoundname>
+    <includes refid="_communicative_8h" local="no">Communicative.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_communicative_1a419c5386ec6b22bbfbd8cd76e6edb18b" prot="private" static="no" mutable="no">
+        <type>int</type>
+        <definition>int ChipSelect</definition>
+        <argsstring></argsstring>
+        <name>ChipSelect</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="113" column="1" bodyfile="Communicative.h" bodystart="113" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Communicative</definition>
+        <argsstring>(const int CS)</argsstring>
+        <name>Communicative</name>
+        <param>
+          <type>const int</type>
+          <declname>CS</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Constructor initialises the SS pin to be used in communications and initialises SPI as <ref refid="class_master" kindref="compound">Master</ref>. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>CS</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the Slave Select pin designation; most commonly PA4. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="see"><para>SPISetup() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="28" column="1" bodyfile="Communicative.cpp" bodystart="12" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_communicative_1a53c7f2ec58bfb99f0ea10e238705c3ce" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>~Communicative</definition>
+        <argsstring>(void)</argsstring>
+        <name>~Communicative</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Destructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes SPI.end(); </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="33" column="1" bodyfile="Communicative.cpp" bodystart="39" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="function" id="class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>bool</type>
+        <definition>bool isPeripheralConnected</definition>
+        <argsstring>(void)</argsstring>
+        <name>isPeripheralConnected</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Checks whether Slave is connected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes a nop transaction. <simplesect kind="return"><para>true if handshake is successful and Slave responds to &apos;?&apos; with &apos;ACK&apos; </para>
+</simplesect>
+<simplesect kind="see"><para>areYouAlive() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="40" column="1" bodyfile="Communicative.cpp" bodystart="46" bodyend="54"/>
+        <referencedby refid="class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e" compoundref="_identifiable_8cpp" startline="10" endline="19">Identifiable::Identifiable</referencedby>
+        <referencedby refid="class_instructable_1a2bdcc11cead0067e963c524968d0d3e1" compoundref="_instructable_8cpp" startline="67" endline="69">Instructable::areYouConnected</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="structs_cmd" kindref="compound">sCmd</ref></type>
+        <definition>sCmd RequestReply</definition>
+        <argsstring>(const mCmd)</argsstring>
+        <name>RequestReply</name>
+        <param>
+          <type>const</type>
+          <declname>mCmd</declname>
+          <defname>Request</defname>
+        </param>
+        <briefdescription>
+<para>Performs a complete transaction; expects Slave to Reply with <ref refid="structs_cmd" kindref="compound">sCmd</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes a complete transaction: Clear SS -&gt; Send &apos;?&apos; to slave -&gt; recieve &apos;ACK&apos; (0x06) from slave -&gt; send request <ref refid="structm_cmd" kindref="compound">mCmd</ref> -&gt; recieve <ref refid="structs_cmd" kindref="compound">sCmd</ref> -&gt; set SS. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="structm_cmd" kindref="compound">mCmd</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the <ref refid="structm_cmd" kindref="compound">mCmd</ref> object which constitutes the Request made to the slave. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="structs_cmd" kindref="compound">sCmd</ref> object generated by the Slave as the reply to the request. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d" kindref="member">RequestIdentity()</ref>, <ref refid="class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a" kindref="member">RequestData()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="50" column="1" bodyfile="Communicative.cpp" bodystart="57" bodyend="87"/>
+        <references refid="_communicative_8cpp_1a5c3f0e72a46203dc1f8b28ba0c40bfb3" compoundref="_communicative_8cpp" startline="7">REQUEST_DELAY_MICROS</references>
+        <referencedby refid="class_data_source_1a7d92295e088894b5417729a814e49e01" compoundref="_data_source_8cpp" startline="32" endline="41">DataSource::isThereData</referencedby>
+        <referencedby refid="class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f" compoundref="_instructable_8cpp" startline="19" endline="29">Instructable::issueCommand</referencedby>
+        <referencedby refid="class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8" compoundref="_instructor_8cpp" startline="23" endline="27">Instructor::howManyInstructions</referencedby>
+        <referencedby refid="class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f" compoundref="_instructor_8cpp" startline="30" endline="34">Instructor::howLongShouldIWait</referencedby>
+        <referencedby refid="class_instructor_1a43cbe18547a30108219f3aa2945fc9ca" compoundref="_instructor_8cpp" startline="36" endline="44">Instructor::loadNextCommand</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_identity" kindref="compound">Identity</ref></type>
+        <definition>Identity RequestIdentity</definition>
+        <argsstring>(const mCmd)</argsstring>
+        <name>RequestIdentity</name>
+        <param>
+          <type>const</type>
+          <declname>mCmd</declname>
+          <defname>Request</defname>
+        </param>
+        <briefdescription>
+<para>Performs a complete transaction; expects Slave to Reply with <ref refid="struct_identity" kindref="compound">Identity</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes a complete transaction: Clear SS -&gt; Send &apos;?&apos; to slave -&gt; recieve &apos;ACK&apos; (0x06) from slave -&gt; send request <ref refid="structm_cmd" kindref="compound">mCmd</ref> -&gt; recieve <ref refid="struct_identity" kindref="compound">Identity</ref> -&gt; set SS. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="structm_cmd" kindref="compound">mCmd</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the <ref refid="structm_cmd" kindref="compound">mCmd</ref> object which constitutes the Request made to the slave. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The Idenity object generated by the Slave containing the Slave ID and name. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" kindref="member">RequestReply()</ref>, <ref refid="class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a" kindref="member">RequestData()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="58" column="1" bodyfile="Communicative.cpp" bodystart="90" bodyend="120"/>
+        <references refid="_communicative_8cpp_1a5c3f0e72a46203dc1f8b28ba0c40bfb3" compoundref="_communicative_8cpp" startline="7">REQUEST_DELAY_MICROS</references>
+        <referencedby refid="class_identifiable_1adbc1a3f62e543a0df002a43413998a26" compoundref="_identifiable_8cpp" startline="25" endline="38">Identifiable::hasIdentityChanged</referencedby>
+        <referencedby refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" compoundref="_identifiable_8cpp" startline="40" endline="55">Identifiable::updateIdentity</referencedby>
+      </memberdef>
+      <memberdef kind="function" id="class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="struct_data" kindref="compound">Data</ref></type>
+        <definition>Data RequestData</definition>
+        <argsstring>(const mCmd)</argsstring>
+        <name>RequestData</name>
+        <param>
+          <type>const</type>
+          <declname>mCmd</declname>
+          <defname>Request</defname>
+        </param>
+        <briefdescription>
+<para>Performs a complete transaction; expects Slave to Reply with a <ref refid="struct_data" kindref="compound">Data</ref> object. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes a complete transaction: Clear SS -&gt; Send &apos;?&apos; to slave -&gt; recieve &apos;ACK&apos; (0x06) from slave -&gt; send request <ref refid="structm_cmd" kindref="compound">mCmd</ref> -&gt; recieve <ref refid="struct_data" kindref="compound">Data</ref> -&gt; set SS. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername><ref refid="structm_cmd" kindref="compound">mCmd</ref></parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the <ref refid="structm_cmd" kindref="compound">mCmd</ref> object which constitutes the Request made to the slave. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>The <ref refid="struct_data" kindref="compound">Data</ref> object generated by the Slave containing a two dimensional array of data points and the length, headings and units of the data array rows. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" kindref="member">RequestReply()</ref>, <ref refid="class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d" kindref="member">RequestIdentity()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="66" column="1" bodyfile="Communicative.cpp" bodystart="122" bodyend="152"/>
+        <references refid="_communicative_8cpp_1a5c3f0e72a46203dc1f8b28ba0c40bfb3" compoundref="_communicative_8cpp" startline="7">REQUEST_DELAY_MICROS</references>
+        <referencedby refid="class_data_source_1a81aac807bfb601c2ac1da78f69d31d48" compoundref="_data_source_8cpp" startline="43" endline="47">DataSource::loadData</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="private-func">
+      <memberdef kind="function" id="class_communicative_1a121973d02ec0a7804f23ca2655290528" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SPISetup</definition>
+        <argsstring>(void)</argsstring>
+        <name>SPISetup</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Initialises <ref refid="class_master" kindref="compound">Master</ref> SPI. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Initialises SPI1 to {MSBFirst,Mode0,ClockDiv16} <simplesect kind="see"><para><ref refid="class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a" kindref="member">Communicative()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="76" column="1" bodyfile="Communicative.cpp" bodystart="20" bodyend="37"/>
+      </memberdef>
+      <memberdef kind="function" id="class_communicative_1ae7bec8869ca105ff5719603058fa3869" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>byte</type>
+        <definition>byte transferAndPause</definition>
+        <argsstring>(const byte)</argsstring>
+        <name>transferAndPause</name>
+        <param>
+          <type>const</type>
+          <declname>byte</declname>
+          <defname>what</defname>
+        </param>
+        <briefdescription>
+<para>Fundamental byte transfer over SPI. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes SPI.transfer() and delays for a short time to allow Slave time to load reply into its Tx register as needed. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>byte</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the 8 bit data packet to be sent to the Slave over MOSI </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>the byte recieved from the slave over MISO </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" kindref="member">RequestReply()</ref>, <ref refid="class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a" kindref="member">RequestData()</ref>,<ref refid="class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d" kindref="member">RequestIdentity()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="84" column="1" bodyfile="Communicative.cpp" bodystart="157" bodyend="164"/>
+      </memberdef>
+      <memberdef kind="function" id="class_communicative_1ac023c34d50ec8768269a360f62d61208" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>unsigned int</type>
+        <definition>unsigned int SPI_write</definition>
+        <argsstring>(const T &amp;value)</argsstring>
+        <name>SPI_write</name>
+        <param>
+          <type>const T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Template function to send an object of any type over SPI. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Sends any object over SPI by instantiating a pointer to the first byte of said object and then iterating said pointer through the memory domain of the object, for the size of objects of that type, calling transferAndPause() for each byte. NOTE: Requires the slave to be aware of the type of object to be recieved upon initiation of the communication, as the object must be reassembled, byte by byte, upon reception. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the object of arbitrary type to be sent over SPI. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>zero if the function failes. </para>
+</simplesect>
+<simplesect kind="see"><para>transferAndPause() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="95" column="1" bodyfile="Communicative.cpp" bodystart="166" bodyend="173"/>
+      </memberdef>
+      <memberdef kind="function" id="class_communicative_1a1173b6f0412255b084ad6c904acbaea1" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <templateparamlist>
+          <param>
+            <type>typename T</type>
+          </param>
+        </templateparamlist>
+        <type>unsigned int</type>
+        <definition>unsigned int SPI_read</definition>
+        <argsstring>(T &amp;value)</argsstring>
+        <name>SPI_read</name>
+        <param>
+          <type>T &amp;</type>
+          <declname>value</declname>
+        </param>
+        <briefdescription>
+<para>Template function to recieve an object of any type over SPI. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Recieves any object over SPI by instantiating a pointer to the first byte of an object of the same type already instatiated in memory, and iterating through each byte of said object, overwriting each byte with the bytes recived over SPI from calls to transferAndPause(). NOTE: The type being recieved must be the same as the type of the local object. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>value</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the object of arbitrary type which is being overwritten by the object of the same type being recieved. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>zero if the function failes. </para>
+</simplesect>
+<simplesect kind="see"><para>transferAndPause() </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="105" column="1" bodyfile="Communicative.cpp" bodystart="175" bodyend="183"/>
+      </memberdef>
+      <memberdef kind="function" id="class_communicative_1a2741d2934d728f76321eeda7a112e371" prot="private" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>byte</type>
+        <definition>byte areYouAlive</definition>
+        <argsstring>()</argsstring>
+        <name>areYouAlive</name>
+        <briefdescription>
+<para>Executes a NOP transaction to check whether slave is connected. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Executes complete transaction but used a request which is ensured to not change Slave state and can thus be treated as a nop <simplesect kind="return"><para>The byte send by the slave during the &apos;handshake&apos; in reply to the &apos;?&apos; sent by master. </para>
+</simplesect>
+<simplesect kind="see"><para><ref refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" kindref="member">RequestReply()</ref>, <ref refid="class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a" kindref="member">RequestData()</ref>,<ref refid="class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d" kindref="member">RequestIdentity()</ref> </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Communicative.h" line="111" column="1" bodyfile="Communicative.cpp" bodystart="185" bodyend="221"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A class to manage communication with slave module. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class is designed for SPI communication with a slave device. The class responsibilities include both SPI initialisation and fundamental transactions. The transaction protocol implemented follows the following flow: Clear SS -&gt; Send &apos;?&apos; to slave -&gt; recieve &apos;ACK&apos; (0x06) from slave -&gt; send request <ref refid="structm_cmd" kindref="compound">mCmd</ref> -&gt; recieve sCmd/Data/Identity as expected -&gt; set SS. Where <ref refid="structm_cmd" kindref="compound">mCmd</ref>, <ref refid="structs_cmd" kindref="compound">sCmd</ref>, <ref refid="struct_data" kindref="compound">Data</ref> and <ref refid="struct_identity" kindref="compound">Identity</ref> are structures defined as types. </para>
+    </detaileddescription>
+    <location file="Communicative.h" line="19" column="1" bodyfile="Communicative.h" bodystart="18" bodyend="115"/>
+    <listofallmembers>
+      <member refid="class_communicative_1a2741d2934d728f76321eeda7a112e371" prot="private" virt="non-virtual"><scope>Communicative</scope><name>areYouAlive</name></member>
+      <member refid="class_communicative_1a419c5386ec6b22bbfbd8cd76e6edb18b" prot="private" virt="non-virtual"><scope>Communicative</scope><name>ChipSelect</name></member>
+      <member refid="class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a" prot="public" virt="non-virtual"><scope>Communicative</scope><name>Communicative</name></member>
+      <member refid="class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046" prot="public" virt="non-virtual"><scope>Communicative</scope><name>isPeripheralConnected</name></member>
+      <member refid="class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a" prot="public" virt="non-virtual"><scope>Communicative</scope><name>RequestData</name></member>
+      <member refid="class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d" prot="public" virt="non-virtual"><scope>Communicative</scope><name>RequestIdentity</name></member>
+      <member refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" prot="public" virt="non-virtual"><scope>Communicative</scope><name>RequestReply</name></member>
+      <member refid="class_communicative_1a1173b6f0412255b084ad6c904acbaea1" prot="private" virt="non-virtual"><scope>Communicative</scope><name>SPI_read</name></member>
+      <member refid="class_communicative_1ac023c34d50ec8768269a360f62d61208" prot="private" virt="non-virtual"><scope>Communicative</scope><name>SPI_write</name></member>
+      <member refid="class_communicative_1a121973d02ec0a7804f23ca2655290528" prot="private" virt="non-virtual"><scope>Communicative</scope><name>SPISetup</name></member>
+      <member refid="class_communicative_1ae7bec8869ca105ff5719603058fa3869" prot="private" virt="non-virtual"><scope>Communicative</scope><name>transferAndPause</name></member>
+      <member refid="class_communicative_1a53c7f2ec58bfb99f0ea10e238705c3ce" prot="public" virt="non-virtual"><scope>Communicative</scope><name>~Communicative</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

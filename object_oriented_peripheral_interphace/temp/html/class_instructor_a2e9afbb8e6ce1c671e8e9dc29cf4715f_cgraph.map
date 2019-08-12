@@ -1,0 +1,4 @@
+<map id="howLongShouldIWait" name="howLongShouldIWait">
+<area shape="rect" id="node1" title="Asks the sensor how long the master should pause for. Deprecated." alt="" coords="5,5,148,32"/>
+<area shape="rect" id="node2" href="$class_communicative.html#a4fe112ad5a3d693e39ae44dd43eaf0c1" title="Performs a complete transaction; expects Slave to Reply with sCmd object." alt="" coords="196,5,395,32"/>
+</map>

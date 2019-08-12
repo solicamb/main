@@ -1,0 +1,4 @@
+<map id="updateIdentity" name="updateIdentity">
+<area shape="rect" id="node1" title="Loads the Identity advertised by the peripheral into local memory." alt="" coords="5,5,108,32"/>
+<area shape="rect" id="node2" href="$class_communicative.html#a01ee3d76d85bad6123c4d4f6262c6c2d" title="Performs a complete transaction; expects Slave to Reply with Identity object." alt="" coords="156,5,364,32"/>
+</map>

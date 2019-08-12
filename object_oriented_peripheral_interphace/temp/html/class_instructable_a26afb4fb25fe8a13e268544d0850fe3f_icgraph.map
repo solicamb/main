@@ -1,0 +1,6 @@
+<map id="issueCommand" name="issueCommand">
+<area shape="rect" id="node1" title="Issues a command to the peripheral." alt="" coords="245,64,357,91"/>
+<area shape="rect" id="node2" href="$class_sensor.html#af0e64874a3d1b8ae19e3b623d244342a" title="Instruct the sensor to initiate the measurement procedure." alt="" coords="12,5,191,32"/>
+<area shape="rect" id="node3" href="$class_sensor.html#afdcc3b63357bd24f519e0cbc85454a52" title="Instruct the sensor to pause the measurement procedure for a brief period." alt="" coords="8,57,195,98"/>
+<area shape="rect" id="node4" href="$class_sensor.html#ad58e9acfc23f07af433f0e2596d786d7" title="Instruct the sensor to restart the measurement procedure." alt="" coords="5,123,197,149"/>
+</map>

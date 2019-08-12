@@ -1,0 +1,254 @@
+\hypertarget{_s_p_i___instruction_set_8h}{}\section{S\+P\+I\+\_\+\+Instruction\+Set.\+h File Reference}
+\label{_s_p_i___instruction_set_8h}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{_s_p_i___instruction_set_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structs_cmd}{s\+Cmd}}
+\begin{DoxyCompactList}\small\item\em Type used by slave to send reply to master,. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structm_cmd}{m\+Cmd}}
+\begin{DoxyCompactList}\small\item\em Type used by master to send requests to slave. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_identity}{Identity}}
+\begin{DoxyCompactList}\small\item\em Type used to convey the Slave identity. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{struct_data}{Data}}
+\begin{DoxyCompactList}\small\item\em Type used to encapsulate the data collected by the slave. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} \{ \newline
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a2a9fec1d5440b0b43d838b611e9ccb65}{Display\+Instruction\+And\+Wait}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a7a8bdb0f070d27bda91ad1501bae2108}{Display\+Instruction\+And\+Wait\+For\+User}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47acc4a5507e0cd97f2d587cc3c111e6ce6}{Dont\+Display\+And\+Wait}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a600cd8f2a3cd5a8ae93b3b730a41b2c3}{Dont\+Display\+And\+Continue}}, 
+\newline
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e}{A\+CK}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a695ed835e2b72585493b31c1043fdf25}{Yes}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a996e257033c09daf66076efc1ebd3b1c}{No}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a5d6a7bf7f9dbd450f30e49215185fcb2}{N\+AK}}, 
+\newline
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47ac5878118d3538835789584340c0d2eaa}{Refer\+To\+Int}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a3919733d70c696dca64417af443ad6c6}{Refer\+To\+Float}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a05d96a660820bb9f0681a045c5e4a884}{Refer\+To\+String}}
+ \}
+\begin{DoxyCompactList}\small\item\em Instruction set used by slave to instruct master. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}} \{ \newline
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a965f2ec6e1a55050b8bccd7063f904b3}{Pause\+Measurement\+Fori\+Param}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a4ad074804da746cc861dbb972ac48a22}{Restart\+Measurement\+Procedure}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a87079e73086d12bc4001e38b3427fc5d}{Reset\+Device}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a303b60d37143112142046add7f73d4bf}{How\+Many\+Instructions}}, 
+\newline
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a9319f300f7a4bc8e0c2c9139cde4fb21}{Next\+Command\+Please}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792ae0e86116c94ee3a2de08c331a25a9553}{Is\+There\+Data}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a9972e8050301ea3d5b585bc557bac507}{Send\+Data\+Please}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a4b25a74b6be49faf4a9356e1565a4b25}{Who\+Are\+You}}, 
+\newline
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792abd3b3ed0c9b543b6cf7ff2463568fe4f}{How\+Long\+Should\+I\+Wait}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a95e0f581b12f62fe8be32f5f50b8381e}{Begin\+Measurement}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a7b437edd37dcf8f275dea91b2d3dae70}{Sit\+Rep}}
+ \}
+\begin{DoxyCompactList}\small\item\em Instruction set used by \mbox{\hyperlink{class_master}{Master}} to instruct/request responses from Slave. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}} \{ \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350}{First}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f}{Second}}, 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828}{Third}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration to provide human-\/readable references to different rows in the \mbox{\hyperlink{struct_data}{Data}} array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \mbox{\hyperlink{_s_p_i___instruction_set_8h_afb2f23f8980c03317ec47ce151335ec7}{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}} = 40
+\item 
+const int \mbox{\hyperlink{_s_p_i___instruction_set_8h_addd001d124aca0fe92b3e484732fb7c8}{I\+D\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+TH}} = 25
+\item 
+const int \mbox{\hyperlink{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}{N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS}} = 3
+\item 
+const int \mbox{\hyperlink{_s_p_i___instruction_set_8h_a63a97a0fe356d1b3030dfb633e0d0b8e}{R\+O\+W\+\_\+\+H\+E\+A\+D\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}} = 10
+\item 
+const int \mbox{\hyperlink{_s_p_i___instruction_set_8h_af45194e4246701e52a2d67f27cc3ffb8}{R\+O\+W\+\_\+\+U\+N\+I\+T\+\_\+\+L\+E\+N\+G\+TH}} = 5
+\item 
+const int \mbox{\hyperlink{_s_p_i___instruction_set_8h_afaade7aab877c51eaea08012fa5a7ce2}{D\+A\+T\+A\+\_\+\+R\+O\+W\+\_\+\+L\+E\+N\+G\+TH}} = 64
+\end{DoxyCompactItemize}
+
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}\label{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}} 
+\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!MeasurementVectors@{MeasurementVectors}}
+\index{MeasurementVectors@{MeasurementVectors}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}
+\subsubsection{\texorpdfstring{MeasurementVectors}{MeasurementVectors}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5}{Measurement\+Vectors}}}
+
+
+
+Enumeration to provide human-\/readable references to different rows in the \mbox{\hyperlink{struct_data}{Data}} array. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{First@{First}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!First@{First}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350}\label{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350}} 
+First&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Second@{Second}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!Second@{Second}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f}\label{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f}} 
+Second&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Third@{Third}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!Third@{Third}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828}\label{_s_p_i___instruction_set_8h_a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828}} 
+Third&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}} 
+\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!mInstruct@{mInstruct}}
+\index{mInstruct@{mInstruct}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}
+\subsubsection{\texorpdfstring{mInstruct}{mInstruct}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}}}
+
+
+
+Instruction set used by \mbox{\hyperlink{class_master}{Master}} to instruct/request responses from Slave. 
+
+During a single transaction, the \mbox{\hyperlink{class_master}{Master}} will send a request, characterised by an \mbox{\hyperlink{structm_cmd}{m\+Cmd}} object, which contains an m\+Instruct object, integer and float. The m\+Instruct object will determine how the request is processed by the slave and will define the object type which the master must expect in reply. In general, the master will expect replies in the form of \mbox{\hyperlink{structs_cmd}{s\+Cmd}} objects. However, the slave may also send \mbox{\hyperlink{struct_data}{Data}} and \mbox{\hyperlink{struct_identity}{Identity}} objects in repsonse to specific m\+Instruct instances; in particular\+: Send\+Data\+Please and Who\+Are\+You. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PauseMeasurementForiParam@{PauseMeasurementForiParam}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!PauseMeasurementForiParam@{PauseMeasurementForiParam}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a965f2ec6e1a55050b8bccd7063f904b3}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a965f2ec6e1a55050b8bccd7063f904b3}} 
+Pause\+Measurement\+Fori\+Param&Require Slave to pause for a duration specified by the integer parameter of \mbox{\hyperlink{structm_cmd}{m\+Cmd}}. Expects \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\{A\+CK or N\+AK\} in response. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RestartMeasurementProcedure@{RestartMeasurementProcedure}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!RestartMeasurementProcedure@{RestartMeasurementProcedure}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a4ad074804da746cc861dbb972ac48a22}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a4ad074804da746cc861dbb972ac48a22}} 
+Restart\+Measurement\+Procedure&Require Slave to restart the measurement procedure from the first instruction. Expects \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\{A\+CK or N\+AK\} in response. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ResetDevice@{ResetDevice}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!ResetDevice@{ResetDevice}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a87079e73086d12bc4001e38b3427fc5d}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a87079e73086d12bc4001e38b3427fc5d}} 
+Reset\+Device&Require Slave to reset. Expects \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\{A\+CK or N\+AK\} in response. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HowManyInstructions@{HowManyInstructions}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!HowManyInstructions@{HowManyInstructions}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a303b60d37143112142046add7f73d4bf}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a303b60d37143112142046add7f73d4bf}} 
+How\+Many\+Instructions&Request the slave to confirm the number of instructions in a measurement cycle. Expects \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\{Refer\+To\+Int, int Number\+Of\+Instructions\} in response. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NextCommandPlease@{NextCommandPlease}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!NextCommandPlease@{NextCommandPlease}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a9319f300f7a4bc8e0c2c9139cde4fb21}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a9319f300f7a4bc8e0c2c9139cde4fb21}} 
+Next\+Command\+Please&Request the next instrction in the measurement cycle from the slave. Expects \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\{s\+Instruct Some\+Instruction, int Potential\+Int\+Param, float Potential\+Float\+Param, char$\ast$ Potential\+String\+Param\} or \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\{No\} in response. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{IsThereData@{IsThereData}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!IsThereData@{IsThereData}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792ae0e86116c94ee3a2de08c331a25a9553}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792ae0e86116c94ee3a2de08c331a25a9553}} 
+Is\+There\+Data&Requests slave to confirm that \mbox{\hyperlink{struct_data}{Data}} is ready for collection by master. Expects \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\{Yes or No\}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SendDataPlease@{SendDataPlease}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!SendDataPlease@{SendDataPlease}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a9972e8050301ea3d5b585bc557bac507}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a9972e8050301ea3d5b585bc557bac507}} 
+Send\+Data\+Please&Require slave to send the data object. Expects \mbox{\hyperlink{struct_data}{Data}} object in response. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WhoAreYou@{WhoAreYou}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!WhoAreYou@{WhoAreYou}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a4b25a74b6be49faf4a9356e1565a4b25}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a4b25a74b6be49faf4a9356e1565a4b25}} 
+Who\+Are\+You&Require the slave to send its \mbox{\hyperlink{struct_identity}{Identity}} object; contains char$\ast$ Name and int Sensor\+ID. Expects \mbox{\hyperlink{struct_identity}{Identity}} object in response. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{HowLongShouldIWait@{HowLongShouldIWait}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!HowLongShouldIWait@{HowLongShouldIWait}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792abd3b3ed0c9b543b6cf7ff2463568fe4f}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792abd3b3ed0c9b543b6cf7ff2463568fe4f}} 
+How\+Long\+Should\+I\+Wait&Ask the slave whether the \mbox{\hyperlink{class_master}{Master}} should pause before calling for the next instruction. Unused. Expects \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\{Refer\+To\+Int, int Pause\+Duration\} in reply. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BeginMeasurement@{BeginMeasurement}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!BeginMeasurement@{BeginMeasurement}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a95e0f581b12f62fe8be32f5f50b8381e}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a95e0f581b12f62fe8be32f5f50b8381e}} 
+Begin\+Measurement&Instruct the slave to initiate its measurement cycle and expect the first instruction to be called for. Expects \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\{A\+CK or N\+AK\}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SitRep@{SitRep}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!SitRep@{SitRep}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a7b437edd37dcf8f275dea91b2d3dae70}\label{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792a7b437edd37dcf8f275dea91b2d3dae70}} 
+Sit\+Rep&Request good/bad status from slave. Unused. Expects \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\{\} in reply. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}} 
+\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!sInstruct@{sInstruct}}
+\index{sInstruct@{sInstruct}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}
+\subsubsection{\texorpdfstring{sInstruct}{sInstruct}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}}}
+
+
+
+Instruction set used by slave to instruct master. 
+
+During a single transaction, the master will request a reply, \mbox{\hyperlink{struct_data}{Data}} or \mbox{\hyperlink{struct_identity}{Identity}}. Replies are characterised by an \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object, which contains an s\+Instruct object, which defines the action which the slave requires of the master. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DisplayInstructionAndWait@{DisplayInstructionAndWait}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!DisplayInstructionAndWait@{DisplayInstructionAndWait}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a2a9fec1d5440b0b43d838b611e9ccb65}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a2a9fec1d5440b0b43d838b611e9ccb65}} 
+Display\+Instruction\+And\+Wait&Require the master to display the string contained within the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object and pause for a duration defined by the integer parameter of the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DisplayInstructionAndWaitForUser@{DisplayInstructionAndWaitForUser}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!DisplayInstructionAndWaitForUser@{DisplayInstructionAndWaitForUser}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a7a8bdb0f070d27bda91ad1501bae2108}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a7a8bdb0f070d27bda91ad1501bae2108}} 
+Display\+Instruction\+And\+Wait\+For\+User&Require the master to display the string contained within the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object and pause until the user has confirmed adherence to the instruction. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DontDisplayAndWait@{DontDisplayAndWait}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!DontDisplayAndWait@{DontDisplayAndWait}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47acc4a5507e0cd97f2d587cc3c111e6ce6}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47acc4a5507e0cd97f2d587cc3c111e6ce6}} 
+Dont\+Display\+And\+Wait&Require the master to pause for a duration defined by the integer parameter of the \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{DontDisplayAndContinue@{DontDisplayAndContinue}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!DontDisplayAndContinue@{DontDisplayAndContinue}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a600cd8f2a3cd5a8ae93b3b730a41b2c3}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a600cd8f2a3cd5a8ae93b3b730a41b2c3}} 
+Dont\+Display\+And\+Continue&Require the master to take no action. Essentially a nop. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ACK@{ACK}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!ACK@{ACK}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e}} 
+A\+CK&Slave acknowleges the master\textquotesingle{}s command/response. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Yes@{Yes}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!Yes@{Yes}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a695ed835e2b72585493b31c1043fdf25}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a695ed835e2b72585493b31c1043fdf25}} 
+Yes&Respond affirmative. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{No@{No}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!No@{No}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a996e257033c09daf66076efc1ebd3b1c}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a996e257033c09daf66076efc1ebd3b1c}} 
+No&Respond negative. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{NAK@{NAK}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!NAK@{NAK}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a5d6a7bf7f9dbd450f30e49215185fcb2}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a5d6a7bf7f9dbd450f30e49215185fcb2}} 
+N\+AK&Slave unable to adhere to \mbox{\hyperlink{class_master}{Master}}\textquotesingle{}s command or understand it. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ReferToInt@{ReferToInt}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!ReferToInt@{ReferToInt}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47ac5878118d3538835789584340c0d2eaa}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47ac5878118d3538835789584340c0d2eaa}} 
+Refer\+To\+Int&Points master to the integer parameter of \mbox{\hyperlink{structs_cmd}{s\+Cmd}}. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ReferToFloat@{ReferToFloat}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!ReferToFloat@{ReferToFloat}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a3919733d70c696dca64417af443ad6c6}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a3919733d70c696dca64417af443ad6c6}} 
+Refer\+To\+Float&Points master to the float parameter of \mbox{\hyperlink{structs_cmd}{s\+Cmd}} \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ReferToString@{ReferToString}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!ReferToString@{ReferToString}}}\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a05d96a660820bb9f0681a045c5e4a884}\label{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47a05d96a660820bb9f0681a045c5e4a884}} 
+Refer\+To\+String&Points master to the string parameter of \mbox{\hyperlink{structs_cmd}{s\+Cmd}} \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afaade7aab877c51eaea08012fa5a7ce2}\label{_s_p_i___instruction_set_8h_afaade7aab877c51eaea08012fa5a7ce2}} 
+\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!DATA\_ROW\_LENGTH@{DATA\_ROW\_LENGTH}}
+\index{DATA\_ROW\_LENGTH@{DATA\_ROW\_LENGTH}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}
+\subsubsection{\texorpdfstring{DATA\_ROW\_LENGTH}{DATA\_ROW\_LENGTH}}
+{\footnotesize\ttfamily const int D\+A\+T\+A\+\_\+\+R\+O\+W\+\_\+\+L\+E\+N\+G\+TH = 64}
+
+\mbox{\Hypertarget{_s_p_i___instruction_set_8h_addd001d124aca0fe92b3e484732fb7c8}\label{_s_p_i___instruction_set_8h_addd001d124aca0fe92b3e484732fb7c8}} 
+\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!IDENTITY\_SENSOR\_NAME\_LENGTH@{IDENTITY\_SENSOR\_NAME\_LENGTH}}
+\index{IDENTITY\_SENSOR\_NAME\_LENGTH@{IDENTITY\_SENSOR\_NAME\_LENGTH}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}
+\subsubsection{\texorpdfstring{IDENTITY\_SENSOR\_NAME\_LENGTH}{IDENTITY\_SENSOR\_NAME\_LENGTH}}
+{\footnotesize\ttfamily const int I\+D\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+TH = 25}
+
+\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}\label{_s_p_i___instruction_set_8h_a030a0b94acdc35db8cf20a5044a1c775}} 
+\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!NUMBER\_OF\_DATA\_ROWS@{NUMBER\_OF\_DATA\_ROWS}}
+\index{NUMBER\_OF\_DATA\_ROWS@{NUMBER\_OF\_DATA\_ROWS}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}
+\subsubsection{\texorpdfstring{NUMBER\_OF\_DATA\_ROWS}{NUMBER\_OF\_DATA\_ROWS}}
+{\footnotesize\ttfamily const int N\+U\+M\+B\+E\+R\+\_\+\+O\+F\+\_\+\+D\+A\+T\+A\+\_\+\+R\+O\+WS = 3}
+
+\mbox{\Hypertarget{_s_p_i___instruction_set_8h_a63a97a0fe356d1b3030dfb633e0d0b8e}\label{_s_p_i___instruction_set_8h_a63a97a0fe356d1b3030dfb633e0d0b8e}} 
+\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!ROW\_HEADING\_LENGTH@{ROW\_HEADING\_LENGTH}}
+\index{ROW\_HEADING\_LENGTH@{ROW\_HEADING\_LENGTH}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}
+\subsubsection{\texorpdfstring{ROW\_HEADING\_LENGTH}{ROW\_HEADING\_LENGTH}}
+{\footnotesize\ttfamily const int R\+O\+W\+\_\+\+H\+E\+A\+D\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH = 10}
+
+\mbox{\Hypertarget{_s_p_i___instruction_set_8h_af45194e4246701e52a2d67f27cc3ffb8}\label{_s_p_i___instruction_set_8h_af45194e4246701e52a2d67f27cc3ffb8}} 
+\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!ROW\_UNIT\_LENGTH@{ROW\_UNIT\_LENGTH}}
+\index{ROW\_UNIT\_LENGTH@{ROW\_UNIT\_LENGTH}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}
+\subsubsection{\texorpdfstring{ROW\_UNIT\_LENGTH}{ROW\_UNIT\_LENGTH}}
+{\footnotesize\ttfamily const int R\+O\+W\+\_\+\+U\+N\+I\+T\+\_\+\+L\+E\+N\+G\+TH = 5}
+
+\mbox{\Hypertarget{_s_p_i___instruction_set_8h_afb2f23f8980c03317ec47ce151335ec7}\label{_s_p_i___instruction_set_8h_afb2f23f8980c03317ec47ce151335ec7}} 
+\index{SPI\_InstructionSet.h@{SPI\_InstructionSet.h}!SLAVE\_COMMMAND\_STRING\_LENGTH@{SLAVE\_COMMMAND\_STRING\_LENGTH}}
+\index{SLAVE\_COMMMAND\_STRING\_LENGTH@{SLAVE\_COMMMAND\_STRING\_LENGTH}!SPI\_InstructionSet.h@{SPI\_InstructionSet.h}}
+\subsubsection{\texorpdfstring{SLAVE\_COMMMAND\_STRING\_LENGTH}{SLAVE\_COMMMAND\_STRING\_LENGTH}}
+{\footnotesize\ttfamily const int S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH = 40}
+

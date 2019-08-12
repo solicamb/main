@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_identifiable_8cpp" kind="file" language="C++">
+    <compoundname>Identifiable.cpp</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="_identifiable_8h" local="yes">Identifiable.h</includes>
+    <includes refid="_s_p_i___instruction_set_8h" local="yes">SPI_InstructionSet.h</includes>
+    <includes local="no">SPI.h</includes>
+    <incdepgraph>
+      <node id="44">
+        <label>SPI.h</label>
+      </node>
+      <node id="43">
+        <label>Communicative.h</label>
+        <link refid="_communicative_8h"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+      </node>
+      <node id="40">
+        <label>Arduino.h</label>
+      </node>
+      <node id="42">
+        <label>SPI_InstructionSet.h</label>
+        <link refid="_s_p_i___instruction_set_8h"/>
+      </node>
+      <node id="41">
+        <label>Identifiable.h</label>
+        <link refid="_identifiable_8h"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="43" relation="include">
+        </childnode>
+      </node>
+      <node id="39">
+        <label>Identifiable.cpp</label>
+        <link refid="_identifiable_8cpp"/>
+        <childnode refid="40" relation="include">
+        </childnode>
+        <childnode refid="41" relation="include">
+        </childnode>
+        <childnode refid="42" relation="include">
+        </childnode>
+        <childnode refid="44" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_identifiable_8h" kindref="compound">Identifiable.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_s_p_i___instruction_set_8h" kindref="compound">SPI_InstructionSet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;SPI.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Constructor<sp/>/////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Function<sp/>that<sp/>handles<sp/>the<sp/>creation<sp/>and<sp/>setup<sp/>of<sp/>instances</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e" refkind="member"><highlight class="normal"><ref refid="class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e" kindref="member">Identifiable::Identifiable</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ChipSelect):<sp/>CommsModule(ChipSelect)</highlight></codeline>
+<codeline lineno="11"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(CommsModule.<ref refid="class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046" kindref="member">isPeripheralConnected</ref>()){</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" kindref="member">updateIdentity</ref>();</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/>ThisSensor.<ref refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" kindref="member">sensorChipSelect</ref><sp/>=<sp/>ChipSelect;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Public<sp/>Methods<sp/>//////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Functions<sp/>available<sp/>in<sp/>Wiring<sp/>sketches,<sp/>this<sp/>library,<sp/>and<sp/>other<sp/>libraries</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25" refid="class_identifiable_1adbc1a3f62e543a0df002a43413998a26" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_identifiable_1adbc1a3f62e543a0df002a43413998a26" kindref="member">Identifiable::hasIdentityChanged</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><ref refid="struct_identity" kindref="compound">Identity</ref><sp/>connectedID;</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref><sp/>Request<sp/>=<sp/>{(<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref>)<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4b25a74b6be49faf4a9356e1565a4b25" kindref="member">WhoAreYou</ref>,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)0,(float)0.0};</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/>connectedID<sp/>=<sp/>CommsModule.<ref refid="class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d" kindref="member">RequestIdentity</ref>(Request);</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(connectedID.<ref refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" kindref="member">sensorID</ref><sp/>==<sp/>ThisSensor.<ref refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" kindref="member">sensorID</ref>){</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" kindref="member">Identifiable::updateIdentity</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><ref refid="struct_identity" kindref="compound">Identity</ref><sp/>connectedID;</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref><sp/>Request<sp/>=<sp/>{(<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref>)<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4b25a74b6be49faf4a9356e1565a4b25" kindref="member">WhoAreYou</ref>,<sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal">)0,(float)0.0};</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/>connectedID<sp/>=<sp/>CommsModule.<ref refid="class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d" kindref="member">RequestIdentity</ref>(Request);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/>ThisSensor.<ref refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" kindref="member">sensorID</ref><sp/>=<sp/>connectedID.<ref refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" kindref="member">sensorID</ref>;</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" kindref="member">IDENTITY_SENSOR_NAME_LENGTH</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>ThisSensor.<ref refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" kindref="member">SensorName</ref>[i]<sp/>=<sp/>connectedID.<ref refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" kindref="member">SensorName</ref>[i];</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>==<sp/>connectedID.<ref refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" kindref="member">SensorName</ref>[i])<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="54"><highlight class="normal"></highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae" kindref="member">Identifiable::getIDNumber</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>ThisSensor.<ref refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" kindref="member">sensorID</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="class_identifiable_1a7942e337c1303ce42cc822032465c66a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_identifiable_1a7942e337c1303ce42cc822032465c66a" kindref="member">Identifiable::getSensorName</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>name[<ref refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" kindref="member">IDENTITY_SENSOR_NAME_LENGTH</ref>]){</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" kindref="member">IDENTITY_SENSOR_NAME_LENGTH</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/>name[i]<sp/>=<sp/>ThisSensor.<ref refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" kindref="member">SensorName</ref>[i];</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>==<sp/>ThisSensor.<ref refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" kindref="member">SensorName</ref>[i])<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"></highlight></codeline>
+<codeline lineno="68"><highlight class="normal">}</highlight></codeline>
+    </programlisting>
+    <location file="Identifiable.cpp"/>
+  </compounddef>
+</doxygen>

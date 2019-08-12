@@ -1,0 +1,132 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_instructor_8cpp" kind="file" language="C++">
+    <compoundname>Instructor.cpp</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="_instructable_8h" local="yes">Instructable.h</includes>
+    <includes refid="_instructor_8h" local="yes">Instructor.h</includes>
+    <includes refid="_s_p_i___instruction_set_8h" local="yes">SPI_InstructionSet.h</includes>
+    <incdepgraph>
+      <node id="72">
+        <label>Instructor.cpp</label>
+        <link refid="_instructor_8cpp"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="77">
+        <label>Instructor.h</label>
+        <link refid="_instructor_8h"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="74" relation="include">
+        </childnode>
+      </node>
+      <node id="76">
+        <label>Communicative.h</label>
+        <link refid="_communicative_8h"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+      </node>
+      <node id="73">
+        <label>Arduino.h</label>
+      </node>
+      <node id="75">
+        <label>SPI_InstructionSet.h</label>
+        <link refid="_s_p_i___instruction_set_8h"/>
+      </node>
+      <node id="74">
+        <label>Instructable.h</label>
+        <link refid="_instructable_8h"/>
+        <childnode refid="73" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_instructable_8h" kindref="compound">Instructable.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_instructor_8h" kindref="compound">Instructor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_s_p_i___instruction_set_8h" kindref="compound">SPI_InstructionSet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Constructor<sp/>/////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Function<sp/>that<sp/>handles<sp/>the<sp/>creation<sp/>and<sp/>setup<sp/>of<sp/>instances</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823" refkind="member"><highlight class="normal"><ref refid="class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823" kindref="member">Instructor::Instructor</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ChipSelect):<sp/>CommsModule(ChipSelect){</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentCommand.<ref refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" kindref="member">Instruction</ref><sp/>=<sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a5d6a7bf7f9dbd450f30e49215185fcb2" kindref="member">NAK</ref>;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentCommand.<ref refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" kindref="member">sParam</ref>[0]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentCommand.<ref refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kindref="member">iParam</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentCommand.<ref refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" kindref="member">fParam</ref><sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="15"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"></highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Public<sp/>Methods<sp/>//////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Functions<sp/>available<sp/>in<sp/>Wiring<sp/>sketches,<sp/>this<sp/>library,<sp/>and<sp/>other<sp/>libraries</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="23" refid="class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8" kindref="member">Instructor::howManyInstructions</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref><sp/>Request<sp/>=<sp/>{(<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref>)<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a303b60d37143112142046add7f73d4bf" kindref="member">HowManyInstructions</ref>,0,0.0};</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs_cmd" kindref="compound">sCmd</ref><sp/>Reply<sp/>=<sp/>CommsModule.<ref refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" kindref="member">RequestReply</ref>(Request);</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Reply.<ref refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kindref="member">iParam</ref>;</highlight></codeline>
+<codeline lineno="27"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30" refid="class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f" kindref="member">Instructor::howLongShouldIWait</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref><sp/>Request<sp/>=<sp/>{(<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref>)<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792abd3b3ed0c9b543b6cf7ff2463568fe4f" kindref="member">HowLongShouldIWait</ref>,0,0.0};</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs_cmd" kindref="compound">sCmd</ref><sp/>Reply<sp/>=<sp/>CommsModule.<ref refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" kindref="member">RequestReply</ref>(Request);</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Reply.<ref refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kindref="member">iParam</ref>;</highlight></codeline>
+<codeline lineno="34"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="class_instructor_1a43cbe18547a30108219f3aa2945fc9ca" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1a43cbe18547a30108219f3aa2945fc9ca" kindref="member">Instructor::loadNextCommand</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref><sp/>Request<sp/>=<sp/>{(<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref>)<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9319f300f7a4bc8e0c2c9139cde4fb21" kindref="member">NextCommandPlease</ref>,0,0.0};</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>sCmd<sp/>Reply<sp/>=<sp/>CommsModule.RequestReply(Request);</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//<sp/>CurrentCommand<sp/>=<sp/>Reply;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//return<sp/>CurrentCommand;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//mCmd<sp/>Request<sp/>=<sp/>{(mInstruct)IsThereData,0,0.0};</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs_cmd" kindref="compound">sCmd</ref><sp/>Reply<sp/>=<sp/>CommsModule.<ref refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" kindref="member">RequestReply</ref>(Request);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentCommand<sp/>=<sp/>Reply;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46" refid="class_instructor_1a8c66f480a7b5a6b434f613bc7197e824" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1a8c66f480a7b5a6b434f613bc7197e824" kindref="member">Instructor::getCurrentCommandString</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>Instruction[<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>]){</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Instruction[i]<sp/>=<sp/>CurrentCommand.<ref refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" kindref="member">sParam</ref>[i];</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(CurrentCommand.<ref refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" kindref="member">sParam</ref>[i]<sp/>==<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">)<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="class_instructor_1adcbf1cb6d2739539465edc6d996d2987" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1adcbf1cb6d2739539465edc6d996d2987" kindref="member">Instructor::getCurrentCommandInt</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CurrentCommand.<ref refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kindref="member">iParam</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="class_instructor_1ae81f8123893b582fd32a71601471cff8" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1ae81f8123893b582fd32a71601471cff8" kindref="member">Instructor::getCurrentCommandFloat</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CurrentCommand.<ref refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" kindref="member">fParam</ref>;</highlight></codeline>
+<codeline lineno="59"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"></highlight></codeline>
+<codeline lineno="61" refid="class_instructor_1a1e54d05ded7ecf88f0205b52901df681" refkind="member"><highlight class="normal"><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/><ref refid="class_instructor_1a1e54d05ded7ecf88f0205b52901df681" kindref="member">Instructor::getCurrentCommandInstruction</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CurrentCommand.<ref refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" kindref="member">Instruction</ref>;</highlight></codeline>
+<codeline lineno="63"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Private<sp/>Methods<sp/>/////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Functions<sp/>only<sp/>available<sp/>to<sp/>other<sp/>functions<sp/>in<sp/>this<sp/>library</highlight></codeline>
+    </programlisting>
+    <location file="Instructor.cpp"/>
+  </compounddef>
+</doxygen>

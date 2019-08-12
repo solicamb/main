@@ -1,0 +1,4 @@
+<map id="Instructor" name="Instructor">
+<area shape="rect" id="node1" title="A class which models a Sensor/peripheral as entity which can issue instructions to the master." alt="" coords="5,5,81,32"/>
+<area shape="rect" id="node2" href="$class_sensor.html" title="A class which models a Sensor/peripheral." alt="" coords="12,80,75,107"/>
+</map>

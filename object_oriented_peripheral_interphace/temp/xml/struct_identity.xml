@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="struct_identity" kind="struct" language="C++" prot="public">
+    <compoundname>Identity</compoundname>
+    <includes refid="_s_p_i___instruction_set_8h" local="no">SPI_InstructionSet.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char SensorName[IDENTITY_SENSOR_NAME_LENGTH]</definition>
+        <argsstring>[IDENTITY_SENSOR_NAME_LENGTH]</argsstring>
+        <name>SensorName</name>
+        <briefdescription>
+<para>String name of the slave. Used for informative reporting to user. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="148" column="1" bodyfile="SPI_InstructionSet.h" bodystart="148" bodyend="-1"/>
+        <referencedby refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" compoundref="_identifiable_8cpp" startline="40" endline="55">Identifiable::updateIdentity</referencedby>
+        <referencedby refid="class_identifiable_1a7942e337c1303ce42cc822032465c66a" compoundref="_identifiable_8cpp" startline="61" endline="68">Identifiable::getSensorName</referencedby>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="struct_identity_1ae7ccf6e408df14fac9dc856f53d81718" compoundref="_s_p_i___instruction_set_8h" startline="154" endline="163">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sensorID</definition>
+        <argsstring></argsstring>
+        <name>sensorID</name>
+        <briefdescription>
+<para>Single byte identitfication number. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="150" column="1" bodyfile="SPI_InstructionSet.h" bodystart="150" bodyend="-1"/>
+        <referencedby refid="class_identifiable_1adbc1a3f62e543a0df002a43413998a26" compoundref="_identifiable_8cpp" startline="25" endline="38">Identifiable::hasIdentityChanged</referencedby>
+        <referencedby refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" compoundref="_identifiable_8cpp" startline="40" endline="55">Identifiable::updateIdentity</referencedby>
+        <referencedby refid="class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae" compoundref="_identifiable_8cpp" startline="57" endline="59">Identifiable::getIDNumber</referencedby>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="struct_identity_1ae7ccf6e408df14fac9dc856f53d81718" compoundref="_s_p_i___instruction_set_8h" startline="154" endline="163">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int sensorChipSelect</definition>
+        <argsstring></argsstring>
+        <name>sensorChipSelect</name>
+        <briefdescription>
+<para>SPI chip select of the peripheral in question. Used by slave, but used by <ref refid="class_master" kindref="compound">Master</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="152" column="1" bodyfile="SPI_InstructionSet.h" bodystart="152" bodyend="-1"/>
+        <referencedby refid="class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e" compoundref="_identifiable_8cpp" startline="10" endline="19">Identifiable::Identifiable</referencedby>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="struct_identity_1ae7ccf6e408df14fac9dc856f53d81718" compoundref="_s_p_i___instruction_set_8h" startline="154" endline="163">operator=</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_identity_1ae7ccf6e408df14fac9dc856f53d81718" prot="public" static="no" const="no" explicit="no" inline="yes" volatile="yes" virt="non-virtual">
+        <type><ref refid="struct_identity" kindref="compound">Identity</ref> &amp;</type>
+        <definition>Identity&amp; operator=</definition>
+        <argsstring>(const volatile Identity &amp;rhs) volatile</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const volatile <ref refid="struct_identity" kindref="compound">Identity</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="154" column="1" bodyfile="SPI_InstructionSet.h" bodystart="154" bodyend="163"/>
+        <references refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" compoundref="_s_p_i___instruction_set_8h" startline="142">IDENTITY_SENSOR_NAME_LENGTH</references>
+        <references refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" compoundref="_s_p_i___instruction_set_8h" startline="148">SensorName</references>
+        <references refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" compoundref="_s_p_i___instruction_set_8h" startline="150">sensorID</references>
+        <references refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" compoundref="_s_p_i___instruction_set_8h" startline="152">sensorChipSelect</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_identity_1a64f9786e3b6cd410406d14d124be1e7c" prot="public" static="no" const="no" explicit="no" inline="yes" volatile="yes" virt="non-virtual">
+        <type><ref refid="struct_identity" kindref="compound">Identity</ref> &amp;</type>
+        <definition>volatile Identity&amp; operator=</definition>
+        <argsstring>(const Identity &amp;rhs) volatile</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="struct_identity" kindref="compound">Identity</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="165" column="1" bodyfile="SPI_InstructionSet.h" bodystart="165" bodyend="174"/>
+        <references refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" compoundref="_s_p_i___instruction_set_8h" startline="142">IDENTITY_SENSOR_NAME_LENGTH</references>
+        <references refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" compoundref="_s_p_i___instruction_set_8h" startline="148">SensorName</references>
+        <references refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" compoundref="_s_p_i___instruction_set_8h" startline="150">sensorID</references>
+        <references refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" compoundref="_s_p_i___instruction_set_8h" startline="152">sensorChipSelect</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Type used to convey the Slave identity. </para>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="SPI_InstructionSet.h" line="146" column="1" bodyfile="SPI_InstructionSet.h" bodystart="146" bodyend="175"/>
+    <listofallmembers>
+      <member refid="struct_identity_1ae7ccf6e408df14fac9dc856f53d81718" prot="public" virt="non-virtual"><scope>Identity</scope><name>operator=</name></member>
+      <member refid="struct_identity_1a64f9786e3b6cd410406d14d124be1e7c" prot="public" virt="non-virtual"><scope>Identity</scope><name>operator=</name></member>
+      <member refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" prot="public" virt="non-virtual"><scope>Identity</scope><name>sensorChipSelect</name></member>
+      <member refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" prot="public" virt="non-virtual"><scope>Identity</scope><name>sensorID</name></member>
+      <member refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" prot="public" virt="non-virtual"><scope>Identity</scope><name>SensorName</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
