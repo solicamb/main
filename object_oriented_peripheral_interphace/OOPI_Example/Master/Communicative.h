@@ -27,7 +27,7 @@ class Communicative
     byte transferAndPause(const byte);
     template <typename T> unsigned int SPI_write (const T& value);
     template <typename T> unsigned int SPI_read(T& value);
-    byte areYouAlive(const int ChipSelect = SS);
+    byte areYouAlive();
 
     int ChipSelect;
    // Identity ThisSensor;

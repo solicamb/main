@@ -182,7 +182,7 @@ template <typename T> unsigned int Communicative::SPI_read(T& value){
 
 }
 
-byte Communicative::areYouAlive(const int ChipSelect){
+byte Communicative::areYouAlive(){
 
    mCmd Request = {(mInstruct)IsThereData, (int)0,(float)0.0 };
    sCmd Reply;
