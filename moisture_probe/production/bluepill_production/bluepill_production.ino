@@ -15,6 +15,7 @@
 #define SLAVE_DEVICE_SERIAL_NUMBER 1 // Serial number for our devices. 0..15
 
 #define NUMBER_OF_SIGNALS 3 // Number of individual capacitive sensing elements (i.e. depths)
+#define PROBE_SPACING_CM 15 // Distance interval between probes (cm)
 
 // Debugging Switches
 const bool DEBUGGING = true;
@@ -31,11 +32,13 @@ const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION_MIDSOIL = 0x5;
 // Measurement Constants (field-independent calibration)
 const float SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE = 0.25; // threshold to consider a probe wetted. In the future, can extract quantitative (non-binary switchover) data, too
 const unsigned long SIGNAL_THRESHOLD_TIMEOUT_MS = 5 * 60 * 1000; // after 5min, stop waiting for bottom-most probe to register a measurement
-
 const float MOISTURE_LEVEL_THRESHOLD_DRY = 2.5;   // voltage above which soil is considered "dry". Only rough estimates are possible, but can still offer a rough guide for the user
 const float MOISTURE_LEVEL_THRESHOLD_MOIST = 2.0; // voltage above which soil is considered "moist"
-// voltages below are considered "wet"
+//                                                // voltages below are considered "wet"
 
+const float MOISTURE_RETENTION_SCORE_TIMESCALE_TOPMID = 100.0; // time scaling for moisture retention score. Scoring also takes care of constraining to 1..100
+const float MOISTURE_RETENTION_SCORE_TIMESCALE_MIDBOT = 100.0;
+const float MOISTURE_RETENTION_SCORE_MINIMUM_VELOCITY = 1.0;   // Velocities slower than this (cm/s) are considered worst-case and give a score of 1
 
 // Pin Config
 #define SPI1_SS PA4
@@ -148,9 +151,42 @@ float return_calibrated_value(float raw_voltage, int signal_id){
 }
 	
 void evaluate_moisture_retention_score(float signals[], unsigned long signal_detected_timer[], uint8_t moisture_retention_scores[]){
-	// TODO stub
-	moisture_retention_scores[0] = 34;
-	moisture_retention_scores[1] = 56;
+	// Estimate scores (1..100) for moisture retention quality
+	// Higher scores mean better quality, i.e. allows for water to percolate into the ground quicker
+
+	// Topsoil to Midsoil
+	long time_difference = (signal_detected_timer[1] - signal_detected_timer[0]) * 1000; // ms -> s
+
+	if (time_difference < 0){
+		Serial.println("WARN: Middle probe reached before top one. Invalid measurement");
+		moisture_retention_scores[0] = 0; // invalidate measurement
+	}
+	else {
+		float moisture_velocity = PROBE_SPACING_CM / (time_difference / MOISTURE_RETENTION_SCORE_TIMESCALE_TOPMID);
+		if (moisture_velocity < MOISTURE_RETENTION_SCORE_MINIMUM_VELOCITY){
+			moisture_retention_scores[0] = 1; // constrain to lowest quality
+		}
+		else {
+			moisture_retention_scores[0] = (uint8_t)(1.0 / moisture_velocity);
+		}
+	}
+
+	// Midsoil to Bottomsoil
+	time_difference = (signal_detected_timer[2] - signal_detected_timer[1]) * 1000; // ms -> s
+
+	if (time_difference < 0){
+		Serial.println("WARN: Bottom probe reached before middle one. Invalid measurement");
+		moisture_retention_scores[1] = 0; // invalidate measurement
+	}
+	else {
+		float moisture_velocity = PROBE_SPACING_CM / (time_difference / MOISTURE_RETENTION_SCORE_TIMESCALE_MIDBOT);
+		if (moisture_velocity < MOISTURE_RETENTION_SCORE_MINIMUM_VELOCITY){
+			moisture_retention_scores[1] = 1; // constrain to lowest quality
+		}
+		else {
+			moisture_retention_scores[1] = (uint8_t)(1.0 / moisture_velocity);
+		}
+	}
 }
 
 bool is_measurement_complete(float signals[], unsigned long signal_detected_timer[]){
