@@ -18,14 +18,23 @@
 
 // Debugging Switches
 const bool DEBUGGING = true;
-const bool DEBUG_WAIT_FOR_MASTER = false;
+const bool DEBUG_WAIT_FOR_MASTER = true;
 
 // Protocol Constants
 const int SLAVE_DEVICE_TYPE = 0b00100000;				// Identifies us to the master as a moisture sensor slave device
 const uint8_t SPI_CMD_PROBE_INSERTED = 0xF1;		// Sent by master to confirm probe is in ground
 // Measurement types precede values sent to master, indicating what kind of data we are sending:
 const uint8_t MEASUREMENT_TYPE_MOISTURE_LEVEL = 0x3;
-const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION = 0x4;
+const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION_TOPSOIL = 0x4;
+const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION_MIDSOIL = 0x5;
+
+// Measurement Constants (field-independent calibration)
+const float SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE = 0.25; // threshold to consider a probe wetted. In the future, can extract quantitative (non-binary switchover) data, too
+const unsigned long SIGNAL_THRESHOLD_TIMEOUT_MS = 5 * 60 * 1000; // after 5min, stop waiting for bottom-most probe to register a measurement
+
+const float MOISTURE_LEVEL_THRESHOLD_WET = 2.5;   // voltage below which soil is considered "wet". Only rough estimates are possible, but can still offer a rough guide for the user
+const float MOISTURE_LEVEL_THRESHOLD_MOIST = 2.0; // voltage below which soil is considered "moist"
+
 
 // Pin Config
 #define SPI1_SS PA4
@@ -69,6 +78,9 @@ void setup() {
 
   // Data that master will receive when transferring a data frame over SPI
 	SPI.dev()->regs->DR = 10; // TODO think about what is most meaningful here
+
+	Serial.println("INFO: Waiting until USB connection is debounced");
+	delay(1000); // Debouncing of USB connection
 
 	initiate_communication_with_master();
 }
@@ -134,32 +146,40 @@ float return_calibrated_value(float raw_voltage, int signal_id){
 	return raw_voltage - calibration[signal_id];
 }
 	
-int evaluate_moisture_retention_score(float signals[], unsigned long signal_detected_timer[]){
-	// TODO stub function
-	return 42;
+void evaluate_moisture_retention_score(float signals[], unsigned long signal_detected_timer[], uint8_t moisture_retention_scores[]){
+	// TODO stub
+	moisture_retention_scores[0] = 34;
+	moisture_retention_scores[1] = 56;
 }
 
 bool is_measurement_complete(float signals[], unsigned long signal_detected_timer[]){
-	// TODO stub function
-	// Return true if all needed measurements have been done (i.e., water has reached all the probes)
+	// Return true if all needed measurements have been done (i.e., water has reached all the probes,
+	// or second one has never been wetted (very bad soil))
 
-	/* PSEUDOCODE
-	for each signal[i]:
-		if signal[i] has reached threshold criterion:
-			set signal_detected_timer[i] to millis()
+	for (int i = 0; i < NUMBER_OF_SIGNALS; i++){
+		if ((calibration[i] - signals[i]) > SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE && signal_detected_timer[i] != 0){
+			// Signal threshold has been reached (for the *first* time)
+			signal_detected_timer[i] = millis();
+		}
+	}
 
-	if all signal[i] are nonzero (i.e. have been set):
-		return true
-	else
-		return false
-	*/
+	if (signal_detected_timer[0] != 0){
+		if ((millis() - signal_detected_timer[0]) > SIGNAL_THRESHOLD_TIMEOUT_MS){
+			Serial.println("INFO: Timeout to have all probes register a moisture reading (water has not reached down all the way)");
+			Serial.println("INFO: Finishing measurement");
+			return true;
+		}
+	}
 
-	return DEBUG_WAIT_FOR_MASTER; // This means we never reach measurement done during debugging mode
+	return DEBUG_WAIT_FOR_MASTER; // False in normal operation; in debugging, this means we never reach measurement done to keep logging indefinitely
 }
 
 uint8_t getMoistureLevel(float raw_voltages[]){
-	// TODO stub function
-	return 23;
+	const int probe_id_for_moisture_measurement = NUMBER_OF_SIGNALS - 2; // Generally want deeply embedded probe, but not bottommost one
+
+	if (raw_voltages[probe_id_for_moisture_measurement] < MOISTURE_LEVEL_THRESHOLD_WET){ return 3; }
+	if (raw_voltages[probe_id_for_moisture_measurement] < MOISTURE_LEVEL_THRESHOLD_MOIST){ return 2; }
+	else { return 1; }
 }
 
 void loop() {
@@ -211,13 +231,15 @@ void loop() {
 		
 		if (is_measurement_complete(signals, signal_detected_timer)){
 			// All depths of the probe have received a signal from irrigated water
-			Serial.println("INFO: All depths of the probe have received a signal from irrigated water:");
+			Serial.println("INFO: Measurement completed");
 
 			// Moisture retention algorithm
-			int moisture_retention_score = evaluate_moisture_retention_score(signals, signal_detected_timer);
+			uint8_t moisture_retention_scores[NUMBER_OF_SIGNALS - 2] = {};
+			evaluate_moisture_retention_score(signals, signal_detected_timer, moisture_retention_scores);
 		
 			// Communicate result to master via SPI
-			send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_RETENTION, moisture_retention_score);
+			send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_RETENTION_TOPSOIL, moisture_retention_scores[0]);
+			send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_RETENTION_MIDSOIL, moisture_retention_scores[1]);
 
 			// We are done with what we are meant to do. We could now nop forever, instead be a bit more verbose:
 			while (true){
