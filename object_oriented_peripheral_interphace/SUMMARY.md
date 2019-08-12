@@ -1,9 +1,7 @@
 # Table of contents
 
 * [Object Oriented Peripheral Interface (OOPI)](README.md)
-* [Lorem Ipsum](docs/api/index.md)  * [Related Pages](docs/api/pages.md)
-    * [Summary](docs/api/md_api.md)
-    * [s Summary](docs/api/md_mpi-.md)
+* [Related Pages](docs/api/pages.md)
   * [Modules](docs/api/modules.md)
   * [Class List](docs/api/annotated.md)
     * [class Communicative](docs/api/class_communicative.md)
@@ -62,10 +60,6 @@
     * [Sensor.cpp source](docs/api/_sensor_8cpp_source.md)
     * [Sensor.h](docs/api/_sensor_8h.md)
     * [Sensor.h source](docs/api/_sensor_8h_source.md)
-    * [api.md](docs/api/api_8md.md)
-    * [api.md source](docs/api/api_8md_source.md)
-    * [mpi-%s.md](docs/api/mpi-_06s_8md.md)
-    * [mpi-%s.md source](docs/api/mpi-_06s_8md_source.md)
   * [File Variables](docs/api/variables.md)
   * [File Functions](docs/api/functions.md)
   * [File Macros](docs/api/macros.md)
