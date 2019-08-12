@@ -175,11 +175,9 @@ bool is_measurement_complete(float signals[], unsigned long signal_detected_time
 	return DEBUG_WAIT_FOR_MASTER; // False in normal operation; in debugging, this means we never reach measurement done to keep logging indefinitely
 }
 
-uint8_t getMoistureLevel(float raw_voltages[]){
-	const int probe_id_for_moisture_measurement = NUMBER_OF_SIGNALS - 2; // Generally want deeply embedded probe, but not bottommost one
-
-	if (raw_voltages[probe_id_for_moisture_measurement] > MOISTURE_LEVEL_THRESHOLD_DRY){ return 1; } // dry
-	if (raw_voltages[probe_id_for_moisture_measurement] > MOISTURE_LEVEL_THRESHOLD_MOIST){ return 2; } // moist
+uint8_t getMoistureLevel(float raw_voltages[], int signal_id){
+	if (raw_voltages[signal_id] > MOISTURE_LEVEL_THRESHOLD_DRY){ return 1; } // dry
+	if (raw_voltages[signal_id] > MOISTURE_LEVEL_THRESHOLD_MOIST){ return 2; } // moist
 	else { return 3; } // wet
 }
 
@@ -216,12 +214,15 @@ void loop() {
 			Serial.println("INFO: Setting calibration from previous reading");
 			memcpy(&calibration, &raw_voltages, sizeof(calibration));
 
-			// We determine the absolute moisture level (wetness) before irrigation
+			// We determine the absolute moisture level (wetness) before irrigation based on their constant voltage drop
 			Serial.println("INFO: Calculating absolute moisture level (wetness)");
-			uint8_t moisture_level = getMoistureLevel(raw_voltages);
+			for (int i = 0; i < NUMBER_OF_SIGNALS; i++){
+				// Measure
+				uint8_t moisture_level = getMoistureLevel(raw_voltages, i);
 
-			// Send it out to master
-			send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_LEVEL, moisture_level);
+				// Send it out to master
+				send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_LEVEL, moisture_level);
+			}
 
 			// Start timer for irrigation measurement (moisture retention)
 			memset(&signal_detected_timer, millis(), sizeof(signal_detected_timer));
