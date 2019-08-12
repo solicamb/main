@@ -32,8 +32,9 @@ const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION_MIDSOIL = 0x5;
 const float SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE = 0.25; // threshold to consider a probe wetted. In the future, can extract quantitative (non-binary switchover) data, too
 const unsigned long SIGNAL_THRESHOLD_TIMEOUT_MS = 5 * 60 * 1000; // after 5min, stop waiting for bottom-most probe to register a measurement
 
-const float MOISTURE_LEVEL_THRESHOLD_WET = 2.5;   // voltage below which soil is considered "wet". Only rough estimates are possible, but can still offer a rough guide for the user
-const float MOISTURE_LEVEL_THRESHOLD_MOIST = 2.0; // voltage below which soil is considered "moist"
+const float MOISTURE_LEVEL_THRESHOLD_DRY = 2.5;   // voltage above which soil is considered "dry". Only rough estimates are possible, but can still offer a rough guide for the user
+const float MOISTURE_LEVEL_THRESHOLD_MOIST = 2.0; // voltage above which soil is considered "moist"
+// voltages below are considered "wet"
 
 
 // Pin Config
@@ -177,9 +178,9 @@ bool is_measurement_complete(float signals[], unsigned long signal_detected_time
 uint8_t getMoistureLevel(float raw_voltages[]){
 	const int probe_id_for_moisture_measurement = NUMBER_OF_SIGNALS - 2; // Generally want deeply embedded probe, but not bottommost one
 
-	if (raw_voltages[probe_id_for_moisture_measurement] < MOISTURE_LEVEL_THRESHOLD_WET){ return 3; }
-	if (raw_voltages[probe_id_for_moisture_measurement] < MOISTURE_LEVEL_THRESHOLD_MOIST){ return 2; }
-	else { return 1; }
+	if (raw_voltages[probe_id_for_moisture_measurement] > MOISTURE_LEVEL_THRESHOLD_DRY){ return 1; } // dry
+	if (raw_voltages[probe_id_for_moisture_measurement] > MOISTURE_LEVEL_THRESHOLD_MOIST){ return 2; } // moist
+	else { return 3; } // wet
 }
 
 void loop() {
