@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [Object Oriented Peripheral Interface (OOPI)](README.md)
 * [Lorem Ipsum](docs/api/index.md)  * [Related Pages](docs/api/pages.md)
     * [Summary](docs/api/md_api.md)
     * [s Summary](docs/api/md_mpi-.md)
