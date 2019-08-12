@@ -1,0 +1,6 @@
+<map id="Identifiable" name="Identifiable">
+<area shape="rect" id="node1" title="A constructor." alt="" coords="5,42,88,69"/>
+<area shape="rect" id="node2" href="$class_communicative.html#ac3d11fc6a7b276a19b1d92cd19e9a046" title="Checks whether Slave is connected." alt="" coords="136,5,323,47"/>
+<area shape="rect" id="node3" href="$class_identifiable.html#ae99f8914426041ea02932d0ed00b29c3" title="Loads the Identity advertised by the peripheral into local memory." alt="" coords="178,71,281,98"/>
+<area shape="rect" id="node4" href="$class_communicative.html#a01ee3d76d85bad6123c4d4f6262c6c2d" title="Performs a complete transaction; expects Slave to Reply with Identity object." alt="" coords="371,71,579,98"/>
+</map>

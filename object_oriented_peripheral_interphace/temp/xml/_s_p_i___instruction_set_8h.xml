@@ -1,0 +1,730 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_s_p_i___instruction_set_8h" kind="file" language="C++">
+    <compoundname>SPI_InstructionSet.h</compoundname>
+    <includedby refid="_communicative_8h" local="yes">Communicative.h</includedby>
+    <includedby refid="_communicative_8cpp" local="yes">Communicative.cpp</includedby>
+    <includedby refid="_instructable_8h" local="yes">Instructable.h</includedby>
+    <includedby refid="_data_source_8h" local="yes">DataSource.h</includedby>
+    <includedby refid="_data_source_8cpp" local="yes">DataSource.cpp</includedby>
+    <includedby refid="_identifiable_8h" local="yes">Identifiable.h</includedby>
+    <includedby refid="_identifiable_8cpp" local="yes">Identifiable.cpp</includedby>
+    <includedby refid="_instructable_8cpp" local="yes">Instructable.cpp</includedby>
+    <includedby refid="_instructor_8h" local="yes">Instructor.h</includedby>
+    <includedby refid="_instructor_8cpp" local="yes">Instructor.cpp</includedby>
+    <includedby refid="_master_8h" local="yes">Master.h</includedby>
+    <includedby refid="_master_8cpp" local="yes">Master.cpp</includedby>
+    <includedby refid="_sensor_8h" local="yes">Sensor.h</includedby>
+    <includedby refid="_sensor_8cpp" local="yes">Sensor.cpp</includedby>
+    <invincdepgraph>
+      <node id="137">
+        <label>Master.cpp</label>
+        <link refid="_master_8cpp"/>
+      </node>
+      <node id="136">
+        <label>Master.h</label>
+        <link refid="_master_8h"/>
+        <childnode refid="137" relation="include">
+        </childnode>
+      </node>
+      <node id="132">
+        <label>Instructor.cpp</label>
+        <link refid="_instructor_8cpp"/>
+      </node>
+      <node id="133">
+        <label>Instructor.h</label>
+        <link refid="_instructor_8h"/>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+      </node>
+      <node id="124">
+        <label>Communicative.h</label>
+        <link refid="_communicative_8h"/>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+      </node>
+      <node id="125">
+        <label>Communicative.cpp</label>
+        <link refid="_communicative_8cpp"/>
+      </node>
+      <node id="129">
+        <label>Sensor.cpp</label>
+        <link refid="_sensor_8cpp"/>
+      </node>
+      <node id="130">
+        <label>Sensor.h</label>
+        <link refid="_sensor_8h"/>
+        <childnode refid="129" relation="include">
+        </childnode>
+      </node>
+      <node id="131">
+        <label>Instructable.cpp</label>
+        <link refid="_instructable_8cpp"/>
+      </node>
+      <node id="128">
+        <label>DataSource.h</label>
+        <link refid="_data_source_8h"/>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+      </node>
+      <node id="123">
+        <label>SPI_InstructionSet.h</label>
+        <link refid="_s_p_i___instruction_set_8h"/>
+        <childnode refid="124" relation="include">
+        </childnode>
+        <childnode refid="125" relation="include">
+        </childnode>
+        <childnode refid="126" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="134" relation="include">
+        </childnode>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="136" relation="include">
+        </childnode>
+        <childnode refid="137" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+      </node>
+      <node id="127">
+        <label>DataSource.cpp</label>
+        <link refid="_data_source_8cpp"/>
+      </node>
+      <node id="126">
+        <label>Instructable.h</label>
+        <link refid="_instructable_8h"/>
+        <childnode refid="127" relation="include">
+        </childnode>
+        <childnode refid="128" relation="include">
+        </childnode>
+        <childnode refid="131" relation="include">
+        </childnode>
+        <childnode refid="132" relation="include">
+        </childnode>
+        <childnode refid="133" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+      </node>
+      <node id="134">
+        <label>Identifiable.h</label>
+        <link refid="_identifiable_8h"/>
+        <childnode refid="135" relation="include">
+        </childnode>
+        <childnode refid="129" relation="include">
+        </childnode>
+        <childnode refid="130" relation="include">
+        </childnode>
+      </node>
+      <node id="135">
+        <label>Identifiable.cpp</label>
+        <link refid="_identifiable_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="structs_cmd" prot="public">sCmd</innerclass>
+    <innerclass refid="structm_cmd" prot="public">mCmd</innerclass>
+    <innerclass refid="struct_identity" prot="public">Identity</innerclass>
+    <innerclass refid="struct_data" prot="public">Data</innerclass>
+      <sectiondef kind="enum">
+      <memberdef kind="enum" id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" prot="public" static="no" strong="no">
+        <type></type>
+        <name>sInstruct</name>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a2a9fec1d5440b0b43d838b611e9ccb65" prot="public">
+          <name>DisplayInstructionAndWait</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Require the master to display the string contained within the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object and pause for a duration defined by the integer parameter of the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a7a8bdb0f070d27bda91ad1501bae2108" prot="public">
+          <name>DisplayInstructionAndWaitForUser</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Require the master to display the string contained within the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object and pause until the user has confirmed adherence to the instruction. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47acc4a5507e0cd97f2d587cc3c111e6ce6" prot="public">
+          <name>DontDisplayAndWait</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Require the master to pause for a duration defined by the integer parameter of the <ref refid="structs_cmd" kindref="compound">sCmd</ref> object </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a600cd8f2a3cd5a8ae93b3b730a41b2c3" prot="public">
+          <name>DontDisplayAndContinue</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Require the master to take no action. Essentially a nop. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e" prot="public">
+          <name>ACK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Slave acknowleges the master&apos;s command/response. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a695ed835e2b72585493b31c1043fdf25" prot="public">
+          <name>Yes</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Respond affirmative. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a996e257033c09daf66076efc1ebd3b1c" prot="public">
+          <name>No</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Respond negative. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a5d6a7bf7f9dbd450f30e49215185fcb2" prot="public">
+          <name>NAK</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Slave unable to adhere to <ref refid="class_master" kindref="compound">Master</ref>&apos;s command or understand it. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47ac5878118d3538835789584340c0d2eaa" prot="public">
+          <name>ReferToInt</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Points master to the integer parameter of <ref refid="structs_cmd" kindref="compound">sCmd</ref>. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a3919733d70c696dca64417af443ad6c6" prot="public">
+          <name>ReferToFloat</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Points master to the float parameter of <ref refid="structs_cmd" kindref="compound">sCmd</ref> </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a05d96a660820bb9f0681a045c5e4a884" prot="public">
+          <name>ReferToString</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Points master to the string parameter of <ref refid="structs_cmd" kindref="compound">sCmd</ref> </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Instruction set used by slave to instruct master. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>During a single transaction, the master will request a reply, <ref refid="struct_data" kindref="compound">Data</ref> or <ref refid="struct_identity" kindref="compound">Identity</ref>. Replies are characterised by an <ref refid="structs_cmd" kindref="compound">sCmd</ref> object, which contains an sInstruct object, which defines the action which the slave requires of the master. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="9" column="1" bodyfile="SPI_InstructionSet.h" bodystart="9" bodyend="21"/>
+      </memberdef>
+      <memberdef kind="enum" id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" prot="public" static="no" strong="no">
+        <type></type>
+        <name>mInstruct</name>
+        <enumvalue id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a965f2ec6e1a55050b8bccd7063f904b3" prot="public">
+          <name>PauseMeasurementForiParam</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Require Slave to pause for a duration specified by the integer parameter of <ref refid="structm_cmd" kindref="compound">mCmd</ref>. Expects <ref refid="structs_cmd" kindref="compound">sCmd</ref>{ACK or NAK} in response. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4ad074804da746cc861dbb972ac48a22" prot="public">
+          <name>RestartMeasurementProcedure</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Require Slave to restart the measurement procedure from the first instruction. Expects <ref refid="structs_cmd" kindref="compound">sCmd</ref>{ACK or NAK} in response. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a87079e73086d12bc4001e38b3427fc5d" prot="public">
+          <name>ResetDevice</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Require Slave to reset. Expects <ref refid="structs_cmd" kindref="compound">sCmd</ref>{ACK or NAK} in response. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a303b60d37143112142046add7f73d4bf" prot="public">
+          <name>HowManyInstructions</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Request the slave to confirm the number of instructions in a measurement cycle. Expects <ref refid="structs_cmd" kindref="compound">sCmd</ref>{ReferToInt, int NumberOfInstructions} in response. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9319f300f7a4bc8e0c2c9139cde4fb21" prot="public">
+          <name>NextCommandPlease</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Request the next instrction in the measurement cycle from the slave. Expects <ref refid="structs_cmd" kindref="compound">sCmd</ref>{sInstruct SomeInstruction, int PotentialIntParam, float PotentialFloatParam, char* PotentialStringParam} or <ref refid="structs_cmd" kindref="compound">sCmd</ref>{No} in response. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792ae0e86116c94ee3a2de08c331a25a9553" prot="public">
+          <name>IsThereData</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Requests slave to confirm that <ref refid="struct_data" kindref="compound">Data</ref> is ready for collection by master. Expects <ref refid="structs_cmd" kindref="compound">sCmd</ref>{Yes or No}. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9972e8050301ea3d5b585bc557bac507" prot="public">
+          <name>SendDataPlease</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Require slave to send the data object. Expects <ref refid="struct_data" kindref="compound">Data</ref> object in response. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4b25a74b6be49faf4a9356e1565a4b25" prot="public">
+          <name>WhoAreYou</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Require the slave to send its <ref refid="struct_identity" kindref="compound">Identity</ref> object; contains char* Name and int SensorID. Expects <ref refid="struct_identity" kindref="compound">Identity</ref> object in response. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792abd3b3ed0c9b543b6cf7ff2463568fe4f" prot="public">
+          <name>HowLongShouldIWait</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Ask the slave whether the <ref refid="class_master" kindref="compound">Master</ref> should pause before calling for the next instruction. Unused. Expects <ref refid="structs_cmd" kindref="compound">sCmd</ref>{ReferToInt, int PauseDuration} in reply. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a95e0f581b12f62fe8be32f5f50b8381e" prot="public">
+          <name>BeginMeasurement</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Instruct the slave to initiate its measurement cycle and expect the first instruction to be called for. Expects <ref refid="structs_cmd" kindref="compound">sCmd</ref>{ACK or NAK}. </para>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a7b437edd37dcf8f275dea91b2d3dae70" prot="public">
+          <name>SitRep</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+<para>Request good/bad status from slave. Unused. Expects <ref refid="structs_cmd" kindref="compound">sCmd</ref>{} in reply. </para>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Instruction set used by <ref refid="class_master" kindref="compound">Master</ref> to instruct/request responses from Slave. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>During a single transaction, the <ref refid="class_master" kindref="compound">Master</ref> will send a request, characterised by an <ref refid="structm_cmd" kindref="compound">mCmd</ref> object, which contains an mInstruct object, integer and float. The mInstruct object will determine how the request is processed by the slave and will define the object type which the master must expect in reply. In general, the master will expect replies in the form of <ref refid="structs_cmd" kindref="compound">sCmd</ref> objects. However, the slave may also send <ref refid="struct_data" kindref="compound">Data</ref> and <ref refid="struct_identity" kindref="compound">Identity</ref> objects in repsonse to specific mInstruct instances; in particular: SendDataPlease and WhoAreYou. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="29" column="1" bodyfile="SPI_InstructionSet.h" bodystart="29" bodyend="41"/>
+      </memberdef>
+      <memberdef kind="enum" id="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" prot="public" static="no" strong="no">
+        <type></type>
+        <name>MeasurementVectors</name>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" prot="public">
+          <name>First</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" prot="public">
+          <name>Second</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <enumvalue id="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" prot="public">
+          <name>Third</name>
+          <briefdescription>
+          </briefdescription>
+          <detaileddescription>
+          </detaileddescription>
+        </enumvalue>
+        <briefdescription>
+<para>Enumeration to provide human-readable references to different rows in the <ref refid="struct_data" kindref="compound">Data</ref> array. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="248" column="1" bodyfile="SPI_InstructionSet.h" bodystart="248" bodyend="252"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int SLAVE_COMMMAND_STRING_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>SLAVE_COMMMAND_STRING_LENGTH</name>
+        <initializer>= 40</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="43" column="1" bodyfile="SPI_InstructionSet.h" bodystart="43" bodyend="-1"/>
+        <referencedby refid="class_instructor_1a8c66f480a7b5a6b434f613bc7197e824" compoundref="_instructor_8cpp" startline="46" endline="51">Instructor::getCurrentCommandString</referencedby>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="class_master_1abebea7ffc56886ac9b59980312ea19f9" compoundref="_master_8cpp" startline="225" endline="235">Master::sendReply</referencedby>
+        <referencedby refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" compoundref="_master_8h" startline="21" endline="34">UserInstructions::operator=</referencedby>
+        <referencedby refid="structs_cmd_1a3b1f47c680cdde48d2c8679599547516" compoundref="_s_p_i___instruction_set_8h" startline="65" endline="74">sCmd::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int IDENTITY_SENSOR_NAME_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>IDENTITY_SENSOR_NAME_LENGTH</name>
+        <initializer>= 25</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="142" column="1" bodyfile="SPI_InstructionSet.h" bodystart="142" bodyend="-1"/>
+        <referencedby refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" compoundref="_identifiable_8cpp" startline="40" endline="55">Identifiable::updateIdentity</referencedby>
+        <referencedby refid="class_identifiable_1a7942e337c1303ce42cc822032465c66a" compoundref="_identifiable_8cpp" startline="61" endline="68">Identifiable::getSensorName</referencedby>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="struct_identity_1ae7ccf6e408df14fac9dc856f53d81718" compoundref="_s_p_i___instruction_set_8h" startline="154" endline="163">Identity::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int NUMBER_OF_DATA_ROWS</definition>
+        <argsstring></argsstring>
+        <name>NUMBER_OF_DATA_ROWS</name>
+        <initializer>= 3</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="177" column="1" bodyfile="SPI_InstructionSet.h" bodystart="177" bodyend="-1"/>
+        <referencedby refid="class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d" compoundref="_data_source_8cpp" startline="10" endline="25">DataSource::DataSource</referencedby>
+        <referencedby refid="class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d" compoundref="_data_source_8cpp" startline="57" endline="69">DataSource::getRowHeadings</referencedby>
+        <referencedby refid="class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e" compoundref="_data_source_8cpp" startline="71" endline="83">DataSource::getRowUnits</referencedby>
+        <referencedby refid="class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6" compoundref="_data_source_8cpp" startline="85" endline="96">DataSource::getDataArray</referencedby>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="struct_data_1a3ae506c712bc36c15533f5499608a047" compoundref="_s_p_i___instruction_set_8h" startline="198" endline="220">Data::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int ROW_HEADING_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>ROW_HEADING_LENGTH</name>
+        <initializer>= 10</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="178" column="1" bodyfile="SPI_InstructionSet.h" bodystart="178" bodyend="-1"/>
+        <referencedby refid="class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d" compoundref="_data_source_8cpp" startline="57" endline="69">DataSource::getRowHeadings</referencedby>
+        <referencedby refid="class_data_source_1a79d69573a651290750aa8c08d24f3b64" compoundref="_data_source_8cpp" startline="127" endline="153">DataSource::getVectorHeading</referencedby>
+        <referencedby refid="class_master_1a49e434ca3d09d56bac2a2d45c86661ac" compoundref="_master_8cpp" startline="378" endline="405">Master::setMeasurementVectorHeading</referencedby>
+        <referencedby refid="struct_data_1a3ae506c712bc36c15533f5499608a047" compoundref="_s_p_i___instruction_set_8h" startline="198" endline="220">Data::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int ROW_UNIT_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>ROW_UNIT_LENGTH</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="179" column="1" bodyfile="SPI_InstructionSet.h" bodystart="179" bodyend="-1"/>
+        <referencedby refid="class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e" compoundref="_data_source_8cpp" startline="71" endline="83">DataSource::getRowUnits</referencedby>
+        <referencedby refid="class_data_source_1af2a2f33b9970ecff75894134498ff2cd" compoundref="_data_source_8cpp" startline="155" endline="181">DataSource::getVectorUnits</referencedby>
+        <referencedby refid="class_master_1a5f955da291f31441d726c4ded74c32bd" compoundref="_master_8cpp" startline="407" endline="434">Master::setMeasurementVectorUnits</referencedby>
+        <referencedby refid="struct_data_1a3ae506c712bc36c15533f5499608a047" compoundref="_s_p_i___instruction_set_8h" startline="198" endline="220">Data::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int DATA_ROW_LENGTH</definition>
+        <argsstring></argsstring>
+        <name>DATA_ROW_LENGTH</name>
+        <initializer>= 64</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="180" column="1" bodyfile="SPI_InstructionSet.h" bodystart="180" bodyend="-1"/>
+        <referencedby refid="class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d" compoundref="_data_source_8cpp" startline="10" endline="25">DataSource::DataSource</referencedby>
+        <referencedby refid="class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6" compoundref="_data_source_8cpp" startline="85" endline="96">DataSource::getDataArray</referencedby>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="class_master_1ac907bfa48b84098a906c63c933cc373d" compoundref="_master_8cpp" startline="305" endline="331">Master::PushMeasurementVector</referencedby>
+        <referencedby refid="struct_data_1a3ae506c712bc36c15533f5499608a047" compoundref="_s_p_i___instruction_set_8h" startline="198" endline="220">Data::operator=</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>SPIINSTRUCTIONSET_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SPIINSTRUCTIONSET_H</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"></codeline>
+<codeline lineno="9" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref>{</highlight></codeline>
+<codeline lineno="10" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a2a9fec1d5440b0b43d838b611e9ccb65" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a2a9fec1d5440b0b43d838b611e9ccb65" kindref="member">DisplayInstructionAndWait</ref>,<sp/></highlight></codeline>
+<codeline lineno="11" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a7a8bdb0f070d27bda91ad1501bae2108" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a7a8bdb0f070d27bda91ad1501bae2108" kindref="member">DisplayInstructionAndWaitForUser</ref>,<sp/></highlight></codeline>
+<codeline lineno="12" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47acc4a5507e0cd97f2d587cc3c111e6ce6" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47acc4a5507e0cd97f2d587cc3c111e6ce6" kindref="member">DontDisplayAndWait</ref>,<sp/></highlight></codeline>
+<codeline lineno="13" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a600cd8f2a3cd5a8ae93b3b730a41b2c3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a600cd8f2a3cd5a8ae93b3b730a41b2c3" kindref="member">DontDisplayAndContinue</ref>,<sp/></highlight></codeline>
+<codeline lineno="14" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a41246e9c8691b7e33bc79b345e06b48e" kindref="member">ACK</ref>,<sp/></highlight></codeline>
+<codeline lineno="15" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a695ed835e2b72585493b31c1043fdf25" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a695ed835e2b72585493b31c1043fdf25" kindref="member">Yes</ref>,<sp/></highlight></codeline>
+<codeline lineno="16" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a996e257033c09daf66076efc1ebd3b1c" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a996e257033c09daf66076efc1ebd3b1c" kindref="member">No</ref>,<sp/></highlight></codeline>
+<codeline lineno="17" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a5d6a7bf7f9dbd450f30e49215185fcb2" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a5d6a7bf7f9dbd450f30e49215185fcb2" kindref="member">NAK</ref>,<sp/></highlight></codeline>
+<codeline lineno="18" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47ac5878118d3538835789584340c0d2eaa" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47ac5878118d3538835789584340c0d2eaa" kindref="member">ReferToInt</ref>,<sp/></highlight></codeline>
+<codeline lineno="19" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a3919733d70c696dca64417af443ad6c6" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a3919733d70c696dca64417af443ad6c6" kindref="member">ReferToFloat</ref>,<sp/></highlight></codeline>
+<codeline lineno="20" refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a05d96a660820bb9f0681a045c5e4a884" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a05d96a660820bb9f0681a045c5e4a884" kindref="member">ReferToString</ref><sp/></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">};<sp/></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"></codeline>
+<codeline lineno="29" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref>{</highlight></codeline>
+<codeline lineno="30" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a965f2ec6e1a55050b8bccd7063f904b3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a965f2ec6e1a55050b8bccd7063f904b3" kindref="member">PauseMeasurementForiParam</ref>,<sp/></highlight></codeline>
+<codeline lineno="31" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4ad074804da746cc861dbb972ac48a22" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4ad074804da746cc861dbb972ac48a22" kindref="member">RestartMeasurementProcedure</ref>,<sp/></highlight></codeline>
+<codeline lineno="32" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a87079e73086d12bc4001e38b3427fc5d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a87079e73086d12bc4001e38b3427fc5d" kindref="member">ResetDevice</ref>,<sp/></highlight></codeline>
+<codeline lineno="33" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a303b60d37143112142046add7f73d4bf" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a303b60d37143112142046add7f73d4bf" kindref="member">HowManyInstructions</ref>,<sp/></highlight></codeline>
+<codeline lineno="34" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9319f300f7a4bc8e0c2c9139cde4fb21" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9319f300f7a4bc8e0c2c9139cde4fb21" kindref="member">NextCommandPlease</ref>,<sp/></highlight></codeline>
+<codeline lineno="35" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792ae0e86116c94ee3a2de08c331a25a9553" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792ae0e86116c94ee3a2de08c331a25a9553" kindref="member">IsThereData</ref>,<sp/></highlight></codeline>
+<codeline lineno="36" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9972e8050301ea3d5b585bc557bac507" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9972e8050301ea3d5b585bc557bac507" kindref="member">SendDataPlease</ref>,<sp/></highlight></codeline>
+<codeline lineno="37" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4b25a74b6be49faf4a9356e1565a4b25" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4b25a74b6be49faf4a9356e1565a4b25" kindref="member">WhoAreYou</ref>,<sp/></highlight></codeline>
+<codeline lineno="38" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792abd3b3ed0c9b543b6cf7ff2463568fe4f" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792abd3b3ed0c9b543b6cf7ff2463568fe4f" kindref="member">HowLongShouldIWait</ref>,<sp/></highlight></codeline>
+<codeline lineno="39" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a95e0f581b12f62fe8be32f5f50b8381e" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a95e0f581b12f62fe8be32f5f50b8381e" kindref="member">BeginMeasurement</ref>,<sp/></highlight></codeline>
+<codeline lineno="40" refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a7b437edd37dcf8f275dea91b2d3dae70" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a7b437edd37dcf8f275dea91b2d3dae70" kindref="member">SitRep</ref><sp/></highlight></codeline>
+<codeline lineno="41"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref><sp/>=<sp/>40;</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"></codeline>
+<codeline lineno="51" refid="structs_cmd" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structs_cmd" kindref="compound">sCmd</ref>{</highlight></codeline>
+<codeline lineno="53"></codeline>
+<codeline lineno="57" refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/><ref refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" kindref="member">Instruction</ref>;<sp/></highlight></codeline>
+<codeline lineno="59" refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" kindref="member">sParam</ref>[<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>];</highlight></codeline>
+<codeline lineno="61" refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kindref="member">iParam</ref>;</highlight></codeline>
+<codeline lineno="63" refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" kindref="member">fParam</ref>;</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65" refid="structs_cmd_1a3b1f47c680cdde48d2c8679599547516" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structs_cmd" kindref="compound">sCmd</ref>&amp;<sp/><ref refid="structs_cmd_1a3b1f47c680cdde48d2c8679599547516" kindref="member">operator = </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="structs_cmd" kindref="compound">sCmd</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;Instruction<sp/>=<sp/>rhs.<ref refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" kindref="member">Instruction</ref>;</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;iParam<sp/>=<sp/>rhs.<ref refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kindref="member">iParam</ref>;</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;fParam<sp/>=<sp/>rhs.<ref refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" kindref="member">fParam</ref>;</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"></highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>;i++){</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;sParam[i]<sp/>=<sp/>rhs.<ref refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" kindref="member">sParam</ref>[i];</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76" refid="structs_cmd_1a88ec1d5b2730bd3e2e2c9902c3ccde34" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="structs_cmd" kindref="compound">sCmd</ref>&amp;<sp/><ref refid="structs_cmd_1a3b1f47c680cdde48d2c8679599547516" kindref="member">operator = </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structs_cmd" kindref="compound">sCmd</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;Instruction<sp/>=<sp/>rhs.<ref refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" kindref="member">Instruction</ref>;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;iParam<sp/>=<sp/>rhs.<ref refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kindref="member">iParam</ref>;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;fParam<sp/>=<sp/>rhs.<ref refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" kindref="member">fParam</ref>;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>;i++){</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;sParam[i]<sp/>=<sp/>rhs.<ref refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" kindref="member">sParam</ref>[i];</highlight></codeline>
+<codeline lineno="83"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="86"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="87"><highlight class="normal"></highlight></codeline>
+<codeline lineno="89"></codeline>
+<codeline lineno="93" refid="structm_cmd" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="structm_cmd" kindref="compound">mCmd</ref>{</highlight></codeline>
+<codeline lineno="95"></codeline>
+<codeline lineno="99" refid="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref><sp/><ref refid="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" kindref="member">Instruction</ref>;</highlight></codeline>
+<codeline lineno="101" refid="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kindref="member">iParam</ref>;</highlight></codeline>
+<codeline lineno="103" refid="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" kindref="member">fParam</ref>;</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"></highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>mCmd(const<sp/>mCmd&amp;<sp/>rhs){</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;Instruction<sp/>=<sp/>rhs.Instruction;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="107"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;iParam<sp/>=<sp/>rhs.iParam;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/><sp/><sp/>this-&gt;fParam<sp/>=<sp/>rhs.fParam;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>}</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="110"><highlight class="normal"></highlight></codeline>
+<codeline lineno="111" refid="structm_cmd_1a15d47aa62e963ba62b9b5df21ff7c3b3" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structm_cmd_1a15d47aa62e963ba62b9b5df21ff7c3b3" kindref="member">mCmd</ref>(<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref><sp/>Instruct,</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>f){</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;Instruction<sp/>=<sp/>Instruct;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;iParam<sp/>=<sp/>i;</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;fParam<sp/>=<sp/>f;</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"></highlight></codeline>
+<codeline lineno="117" refid="structm_cmd_1a0bc6db1f094500a0605ce488869a1765" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structm_cmd_1a0bc6db1f094500a0605ce488869a1765" kindref="member">mCmd</ref>(){</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;Instruction<sp/>=<sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a7b437edd37dcf8f275dea91b2d3dae70" kindref="member">SitRep</ref>;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;iParam<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;fParam=0.0;</highlight></codeline>
+<codeline lineno="121"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="structm_cmd_1a390b853a14509e41006a0d873899b234" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structm_cmd_1a390b853a14509e41006a0d873899b234" kindref="member">mCmd</ref>(</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref>&amp;<sp/>rhs){</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;Instruction<sp/>=<sp/>rhs.<ref refid="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" kindref="member">Instruction</ref>;</highlight></codeline>
+<codeline lineno="125"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;iParam<sp/>=<sp/>rhs.<ref refid="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kindref="member">iParam</ref>;</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;fParam<sp/>=<sp/>rhs.<ref refid="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" kindref="member">fParam</ref>;</highlight></codeline>
+<codeline lineno="127"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129" refid="structm_cmd_1a861a79ec71e76fa61603073aa6969551" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref>&amp;<sp/><ref refid="structm_cmd_1a861a79ec71e76fa61603073aa6969551" kindref="member">operator = </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;Instruction<sp/>=<sp/>rhs.<ref refid="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" kindref="member">Instruction</ref>;</highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;iParam<sp/>=<sp/>rhs.<ref refid="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kindref="member">iParam</ref>;</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;fParam<sp/>=<sp/>rhs.<ref refid="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" kindref="member">fParam</ref>;</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"></highlight></codeline>
+<codeline lineno="135" refid="structm_cmd_1a5a637df37056ccbe63f6fe600222c003" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref>&amp;<sp/><ref refid="structm_cmd_1a861a79ec71e76fa61603073aa6969551" kindref="member">operator = </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;Instruction<sp/>=<sp/>rhs.<ref refid="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" kindref="member">Instruction</ref>;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;iParam<sp/>=<sp/>rhs.<ref refid="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" kindref="member">iParam</ref>;</highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;fParam<sp/>=<sp/>rhs.<ref refid="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" kindref="member">fParam</ref>;</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="140"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"></highlight></codeline>
+<codeline lineno="142" refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" kindref="member">IDENTITY_SENSOR_NAME_LENGTH</ref><sp/>=<sp/>25;</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"></highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="146" refid="struct_identity" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_identity" kindref="compound">Identity</ref>{</highlight></codeline>
+<codeline lineno="148" refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" kindref="member">SensorName</ref>[<ref refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" kindref="member">IDENTITY_SENSOR_NAME_LENGTH</ref>];</highlight></codeline>
+<codeline lineno="150" refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" kindref="member">sensorID</ref>;</highlight></codeline>
+<codeline lineno="152" refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" kindref="member">sensorChipSelect</ref>;</highlight></codeline>
+<codeline lineno="153"><highlight class="normal"></highlight></codeline>
+<codeline lineno="154" refid="struct_identity_1ae7ccf6e408df14fac9dc856f53d81718" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_identity" kindref="compound">Identity</ref>&amp;<sp/><ref refid="struct_identity_1ae7ccf6e408df14fac9dc856f53d81718" kindref="member">operator = </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="struct_identity" kindref="compound">Identity</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight></codeline>
+<codeline lineno="155"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" kindref="member">IDENTITY_SENSOR_NAME_LENGTH</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;SensorName[i]<sp/>=<sp/>rhs.<ref refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" kindref="member">SensorName</ref>[i];</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="159"><highlight class="normal"></highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;sensorID<sp/>=<sp/>rhs.<ref refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" kindref="member">sensorID</ref>;</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"></highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;sensorChipSelect<sp/>=<sp/>rhs.<ref refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" kindref="member">sensorChipSelect</ref>;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="165" refid="struct_identity_1a64f9786e3b6cd410406d14d124be1e7c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="struct_identity" kindref="compound">Identity</ref>&amp;<sp/><ref refid="struct_identity_1ae7ccf6e408df14fac9dc856f53d81718" kindref="member">operator = </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_identity" kindref="compound">Identity</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight></codeline>
+<codeline lineno="166"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" kindref="member">IDENTITY_SENSOR_NAME_LENGTH</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;SensorName[i]<sp/>=<sp/>rhs.<ref refid="struct_identity_1adc4d380bde0772c5d53a6383e36178cb" kindref="member">SensorName</ref>[i];</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"></highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;sensorID<sp/>=<sp/>rhs.<ref refid="struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac" kindref="member">sensorID</ref>;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;sensorChipSelect<sp/>=<sp/>rhs.<ref refid="struct_identity_1a219419d57e4c4e0d53ddcb44af330f32" kindref="member">sensorChipSelect</ref>;</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="175"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"></highlight></codeline>
+<codeline lineno="177" refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref><sp/>=<sp/>3;</highlight></codeline>
+<codeline lineno="178" refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref><sp/>=<sp/>10;</highlight></codeline>
+<codeline lineno="179" refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref><sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="180" refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" kindref="member">DATA_ROW_LENGTH</ref><sp/>=<sp/>64;</highlight></codeline>
+<codeline lineno="181"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"></codeline>
+<codeline lineno="186" refid="struct_data" refkind="compound"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_data" kindref="compound">Data</ref>{</highlight></codeline>
+<codeline lineno="188" refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" kindref="member">NumColumns</ref>[<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>];</highlight></codeline>
+<codeline lineno="190" refid="struct_data_1ac0883de785701631da0e099578c748ca" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_data_1ac0883de785701631da0e099578c748ca" kindref="member">NumRows</ref>;</highlight></codeline>
+<codeline lineno="192" refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>][<ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>];</highlight></codeline>
+<codeline lineno="194" refid="struct_data_1a004891d89fb41172310a55947f922a54" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>][<ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>];</highlight></codeline>
+<codeline lineno="196" refid="struct_data_1a1984363a7b509590c1bae03601360a0e" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kindref="member">DataPoints</ref>[<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>][<ref refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" kindref="member">DATA_ROW_LENGTH</ref>];</highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight></codeline>
+<codeline lineno="198" refid="struct_data_1a3ae506c712bc36c15533f5499608a047" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_data" kindref="compound">Data</ref>&amp;<sp/><ref refid="struct_data_1a3ae506c712bc36c15533f5499608a047" kindref="member">operator = </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="struct_data" kindref="compound">Data</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight></codeline>
+<codeline lineno="199"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="200"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;NumRows<sp/>=<sp/>rhs.<ref refid="struct_data_1ac0883de785701631da0e099578c748ca" kindref="member">NumRows</ref>;</highlight></codeline>
+<codeline lineno="201"><highlight class="normal"></highlight></codeline>
+<codeline lineno="202"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="203"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;NumColumns[i]<sp/>=<sp/>rhs.<ref refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" kindref="member">NumColumns</ref>[i];</highlight></codeline>
+<codeline lineno="204"><highlight class="normal"></highlight></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j&lt;<ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>;<sp/>j++){</highlight></codeline>
+<codeline lineno="206"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;RowHeadings[i][j]<sp/>=<sp/>rhs.<ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[i][j];</highlight></codeline>
+<codeline lineno="207"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="208"><highlight class="normal"></highlight></codeline>
+<codeline lineno="209"><highlight class="normal"></highlight></codeline>
+<codeline lineno="210"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j&lt;<ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>;<sp/>j++){</highlight></codeline>
+<codeline lineno="211"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;rowUnits[i][j]<sp/>=<sp/>rhs.<ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[i][j];</highlight></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="213"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="214"><highlight class="normal"></highlight></codeline>
+<codeline lineno="215"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j&lt;<ref refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" kindref="member">DATA_ROW_LENGTH</ref>;<sp/>j++){</highlight></codeline>
+<codeline lineno="216"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;DataPoints[i][j]<sp/>=<sp/>rhs.<ref refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kindref="member">DataPoints</ref>[i][j];</highlight></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="220"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="221"><highlight class="normal"></highlight></codeline>
+<codeline lineno="222" refid="struct_data_1a7c50ba562a0dcddc5ca2c733f1bbcb61" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="struct_data" kindref="compound">Data</ref>&amp;<sp/><ref refid="struct_data_1a3ae506c712bc36c15533f5499608a047" kindref="member">operator = </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="struct_data" kindref="compound">Data</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight></codeline>
+<codeline lineno="223"><highlight class="keyword"><sp/><sp/><sp/><sp/></highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="224"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;NumRows<sp/>=<sp/>rhs.<ref refid="struct_data_1ac0883de785701631da0e099578c748ca" kindref="member">NumRows</ref>;</highlight></codeline>
+<codeline lineno="225"><highlight class="normal"></highlight></codeline>
+<codeline lineno="226"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="227"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;NumColumns[i]<sp/>=<sp/>rhs.<ref refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" kindref="member">NumColumns</ref>[i];</highlight></codeline>
+<codeline lineno="228"><highlight class="normal"></highlight></codeline>
+<codeline lineno="229"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j&lt;<ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>;<sp/>j++){</highlight></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;RowHeadings[i][j]<sp/>=<sp/>rhs.<ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[i][j];</highlight></codeline>
+<codeline lineno="231"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="232"><highlight class="normal"></highlight></codeline>
+<codeline lineno="233"><highlight class="normal"></highlight></codeline>
+<codeline lineno="234"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j&lt;<ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>;<sp/>j++){</highlight></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;rowUnits[i][j]<sp/>=<sp/>rhs.<ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[i][j];</highlight></codeline>
+<codeline lineno="236"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="237"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="238"><highlight class="normal"></highlight></codeline>
+<codeline lineno="239"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0;<sp/>j&lt;<ref refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" kindref="member">DATA_ROW_LENGTH</ref>;<sp/>j++){</highlight></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;DataPoints[i][j]<sp/>=<sp/>rhs.<ref refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kindref="member">DataPoints</ref>[i][j];</highlight></codeline>
+<codeline lineno="241"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}<sp/><sp/></highlight></codeline>
+<codeline lineno="242"><highlight class="normal"></highlight></codeline>
+<codeline lineno="243"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="244"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="245"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="246"><highlight class="normal"></highlight></codeline>
+<codeline lineno="248" refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref>{</highlight></codeline>
+<codeline lineno="249" refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" kindref="member">First</ref>,</highlight></codeline>
+<codeline lineno="250" refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" kindref="member">Second</ref>,</highlight></codeline>
+<codeline lineno="251" refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" kindref="member">Third</ref></highlight></codeline>
+<codeline lineno="252"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="SPI_InstructionSet.h"/>
+  </compounddef>
+</doxygen>

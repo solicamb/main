@@ -1,0 +1,294 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_master_8h" kind="file" language="C++">
+    <compoundname>Master.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="_s_p_i___instruction_set_8h" local="yes">SPI_InstructionSet.h</includes>
+    <includedby refid="_master_8cpp" local="yes">Master.cpp</includedby>
+    <incdepgraph>
+      <node id="95">
+        <label>Master.h</label>
+        <link refid="_master_8h"/>
+        <childnode refid="96" relation="include">
+        </childnode>
+        <childnode refid="97" relation="include">
+        </childnode>
+      </node>
+      <node id="96">
+        <label>Arduino.h</label>
+      </node>
+      <node id="97">
+        <label>SPI_InstructionSet.h</label>
+        <link refid="_s_p_i___instruction_set_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="99">
+        <label>Master.cpp</label>
+        <link refid="_master_8cpp"/>
+      </node>
+      <node id="98">
+        <label>Master.h</label>
+        <link refid="_master_8h"/>
+        <childnode refid="99" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="struct_user_instructions" prot="public">UserInstructions</innerclass>
+    <innerclass refid="class_master" prot="public">Master</innerclass>
+      <sectiondef kind="define">
+      <memberdef kind="define" id="_master_8h_1a43cf56ddc5e3654069f4df89d4178387" prot="public" static="no">
+        <name>SPI1_NSS_PIN</name>
+        <initializer>PA4</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="9" column="11" bodyfile="Master.h" bodystart="9" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="var">
+      <memberdef kind="variable" id="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" prot="public" static="no" mutable="no">
+        <type>const int</type>
+        <definition>const int MAX_USER_INSTRUCTION_NUMBER</definition>
+        <argsstring></argsstring>
+        <name>MAX_USER_INSTRUCTION_NUMBER</name>
+        <initializer>= 5</initializer>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="11" column="1" bodyfile="Master.h" bodystart="11" bodyend="-1"/>
+        <referencedby refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" compoundref="_master_8h" startline="21" endline="34">UserInstructions::operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="_master_8h_1add0af7125a2b3940fa0497e88b5906c2" prot="public" static="no" mutable="no">
+        <type><ref refid="class_master" kindref="compound">Master</ref></type>
+        <definition>volatile Master SensorMaster</definition>
+        <argsstring></argsstring>
+        <name>SensorMaster</name>
+        <briefdescription>
+<para>Auto-instantiated instance of <ref refid="class_master" kindref="compound">Master</ref> class, called during the privately implemented IRQ routine and accessible externally by main code. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="275" column="1" bodyfile="Master.cpp" bodystart="516" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="_master_8h_1a8858b26518a9d5c7399f8fd6c12b7633" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void SPI_IRQ</definition>
+        <argsstring>(void)</argsstring>
+        <name>SPI_IRQ</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Innaccesible IRQ, called on SS falling. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="269" column="1" bodyfile="Master.cpp" bodystart="518" bodyend="530"/>
+        <references refid="_master_8cpp_1add0af7125a2b3940fa0497e88b5906c2" compoundref="_master_8cpp" startline="516">SensorMaster</references>
+        <references refid="class_master_1a2bc479ad10a53f31c4833668cc9cfac4" compoundref="_master_8cpp" startline="186" endline="195">Master::Handshake</references>
+        <references refid="class_master_1a3a3fce38be9020bb12ab595c4adc59ed" compoundref="_master_8cpp" startline="197" endline="200">Master::loadRequest</references>
+        <references refid="_master_8h_1a62d16e0382e89bd4e3076bc09c66c4a6">RequestHandler</references>
+      </memberdef>
+      <memberdef kind="function" id="_master_8h_1a62d16e0382e89bd4e3076bc09c66c4a6" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void RequestHandler</definition>
+        <argsstring>(mCmd &amp;Request)</argsstring>
+        <name>RequestHandler</name>
+        <param>
+          <type><ref refid="structm_cmd" kindref="compound">mCmd</ref> &amp;</type>
+          <declname>Request</declname>
+        </param>
+        <briefdescription>
+<para>Function prototype for user-implemented IRQ method; called after handshake and the reconstruction of the request from the master. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="272" column="1"/>
+        <referencedby refid="_master_8h_1a8858b26518a9d5c7399f8fd6c12b7633" compoundref="_master_8cpp" startline="518" endline="530">SPI_IRQ</referencedby>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>ensure<sp/>this<sp/>library<sp/>description<sp/>is<sp/>only<sp/>included<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>Master_h<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Master_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>include<sp/>types<sp/>&amp;<sp/>constants<sp/>of<sp/>Wiring<sp/>core<sp/>API</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_s_p_i___instruction_set_8h" kindref="compound">SPI_InstructionSet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9" refid="_master_8h_1a43cf56ddc5e3654069f4df89d4178387" refkind="member"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>SPI1_NSS_PIN<sp/>PA4<sp/></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11" refid="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" kindref="member">MAX_USER_INSTRUCTION_NUMBER</ref><sp/>=<sp/>5;</highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13" refid="struct_user_instructions" refkind="compound"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">struct<sp/></highlight><highlight class="normal"><ref refid="struct_user_instructions" kindref="compound">UserInstructions</ref>{</highlight></codeline>
+<codeline lineno="14" refid="struct_user_instructions_1a801574205a73598195471b820f1763be" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_user_instructions_1a801574205a73598195471b820f1763be" kindref="member">NumOfInstructions</ref>;</highlight></codeline>
+<codeline lineno="15" refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" kindref="member">InstructionCounter</ref>;</highlight></codeline>
+<codeline lineno="16" refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/><ref refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" kindref="member">InstructionSet</ref>[<ref refid="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" kindref="member">MAX_USER_INSTRUCTION_NUMBER</ref>][<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>];</highlight></codeline>
+<codeline lineno="17" refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/><ref refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" kindref="member">MasterInstructionSet</ref>[<ref refid="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" kindref="member">MAX_USER_INSTRUCTION_NUMBER</ref>];</highlight></codeline>
+<codeline lineno="18" refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" kindref="member">iParams</ref>[<ref refid="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" kindref="member">MAX_USER_INSTRUCTION_NUMBER</ref>];</highlight></codeline>
+<codeline lineno="19" refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" kindref="member">fParams</ref>[<ref refid="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" kindref="member">MAX_USER_INSTRUCTION_NUMBER</ref>];</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" refkind="member"><highlight class="normal"><sp/><sp/><ref refid="struct_user_instructions" kindref="compound">UserInstructions</ref>&amp;<sp/><ref refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" kindref="member">operator = </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="struct_user_instructions" kindref="compound">UserInstructions</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;NumOfInstructions<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1a801574205a73598195471b820f1763be" kindref="member">NumOfInstructions</ref>;</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;InstructionCounter<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" kindref="member">InstructionCounter</ref>;</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=0;<sp/>i&lt;<ref refid="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" kindref="member">MAX_USER_INSTRUCTION_NUMBER</ref>;i++){</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;iParams[i]<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" kindref="member">iParams</ref>[i];</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;fParams[i]<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" kindref="member">fParams</ref>[i];</highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;MasterInstructionSet[i]<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" kindref="member">MasterInstructionSet</ref>[i];</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j=0;j&lt;<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>;j++){</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;InstructionSet[i][j]<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" kindref="member">InstructionSet</ref>[i][j];</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36" refid="struct_user_instructions_1a70e5ef4407c43d8e574dfe4b46083d56" refkind="member"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="struct_user_instructions" kindref="compound">UserInstructions</ref>&amp;<sp/><ref refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" kindref="member">operator = </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><sp/><ref refid="struct_user_instructions" kindref="compound">UserInstructions</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;NumOfInstructions<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1a801574205a73598195471b820f1763be" kindref="member">NumOfInstructions</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>this-&gt;InstructionCounter<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" kindref="member">InstructionCounter</ref>;</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=0;<sp/>i&lt;<ref refid="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" kindref="member">MAX_USER_INSTRUCTION_NUMBER</ref>;i++){</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;iParams[i]<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" kindref="member">iParams</ref>[i];</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;fParams[i]<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" kindref="member">fParams</ref>[i];</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;MasterInstructionSet[i]<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" kindref="member">MasterInstructionSet</ref>[i];</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"></highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j=0;j&lt;<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>;j++){</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;InstructionSet[i][j]<sp/>=<sp/>rhs.<ref refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" kindref="member">InstructionSet</ref>[i][j];</highlight></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/>}</highlight></codeline>
+<codeline lineno="50"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="51"><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight><highlight class="comment">//<sp/>library<sp/>interface<sp/>description</highlight></codeline>
+<codeline lineno="54"><highlight class="comment"></highlight></codeline>
+<codeline lineno="60" refid="class_master" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_master" kindref="compound">Master</ref></highlight></codeline>
+<codeline lineno="61"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>user-accessible<sp/>&quot;public&quot;<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_master_1a89241ed8839b9fe5ec29d904630a9d3e" kindref="member">Master</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SensorIDNumber,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>SensorName[],<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>InstructionSet[][<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>],<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NumberOfInstructions,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/>MasterInstructionSet[],<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>intParams[],<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>floatParams[]);</highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_master_1a89241ed8839b9fe5ec29d904630a9d3e" kindref="member">Master</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_master_1a58d721f62d1c8bbf84840b864f2e482a" kindref="member">~Master</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_master_1a89241ed8839b9fe5ec29d904630a9d3e" kindref="member">Master</ref>(</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="class_master" kindref="compound">Master</ref>&amp;);</highlight></codeline>
+<codeline lineno="68" refid="class_master_1a54259c8db640b88dcf5de5594a947b1c" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="class_master" kindref="compound">Master</ref>&amp;<sp/><ref refid="class_master_1a54259c8db640b88dcf5de5594a947b1c" kindref="member">operator = </ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><sp/><ref refid="class_master" kindref="compound">Master</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="69"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;CurrentRequest<sp/>=<sp/>rhs.CurrentRequest;</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;ThisSensorID<sp/>=<sp/>rhs.ThisSensorID;</highlight></codeline>
+<codeline lineno="71"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;MeasurementData<sp/>=<sp/>rhs.MeasurementData;</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;UserInstructionSet<sp/>=<sp/>rhs.UserInstructionSet;</highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="75" refid="class_master_1a0ce51778d73a67179e58ecc6e136bef9" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="class_master" kindref="compound">Master</ref>&amp;<sp/><ref refid="class_master_1a54259c8db640b88dcf5de5594a947b1c" kindref="member">operator = </ref>(</highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><sp/><ref refid="class_master" kindref="compound">Master</ref>&amp;<sp/>rhs)</highlight><highlight class="keyword"><sp/>volatile</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;CurrentRequest<sp/>=<sp/>rhs.CurrentRequest;</highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;ThisSensorID<sp/>=<sp/>rhs.ThisSensorID;</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;MeasurementData<sp/>=<sp/>rhs.MeasurementData;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/>this-&gt;UserInstructionSet<sp/>=<sp/>rhs.UserInstructionSet;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a5af38dc77ec10af275ed892e756aee64" kindref="member">SETUP</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SensorIDNumber,<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>SensorName[],<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>InstructionSet[][<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>],<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>NumberOfInstructions,<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/>MasterInstructionSet[],<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>intParams[],<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>floatParams[])<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a23aca637cd51c40ae469a9ee48725edf" kindref="member">SPISetup</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="96"><highlight class="normal"></highlight></codeline>
+<codeline lineno="97"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Communications<sp/>Interface</highlight></codeline>
+<codeline lineno="99"><highlight class="comment"></highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_master_1a2bc479ad10a53f31c4833668cc9cfac4" kindref="member">Handshake</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="105"></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref><sp/><ref refid="class_master_1a3a3fce38be9020bb12ab595c4adc59ed" kindref="member">loadRequest</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref><sp/><ref refid="class_master_1af892816882821b107d888f3fe3d7dddd" kindref="member">getCurrentInstruction</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;\</highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_master_1a918b5964fa7cfc2ef6cf54960a80ced5" kindref="member">getCurrentInstructionIntParameter</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_master_1a32c23c46b93673a8817bf54cf4a52372" kindref="member">getCurrentInstructionFloatParameter</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"></highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" kindref="member">sendReply</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="structs_cmd" kindref="compound">sCmd</ref><sp/>Reply)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="121"></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" kindref="member">sendReply</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/>Instruction)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="126"></codeline>
+<codeline lineno="130"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" kindref="member">sendReply</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/>Instruction,<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>InstructionString[<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>])<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="132"></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" kindref="member">sendReply</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/>Instruction,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iParam)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="137"></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" kindref="member">sendReply</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/>Instruction,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>fParam)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="142"></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" kindref="member">sendReply</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/>Instruction,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iParam,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>fParam)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="147"></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" kindref="member">sendReply</ref>(<ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/>Instruction,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iParam,<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>InstructionString[<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>])<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="153"></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" kindref="member">sendReply</ref>(<ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/>Instruction,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>fParam,<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>InstructionString[<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>])<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="159"></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a7d0570bae901dbbd7c88db131fea03c5" kindref="member">sendReply</ref>(<sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/>Instruction,<sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>iParam,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>fParam,<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>InstructionString[<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>])<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a7e73d29d4d8d714b9c5ea69f18cad396" kindref="member">sendData</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="172"></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a9ebd71ad45ea73524c87724b9c5e5e2f" kindref="member">sendIdentity</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"></highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Data<sp/>handling<sp/>interface</highlight></codeline>
+<codeline lineno="180"><highlight class="comment"></highlight></codeline>
+<codeline lineno="186"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_master_1ac907bfa48b84098a906c63c933cc373d" kindref="member">PushMeasurementVector</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber,<sp/></highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>Measurement)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="188"></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_master_1ad64bb8e32e356747d0f80fce966a3574" kindref="member">PopMeasurementVector</ref>(<sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="195"></codeline>
+<codeline lineno="198"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a94625b59aceffeceeae3b050885968ef" kindref="member">ClearMeasurementVector</ref>(<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="200"></codeline>
+<codeline lineno="205"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a49e434ca3d09d56bac2a2d45c86661ac" kindref="member">setMeasurementVectorHeading</ref>(<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber,<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>Heading[<ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>])<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="207"></codeline>
+<codeline lineno="212"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a5f955da291f31441d726c4ded74c32bd" kindref="member">setMeasurementVectorUnits</ref>(<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber,<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>Units[<ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>])<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="214"></codeline>
+<codeline lineno="217"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_master_1a23536349ac40fc9cc030e9bc5d0c5945" kindref="member">isThereData</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="218"><highlight class="normal"></highlight></codeline>
+<codeline lineno="219"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//User<sp/>Instruction<sp/>Interface</highlight></codeline>
+<codeline lineno="221"><highlight class="comment"></highlight><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1aa68bb1327d506c42b6b7ab54fd73ca62" kindref="member">sendTotalNumOfInstructions</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="223"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_master_1a250b4f7cdb96abb0be9ffdc54d00be31" kindref="member">getCurrentInstructionNumber</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="225"></codeline>
+<codeline lineno="230"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a" kindref="member">sendNextUserInstruction</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="232"></codeline>
+<codeline lineno="235"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a8a9c9670d31af14e65157879963e0cf1" kindref="member">resendCurrentUserInstruction</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="237"></codeline>
+<codeline lineno="240"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1ad50d30dbd09d40661bbdbc1527ff07bf" kindref="member">restartUserInstructionCycle</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="242"></codeline>
+<codeline lineno="245"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c" kindref="member">beginMeasurement</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="247"></codeline>
+<codeline lineno="251"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_master_1a5d83f02bd26fbe40f249c052454b327b" kindref="member">shallIStart</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="252"><highlight class="normal"></highlight></codeline>
+<codeline lineno="253"><highlight class="normal"></highlight></codeline>
+<codeline lineno="254"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>library-accessible<sp/>&quot;private&quot;<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="255"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="256"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SPI_write<sp/>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/>T&amp;<sp/>value)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="257"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keyword">template</highlight><highlight class="normal"><sp/>&lt;</highlight><highlight class="keyword">typename</highlight><highlight class="normal"><sp/>T&gt;<sp/></highlight><highlight class="keywordtype">unsigned</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>SPI_read(T&amp;<sp/>value)<sp/></highlight><highlight class="keyword">volatile</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="258"><highlight class="normal"></highlight></codeline>
+<codeline lineno="259"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>beginMeasurementYet;</highlight></codeline>
+<codeline lineno="260"><highlight class="normal"></highlight></codeline>
+<codeline lineno="261"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref><sp/>CurrentRequest;</highlight></codeline>
+<codeline lineno="262"><highlight class="normal"><sp/><sp/></highlight></codeline>
+<codeline lineno="263"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_identity" kindref="compound">Identity</ref><sp/>ThisSensorID;</highlight></codeline>
+<codeline lineno="264"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_data" kindref="compound">Data</ref><sp/>MeasurementData;</highlight></codeline>
+<codeline lineno="265"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_user_instructions" kindref="compound">UserInstructions</ref><sp/>UserInstructionSet;</highlight></codeline>
+<codeline lineno="266"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="267"><highlight class="normal"></highlight></codeline>
+<codeline lineno="269"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_master_8h_1a8858b26518a9d5c7399f8fd6c12b7633" kindref="member">SPI_IRQ</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="270"><highlight class="normal"></highlight></codeline>
+<codeline lineno="272"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="_master_8h_1a62d16e0382e89bd4e3076bc09c66c4a6" kindref="member">RequestHandler</ref>(<ref refid="structm_cmd" kindref="compound">mCmd</ref>&amp;<sp/>Request);</highlight></codeline>
+<codeline lineno="273"><highlight class="normal"></highlight></codeline>
+<codeline lineno="275"><highlight class="keyword">volatile</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">extern</highlight><highlight class="normal"><sp/><ref refid="class_master" kindref="compound">Master</ref><sp/><ref refid="_master_8h_1add0af7125a2b3940fa0497e88b5906c2" kindref="member">SensorMaster</ref>;</highlight></codeline>
+<codeline lineno="276"><highlight class="normal"></highlight></codeline>
+<codeline lineno="277"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="Master.h"/>
+  </compounddef>
+</doxygen>

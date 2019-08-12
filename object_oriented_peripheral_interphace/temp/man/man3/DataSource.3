@@ -1,0 +1,327 @@
+.TH "DataSource" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+DataSource \- A class which models a Sensor/peripheral as an entity which is a source of data\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <DataSource\&.h>\fP
+.PP
+Inherited by \fBSensor\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBDataSource\fP (const int ChipSelect)"
+.br
+.RI "Constructor\&. "
+.ti -1c
+.RI "bool \fBisThereData\fP (void)"
+.br
+.RI "Asks Sensor/peripheral whether there is \fBData\fP ready to be collected\&. "
+.ti -1c
+.RI "\fBData\fP \fBloadData\fP (void)"
+.br
+.RI "Loads \fBData\fP from the \fBSensor\fP\&. "
+.ti -1c
+.RI "int \fBgetNumberOfDataColumns\fP (const \fBMeasurementVectors\fP VectorNumber)"
+.br
+.RI "Gets the number of data points along a particular row of the data array\&. "
+.ti -1c
+.RI "int \fBgetNumberOfDataRows\fP (void)"
+.br
+.RI "Gets the number of rows used in the data array\&. "
+.ti -1c
+.RI "void \fBgetRowHeadings\fP (char[\fBNUMBER_OF_DATA_ROWS\fP][\fBROW_HEADING_LENGTH\fP])"
+.br
+.RI "Gets string headings of all the vectors in the data array\&. "
+.ti -1c
+.RI "void \fBgetRowUnits\fP (char[\fBNUMBER_OF_DATA_ROWS\fP][\fBROW_UNIT_LENGTH\fP])"
+.br
+.RI "Gets string units of all the vectors in the data array\&. "
+.ti -1c
+.RI "void \fBgetDataArray\fP (float[\fBNUMBER_OF_DATA_ROWS\fP][\fBDATA_ROW_LENGTH\fP])"
+.br
+.RI "Gets the entire data array\&. "
+.ti -1c
+.RI "void \fBgetDataVector\fP (const \fBMeasurementVectors\fP VectorNumber, float[\fBDATA_ROW_LENGTH\fP])"
+.br
+.RI "Gets the indicated data vector\&. "
+.ti -1c
+.RI "int \fBgetVectorLength\fP (const \fBMeasurementVectors\fP VectorNumber)"
+.br
+.RI "Gets the indicated data vector length\&. "
+.ti -1c
+.RI "void \fBgetVectorHeading\fP (const \fBMeasurementVectors\fP VectorNumber, char[\fBROW_HEADING_LENGTH\fP])"
+.br
+.RI "Gets the string heading for the vector in question\&. "
+.ti -1c
+.RI "void \fBgetVectorUnits\fP (const \fBMeasurementVectors\fP VectorNumber, char[\fBROW_UNIT_LENGTH\fP])"
+.br
+.RI "Gets the string units for the vector in question\&. "
+.ti -1c
+.RI "float \fBgetValueOne\fP (void)"
+.br
+.RI "Gets the first data point in the first vector\&. "
+.ti -1c
+.RI "float \fBgetValueTwo\fP (void)"
+.br
+.RI "Gets the second data point in the first vector\&. "
+.ti -1c
+.RI "float \fBgetValueThree\fP (void)"
+.br
+.RI "Gets the third data point in the first vector\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A class which models a Sensor/peripheral as an entity which is a source of data\&. 
+
+This class models a \fBSensor\fP as a source of data\&. The convention in use is that any \fBSensor\fP can store data such that it occupies a two dimensional float array with maximum dimensions NUMBER_OF_DATA_ROWS x DATA_ROW_LENGTH\&. The data can either be treated as a square array, the dimensions of which can be requested, or as a series of 'vectors', the length of which can be requested\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBDataSource\fP (const int ChipSelect)"
+
+.PP
+Constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIChipSelect\fP is the Slave Select pin of the SPI peripheral in question\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void getDataArray (float DataVals[NUMBER_OF_DATA_ROWS][DATA_ROW_LENGTH])"
+
+.PP
+Gets the entire data array\&. Retrieves the entire two dimensionsal data array, irrespective of which elements/vectors are actually in use\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfloat\fP is the array into which the data is written\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBData\fP 
+.RE
+.PP
+
+.SS "void getDataVector (const \fBMeasurementVectors\fP VectorNumber, float DataVect[DATA_ROW_LENGTH])"
+
+.PP
+Gets the indicated data vector\&. Retrieves a singel row in the two dimesnional data array\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIVectorNumber\fP is the row in the data array to be retrieved\&. 
+.br
+\fIfloat\fP is the floating point array into which the data points will be written\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBData\fP, \fBMeasurementVectors\fP 
+.RE
+.PP
+
+.SS "int getNumberOfDataColumns (const \fBMeasurementVectors\fP VectorNumber)"
+
+.PP
+Gets the number of data points along a particular row of the data array\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIVectorNumber\fP is an enumerated type referring to the row in the two dimensional data array\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+The number of data points along a particular row/vector\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBMeasurementVectors\fP, \fBData\fP 
+.RE
+.PP
+
+.SS "int getNumberOfDataRows (void)"
+
+.PP
+Gets the number of rows used in the data array\&. Returns the number of 'vectors' (rows) which the sensor has used to store data\&. Ideally, one should utilise the result of this function to iterate through the vectors\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The number of vectors in use\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBData\fP 
+.RE
+.PP
+
+.SS "void getRowHeadings (char Headings[NUMBER_OF_DATA_ROWS][ROW_HEADING_LENGTH])"
+
+.PP
+Gets string headings of all the vectors in the data array\&. Each vector/row is assigned a heading to describe the nature of the data contained within that vector\&. Such as 'Ambient Temperature'\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchar\fP is the array of character arrays into which the headings are loaded\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBData\fP 
+.RE
+.PP
+
+.SS "void getRowUnits (char Units[NUMBER_OF_DATA_ROWS][ROW_UNIT_LENGTH])"
+
+.PP
+Gets string units of all the vectors in the data array\&. Each vector/row is assigned a Units string to define the units of the data contained within that vector\&. Such as 'V' or 'Amperes'\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchar\fP is the array of character arrays into which the units are loaded\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBData\fP 
+.RE
+.PP
+
+.SS "float getValueOne (void)"
+
+.PP
+Gets the first data point in the first vector\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The first data point in the first vector\&. DataArray[0][0]\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBData\fP, \fBMeasurementVectors\fP 
+.RE
+.PP
+
+.SS "float getValueThree (void)"
+
+.PP
+Gets the third data point in the first vector\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The third data point in the first vector\&. DataArray[2][0]\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBData\fP, \fBMeasurementVectors\fP 
+.RE
+.PP
+
+.SS "float getValueTwo (void)"
+
+.PP
+Gets the second data point in the first vector\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The second data point in the first vector\&. DataArray[1][0]\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBData\fP, \fBMeasurementVectors\fP 
+.RE
+.PP
+
+.SS "void getVectorHeading (const \fBMeasurementVectors\fP VectorNumber, char Heading[ROW_HEADING_LENGTH])"
+
+.PP
+Gets the string heading for the vector in question\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIVectorNumber\fP is the row in the data array to which the heading coresponds\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetRowHeadings()\fP, \fBData\fP, \fBMeasurementVectors\fP 
+.RE
+.PP
+
+.SS "int getVectorLength (const \fBMeasurementVectors\fP VectorNumber)"
+
+.PP
+Gets the indicated data vector length\&. The data vectors (rows) have a max length of DATA_ROW_LENGTH and the \fBSensor\fP will push data points into said vector\&. As the \fBSensor\fP may not utilise the entire width of the data array, the length indicates the number of values which the \fBSensor\fP has pushed into the vector in question\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIVectorNumber\fP is the row in the data array\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBData\fP, \fBMeasurementVectors\fP 
+.RE
+.PP
+
+.SS "void getVectorUnits (const \fBMeasurementVectors\fP VectorNumber, char Units[ROW_UNIT_LENGTH])"
+
+.PP
+Gets the string units for the vector in question\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIVectorNumber\fP is the row in the data array to which the heading coresponds\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetRowUnits()\fP, \fBData\fP, \fBMeasurementVectors\fP 
+.RE
+.PP
+
+.SS "bool isThereData (void)"
+
+.PP
+Asks Sensor/peripheral whether there is \fBData\fP ready to be collected\&. Asks the sensor whether the data is ready to be retrieved by the master\&. Slave's are, however, required to instantiate a \fBData\fP object and so premature loads thereof will not fail\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the data is ready to be collected from the \fBSensor\fP\&. 
+.RE
+.PP
+
+.SS "\fBData\fP loadData (void)"
+
+.PP
+Loads \fBData\fP from the \fBSensor\fP\&. Loads the \fBData\fP object from the \fBSensor\fP into local memory\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The \fBData\fP object loaded into local memory\&. User of accessors preffered\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBgetNumberOfDataColumns()\fP, \fBgetNumberOfDataRows()\fP, \fBgetRowHeadings()\fP, \fBgetRowUnits()\fP, \fBgetDataArray()\fP, \fBgetDataVector()\fP, \fBgetVectorLength()\fP, \fBgetVectorHeading()\fP,\fBgetVectorUnits()\fP, \fBgetValueOne()\fP,\fBgetValueTwo()\fP,\fBgetValueThree()\fP 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

@@ -1,0 +1,82 @@
+.TH "Data" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Data \- Type used to encapsulate the data collected by the slave\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SPI_InstructionSet\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBData\fP & \fBoperator=\fP (const volatile \fBData\fP &rhs) volatile"
+.br
+.ti -1c
+.RI "volatile \fBData\fP & \fBoperator=\fP (const \fBData\fP &rhs) volatile"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBNumColumns\fP [\fBNUMBER_OF_DATA_ROWS\fP]"
+.br
+.RI "Number of data points currently stored in each row\&. "
+.ti -1c
+.RI "int \fBNumRows\fP"
+.br
+.RI "Number of rows\&. Defined at compilation\&. "
+.ti -1c
+.RI "char \fBRowHeadings\fP [\fBNUMBER_OF_DATA_ROWS\fP][\fBROW_HEADING_LENGTH\fP]"
+.br
+.RI "String headings to describe the data in each row\&. "
+.ti -1c
+.RI "char \fBrowUnits\fP [\fBNUMBER_OF_DATA_ROWS\fP][\fBROW_UNIT_LENGTH\fP]"
+.br
+.RI "String units to qualify the data in each row\&. "
+.ti -1c
+.RI "float \fBDataPoints\fP [\fBNUMBER_OF_DATA_ROWS\fP][\fBDATA_ROW_LENGTH\fP]"
+.br
+.RI "Two dimensional array of data\&. Each row generally treated as an independent vector\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Type used to encapsulate the data collected by the slave\&. 
+
+\fBData\fP is contained in a two dimensional array but generally modelled as a collection of 'vectors' or rows of data\&. Each row is allowed a variable number of data points, a string heading and a string unit\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBData\fP& operator= (const volatile \fBData\fP & rhs) volatile\fC [inline]\fP"
+
+.SS "volatile \fBData\fP& operator= (const \fBData\fP & rhs) volatile\fC [inline]\fP"
+
+.SH "Field Documentation"
+.PP 
+.SS "float DataPoints[\fBNUMBER_OF_DATA_ROWS\fP][\fBDATA_ROW_LENGTH\fP]"
+
+.PP
+Two dimensional array of data\&. Each row generally treated as an independent vector\&. 
+.SS "int NumColumns[\fBNUMBER_OF_DATA_ROWS\fP]"
+
+.PP
+Number of data points currently stored in each row\&. 
+.SS "int NumRows"
+
+.PP
+Number of rows\&. Defined at compilation\&. 
+.SS "char RowHeadings[\fBNUMBER_OF_DATA_ROWS\fP][\fBROW_HEADING_LENGTH\fP]"
+
+.PP
+String headings to describe the data in each row\&. 
+.SS "char rowUnits[\fBNUMBER_OF_DATA_ROWS\fP][\fBROW_UNIT_LENGTH\fP]"
+
+.PP
+String units to qualify the data in each row\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

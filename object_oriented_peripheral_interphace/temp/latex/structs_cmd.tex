@@ -1,0 +1,97 @@
+\hypertarget{structs_cmd}{}\section{s\+Cmd Struct Reference}
+\label{structs_cmd}\index{sCmd@{sCmd}}
+
+
+Type used by slave to send reply to master,.  
+
+
+
+
+{\ttfamily \#include $<$S\+P\+I\+\_\+\+Instruction\+Set.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structs_cmd}{s\+Cmd}} \& \mbox{\hyperlink{structs_cmd_a3b1f47c680cdde48d2c8679599547516}{operator=}} (const volatile \mbox{\hyperlink{structs_cmd}{s\+Cmd}} \&rhs) volatile
+\item 
+volatile \mbox{\hyperlink{structs_cmd}{s\+Cmd}} \& \mbox{\hyperlink{structs_cmd_a88ec1d5b2730bd3e2e2c9902c3ccde34}{operator=}} (const \mbox{\hyperlink{structs_cmd}{s\+Cmd}} \&rhs) volatile
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} \mbox{\hyperlink{structs_cmd_ae44f8e2a61a9d80037ef1379815d51cc}{Instruction}}
+\begin{DoxyCompactList}\small\item\em Instruction to master. \end{DoxyCompactList}\item 
+char \mbox{\hyperlink{structs_cmd_ae61e22459fa014bbc635b6280b5a5e1f}{s\+Param}} \mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afb2f23f8980c03317ec47ce151335ec7}{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em String parameter which qualifies the instruction. Often used to convey instructions which are to be displayed to the user. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{structs_cmd_a4d0a4aab326d0ba8eb8128adb61c0888}{i\+Param}}
+\begin{DoxyCompactList}\small\item\em Integer parameter which qualifies the instruction. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{structs_cmd_af05b89ac7edf2c67bb3386c902369313}{f\+Param}}
+\begin{DoxyCompactList}\small\item\em Floating point parameter which qualifies the instruction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Type used by slave to send reply to master,. 
+
+Each transaction, following the initial handshake, the master will send a request and the slave will send a reply. Replied made by the slave are generally in the form of an \mbox{\hyperlink{structs_cmd}{s\+Cmd}} object, which contains a parameterised instance of the slave instruction set, s\+Instruct, which defines the action which the slave requires the master to carry out. Other acceptable replies to particular requests from the master are \mbox{\hyperlink{struct_data}{Data}} and \mbox{\hyperlink{struct_identity}{Identity}} objects. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{structs_cmd_a3b1f47c680cdde48d2c8679599547516}\label{structs_cmd_a3b1f47c680cdde48d2c8679599547516}} 
+\index{sCmd@{sCmd}!operator=@{operator=}}
+\index{operator=@{operator=}!sCmd@{sCmd}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\& operator= (\begin{DoxyParamCaption}\item[{const volatile \mbox{\hyperlink{structs_cmd}{s\+Cmd}} \&}]{rhs }\end{DoxyParamCaption}) volatile\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{structs_cmd_a88ec1d5b2730bd3e2e2c9902c3ccde34}\label{structs_cmd_a88ec1d5b2730bd3e2e2c9902c3ccde34}} 
+\index{sCmd@{sCmd}!operator=@{operator=}}
+\index{operator=@{operator=}!sCmd@{sCmd}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{structs_cmd}{s\+Cmd}}\& operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{structs_cmd}{s\+Cmd}} \&}]{rhs }\end{DoxyParamCaption}) volatile\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structs_cmd_af05b89ac7edf2c67bb3386c902369313}\label{structs_cmd_af05b89ac7edf2c67bb3386c902369313}} 
+\index{sCmd@{sCmd}!fParam@{fParam}}
+\index{fParam@{fParam}!sCmd@{sCmd}}
+\subsubsection{\texorpdfstring{fParam}{fParam}}
+{\footnotesize\ttfamily float f\+Param}
+
+
+
+Floating point parameter which qualifies the instruction. 
+
+\mbox{\Hypertarget{structs_cmd_ae44f8e2a61a9d80037ef1379815d51cc}\label{structs_cmd_ae44f8e2a61a9d80037ef1379815d51cc}} 
+\index{sCmd@{sCmd}!Instruction@{Instruction}}
+\index{Instruction@{Instruction}!sCmd@{sCmd}}
+\subsubsection{\texorpdfstring{Instruction}{Instruction}}
+{\footnotesize\ttfamily \mbox{\hyperlink{_s_p_i___instruction_set_8h_a949ec019a0f52780dcdd7d5a5ba73e47}{s\+Instruct}} Instruction}
+
+
+
+Instruction to master. 
+
+Defines the reply made by the slave in repsonse to the request posed by the master during a single transaction. Used to confirm commands issued by the master or issue commands to the master. \mbox{\Hypertarget{structs_cmd_a4d0a4aab326d0ba8eb8128adb61c0888}\label{structs_cmd_a4d0a4aab326d0ba8eb8128adb61c0888}} 
+\index{sCmd@{sCmd}!iParam@{iParam}}
+\index{iParam@{iParam}!sCmd@{sCmd}}
+\subsubsection{\texorpdfstring{iParam}{iParam}}
+{\footnotesize\ttfamily int i\+Param}
+
+
+
+Integer parameter which qualifies the instruction. 
+
+\mbox{\Hypertarget{structs_cmd_ae61e22459fa014bbc635b6280b5a5e1f}\label{structs_cmd_ae61e22459fa014bbc635b6280b5a5e1f}} 
+\index{sCmd@{sCmd}!sParam@{sParam}}
+\index{sParam@{sParam}!sCmd@{sCmd}}
+\subsubsection{\texorpdfstring{sParam}{sParam}}
+{\footnotesize\ttfamily char s\+Param\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_afb2f23f8980c03317ec47ce151335ec7}{S\+L\+A\+V\+E\+\_\+\+C\+O\+M\+M\+M\+A\+N\+D\+\_\+\+S\+T\+R\+I\+N\+G\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}}
+
+
+
+String parameter which qualifies the instruction. Often used to convey instructions which are to be displayed to the user. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h}{S\+P\+I\+\_\+\+Instruction\+Set.\+h}}\end{DoxyCompactItemize}

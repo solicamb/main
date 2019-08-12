@@ -1,0 +1,264 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_data_source_8cpp" kind="file" language="C++">
+    <compoundname>DataSource.cpp</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="_instructable_8h" local="yes">Instructable.h</includes>
+    <includes refid="_data_source_8h" local="yes">DataSource.h</includes>
+    <includes refid="_s_p_i___instruction_set_8h" local="yes">SPI_InstructionSet.h</includes>
+    <incdepgraph>
+      <node id="27">
+        <label>Communicative.h</label>
+        <link refid="_communicative_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+      <node id="24">
+        <label>Arduino.h</label>
+      </node>
+      <node id="28">
+        <label>DataSource.h</label>
+        <link refid="_data_source_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+      </node>
+      <node id="26">
+        <label>SPI_InstructionSet.h</label>
+        <link refid="_s_p_i___instruction_set_8h"/>
+      </node>
+      <node id="25">
+        <label>Instructable.h</label>
+        <link refid="_instructable_8h"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+        <childnode refid="27" relation="include">
+        </childnode>
+      </node>
+      <node id="23">
+        <label>DataSource.cpp</label>
+        <link refid="_data_source_8cpp"/>
+        <childnode refid="24" relation="include">
+        </childnode>
+        <childnode refid="25" relation="include">
+        </childnode>
+        <childnode refid="28" relation="include">
+        </childnode>
+        <childnode refid="26" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_instructable_8h" kindref="compound">Instructable.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_data_source_8h" kindref="compound">DataSource.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_s_p_i___instruction_set_8h" kindref="compound">SPI_InstructionSet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Constructor<sp/>/////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Function<sp/>that<sp/>handles<sp/>the<sp/>creation<sp/>and<sp/>setup<sp/>of<sp/>instances</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10" refid="class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d" refkind="member"><highlight class="normal"><ref refid="class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d" kindref="member">DataSource::DataSource</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ChipSelect):<sp/>CommsModule(ChipSelect){</highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//CurrentData.NumColumns<sp/>=<sp/>0;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentData.<ref refid="struct_data_1ac0883de785701631da0e099578c748ca" kindref="member">NumRows</ref><sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="16"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CurrentData.<ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[i][0]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CurrentData.<ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[i][0]<sp/>=<sp/></highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CurrentData.<ref refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" kindref="member">NumColumns</ref>[i]<sp/>=<sp/>0;</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j<sp/>=<sp/>0<sp/>;<sp/>j&lt;<ref refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" kindref="member">DATA_ROW_LENGTH</ref>;<sp/>j++){</highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>CurrentData.<ref refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kindref="member">DataPoints</ref>[i][j]<sp/>=<sp/>0.0;</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"></highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Public<sp/>Methods<sp/>//////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Functions<sp/>available<sp/>in<sp/>Wiring<sp/>sketches,<sp/>this<sp/>library,<sp/>and<sp/>other<sp/>libraries</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32" refid="class_data_source_1a7d92295e088894b5417729a814e49e01" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a7d92295e088894b5417729a814e49e01" kindref="member">DataSource::isThereData</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref><sp/>Request<sp/>=<sp/>{(<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref>)<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792ae0e86116c94ee3a2de08c331a25a9553" kindref="member">IsThereData</ref>,0,0.0};</highlight></codeline>
+<codeline lineno="34"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs_cmd" kindref="compound">sCmd</ref><sp/>Reply<sp/>=<sp/>CommsModule.<ref refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" kindref="member">RequestReply</ref>(Request);</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(Reply.<ref refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" kindref="member">Instruction</ref><sp/>==<sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a695ed835e2b72585493b31c1043fdf25" kindref="member">Yes</ref>){</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">true</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight><highlight class="keywordflow">else</highlight><highlight class="normal">{</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">false</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="40"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="41"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="42"><highlight class="normal"></highlight></codeline>
+<codeline lineno="43" refid="class_data_source_1a81aac807bfb601c2ac1da78f69d31d48" refkind="member"><highlight class="normal"><ref refid="struct_data" kindref="compound">Data</ref><sp/><ref refid="class_data_source_1a81aac807bfb601c2ac1da78f69d31d48" kindref="member">DataSource::loadData</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="44"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structm_cmd" kindref="compound">mCmd</ref><sp/>Request<sp/>=<sp/>{(<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref>)<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9972e8050301ea3d5b585bc557bac507" kindref="member">SendDataPlease</ref>,0,0.0};</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"><sp/><sp/><sp/><sp/>CurrentData<sp/>=<sp/>CommsModule.<ref refid="class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a" kindref="member">RequestData</ref>(Request);</highlight></codeline>
+<codeline lineno="46"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CurrentData;</highlight></codeline>
+<codeline lineno="47"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight></codeline>
+<codeline lineno="49" refid="class_data_source_1ac15f241362d7c22c75c42c2bb16315bf" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1ac15f241362d7c22c75c42c2bb16315bf" kindref="member">DataSource::getNumberOfDataColumns</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber){</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CurrentData.<ref refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" kindref="member">NumColumns</ref>[VectorNumber];</highlight></codeline>
+<codeline lineno="51"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="52"><highlight class="normal"></highlight></codeline>
+<codeline lineno="53" refid="class_data_source_1a52269fa43b741f1ab431aac56d3aedb5" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a52269fa43b741f1ab431aac56d3aedb5" kindref="member">DataSource::getNumberOfDataRows</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CurrentData.<ref refid="struct_data_1ac0883de785701631da0e099578c748ca" kindref="member">NumRows</ref>;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="56"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57" refid="class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d" kindref="member">DataSource::getRowHeadings</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>Headings[<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>][<ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>]){</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="60"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="61"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j=0;<sp/>j&lt;<sp/><ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>;<sp/>j++){</highlight></codeline>
+<codeline lineno="62"><highlight class="normal"></highlight></codeline>
+<codeline lineno="63"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Headings[i][j]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[i][j];</highlight></codeline>
+<codeline lineno="64"><highlight class="normal"></highlight></codeline>
+<codeline lineno="65"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>==<sp/><sp/>CurrentData.<ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[i][j])<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="66"><highlight class="normal"></highlight></codeline>
+<codeline lineno="67"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="69"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="70"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71" refid="class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e" kindref="member">DataSource::getRowUnits</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>Units[<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>][<ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>]){</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="75"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j=0;<sp/>j&lt;<sp/><ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>;<sp/>j++){</highlight></codeline>
+<codeline lineno="76"><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Units[i][j]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[i][j];</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"></highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>==<sp/>CurrentData.<ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[i][j])<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="83"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="84"><highlight class="normal"></highlight></codeline>
+<codeline lineno="85" refid="class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6" kindref="member">DataSource::getDataArray</ref>(</highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>DataVals[<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>][<ref refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" kindref="member">DATA_ROW_LENGTH</ref>]){</highlight></codeline>
+<codeline lineno="86"><highlight class="normal"></highlight></codeline>
+<codeline lineno="87"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i&lt;<ref refid="_s_p_i___instruction_set_8h_1a030a0b94acdc35db8cf20a5044a1c775" kindref="member">NUMBER_OF_DATA_ROWS</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="88"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="89"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal">(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>j=0;<sp/>j&lt;<sp/><ref refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" kindref="member">DATA_ROW_LENGTH</ref>;<sp/>j++){</highlight></codeline>
+<codeline lineno="90"><highlight class="normal"></highlight></codeline>
+<codeline lineno="91"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DataVals[i][j]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kindref="member">DataPoints</ref>[i][j];</highlight></codeline>
+<codeline lineno="92"><highlight class="normal"></highlight></codeline>
+<codeline lineno="93"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="94"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="95"><highlight class="normal"></highlight></codeline>
+<codeline lineno="96"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="97"><highlight class="normal"></highlight></codeline>
+<codeline lineno="98" refid="class_data_source_1a924875bd657b56f140604551270cdbc0" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a924875bd657b56f140604551270cdbc0" kindref="member">DataSource::getDataVector</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber,<sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/>DataVect[<ref refid="_s_p_i___instruction_set_8h_1afaade7aab877c51eaea08012fa5a7ce2" kindref="member">DATA_ROW_LENGTH</ref>]){</highlight></codeline>
+<codeline lineno="99"><highlight class="normal"></highlight></codeline>
+<codeline lineno="100"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(VectorNumber){</highlight></codeline>
+<codeline lineno="101"><highlight class="normal"></highlight></codeline>
+<codeline lineno="102"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" kindref="member">First</ref>:</highlight></codeline>
+<codeline lineno="103"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CurrentData.<ref refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" kindref="member">NumColumns</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" kindref="member">First</ref>];<sp/>i++){</highlight></codeline>
+<codeline lineno="104"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DataVect[i]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kindref="member">DataPoints</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" kindref="member">First</ref>][i];</highlight></codeline>
+<codeline lineno="105"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="106"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="107"><highlight class="normal"></highlight></codeline>
+<codeline lineno="108"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" kindref="member">Second</ref>:</highlight></codeline>
+<codeline lineno="109"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CurrentData.<ref refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" kindref="member">NumColumns</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" kindref="member">Second</ref>];<sp/>i++){</highlight></codeline>
+<codeline lineno="110"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DataVect[i]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kindref="member">DataPoints</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" kindref="member">Second</ref>][i];</highlight></codeline>
+<codeline lineno="111"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="112"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="113"><highlight class="normal"></highlight></codeline>
+<codeline lineno="114"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" kindref="member">Third</ref>:</highlight></codeline>
+<codeline lineno="115"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/>CurrentData.<ref refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" kindref="member">NumColumns</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" kindref="member">Third</ref>];<sp/>i++){</highlight></codeline>
+<codeline lineno="116"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>DataVect[i]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kindref="member">DataPoints</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" kindref="member">Third</ref>][i];</highlight></codeline>
+<codeline lineno="117"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="118"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="119"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="120"><highlight class="normal"></highlight></codeline>
+<codeline lineno="121"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="122"><highlight class="normal"></highlight></codeline>
+<codeline lineno="123" refid="class_data_source_1a49998f22c00d924daf7b67af48e10a30" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a49998f22c00d924daf7b67af48e10a30" kindref="member">DataSource::getVectorLength</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber){</highlight></codeline>
+<codeline lineno="124"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CurrentData.<ref refid="struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336" kindref="member">NumColumns</ref>[VectorNumber];</highlight></codeline>
+<codeline lineno="125"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="126"><highlight class="normal"></highlight></codeline>
+<codeline lineno="127" refid="class_data_source_1a79d69573a651290750aa8c08d24f3b64" refkind="member"><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1a79d69573a651290750aa8c08d24f3b64" kindref="member">DataSource::getVectorHeading</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>Heading[<ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>]){</highlight></codeline>
+<codeline lineno="128"><highlight class="normal"></highlight></codeline>
+<codeline lineno="129"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(VectorNumber){</highlight></codeline>
+<codeline lineno="130"><highlight class="normal"></highlight></codeline>
+<codeline lineno="131"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" kindref="member">First</ref>:</highlight></codeline>
+<codeline lineno="132"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="133"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Heading[i]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" kindref="member">First</ref>][i];</highlight></codeline>
+<codeline lineno="134"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>==<sp/>CurrentData.<ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" kindref="member">First</ref>][i])<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="135"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="136"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="137"><highlight class="normal"></highlight></codeline>
+<codeline lineno="138"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" kindref="member">Second</ref>:</highlight></codeline>
+<codeline lineno="139"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="140"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Heading[i]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" kindref="member">Second</ref>][i];</highlight></codeline>
+<codeline lineno="141"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>==<sp/>CurrentData.<ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" kindref="member">Second</ref>][i])<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="142"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="143"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="144"><highlight class="normal"></highlight></codeline>
+<codeline lineno="145"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" kindref="member">Third</ref>:</highlight></codeline>
+<codeline lineno="146"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_s_p_i___instruction_set_8h_1a63a97a0fe356d1b3030dfb633e0d0b8e" kindref="member">ROW_HEADING_LENGTH</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="147"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Heading[i]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" kindref="member">Third</ref>][i];</highlight></codeline>
+<codeline lineno="148"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>==<sp/>CurrentData.<ref refid="struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01" kindref="member">RowHeadings</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" kindref="member">Third</ref>][i])<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="149"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="150"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="151"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="152"><highlight class="normal"></highlight></codeline>
+<codeline lineno="153"><highlight class="normal"><sp/>}</highlight></codeline>
+<codeline lineno="154"><highlight class="normal"></highlight></codeline>
+<codeline lineno="155" refid="class_data_source_1af2a2f33b9970ecff75894134498ff2cd" refkind="member"><highlight class="normal"><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1af2a2f33b9970ecff75894134498ff2cd" kindref="member">DataSource::getVectorUnits</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5" kindref="member">MeasurementVectors</ref><sp/>VectorNumber,<sp/></highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>Units[<ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>]){</highlight></codeline>
+<codeline lineno="156"><highlight class="normal"></highlight></codeline>
+<codeline lineno="157"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">switch</highlight><highlight class="normal"><sp/>(VectorNumber){</highlight></codeline>
+<codeline lineno="158"><highlight class="normal"></highlight></codeline>
+<codeline lineno="159"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" kindref="member">First</ref>:</highlight></codeline>
+<codeline lineno="160"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="161"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Units[i]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" kindref="member">First</ref>][i];</highlight></codeline>
+<codeline lineno="162"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>==<sp/>CurrentData.<ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5ac5222d41f21bc883f0c0b9754191b350" kindref="member">First</ref>][i])<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="163"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="164"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="165"><highlight class="normal"></highlight></codeline>
+<codeline lineno="166"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" kindref="member">Second</ref>:</highlight></codeline>
+<codeline lineno="167"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="168"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Units[i]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" kindref="member">Second</ref>][i];</highlight></codeline>
+<codeline lineno="169"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>==<sp/>CurrentData.<ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a6ca36e4a4a4052597a28b219baf6576f" kindref="member">Second</ref>][i])<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="170"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="171"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="172"><highlight class="normal"></highlight></codeline>
+<codeline lineno="173"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">case</highlight><highlight class="normal"><sp/><ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" kindref="member">Third</ref>:</highlight></codeline>
+<codeline lineno="174"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">for</highlight><highlight class="normal"><sp/>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>i<sp/>=<sp/>0;<sp/>i<sp/>&lt;<sp/><ref refid="_s_p_i___instruction_set_8h_1af45194e4246701e52a2d67f27cc3ffb8" kindref="member">ROW_UNIT_LENGTH</ref>;<sp/>i++){</highlight></codeline>
+<codeline lineno="175"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>Units[i]<sp/>=<sp/>CurrentData.<ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" kindref="member">Third</ref>][i];</highlight></codeline>
+<codeline lineno="176"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">if</highlight><highlight class="normal"><sp/>(</highlight><highlight class="charliteral">&apos;\n&apos;</highlight><highlight class="normal"><sp/>==<sp/>CurrentData.<ref refid="struct_data_1a004891d89fb41172310a55947f922a54" kindref="member">rowUnits</ref>[<ref refid="_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5a0dd6aa89f0ae76a3c80d4ad8919a4828" kindref="member">Third</ref>][i])<sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="177"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="178"><highlight class="normal"><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">break</highlight><highlight class="normal">;</highlight></codeline>
+<codeline lineno="179"><highlight class="normal"><sp/><sp/><sp/><sp/>}</highlight></codeline>
+<codeline lineno="180"><highlight class="normal"></highlight></codeline>
+<codeline lineno="181"><highlight class="normal"><sp/>}</highlight></codeline>
+<codeline lineno="182"><highlight class="normal"></highlight></codeline>
+<codeline lineno="183"><highlight class="normal"></highlight></codeline>
+<codeline lineno="184" refid="class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b" kindref="member">DataSource::getValueOne</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="185"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CurrentData.<ref refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kindref="member">DataPoints</ref>[0][0];</highlight></codeline>
+<codeline lineno="186"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="187"><highlight class="normal"></highlight></codeline>
+<codeline lineno="188" refid="class_data_source_1accbfa79e7afee154b4332483181f27ec" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1accbfa79e7afee154b4332483181f27ec" kindref="member">DataSource::getValueTwo</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="189"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CurrentData.<ref refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kindref="member">DataPoints</ref>[1][0];</highlight></codeline>
+<codeline lineno="190"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="191"><highlight class="normal"></highlight></codeline>
+<codeline lineno="192" refid="class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf" kindref="member">DataSource::getValueThree</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="193"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>CurrentData.<ref refid="struct_data_1a1984363a7b509590c1bae03601360a0e" kindref="member">DataPoints</ref>[2][0];</highlight></codeline>
+<codeline lineno="194"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="195"><highlight class="normal"></highlight></codeline>
+<codeline lineno="196"><highlight class="normal"></highlight></codeline>
+<codeline lineno="197"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Private<sp/>Methods<sp/>/////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="198"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Functions<sp/>only<sp/>available<sp/>to<sp/>other<sp/>functions<sp/>in<sp/>this<sp/>library</highlight></codeline>
+    </programlisting>
+    <location file="DataSource.cpp"/>
+  </compounddef>
+</doxygen>

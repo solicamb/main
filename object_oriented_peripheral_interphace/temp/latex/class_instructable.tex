@@ -1,0 +1,201 @@
+\hypertarget{class_instructable}{}\section{Instructable Class Reference}
+\label{class_instructable}\index{Instructable@{Instructable}}
+
+
+A class which models a Sensor/peripheral as entity which can recieve commands.  
+
+
+
+
+{\ttfamily \#include $<$Instructable.\+h$>$}
+
+
+
+Inheritance diagram for Instructable\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=147pt]{class_instructable__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_instructable_a688587b062ae8f3979bf7567041b86c1}{Instructable}} (const int Chip\+Select)
+\begin{DoxyCompactList}\small\item\em A constructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_instructable_a26afb4fb25fe8a13e268544d0850fe3f}{issue\+Command}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}})
+\begin{DoxyCompactList}\small\item\em Issues a command to the peripheral. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_instructable_ae1de225deda4decc52ce8e06efa8c547}{issue\+Command}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}}, int)
+\begin{DoxyCompactList}\small\item\em Issues a command to the peripheral. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_instructable_a556e6313ec5ac21a30efe8a5ef28a486}{issue\+Command}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}}, float)
+\begin{DoxyCompactList}\small\item\em Issues a command to the peripheral. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_instructable_ac2d69c105880162fed7b7be07228cfa7}{issue\+Command}} (\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}}, int, float)
+\begin{DoxyCompactList}\small\item\em Issues a command to the peripheral. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_instructable_a2bdcc11cead0067e963c524968d0d3e1}{are\+You\+Connected}} (void)
+\begin{DoxyCompactList}\small\item\em Checks to see whether the peripheral is connected. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+A class which models a Sensor/peripheral as entity which can recieve commands. 
+
+This class models a peripheral as an entity which can be issued commands. The commands issued are elements of the set defined by the m\+Instruct type. Each instruction can be accompanied by and integer and/or float as required to act as parameters to qualify the command. For example, if the peripheral is commanded to pause for an interval, the integer parameter is used by the peripheral to determine the length of time for which to pause. 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_instructable_a688587b062ae8f3979bf7567041b86c1}\label{class_instructable_a688587b062ae8f3979bf7567041b86c1}} 
+\index{Instructable@{Instructable}!Instructable@{Instructable}}
+\index{Instructable@{Instructable}!Instructable@{Instructable}}
+\subsubsection{\texorpdfstring{Instructable()}{Instructable()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_instructable}{Instructable}} (\begin{DoxyParamCaption}\item[{const int}]{Chip\+Select }\end{DoxyParamCaption})}
+
+
+
+A constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em The} & Slave Select pin of the S\+PI peripheral in question. \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{class_instructable_a2bdcc11cead0067e963c524968d0d3e1}\label{class_instructable_a2bdcc11cead0067e963c524968d0d3e1}} 
+\index{Instructable@{Instructable}!areYouConnected@{areYouConnected}}
+\index{areYouConnected@{areYouConnected}!Instructable@{Instructable}}
+\subsubsection{\texorpdfstring{areYouConnected()}{areYouConnected()}}
+{\footnotesize\ttfamily bool are\+You\+Connected (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks to see whether the peripheral is connected. 
+
+Initiates handshake and nop transaction with the sensor to ensure that it is connected and responding appropriately. \begin{DoxyReturn}{Returns}
+True if the peripheral is connected and communicating effectively. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{class_instructable_a2bdcc11cead0067e963c524968d0d3e1_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_instructable_a26afb4fb25fe8a13e268544d0850fe3f}\label{class_instructable_a26afb4fb25fe8a13e268544d0850fe3f}} 
+\index{Instructable@{Instructable}!issueCommand@{issueCommand}}
+\index{issueCommand@{issueCommand}!Instructable@{Instructable}}
+\subsubsection{\texorpdfstring{issueCommand()}{issueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily bool issue\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}}}]{Command }\end{DoxyParamCaption})}
+
+
+
+Issues a command to the peripheral. 
+
+Sends a command which is an element of the m\+Instruct type. 
+\begin{DoxyParams}{Parameters}
+{\em m\+Instruct} & is the command issued to the peripheral. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the peripheral acknowledges the command. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{class_instructable_a26afb4fb25fe8a13e268544d0850fe3f_cgraph}
+\end{center}
+\end{figure}
+Here is the caller graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{class_instructable_a26afb4fb25fe8a13e268544d0850fe3f_icgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_instructable_ae1de225deda4decc52ce8e06efa8c547}\label{class_instructable_ae1de225deda4decc52ce8e06efa8c547}} 
+\index{Instructable@{Instructable}!issueCommand@{issueCommand}}
+\index{issueCommand@{issueCommand}!Instructable@{Instructable}}
+\subsubsection{\texorpdfstring{issueCommand()}{issueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily bool issue\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}}}]{Command,  }\item[{int}]{int\+Param }\end{DoxyParamCaption})}
+
+
+
+Issues a command to the peripheral. 
+
+Sends a command which is an element of the m\+Instruct type qualified by an integer parameter (generally used to instruct on wait time or similar). 
+\begin{DoxyParams}{Parameters}
+{\em m\+Instruct} & is the command issued to the peripheral and int is the integer qualifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the peripheral acknowledges the command. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{class_instructable_ae1de225deda4decc52ce8e06efa8c547_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_instructable_a556e6313ec5ac21a30efe8a5ef28a486}\label{class_instructable_a556e6313ec5ac21a30efe8a5ef28a486}} 
+\index{Instructable@{Instructable}!issueCommand@{issueCommand}}
+\index{issueCommand@{issueCommand}!Instructable@{Instructable}}
+\subsubsection{\texorpdfstring{issueCommand()}{issueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily bool issue\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}}}]{Command,  }\item[{float}]{float\+Param }\end{DoxyParamCaption})}
+
+
+
+Issues a command to the peripheral. 
+
+Sends a command which is an element of the m\+Instruct type qualified by a float parameter. 
+\begin{DoxyParams}{Parameters}
+{\em m\+Instruct} & is the command issued to the peripheral and float is the floating point qualifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the peripheral acknowledges the command. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{class_instructable_a556e6313ec5ac21a30efe8a5ef28a486_cgraph}
+\end{center}
+\end{figure}
+\mbox{\Hypertarget{class_instructable_ac2d69c105880162fed7b7be07228cfa7}\label{class_instructable_ac2d69c105880162fed7b7be07228cfa7}} 
+\index{Instructable@{Instructable}!issueCommand@{issueCommand}}
+\index{issueCommand@{issueCommand}!Instructable@{Instructable}}
+\subsubsection{\texorpdfstring{issueCommand()}{issueCommand()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily bool issue\+Command (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_s_p_i___instruction_set_8h_afefab269eb3692ecb3e5fcdbb9440792}{m\+Instruct}}}]{Command,  }\item[{int}]{int\+Param,  }\item[{float}]{float\+Param }\end{DoxyParamCaption})}
+
+
+
+Issues a command to the peripheral. 
+
+Sends a command which is an element of the m\+Instruct type qualified by an integer parameter (generally used to instruct on wait time or similar) and a floating point parameter. 
+\begin{DoxyParams}{Parameters}
+{\em m\+Instruct} & is the command issued to the peripheral, int is the integer qualifier and float is the floating point qualifier. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the peripheral acknowledges the command. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=349pt]{class_instructable_ac2d69c105880162fed7b7be07228cfa7_cgraph}
+\end{center}
+\end{figure}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_instructable_8h}{Instructable.\+h}}\item 
+\mbox{\hyperlink{_instructable_8cpp}{Instructable.\+cpp}}\end{DoxyCompactItemize}

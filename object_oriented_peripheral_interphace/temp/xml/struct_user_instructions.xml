@@ -1,0 +1,186 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="struct_user_instructions" kind="struct" language="C++" prot="public">
+    <compoundname>UserInstructions</compoundname>
+    <includes refid="_master_8h" local="no">Master.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="struct_user_instructions_1a801574205a73598195471b820f1763be" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int NumOfInstructions</definition>
+        <argsstring></argsstring>
+        <name>NumOfInstructions</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="14" column="1" bodyfile="Master.h" bodystart="14" bodyend="-1"/>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="class_master_1aa68bb1327d506c42b6b7ab54fd73ca62" compoundref="_master_8cpp" startline="446" endline="448">Master::sendTotalNumOfInstructions</referencedby>
+        <referencedby refid="class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a" compoundref="_master_8cpp" startline="454" endline="466">Master::sendNextUserInstruction</referencedby>
+        <referencedby refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" compoundref="_master_8h" startline="21" endline="34">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int InstructionCounter</definition>
+        <argsstring></argsstring>
+        <name>InstructionCounter</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="15" column="1" bodyfile="Master.h" bodystart="15" bodyend="-1"/>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="class_master_1a250b4f7cdb96abb0be9ffdc54d00be31" compoundref="_master_8cpp" startline="450" endline="452">Master::getCurrentInstructionNumber</referencedby>
+        <referencedby refid="class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a" compoundref="_master_8cpp" startline="454" endline="466">Master::sendNextUserInstruction</referencedby>
+        <referencedby refid="class_master_1a8a9c9670d31af14e65157879963e0cf1" compoundref="_master_8cpp" startline="468" endline="471">Master::resendCurrentUserInstruction</referencedby>
+        <referencedby refid="class_master_1ad50d30dbd09d40661bbdbc1527ff07bf" compoundref="_master_8cpp" startline="473" endline="475">Master::restartUserInstructionCycle</referencedby>
+        <referencedby refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" compoundref="_master_8h" startline="21" endline="34">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" prot="public" static="no" mutable="no">
+        <type>char</type>
+        <definition>char InstructionSet[MAX_USER_INSTRUCTION_NUMBER][SLAVE_COMMMAND_STRING_LENGTH]</definition>
+        <argsstring>[MAX_USER_INSTRUCTION_NUMBER][SLAVE_COMMMAND_STRING_LENGTH]</argsstring>
+        <name>InstructionSet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="16" column="1" bodyfile="Master.h" bodystart="16" bodyend="-1"/>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a" compoundref="_master_8cpp" startline="454" endline="466">Master::sendNextUserInstruction</referencedby>
+        <referencedby refid="class_master_1a8a9c9670d31af14e65157879963e0cf1" compoundref="_master_8cpp" startline="468" endline="471">Master::resendCurrentUserInstruction</referencedby>
+        <referencedby refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" compoundref="_master_8h" startline="21" endline="34">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+        <definition>sInstruct MasterInstructionSet[MAX_USER_INSTRUCTION_NUMBER]</definition>
+        <argsstring>[MAX_USER_INSTRUCTION_NUMBER]</argsstring>
+        <name>MasterInstructionSet</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="17" column="1" bodyfile="Master.h" bodystart="17" bodyend="-1"/>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a" compoundref="_master_8cpp" startline="454" endline="466">Master::sendNextUserInstruction</referencedby>
+        <referencedby refid="class_master_1a8a9c9670d31af14e65157879963e0cf1" compoundref="_master_8cpp" startline="468" endline="471">Master::resendCurrentUserInstruction</referencedby>
+        <referencedby refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" compoundref="_master_8h" startline="21" endline="34">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int iParams[MAX_USER_INSTRUCTION_NUMBER]</definition>
+        <argsstring>[MAX_USER_INSTRUCTION_NUMBER]</argsstring>
+        <name>iParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="18" column="1" bodyfile="Master.h" bodystart="18" bodyend="-1"/>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a" compoundref="_master_8cpp" startline="454" endline="466">Master::sendNextUserInstruction</referencedby>
+        <referencedby refid="class_master_1a8a9c9670d31af14e65157879963e0cf1" compoundref="_master_8cpp" startline="468" endline="471">Master::resendCurrentUserInstruction</referencedby>
+        <referencedby refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" compoundref="_master_8h" startline="21" endline="34">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float fParams[MAX_USER_INSTRUCTION_NUMBER]</definition>
+        <argsstring>[MAX_USER_INSTRUCTION_NUMBER]</argsstring>
+        <name>fParams</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="19" column="1" bodyfile="Master.h" bodystart="19" bodyend="-1"/>
+        <referencedby refid="class_master_1afd2e9903066a53c737be92639cfa15b0" compoundref="_master_8cpp" startline="55" endline="101">Master::Master</referencedby>
+        <referencedby refid="class_master_1a5af38dc77ec10af275ed892e756aee64" compoundref="_master_8cpp" startline="103" endline="150">Master::SETUP</referencedby>
+        <referencedby refid="class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a" compoundref="_master_8cpp" startline="454" endline="466">Master::sendNextUserInstruction</referencedby>
+        <referencedby refid="class_master_1a8a9c9670d31af14e65157879963e0cf1" compoundref="_master_8cpp" startline="468" endline="471">Master::resendCurrentUserInstruction</referencedby>
+        <referencedby refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" compoundref="_master_8h" startline="21" endline="34">operator=</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" prot="public" static="no" const="no" explicit="no" inline="yes" volatile="yes" virt="non-virtual">
+        <type><ref refid="struct_user_instructions" kindref="compound">UserInstructions</ref> &amp;</type>
+        <definition>UserInstructions&amp; operator=</definition>
+        <argsstring>(const volatile UserInstructions &amp;rhs) volatile</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const volatile <ref refid="struct_user_instructions" kindref="compound">UserInstructions</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="21" column="1" bodyfile="Master.h" bodystart="21" bodyend="34"/>
+        <references refid="struct_user_instructions_1a801574205a73598195471b820f1763be" compoundref="_master_8h" startline="14">NumOfInstructions</references>
+        <references refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" compoundref="_master_8h" startline="15">InstructionCounter</references>
+        <references refid="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" compoundref="_master_8h" startline="11">MAX_USER_INSTRUCTION_NUMBER</references>
+        <references refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" compoundref="_master_8h" startline="18">iParams</references>
+        <references refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" compoundref="_master_8h" startline="19">fParams</references>
+        <references refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" compoundref="_master_8h" startline="17">MasterInstructionSet</references>
+        <references refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" compoundref="_s_p_i___instruction_set_8h" startline="43">SLAVE_COMMMAND_STRING_LENGTH</references>
+        <references refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" compoundref="_master_8h" startline="16">InstructionSet</references>
+      </memberdef>
+      <memberdef kind="function" id="struct_user_instructions_1a70e5ef4407c43d8e574dfe4b46083d56" prot="public" static="no" const="no" explicit="no" inline="yes" volatile="yes" virt="non-virtual">
+        <type><ref refid="struct_user_instructions" kindref="compound">UserInstructions</ref> &amp;</type>
+        <definition>volatile UserInstructions&amp; operator=</definition>
+        <argsstring>(const UserInstructions &amp;rhs) volatile</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="struct_user_instructions" kindref="compound">UserInstructions</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Master.h" line="36" column="1" bodyfile="Master.h" bodystart="36" bodyend="49"/>
+        <references refid="struct_user_instructions_1a801574205a73598195471b820f1763be" compoundref="_master_8h" startline="14">NumOfInstructions</references>
+        <references refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" compoundref="_master_8h" startline="15">InstructionCounter</references>
+        <references refid="_master_8h_1a495826fb50dc325303ad65b8a2e2ca8a" compoundref="_master_8h" startline="11">MAX_USER_INSTRUCTION_NUMBER</references>
+        <references refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" compoundref="_master_8h" startline="18">iParams</references>
+        <references refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" compoundref="_master_8h" startline="19">fParams</references>
+        <references refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" compoundref="_master_8h" startline="17">MasterInstructionSet</references>
+        <references refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" compoundref="_s_p_i___instruction_set_8h" startline="43">SLAVE_COMMMAND_STRING_LENGTH</references>
+        <references refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" compoundref="_master_8h" startline="16">InstructionSet</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="Master.h" line="13" column="1" bodyfile="Master.h" bodystart="13" bodyend="50"/>
+    <listofallmembers>
+      <member refid="struct_user_instructions_1a2f3be588265c4ed198e1687433e53754" prot="public" virt="non-virtual"><scope>UserInstructions</scope><name>fParams</name></member>
+      <member refid="struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4" prot="public" virt="non-virtual"><scope>UserInstructions</scope><name>InstructionCounter</name></member>
+      <member refid="struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca" prot="public" virt="non-virtual"><scope>UserInstructions</scope><name>InstructionSet</name></member>
+      <member refid="struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63" prot="public" virt="non-virtual"><scope>UserInstructions</scope><name>iParams</name></member>
+      <member refid="struct_user_instructions_1a2776e44080e40571fdf163b46b013aef" prot="public" virt="non-virtual"><scope>UserInstructions</scope><name>MasterInstructionSet</name></member>
+      <member refid="struct_user_instructions_1a801574205a73598195471b820f1763be" prot="public" virt="non-virtual"><scope>UserInstructions</scope><name>NumOfInstructions</name></member>
+      <member refid="struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196" prot="public" virt="non-virtual"><scope>UserInstructions</scope><name>operator=</name></member>
+      <member refid="struct_user_instructions_1a70e5ef4407c43d8e574dfe4b46083d56" prot="public" virt="non-virtual"><scope>UserInstructions</scope><name>operator=</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

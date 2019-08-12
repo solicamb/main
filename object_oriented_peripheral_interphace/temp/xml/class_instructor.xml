@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="class_instructor" kind="class" language="C++" prot="public">
+    <compoundname>Instructor</compoundname>
+    <derivedcompoundref refid="class_sensor" prot="public" virt="non-virtual">Sensor</derivedcompoundref>
+    <includes refid="_instructor_8h" local="no">Instructor.h</includes>
+      <sectiondef kind="private-attrib">
+      <memberdef kind="variable" id="class_instructor_1ac82721a9783dc8db498757194131276c" prot="private" static="no" mutable="no">
+        <type><ref refid="structs_cmd" kindref="compound">sCmd</ref></type>
+        <definition>sCmd CurrentCommand</definition>
+        <argsstring></argsstring>
+        <name>CurrentCommand</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructor.h" line="78" column="1" bodyfile="Instructor.h" bodystart="78" bodyend="-1"/>
+      </memberdef>
+      <memberdef kind="variable" id="class_instructor_1a8dd12ec5c03ca381f8fac69d1c7994d0" prot="private" static="no" mutable="no">
+        <type><ref refid="class_communicative" kindref="compound">Communicative</ref></type>
+        <definition>Communicative CommsModule</definition>
+        <argsstring></argsstring>
+        <name>CommsModule</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructor.h" line="79" column="1" bodyfile="Instructor.h" bodystart="79" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type></type>
+        <definition>Instructor</definition>
+        <argsstring>(const int ChipSelect)</argsstring>
+        <name>Instructor</name>
+        <param>
+          <type>const int</type>
+          <declname>ChipSelect</declname>
+        </param>
+        <briefdescription>
+<para>Constructor. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>ChipSelect</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the Slave Select pin of the SPI peripheral in question. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructor.h" line="29" column="1" bodyfile="Instructor.cpp" bodystart="10" bodyend="15"/>
+        <references refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" compoundref="_s_p_i___instruction_set_8h" startline="57">sCmd::Instruction</references>
+        <references refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47a5d6a7bf7f9dbd450f30e49215185fcb2" compoundref="_s_p_i___instruction_set_8h" startline="17">NAK</references>
+        <references refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" compoundref="_s_p_i___instruction_set_8h" startline="59">sCmd::sParam</references>
+        <references refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" compoundref="_s_p_i___instruction_set_8h" startline="61">sCmd::iParam</references>
+        <references refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" compoundref="_s_p_i___instruction_set_8h" startline="63">sCmd::fParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int howManyInstructions</definition>
+        <argsstring>(void)</argsstring>
+        <name>howManyInstructions</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Asks the <ref refid="class_sensor" kindref="compound">Sensor</ref> how many instructions there are in a measurement cycle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>In general, the master is expected to iterate through the instrcution set. <simplesect kind="return"><para>The number of instructions in a measurement cycle. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructor.h" line="36" column="1" bodyfile="Instructor.cpp" bodystart="23" bodyend="27"/>
+        <references refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a303b60d37143112142046add7f73d4bf" compoundref="_s_p_i___instruction_set_8h" startline="33">HowManyInstructions</references>
+        <references refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" compoundref="_communicative_8cpp" startline="57" endline="87">Communicative::RequestReply</references>
+        <references refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" compoundref="_s_p_i___instruction_set_8h" startline="61">sCmd::iParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int howLongShouldIWait</definition>
+        <argsstring>(void)</argsstring>
+        <name>howLongShouldIWait</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Asks the sensor how long the master should pause for. Deprecated. </para>
+        </briefdescription>
+        <detaileddescription>
+<para><simplesect kind="return"><para>The duration, in milliseconds, the master should pause for. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructor.h" line="41" column="1" bodyfile="Instructor.cpp" bodystart="30" bodyend="34"/>
+        <references refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792abd3b3ed0c9b543b6cf7ff2463568fe4f" compoundref="_s_p_i___instruction_set_8h" startline="38">HowLongShouldIWait</references>
+        <references refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" compoundref="_communicative_8cpp" startline="57" endline="87">Communicative::RequestReply</references>
+        <references refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" compoundref="_s_p_i___instruction_set_8h" startline="61">sCmd::iParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_instructor_1a43cbe18547a30108219f3aa2945fc9ca" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void loadNextCommand</definition>
+        <argsstring>(void)</argsstring>
+        <name>loadNextCommand</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Fetches the next instruction issued by the sensor in its instruction cycle. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Fetches the next instruction from the <ref refid="class_sensor" kindref="compound">Sensor</ref> and loads it into local memory. Instructions are issued in the <ref refid="structs_cmd" kindref="compound">sCmd</ref> type and are therefore consititute an element of the sInstruct instruction set, qualified by a character array (string), integer and float. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructor.h" line="47" column="1" bodyfile="Instructor.cpp" bodystart="36" bodyend="44"/>
+        <references refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a9319f300f7a4bc8e0c2c9139cde4fb21" compoundref="_s_p_i___instruction_set_8h" startline="34">NextCommandPlease</references>
+        <references refid="class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1" compoundref="_communicative_8cpp" startline="57" endline="87">Communicative::RequestReply</references>
+      </memberdef>
+      <memberdef kind="function" id="class_instructor_1a8c66f480a7b5a6b434f613bc7197e824" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void getCurrentCommandString</definition>
+        <argsstring>(char[SLAVE_COMMMAND_STRING_LENGTH])</argsstring>
+        <name>getCurrentCommandString</name>
+        <param>
+          <type>char</type>
+          <defname>Instruction</defname>
+          <array>[SLAVE_COMMMAND_STRING_LENGTH]</array>
+        </param>
+        <briefdescription>
+<para>Returns the character array which qualifies the instruction currently loaded into local memory as issued by the <ref refid="class_sensor" kindref="compound">Sensor</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The character array (string) issued by the <ref refid="class_sensor" kindref="compound">Sensor</ref> is generally intended to be displayed to the user, to update the user on the progress of the measurement procedure or instruct the user on the next step in the measurement procedure, such as inserting the probe into the measurement environment. <parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>char</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>is the character array into which the instruction string is loaded. </para>
+</parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructor.h" line="55" column="1" bodyfile="Instructor.cpp" bodystart="46" bodyend="51"/>
+        <references refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" compoundref="_s_p_i___instruction_set_8h" startline="43">SLAVE_COMMMAND_STRING_LENGTH</references>
+        <references refid="structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f" compoundref="_s_p_i___instruction_set_8h" startline="59">sCmd::sParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_instructor_1adcbf1cb6d2739539465edc6d996d2987" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>int</type>
+        <definition>int getCurrentCommandInt</definition>
+        <argsstring>(void)</argsstring>
+        <name>getCurrentCommandInt</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns the integer which qualifies the instruction currently loaded into local memory as issued by the <ref refid="class_sensor" kindref="compound">Sensor</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The integer which qualifies the instruction issued by the sensor is generally used to either augment the information displayed to the user to instruct the master as to how it should carry out the request of the slave, such as how long to pasue for. <simplesect kind="return"><para>The integer which qualifies the instruction. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructor.h" line="62" column="1" bodyfile="Instructor.cpp" bodystart="53" bodyend="55"/>
+        <references refid="structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" compoundref="_s_p_i___instruction_set_8h" startline="61">sCmd::iParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_instructor_1ae81f8123893b582fd32a71601471cff8" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>float</type>
+        <definition>float getCurrentCommandFloat</definition>
+        <argsstring>(void)</argsstring>
+        <name>getCurrentCommandFloat</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns the float which qualifies the instruction currently loaded into local memory as issued by the <ref refid="class_sensor" kindref="compound">Sensor</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>The float which qualifies the instruction issued by the sensor is generally used to either augment the information displayed to the user to instruct the master as to how it should carry out the request of the slave. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructor.h" line="68" column="1" bodyfile="Instructor.cpp" bodystart="57" bodyend="59"/>
+        <references refid="structs_cmd_1af05b89ac7edf2c67bb3386c902369313" compoundref="_s_p_i___instruction_set_8h" startline="63">sCmd::fParam</references>
+      </memberdef>
+      <memberdef kind="function" id="class_instructor_1a1e54d05ded7ecf88f0205b52901df681" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref></type>
+        <definition>sInstruct getCurrentCommandInstruction</definition>
+        <argsstring>(void)</argsstring>
+        <name>getCurrentCommandInstruction</name>
+        <param>
+          <type>void</type>
+        </param>
+        <briefdescription>
+<para>Returns the sinstruct object which defines the instruction currently loaded into local memory as issued by the <ref refid="class_sensor" kindref="compound">Sensor</ref>. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Elements of the sInstruct type define all the potential instructions which can be issued by a Slave. <simplesect kind="return"><para>The instruction issued by the slave. </para>
+</simplesect>
+</para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="Instructor.h" line="74" column="1" bodyfile="Instructor.cpp" bodystart="61" bodyend="63"/>
+        <references refid="structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc" compoundref="_s_p_i___instruction_set_8h" startline="57">sCmd::Instruction</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>A class which models a Sensor/peripheral as entity which can issue instructions to the master. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>This class models a peripheral as an entity which can issue commands to the master. The premise is that a sensor peripheral will conduct a measurement by cycling through a number of steps. At each step the sensor may wish for the <ref refid="class_master" kindref="compound">Master</ref> to perform certain actions, such as display a message to the user, pause for a certain period of time or wait until the user has acknowledged an instruction by button press. In general, the master is expected to iterate through the instruction set, loading an instruction each iteration and repsonding appropriately. i.e. follow the procedure: <ref refid="class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8" kindref="member">howManyInstructions()</ref>-&gt;start loop-&gt;<ref refid="class_instructor_1a43cbe18547a30108219f3aa2945fc9ca" kindref="member">loadNextCommand()</ref>-&gt;React to command-&gt;repeat until all instructions have been processed. </para>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="16">
+        <label>Sensor</label>
+        <link refid="class_sensor"/>
+        <childnode refid="15" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>Instructor</label>
+        <link refid="class_instructor"/>
+      </node>
+    </inheritancegraph>
+    <location file="Instructor.h" line="21" column="1" bodyfile="Instructor.h" bodystart="20" bodyend="80"/>
+    <listofallmembers>
+      <member refid="class_instructor_1a8dd12ec5c03ca381f8fac69d1c7994d0" prot="private" virt="non-virtual"><scope>Instructor</scope><name>CommsModule</name></member>
+      <member refid="class_instructor_1ac82721a9783dc8db498757194131276c" prot="private" virt="non-virtual"><scope>Instructor</scope><name>CurrentCommand</name></member>
+      <member refid="class_instructor_1ae81f8123893b582fd32a71601471cff8" prot="public" virt="non-virtual"><scope>Instructor</scope><name>getCurrentCommandFloat</name></member>
+      <member refid="class_instructor_1a1e54d05ded7ecf88f0205b52901df681" prot="public" virt="non-virtual"><scope>Instructor</scope><name>getCurrentCommandInstruction</name></member>
+      <member refid="class_instructor_1adcbf1cb6d2739539465edc6d996d2987" prot="public" virt="non-virtual"><scope>Instructor</scope><name>getCurrentCommandInt</name></member>
+      <member refid="class_instructor_1a8c66f480a7b5a6b434f613bc7197e824" prot="public" virt="non-virtual"><scope>Instructor</scope><name>getCurrentCommandString</name></member>
+      <member refid="class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f" prot="public" virt="non-virtual"><scope>Instructor</scope><name>howLongShouldIWait</name></member>
+      <member refid="class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8" prot="public" virt="non-virtual"><scope>Instructor</scope><name>howManyInstructions</name></member>
+      <member refid="class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823" prot="public" virt="non-virtual"><scope>Instructor</scope><name>Instructor</name></member>
+      <member refid="class_instructor_1a43cbe18547a30108219f3aa2945fc9ca" prot="public" virt="non-virtual"><scope>Instructor</scope><name>loadNextCommand</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

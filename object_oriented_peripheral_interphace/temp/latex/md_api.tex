@@ -1,0 +1,49 @@
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Members  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Descriptions   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Members  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Descriptions   }\\\cline{1-2}
+\endhead
+{\ttfamily class}\href{\#class_communicative}{\texttt{ {\ttfamily Communicative}}}  &A class to manage communication with slave module.   \\\cline{1-2}
+{\ttfamily class}\href{\#class_data_source}{\texttt{ {\ttfamily Data\+Source}}}  &A class which models a Sensor/peripheral as an entity which is a source of data.   \\\cline{1-2}
+{\ttfamily class}\href{\#class_identifiable}{\texttt{ {\ttfamily Identifiable}}}  &A class which models a Sensor/peripheral as an identifiable entity.   \\\cline{1-2}
+{\ttfamily class}\href{\#class_instructable}{\texttt{ {\ttfamily Instructable}}}  &A class which models a Sensor/peripheral as entity which can recieve commands.   \\\cline{1-2}
+{\ttfamily class}\href{\#class_instructor}{\texttt{ {\ttfamily Instructor}}}  &A class which models a Sensor/peripheral as entity which can issue instructions to the master.   \\\cline{1-2}
+{\ttfamily class}\href{\#class_master}{\texttt{ {\ttfamily Master}}}  &A monolithic class to encapsulate and abstract the slave\textquotesingle{}s communication with the master.   \\\cline{1-2}
+{\ttfamily class}\href{\#class_sensor}{\texttt{ {\ttfamily Sensor}}}  &A class which models a Sensor/peripheral.   \\\cline{1-2}
+{\ttfamily struct}\href{\#struct_data}{\texttt{ {\ttfamily Data}}}  &Type used to encapsulate the data collected by the slave.   \\\cline{1-2}
+{\ttfamily struct}\href{\#struct_identity}{\texttt{ {\ttfamily Identity}}}  &Type used to convey the Slave identity.   \\\cline{1-2}
+{\ttfamily struct}\href{\#structm_cmd}{\texttt{ {\ttfamily m\+Cmd}}}  &Type used by master to send requests to slave.   \\\cline{1-2}
+{\ttfamily struct}\href{\#structs_cmd}{\texttt{ {\ttfamily s\+Cmd}}}  &Type used by slave to send reply to master,.   \\\cline{1-2}
+\end{longtabu}
+{\ttfamily struct}\href{\#struct_user_instructions}{\texttt{ {\ttfamily User\+Instructions}}} $\vert$\hypertarget{md_mpi-_class_communicative}{}\section{class $<$tt$>$\+Communicative$<$/tt$>$}\label{md_mpi-_class_communicative}
+A class to manage communication with slave module.
+
+This class is designed for S\+PI communication with a slave device. The class responsibilities include both S\+PI initialisation and fundamental transactions. The transaction protocol implemented follows the following flow\+: Clear SS -\/$>$ Send \textquotesingle{}?\textquotesingle{} to slave -\/$>$ recieve \textquotesingle{}A\+CK\textquotesingle{} (0x06) from slave -\/$>$ send request \href{\#structm_cmd}{\texttt{ m\+Cmd}} -\/$>$ recieve s\+Cmd/\+Data/\+Identity as expected -\/$>$ set SS. Where \href{\#structm_cmd}{\texttt{ m\+Cmd}}, \href{\#structs_cmd}{\texttt{ s\+Cmd}}, \href{\#struct_data}{\texttt{ Data}} and \href{\#struct_identity}{\texttt{ Identity}} are structures defined as types.
+
+\subsection*{Summary}
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Members  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Descriptions   }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Members  }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Descriptions   }\\\cline{1-2}
+\endhead
+{\ttfamily public}\href{\#class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a}{\texttt{ {\ttfamily Communicative}}}{\ttfamily (const int CS)}  &Constructor.   \\\cline{1-2}
+{\ttfamily public}\href{\#class_communicative_1a53c7f2ec58bfb99f0ea10e238705c3ce}{\texttt{ {\ttfamily $\sim$\+Communicative}}}{\ttfamily (void)}  &Destructor.   \\\cline{1-2}
+{\ttfamily public bool}\href{\#class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046}{\texttt{ {\ttfamily is\+Peripheral\+Connected}}}{\ttfamily (void)}  &Checks whether Slave is connected.   \\\cline{1-2}
+{\ttfamily public}\href{\#structs_cmd}{\texttt{ {\ttfamily s\+Cmd}}}\href{\#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1}{\texttt{ {\ttfamily Request\+Reply}}}{\ttfamily (const \mbox{\hyperlink{structm_cmd}{m\+Cmd}})}  &Performs a complete transaction; expects Slave to Reply with \href{\#structs_cmd}{\texttt{ s\+Cmd}} object.   \\\cline{1-2}
+{\ttfamily public}\href{\#struct_identity}{\texttt{ {\ttfamily Identity}}}\href{\#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d}{\texttt{ {\ttfamily Request\+Identity}}}{\ttfamily (const \mbox{\hyperlink{structm_cmd}{m\+Cmd}})}  &Performs a complete transaction; expects Slave to Reply with \href{\#struct_identity}{\texttt{ Identity}} object.   \\\cline{1-2}
+{\ttfamily public}\href{\#struct_data}{\texttt{ {\ttfamily Data}}}\href{\#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a}{\texttt{ {\ttfamily Request\+Data}}}{\ttfamily (const \mbox{\hyperlink{structm_cmd}{m\+Cmd}})}  &Performs a complete transaction; expects Slave to Reply with a \href{\#struct_data}{\texttt{ Data}} object.   \\\cline{1-2}
+\end{longtabu}
+
+
+\subsection*{Members}

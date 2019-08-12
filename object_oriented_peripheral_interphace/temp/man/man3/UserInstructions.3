@@ -1,0 +1,66 @@
+.TH "UserInstructions" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+UserInstructions
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Master\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBUserInstructions\fP & \fBoperator=\fP (const volatile \fBUserInstructions\fP &rhs) volatile"
+.br
+.ti -1c
+.RI "volatile \fBUserInstructions\fP & \fBoperator=\fP (const \fBUserInstructions\fP &rhs) volatile"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBNumOfInstructions\fP"
+.br
+.ti -1c
+.RI "int \fBInstructionCounter\fP"
+.br
+.ti -1c
+.RI "char \fBInstructionSet\fP [\fBMAX_USER_INSTRUCTION_NUMBER\fP][\fBSLAVE_COMMMAND_STRING_LENGTH\fP]"
+.br
+.ti -1c
+.RI "\fBsInstruct\fP \fBMasterInstructionSet\fP [\fBMAX_USER_INSTRUCTION_NUMBER\fP]"
+.br
+.ti -1c
+.RI "int \fBiParams\fP [\fBMAX_USER_INSTRUCTION_NUMBER\fP]"
+.br
+.ti -1c
+.RI "float \fBfParams\fP [\fBMAX_USER_INSTRUCTION_NUMBER\fP]"
+.br
+.in -1c
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBUserInstructions\fP& operator= (const volatile \fBUserInstructions\fP & rhs) volatile\fC [inline]\fP"
+
+.SS "volatile \fBUserInstructions\fP& operator= (const \fBUserInstructions\fP & rhs) volatile\fC [inline]\fP"
+
+.SH "Field Documentation"
+.PP 
+.SS "float fParams[\fBMAX_USER_INSTRUCTION_NUMBER\fP]"
+
+.SS "int InstructionCounter"
+
+.SS "char InstructionSet[\fBMAX_USER_INSTRUCTION_NUMBER\fP][\fBSLAVE_COMMMAND_STRING_LENGTH\fP]"
+
+.SS "int iParams[\fBMAX_USER_INSTRUCTION_NUMBER\fP]"
+
+.SS "\fBsInstruct\fP MasterInstructionSet[\fBMAX_USER_INSTRUCTION_NUMBER\fP]"
+
+.SS "int NumOfInstructions"
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

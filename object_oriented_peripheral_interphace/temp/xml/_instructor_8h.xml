@@ -1,0 +1,124 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_instructor_8h" kind="file" language="C++">
+    <compoundname>Instructor.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="_s_p_i___instruction_set_8h" local="yes">SPI_InstructionSet.h</includes>
+    <includes refid="_instructable_8h" local="yes">Instructable.h</includes>
+    <includedby refid="_instructor_8cpp" local="yes">Instructor.cpp</includedby>
+    <includedby refid="_sensor_8cpp" local="yes">Sensor.cpp</includedby>
+    <includedby refid="_sensor_8h" local="yes">Sensor.h</includedby>
+    <incdepgraph>
+      <node id="79">
+        <label>Instructor.h</label>
+        <link refid="_instructor_8h"/>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="82" relation="include">
+        </childnode>
+      </node>
+      <node id="83">
+        <label>Communicative.h</label>
+        <link refid="_communicative_8h"/>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>Arduino.h</label>
+      </node>
+      <node id="81">
+        <label>SPI_InstructionSet.h</label>
+        <link refid="_s_p_i___instruction_set_8h"/>
+      </node>
+      <node id="82">
+        <label>Instructable.h</label>
+        <link refid="_instructable_8h"/>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+        <childnode refid="83" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="85">
+        <label>Instructor.cpp</label>
+        <link refid="_instructor_8cpp"/>
+      </node>
+      <node id="84">
+        <label>Instructor.h</label>
+        <link refid="_instructor_8h"/>
+        <childnode refid="85" relation="include">
+        </childnode>
+        <childnode refid="86" relation="include">
+        </childnode>
+        <childnode refid="87" relation="include">
+        </childnode>
+      </node>
+      <node id="86">
+        <label>Sensor.cpp</label>
+        <link refid="_sensor_8cpp"/>
+      </node>
+      <node id="87">
+        <label>Sensor.h</label>
+        <link refid="_sensor_8h"/>
+        <childnode refid="86" relation="include">
+        </childnode>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_instructor" prot="public">Instructor</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>ensure<sp/>this<sp/>library<sp/>description<sp/>is<sp/>only<sp/>included<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>Instructor_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Instructor_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>include<sp/>types<sp/>&amp;<sp/>constants<sp/>of<sp/>Wiring<sp/>core<sp/>API</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_s_p_i___instruction_set_8h" kindref="compound">SPI_InstructionSet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_instructable_8h" kindref="compound">Instructable.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>library<sp/>interface<sp/>description</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"></highlight></codeline>
+<codeline lineno="20" refid="class_instructor" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_instructor" kindref="compound">Instructor</ref></highlight></codeline>
+<codeline lineno="21"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="22"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>user-accessible<sp/>&quot;public&quot;<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"></codeline>
+<codeline lineno="29"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823" kindref="member">Instructor</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ChipSelect);</highlight></codeline>
+<codeline lineno="30"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8" kindref="member">howManyInstructions</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="38"></codeline>
+<codeline lineno="41"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f" kindref="member">howLongShouldIWait</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="43"></codeline>
+<codeline lineno="47"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1a43cbe18547a30108219f3aa2945fc9ca" kindref="member">loadNextCommand</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="49"></codeline>
+<codeline lineno="55"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1a8c66f480a7b5a6b434f613bc7197e824" kindref="member">getCurrentCommandString</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal">[<ref refid="_s_p_i___instruction_set_8h_1afb2f23f8980c03317ec47ce151335ec7" kindref="member">SLAVE_COMMMAND_STRING_LENGTH</ref>]);</highlight></codeline>
+<codeline lineno="57"></codeline>
+<codeline lineno="62"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1adcbf1cb6d2739539465edc6d996d2987" kindref="member">getCurrentCommandInt</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="64"></codeline>
+<codeline lineno="68"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">float</highlight><highlight class="normal"><sp/><ref refid="class_instructor_1ae81f8123893b582fd32a71601471cff8" kindref="member">getCurrentCommandFloat</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="70"></codeline>
+<codeline lineno="74"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47" kindref="member">sInstruct</ref><sp/><ref refid="class_instructor_1a1e54d05ded7ecf88f0205b52901df681" kindref="member">getCurrentCommandInstruction</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="75"><highlight class="normal"></highlight></codeline>
+<codeline lineno="76"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>library-accessible<sp/>&quot;private&quot;<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="77"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="78"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="structs_cmd" kindref="compound">sCmd</ref><sp/>CurrentCommand;</highlight></codeline>
+<codeline lineno="79"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_communicative" kindref="compound">Communicative</ref><sp/>CommsModule;</highlight></codeline>
+<codeline lineno="80"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="81"><highlight class="normal"></highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="Instructor.h"/>
+  </compounddef>
+</doxygen>

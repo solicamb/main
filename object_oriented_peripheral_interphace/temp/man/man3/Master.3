@@ -1,0 +1,404 @@
+.TH "Master" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Master \- A monolithic class to encapsulate and abstract the slave's communication with the master\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Master\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBMaster\fP (const int SensorIDNumber, const char SensorName[], const char InstructionSet[][\fBSLAVE_COMMMAND_STRING_LENGTH\fP], const int NumberOfInstructions, const \fBsInstruct\fP MasterInstructionSet[], const int intParams[], const float floatParams[])"
+.br
+.ti -1c
+.RI "\fBMaster\fP (void)"
+.br
+.ti -1c
+.RI "\fB~Master\fP (void)"
+.br
+.ti -1c
+.RI "\fBMaster\fP (volatile const \fBMaster\fP &)"
+.br
+.ti -1c
+.RI "volatile \fBMaster\fP & \fBoperator=\fP (const \fBMaster\fP &rhs) volatile"
+.br
+.ti -1c
+.RI "volatile \fBMaster\fP & \fBoperator=\fP (volatile const \fBMaster\fP &rhs) volatile"
+.br
+.ti -1c
+.RI "void \fBSETUP\fP (const int SensorIDNumber, volatile char SensorName[], volatile char InstructionSet[][\fBSLAVE_COMMMAND_STRING_LENGTH\fP], const int NumberOfInstructions, volatile \fBsInstruct\fP MasterInstructionSet[], volatile int intParams[], volatile float floatParams[]) volatile"
+.br
+.RI "Set up of the commuication mechanism\&. "
+.ti -1c
+.RI "void \fBSPISetup\fP (void) volatile"
+.br
+.RI "Sets up SPI and attaches interrupt\&. "
+.ti -1c
+.RI "bool \fBHandshake\fP (void) volatile"
+.br
+.RI "Manages the handshake component of any transaction\&. "
+.ti -1c
+.RI "\fBmCmd\fP \fBloadRequest\fP (void) volatile"
+.br
+.RI "Retrieve the request sent by the master\&. "
+.ti -1c
+.RI "\fBmInstruct\fP \fBgetCurrentInstruction\fP (void) volatile"
+.br
+.RI "Returns the mInstruct component of the most recently loaded request sent by the master\&. "
+.ti -1c
+.RI "int \fBgetCurrentInstructionIntParameter\fP (void) volatile"
+.br
+.RI "Returns the integer parameter of the most recently loaded request sent by the master\&. "
+.ti -1c
+.RI "float \fBgetCurrentInstructionFloatParameter\fP (void) volatile"
+.br
+.RI "Returns the floating point parameter of the most recently loaded request sent by the master\&. "
+.ti -1c
+.RI "void \fBsendReply\fP (const \fBsCmd\fP Reply) volatile"
+.br
+.RI "Send an \fBsCmd\fP object in reply to the request recieved from \fBMaster\fP\&. "
+.ti -1c
+.RI "void \fBsendReply\fP (const \fBsInstruct\fP Instruction) volatile"
+.br
+.RI "Send a reply to the request recieved from master\&. "
+.ti -1c
+.RI "void \fBsendReply\fP (const \fBsInstruct\fP Instruction, volatile char InstructionString[\fBSLAVE_COMMMAND_STRING_LENGTH\fP]) volatile"
+.br
+.RI "Send a reply to the request recieved from master\&. "
+.ti -1c
+.RI "void \fBsendReply\fP (const \fBsInstruct\fP Instruction, const int iParam) volatile"
+.br
+.RI "Send a reply to the request recieved from master\&. "
+.ti -1c
+.RI "void \fBsendReply\fP (const \fBsInstruct\fP Instruction, const float fParam) volatile"
+.br
+.RI "Send a reply to the request recieved from master\&. "
+.ti -1c
+.RI "void \fBsendReply\fP (const \fBsInstruct\fP Instruction, const int iParam, const int fParam) volatile"
+.br
+.RI "Send a reply to the request recieved from master\&. "
+.ti -1c
+.RI "void \fBsendReply\fP (\fBsInstruct\fP Instruction, int iParam, volatile char InstructionString[\fBSLAVE_COMMMAND_STRING_LENGTH\fP]) volatile"
+.br
+.RI "Send a reply to the request recieved from master\&. "
+.ti -1c
+.RI "void \fBsendReply\fP (\fBsInstruct\fP Instruction, float fParam, volatile char InstructionString[\fBSLAVE_COMMMAND_STRING_LENGTH\fP]) volatile"
+.br
+.RI "Send a reply to the request recieved from master\&. "
+.ti -1c
+.RI "void \fBsendReply\fP (\fBsInstruct\fP Instruction, int iParam, float fParam, volatile char InstructionString[\fBSLAVE_COMMMAND_STRING_LENGTH\fP]) volatile"
+.br
+.RI "Send a reply to the request recieved from master\&. "
+.ti -1c
+.RI "void \fBsendData\fP (void) volatile"
+.br
+.RI "Sends the local \fBData\fP object to the master in reply to appropriate request\&. "
+.ti -1c
+.RI "void \fBsendIdentity\fP (void) volatile"
+.br
+.RI "Sends slave \fBIdentity\fP object to the master in reply to appropriate request\&. "
+.ti -1c
+.RI "bool \fBPushMeasurementVector\fP (const \fBMeasurementVectors\fP VectorNumber, const float Measurement) volatile"
+.br
+.RI "Pushes a data point onto one of the data vectors\&. "
+.ti -1c
+.RI "bool \fBPopMeasurementVector\fP (\fBMeasurementVectors\fP VectorNumber) volatile"
+.br
+.RI "Pops a data point from the tail end of a designated vector\&. "
+.ti -1c
+.RI "void \fBClearMeasurementVector\fP (\fBMeasurementVectors\fP VectorNumber) volatile"
+.br
+.RI "Clears all data points from a particular vector\&. "
+.ti -1c
+.RI "void \fBsetMeasurementVectorHeading\fP (\fBMeasurementVectors\fP VectorNumber, volatile char Heading[\fBROW_HEADING_LENGTH\fP]) volatile"
+.br
+.RI "Sets the string heading assigned to a paritcular data vector\&. "
+.ti -1c
+.RI "void \fBsetMeasurementVectorUnits\fP (\fBMeasurementVectors\fP VectorNumber, volatile char Units[\fBROW_UNIT_LENGTH\fP]) volatile"
+.br
+.RI "Sets the string Units assigned to a paritcular data vector\&. "
+.ti -1c
+.RI "bool \fBisThereData\fP (void) volatile"
+.br
+.RI "Checks to see whether any data has been pushed to any of the data vectors locally\&. "
+.ti -1c
+.RI "void \fBsendTotalNumOfInstructions\fP (void) volatile"
+.br
+.RI "Sends a reply to \fBMaster\fP specifiying the total number of instructions in a measurement procedure\&. "
+.ti -1c
+.RI "int \fBgetCurrentInstructionNumber\fP (void) volatile"
+.br
+.RI "Gets the value of the counter which tracks the current instruction number throughout the measurement procedure\&. "
+.ti -1c
+.RI "bool \fBsendNextUserInstruction\fP (void) volatile"
+.br
+.RI "Sends the next instruction in the measurement cycle to the master\&. "
+.ti -1c
+.RI "void \fBresendCurrentUserInstruction\fP (void) volatile"
+.br
+.RI "Resends the cuurent instruction in the measurement procedure to the master\&. "
+.ti -1c
+.RI "void \fBrestartUserInstructionCycle\fP (void) volatile"
+.br
+.RI "Restarts the measurement prcedure\&. "
+.ti -1c
+.RI "void \fBbeginMeasurement\fP (void) volatile"
+.br
+.RI "Updates state to indicate that \fBMaster\fP has requested the intitiation of the measurement procedure\&. "
+.ti -1c
+.RI "bool \fBshallIStart\fP (void) volatile"
+.br
+.RI "Checks whether the \fBbeginMeasurement()\fP method has been called\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A monolithic class to encapsulate and abstract the slave's communication with the master\&. 
+
+A single transaction is characterised by the following flow of control: Clear SS -> Enter IRQ -> Recieve '?' from master -> send 'ACK' (0x06) to master -> recieve request \fBmCmd\fP -> send sCmd/Data/Identity as expected -> exit IRQ\&. Where \fBmCmd\fP, \fBsCmd\fP, \fBData\fP and \fBIdentity\fP are structures defined as types\&. The intial Recieve '?' -> send 'ACK' is known as the handshake\&. This class' responsibilities include intitialising and handling the SPI, attaching the interrupt and providing the IRQ, managing the handshake and encapsulating the reponse mechanism\&. Note the use of a volatile interface to allow for safe use of the interrupt\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBMaster\fP (const int SensorIDNumber, const char SensorName[], const char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, const \fBsInstruct\fP MasterInstructionSet[], const int intParams[], const float floatParams[])"
+
+.SS "\fBMaster\fP (void)"
+
+.SS "~\fBMaster\fP (void)"
+
+.SS "\fBMaster\fP (volatile const \fBMaster\fP & rhs)"
+
+.SH "Member Function Documentation"
+.PP 
+.SS "void beginMeasurement (void) volatile"
+
+.PP
+Updates state to indicate that \fBMaster\fP has requested the intitiation of the measurement procedure\&. Designed to allow the IRQ to update the slave state so that the procedural code in main() can initiate the measurement procedure\&. 
+.SS "void ClearMeasurementVector (\fBMeasurementVectors\fP VectorNumber) volatile"
+
+.PP
+Clears all data points from a particular vector\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIVectorNumber\fP is the enumerated reference to the row/vector in the data array being accessed\&. 
+.RE
+.PP
+
+.SS "\fBmInstruct\fP getCurrentInstruction (void) volatile"
+
+.PP
+Returns the mInstruct component of the most recently loaded request sent by the master\&. 
+.SS "float getCurrentInstructionFloatParameter (void) volatile"
+
+.PP
+Returns the floating point parameter of the most recently loaded request sent by the master\&. 
+.SS "int getCurrentInstructionIntParameter (void) volatile"
+
+.PP
+Returns the integer parameter of the most recently loaded request sent by the master\&. 
+.SS "int getCurrentInstructionNumber (void) volatile"
+
+.PP
+Gets the value of the counter which tracks the current instruction number throughout the measurement procedure\&. 
+.SS "bool Handshake (void) volatile"
+
+.PP
+Manages the handshake component of any transaction\&. Manages the handshake between master and slave; defined by: Recieve '?' -> send 'ACK' (0x06)\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the handshake was successful\&. 
+.RE
+.PP
+
+.SS "bool isThereData (void) volatile"
+
+.PP
+Checks to see whether any data has been pushed to any of the data vectors locally\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if any data points exist in the data vectors locally\&. 
+.RE
+.PP
+
+.SS "\fBmCmd\fP loadRequest (void) volatile"
+
+.PP
+Retrieve the request sent by the master\&. After each handshake, the master will proceed to send a request, defined by an \fBmCmd\fP object\&. This function must runafter each handshake\&. This function reassembles the \fBmCmd\fP request sent by the master, byte by byte and stores it in local memory\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the \fBmCmd\fP object sent by the master\&. 
+.RE
+.PP
+
+.SS "volatile \fBMaster\fP& operator= (const \fBMaster\fP & rhs) volatile\fC [inline]\fP"
+
+.SS "volatile \fBMaster\fP& operator= (volatile const \fBMaster\fP & rhs) volatile\fC [inline]\fP"
+
+.SS "bool PopMeasurementVector (\fBMeasurementVectors\fP VectorNumber) volatile"
+
+.PP
+Pops a data point from the tail end of a designated vector\&. Removes the most recent data point from the vector in question by marking said data slot writeable to be the next \fBPushMeasurementVector()\fP\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIVectorNumber\fP is the enumerated reference to the row/vector in the data array being accessed\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+False if the vector/row in question is empty\&. 
+.RE
+.PP
+
+.SS "bool PushMeasurementVector (const \fBMeasurementVectors\fP VectorNumber, const float Measurement) volatile"
+
+.PP
+Pushes a data point onto one of the data vectors\&. Adds a data point to the next available slot in a particular vector until the vector (row) in the data array is full\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIVectorNumber\fP is the enumerated reference to the row/vector in the data array being accessed\&. 
+.br
+\fIMeasurement\fP is the data point to be stored\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+False if the vector/row in question is full\&. (See DATA_ROW_LENGTH)\&. 
+.RE
+.PP
+
+.SS "void resendCurrentUserInstruction (void) volatile"
+
+.PP
+Resends the cuurent instruction in the measurement procedure to the master\&. This method will NOT advance the measurement cycle\&. 
+.SS "void restartUserInstructionCycle (void) volatile"
+
+.PP
+Restarts the measurement prcedure\&. Restarts the measuement procedure such that the next instruction sent will be the first instruction in the measurement cycle\&. 
+.SS "void sendData (void) volatile"
+
+.PP
+Sends the local \fBData\fP object to the master in reply to appropriate request\&. Sends \fBData\fP object to the master in reponse to a request made by the master for \fBData\fP\&. NOTE: This must be used as the response to the appropriate mInstruct request\&. In paricular, (mInstruct)SendDataPlease 
+.SS "void sendIdentity (void) volatile"
+
+.PP
+Sends slave \fBIdentity\fP object to the master in reply to appropriate request\&. Sends the slave \fBIdentity\fP object in response to an appropriate request made by master\&. NOTE: This must be used as the response to the appropriate mInstruct request\&. In paricular, (mInstruct)WhoAreYou 
+.SS "bool sendNextUserInstruction (void) volatile"
+
+.PP
+Sends the next instruction in the measurement cycle to the master\&. Sends the next instruction in the measurement cycle array in reponse to the appropriate request from master\&. Specifically, (mInstruct)NextCommandPlease\&. This method will auto-advance the measurement cycle to the next instruction and re-define the 'current instruction'\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+False if the final instruction in the measurement procedure has already been sent and the measurement procedure is now complete\&. 
+.RE
+.PP
+
+.SS "void sendReply (const \fBsCmd\fP Reply) volatile"
+
+.PP
+Send an \fBsCmd\fP object in reply to the request recieved from \fBMaster\fP\&. 
+.SS "void sendReply (const \fBsInstruct\fP Instruction) volatile"
+
+.PP
+Send a reply to the request recieved from master\&. Assembles the \fBsCmd\fP object from the supplied parameters\&. Overloaded\&. 
+.SS "void sendReply (const \fBsInstruct\fP Instruction, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile"
+
+.PP
+Send a reply to the request recieved from master\&. Assembles the \fBsCmd\fP object from the supplied parameters\&. Overloaded\&. Note the need for the char* to be defined locally as volatile char[]\&. Cannot pass string literals\&. 
+.SS "void sendReply (const \fBsInstruct\fP Instruction, const int iParam) volatile"
+
+.PP
+Send a reply to the request recieved from master\&. Assembles the \fBsCmd\fP object from the supplied parameters\&. Overloaded\&. 
+.SS "void sendReply (const \fBsInstruct\fP Instruction, const float fParam) volatile"
+
+.PP
+Send a reply to the request recieved from master\&. Assembles the \fBsCmd\fP object from the supplied parameters\&. Overloaded\&. 
+.SS "void sendReply (const \fBsInstruct\fP Instruction, const int iParam, const int fParam) volatile"
+
+.PP
+Send a reply to the request recieved from master\&. Assembles the \fBsCmd\fP object from the supplied parameters\&. Overloaded\&. 
+.SS "void sendReply (\fBsInstruct\fP Instruction, int iParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile"
+
+.PP
+Send a reply to the request recieved from master\&. Assembles the \fBsCmd\fP object from the supplied parameters\&. Overloaded\&. Note the need for the char* to be defined locally as volatile char[]\&. Cannot pass string literals\&. 
+.SS "void sendReply (\fBsInstruct\fP Instruction, float fParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile"
+
+.PP
+Send a reply to the request recieved from master\&. Assembles the \fBsCmd\fP object from the supplied parameters\&. Overloaded\&. Note the need for the char* to be defined locally as volatile char[]\&. Cannot pass string literals\&. 
+.SS "void sendReply (\fBsInstruct\fP Instruction, int iParam, float fParam, volatile char InstructionString[SLAVE_COMMMAND_STRING_LENGTH]) volatile"
+
+.PP
+Send a reply to the request recieved from master\&. Assembles the \fBsCmd\fP object from the supplied parameters\&. Overloaded\&. Note the need for the char* to be defined locally as volatile char[]\&. Cannot pass string literals\&. 
+.SS "void sendTotalNumOfInstructions (void) volatile"
+
+.PP
+Sends a reply to \fBMaster\fP specifiying the total number of instructions in a measurement procedure\&. 
+.SS "void setMeasurementVectorHeading (\fBMeasurementVectors\fP VectorNumber, volatile char Heading[ROW_HEADING_LENGTH]) volatile"
+
+.PP
+Sets the string heading assigned to a paritcular data vector\&. NOTE: The Heading parameter must be declared locally as volatile char[]\&. Literal strings cannot be passed to this function\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIVectorNumber\fP is the enumerated reference to the row/vector in the data array in question\&. 
+.br
+\fIHeading[]\fP is the character array containing the string heading\&. 
+.RE
+.PP
+
+.SS "void setMeasurementVectorUnits (\fBMeasurementVectors\fP VectorNumber, volatile char Units[ROW_UNIT_LENGTH]) volatile"
+
+.PP
+Sets the string Units assigned to a paritcular data vector\&. NOTE: The Units parameter must be declared locally as volatile char[]\&. Literal strings cannot be passed to this function\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIVectorNumber\fP is the enumerated reference to the row/vector in the data array in question\&. 
+.br
+\fIUnits[]\fP is the character array containing the string heading\&. 
+.RE
+.PP
+
+.SS "void SETUP (const int SensorIDNumber, volatile char SensorName[], volatile char InstructionSet[][SLAVE_COMMMAND_STRING_LENGTH], const int NumberOfInstructions, volatile \fBsInstruct\fP MasterInstructionSet[], volatile int intParams[], volatile float floatParams[]) volatile"
+
+.PP
+Set up of the commuication mechanism\&. Intialised the auto-instantiated \fBMaster\fP object, attaches the IRQ and sets up SPI communications\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fISensorIDNumber\fP is the identity number of th slave\&. 
+.br
+\fISensorName\fP is the string name of the slave\&. 
+.br
+\fIInstructionSet\fP is the array of strings associated with each instruction in the measuremnt cycle\&. Generally to be displayed to the user\&. 
+.br
+\fINumberOfInstructions\fP is the number of instructions in a single measurement cycle/procedure\&. 
+.br
+\fIMasterInstructionSet\fP is the array of sInstruct objects associated with each instruction in the measurement cycle\&. Defines the required action by the master for each step of the measurement procedure\&. 
+.br
+\fIIntParams\fP is the array of integer parameter associated with each instruction\&. 
+.br
+\fIFloatParams\fP is the array of floating point parameters accosiated with each instruction\&. 
+.RE
+.PP
+
+.SS "bool shallIStart (void) volatile"
+
+.PP
+Checks whether the \fBbeginMeasurement()\fP method has been called\&. Allows procedural code in main() to determine whether the system state has changed during an interrupt in response to a request by the master to initiate the measurement procedure\&. 
+.SS "void SPISetup (void) volatile"
+
+.PP
+Sets up SPI and attaches interrupt\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

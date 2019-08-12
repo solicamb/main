@@ -1,0 +1,159 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_sensor_8cpp" kind="file" language="C++">
+    <compoundname>Sensor.cpp</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="_data_source_8h" local="yes">DataSource.h</includes>
+    <includes refid="_instructor_8h" local="yes">Instructor.h</includes>
+    <includes refid="_instructable_8h" local="yes">Instructable.h</includes>
+    <includes refid="_identifiable_8h" local="yes">Identifiable.h</includes>
+    <includes refid="_sensor_8h" local="yes">Sensor.h</includes>
+    <includes refid="_s_p_i___instruction_set_8h" local="yes">SPI_InstructionSet.h</includes>
+    <incdepgraph>
+      <node id="108">
+        <label>Instructor.h</label>
+        <link refid="_instructor_8h"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+      </node>
+      <node id="107">
+        <label>Communicative.h</label>
+        <link refid="_communicative_8h"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+      </node>
+      <node id="102">
+        <label>Sensor.cpp</label>
+        <link refid="_sensor_8cpp"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+        <childnode refid="110" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+      </node>
+      <node id="110">
+        <label>Sensor.h</label>
+        <link refid="_sensor_8h"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="108" relation="include">
+        </childnode>
+        <childnode refid="104" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+        <childnode refid="109" relation="include">
+        </childnode>
+      </node>
+      <node id="103">
+        <label>Arduino.h</label>
+      </node>
+      <node id="104">
+        <label>DataSource.h</label>
+        <link refid="_data_source_8h"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="106" relation="include">
+        </childnode>
+      </node>
+      <node id="105">
+        <label>SPI_InstructionSet.h</label>
+        <link refid="_s_p_i___instruction_set_8h"/>
+      </node>
+      <node id="106">
+        <label>Instructable.h</label>
+        <link refid="_instructable_8h"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+      <node id="109">
+        <label>Identifiable.h</label>
+        <link refid="_identifiable_8h"/>
+        <childnode refid="103" relation="include">
+        </childnode>
+        <childnode refid="105" relation="include">
+        </childnode>
+        <childnode refid="107" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_data_source_8h" kindref="compound">DataSource.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_instructor_8h" kindref="compound">Instructor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_instructable_8h" kindref="compound">Instructable.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_identifiable_8h" kindref="compound">Identifiable.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_sensor_8h" kindref="compound">Sensor.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_s_p_i___instruction_set_8h" kindref="compound">SPI_InstructionSet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Constructor<sp/>/////////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Function<sp/>that<sp/>handles<sp/>the<sp/>creation<sp/>and<sp/>setup<sp/>of<sp/>instances</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="12"><highlight class="normal"></highlight></codeline>
+<codeline lineno="13"><highlight class="normal"></highlight></codeline>
+<codeline lineno="14" refid="class_sensor_1a370005d04d3566c21b9190e1442fa4e8" refkind="member"><highlight class="normal"><ref refid="class_sensor_1a370005d04d3566c21b9190e1442fa4e8" kindref="member">Sensor::Sensor</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ChipSelect):<sp/><ref refid="class_instructable" kindref="compound">Instructable</ref>(ChipSelect),<sp/><ref refid="class_instructor" kindref="compound">Instructor</ref>(ChipSelect),<sp/><ref refid="class_data_source" kindref="compound">DataSource</ref>(ChipSelect),<sp/><ref refid="class_identifiable" kindref="compound">Identifiable</ref>(ChipSelect){</highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="16"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="17"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Public<sp/>Methods<sp/>//////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Functions<sp/>available<sp/>in<sp/>Wiring<sp/>sketches,<sp/>this<sp/>library,<sp/>and<sp/>other<sp/>libraries</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26" refid="class_sensor_1af0e64874a3d1b8ae19e3b623d244342a" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1af0e64874a3d1b8ae19e3b623d244342a" kindref="member">Sensor::StartMeasurement</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/>Ans<sp/>=<sp/><ref refid="class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f" kindref="member">issueCommand</ref>(<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a95e0f581b12f62fe8be32f5f50b8381e" kindref="member">BeginMeasurement</ref>);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="30"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/>Ans;</highlight></codeline>
+<codeline lineno="31"><highlight class="normal"></highlight></codeline>
+<codeline lineno="32"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34" refid="class_sensor_1afdcc3b63357bd24f519e0cbc85454a52" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1afdcc3b63357bd24f519e0cbc85454a52" kindref="member">Sensor::PauseMeasurementForMillis</ref>(</highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>PauseTime){</highlight></codeline>
+<codeline lineno="35"><highlight class="normal"></highlight></codeline>
+<codeline lineno="36"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f" kindref="member">issueCommand</ref>(<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a965f2ec6e1a55050b8bccd7063f904b3" kindref="member">PauseMeasurementForiParam</ref>,<sp/>PauseTime);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"></highlight></codeline>
+<codeline lineno="38"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight></codeline>
+<codeline lineno="40" refid="class_sensor_1ad58e9acfc23f07af433f0e2596d786d7" refkind="member"><highlight class="normal"></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_sensor_1ad58e9acfc23f07af433f0e2596d786d7" kindref="member">Sensor::RestartMeasurement</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">){</highlight></codeline>
+<codeline lineno="41"><highlight class="normal"></highlight></codeline>
+<codeline lineno="42"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordflow">return</highlight><highlight class="normal"><sp/><ref refid="class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f" kindref="member">issueCommand</ref>(<ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a4ad074804da746cc861dbb972ac48a22" kindref="member">RestartMeasurementProcedure</ref>);</highlight></codeline>
+<codeline lineno="43"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="normal">}</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Private<sp/>Methods<sp/>/////////////////////////////////////////////////////////////</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="48"><highlight class="normal"></highlight><highlight class="comment">//<sp/>Functions<sp/>only<sp/>available<sp/>to<sp/>other<sp/>functions<sp/>in<sp/>this<sp/>library</highlight></codeline>
+    </programlisting>
+    <location file="Sensor.cpp"/>
+  </compounddef>
+</doxygen>

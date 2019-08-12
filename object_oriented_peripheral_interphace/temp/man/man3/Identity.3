@@ -1,0 +1,64 @@
+.TH "Identity" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Identity \- Type used to convey the Slave identity\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SPI_InstructionSet\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBIdentity\fP & \fBoperator=\fP (const volatile \fBIdentity\fP &rhs) volatile"
+.br
+.ti -1c
+.RI "volatile \fBIdentity\fP & \fBoperator=\fP (const \fBIdentity\fP &rhs) volatile"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char \fBSensorName\fP [\fBIDENTITY_SENSOR_NAME_LENGTH\fP]"
+.br
+.RI "String name of the slave\&. Used for informative reporting to user\&. "
+.ti -1c
+.RI "int \fBsensorID\fP"
+.br
+.RI "Single byte identitfication number\&. "
+.ti -1c
+.RI "int \fBsensorChipSelect\fP"
+.br
+.RI "SPI chip select of the peripheral in question\&. Used by slave, but used by \fBMaster\fP\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Type used to convey the Slave identity\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBIdentity\fP& operator= (const volatile \fBIdentity\fP & rhs) volatile\fC [inline]\fP"
+
+.SS "volatile \fBIdentity\fP& operator= (const \fBIdentity\fP & rhs) volatile\fC [inline]\fP"
+
+.SH "Field Documentation"
+.PP 
+.SS "int sensorChipSelect"
+
+.PP
+SPI chip select of the peripheral in question\&. Used by slave, but used by \fBMaster\fP\&. 
+.SS "int sensorID"
+
+.PP
+Single byte identitfication number\&. 
+.SS "char SensorName[\fBIDENTITY_SENSOR_NAME_LENGTH\fP]"
+
+.PP
+String name of the slave\&. Used for informative reporting to user\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

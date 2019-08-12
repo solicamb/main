@@ -1,0 +1,4 @@
+<map id="sendNextUserInstruction" name="sendNextUserInstruction">
+<area shape="rect" id="node1" title="Sends the next instruction in the measurement cycle to the master." alt="" coords="5,5,169,32"/>
+<area shape="rect" id="node2" href="$class_master.html#a7d0570bae901dbbd7c88db131fea03c5" title="Send an sCmd object in reply to the request recieved from Master." alt="" coords="217,5,300,32"/>
+</map>

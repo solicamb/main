@@ -1,0 +1,108 @@
+.TH "Identifiable" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Identifiable \- A class which models a Sensor/peripheral as an identifiable entity\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Identifiable\&.h>\fP
+.PP
+Inherited by \fBSensor\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBIdentifiable\fP (const int ChipSelect)"
+.br
+.RI "A constructor\&. "
+.ti -1c
+.RI "bool \fBhasIdentityChanged\fP (void)"
+.br
+.RI "Checks to seee whether the \fBIdentity\fP in local memory is different to the \fBIdentity\fP advertised by peripheral\&. "
+.ti -1c
+.RI "void \fBupdateIdentity\fP (void)"
+.br
+.RI "Loads the \fBIdentity\fP advertised by the peripheral into local memory\&. "
+.ti -1c
+.RI "int \fBgetIDNumber\fP (void)"
+.br
+.RI "Gets the identity number of the attached peripheral\&. "
+.ti -1c
+.RI "void \fBgetSensorName\fP (char name[\fBIDENTITY_SENSOR_NAME_LENGTH\fP])"
+.br
+.RI "Gets the sensor name of the attached peripheral\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A class which models a Sensor/peripheral as an identifiable entity\&. 
+
+This class models a peripheral as an identifiable entity with ID number and string name\&. The class allows for the identity to be loaded from the peripheral and interrogated\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBIdentifiable\fP (const int ChipSelect)"
+
+.PP
+A constructor\&. Constructor for class which loads the identity of any connected SPI peripheral into local memory\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIThe\fP Slave Select pin of the SPI peripheral in question\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBupdateIdentity\fP\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "int getIDNumber (void)"
+
+.PP
+Gets the identity number of the attached peripheral\&. Reports the identity number of the peripheral currently stored in local memory\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+The sensor ID number\&. 
+.RE
+.PP
+
+.SS "void getSensorName (char name[IDENTITY_SENSOR_NAME_LENGTH])"
+
+.PP
+Gets the sensor name of the attached peripheral\&. Reports the sensor name of the peripheral currently stored in local memory\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIname\fP is the character array into which the sensor name is loaded\&. 
+.RE
+.PP
+
+.SS "bool hasIdentityChanged (void)"
+
+.PP
+Checks to seee whether the \fBIdentity\fP in local memory is different to the \fBIdentity\fP advertised by peripheral\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the stored \fBIdentity\fP is different than the \fBIdentity\fP advertised by the peripheral\&. 
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBIdentity\fP 
+.RE
+.PP
+
+.SS "void updateIdentity (void)"
+
+.PP
+Loads the \fBIdentity\fP advertised by the peripheral into local memory\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

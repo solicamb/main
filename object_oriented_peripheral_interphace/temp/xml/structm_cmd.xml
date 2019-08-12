@@ -1,0 +1,179 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="structm_cmd" kind="struct" language="C++" prot="public">
+    <compoundname>mCmd</compoundname>
+    <includes refid="_s_p_i___instruction_set_8h" local="no">SPI_InstructionSet.h</includes>
+      <sectiondef kind="public-attrib">
+      <memberdef kind="variable" id="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" prot="public" static="no" mutable="no">
+        <type><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref></type>
+        <definition>mInstruct Instruction</definition>
+        <argsstring></argsstring>
+        <name>Instruction</name>
+        <briefdescription>
+<para>Instruction to slave. </para>
+        </briefdescription>
+        <detaileddescription>
+<para>Defines the request made of the slave by the master during any transacion. mInstruct defines a finite set of requests which the master can make of the slave. </para>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="99" column="1" bodyfile="SPI_InstructionSet.h" bodystart="99" bodyend="-1"/>
+        <referencedby refid="class_master_1af892816882821b107d888f3fe3d7dddd" compoundref="_master_8cpp" startline="202" endline="204">Master::getCurrentInstruction</referencedby>
+        <referencedby refid="structm_cmd_1a390b853a14509e41006a0d873899b234" compoundref="_s_p_i___instruction_set_8h" startline="123" endline="127">mCmd</referencedby>
+        <referencedby refid="structm_cmd_1a861a79ec71e76fa61603073aa6969551" compoundref="_s_p_i___instruction_set_8h" startline="129" endline="133">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" prot="public" static="no" mutable="no">
+        <type>int</type>
+        <definition>int iParam</definition>
+        <argsstring></argsstring>
+        <name>iParam</name>
+        <briefdescription>
+<para>Integer paramter which qualifies the instruction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="101" column="1" bodyfile="SPI_InstructionSet.h" bodystart="101" bodyend="-1"/>
+        <referencedby refid="class_master_1a918b5964fa7cfc2ef6cf54960a80ced5" compoundref="_master_8cpp" startline="206" endline="208">Master::getCurrentInstructionIntParameter</referencedby>
+        <referencedby refid="structm_cmd_1a390b853a14509e41006a0d873899b234" compoundref="_s_p_i___instruction_set_8h" startline="123" endline="127">mCmd</referencedby>
+        <referencedby refid="structm_cmd_1a861a79ec71e76fa61603073aa6969551" compoundref="_s_p_i___instruction_set_8h" startline="129" endline="133">operator=</referencedby>
+      </memberdef>
+      <memberdef kind="variable" id="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" prot="public" static="no" mutable="no">
+        <type>float</type>
+        <definition>float fParam</definition>
+        <argsstring></argsstring>
+        <name>fParam</name>
+        <briefdescription>
+<para>Floating point parameter which wualifies the instruction. </para>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="103" column="1" bodyfile="SPI_InstructionSet.h" bodystart="103" bodyend="-1"/>
+        <referencedby refid="class_master_1a32c23c46b93673a8817bf54cf4a52372" compoundref="_master_8cpp" startline="210" endline="212">Master::getCurrentInstructionFloatParameter</referencedby>
+        <referencedby refid="structm_cmd_1a390b853a14509e41006a0d873899b234" compoundref="_s_p_i___instruction_set_8h" startline="123" endline="127">mCmd</referencedby>
+        <referencedby refid="structm_cmd_1a861a79ec71e76fa61603073aa6969551" compoundref="_s_p_i___instruction_set_8h" startline="129" endline="133">operator=</referencedby>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-func">
+      <memberdef kind="function" id="structm_cmd_1a15d47aa62e963ba62b9b5df21ff7c3b3" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mCmd</definition>
+        <argsstring>(mInstruct Instruct, int i, float f)</argsstring>
+        <name>mCmd</name>
+        <param>
+          <type><ref refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792" kindref="member">mInstruct</ref></type>
+          <declname>Instruct</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <param>
+          <type>float</type>
+          <declname>f</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="111" column="1" bodyfile="SPI_InstructionSet.h" bodystart="111" bodyend="115"/>
+      </memberdef>
+      <memberdef kind="function" id="structm_cmd_1a0bc6db1f094500a0605ce488869a1765" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mCmd</definition>
+        <argsstring>()</argsstring>
+        <name>mCmd</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="117" column="1" bodyfile="SPI_InstructionSet.h" bodystart="117" bodyend="121"/>
+        <references refid="_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792a7b437edd37dcf8f275dea91b2d3dae70" compoundref="_s_p_i___instruction_set_8h" startline="40">SitRep</references>
+      </memberdef>
+      <memberdef kind="function" id="structm_cmd_1a390b853a14509e41006a0d873899b234" prot="public" static="no" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type></type>
+        <definition>mCmd</definition>
+        <argsstring>(volatile mCmd &amp;rhs)</argsstring>
+        <name>mCmd</name>
+        <param>
+          <type>volatile <ref refid="structm_cmd" kindref="compound">mCmd</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="123" column="1" bodyfile="SPI_InstructionSet.h" bodystart="123" bodyend="127"/>
+        <references refid="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" compoundref="_s_p_i___instruction_set_8h" startline="99">Instruction</references>
+        <references refid="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" compoundref="_s_p_i___instruction_set_8h" startline="101">iParam</references>
+        <references refid="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" compoundref="_s_p_i___instruction_set_8h" startline="103">fParam</references>
+      </memberdef>
+      <memberdef kind="function" id="structm_cmd_1a861a79ec71e76fa61603073aa6969551" prot="public" static="no" const="no" explicit="no" inline="yes" volatile="yes" virt="non-virtual">
+        <type><ref refid="structm_cmd" kindref="compound">mCmd</ref> &amp;</type>
+        <definition>mCmd&amp; operator=</definition>
+        <argsstring>(const volatile mCmd &amp;rhs) volatile</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const volatile <ref refid="structm_cmd" kindref="compound">mCmd</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="129" column="1" bodyfile="SPI_InstructionSet.h" bodystart="129" bodyend="133"/>
+        <references refid="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" compoundref="_s_p_i___instruction_set_8h" startline="99">Instruction</references>
+        <references refid="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" compoundref="_s_p_i___instruction_set_8h" startline="101">iParam</references>
+        <references refid="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" compoundref="_s_p_i___instruction_set_8h" startline="103">fParam</references>
+      </memberdef>
+      <memberdef kind="function" id="structm_cmd_1a5a637df37056ccbe63f6fe600222c003" prot="public" static="no" const="no" explicit="no" inline="yes" volatile="yes" virt="non-virtual">
+        <type><ref refid="structm_cmd" kindref="compound">mCmd</ref> &amp;</type>
+        <definition>volatile mCmd&amp; operator=</definition>
+        <argsstring>(const mCmd &amp;rhs) volatile</argsstring>
+        <name>operator=</name>
+        <param>
+          <type>const <ref refid="structm_cmd" kindref="compound">mCmd</ref> &amp;</type>
+          <declname>rhs</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="SPI_InstructionSet.h" line="135" column="1" bodyfile="SPI_InstructionSet.h" bodystart="135" bodyend="139"/>
+        <references refid="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" compoundref="_s_p_i___instruction_set_8h" startline="99">Instruction</references>
+        <references refid="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" compoundref="_s_p_i___instruction_set_8h" startline="101">iParam</references>
+        <references refid="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" compoundref="_s_p_i___instruction_set_8h" startline="103">fParam</references>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>Type used by master to send requests to slave. </para>
+    </briefdescription>
+    <detaileddescription>
+<para>Each transaction, following the initial handshake, the master will send a request and the slave will send a reply. Requests made by the master will always take the form of an <ref refid="structm_cmd" kindref="compound">mCmd</ref> object, which contains a parameterised instance of the instruction set, mInstruct, which defines the class of repsonse expected by the slave. </para>
+    </detaileddescription>
+    <location file="SPI_InstructionSet.h" line="93" column="1" bodyfile="SPI_InstructionSet.h" bodystart="93" bodyend="140"/>
+    <listofallmembers>
+      <member refid="structm_cmd_1af05b89ac7edf2c67bb3386c902369313" prot="public" virt="non-virtual"><scope>mCmd</scope><name>fParam</name></member>
+      <member refid="structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d" prot="public" virt="non-virtual"><scope>mCmd</scope><name>Instruction</name></member>
+      <member refid="structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888" prot="public" virt="non-virtual"><scope>mCmd</scope><name>iParam</name></member>
+      <member refid="structm_cmd_1a15d47aa62e963ba62b9b5df21ff7c3b3" prot="public" virt="non-virtual"><scope>mCmd</scope><name>mCmd</name></member>
+      <member refid="structm_cmd_1a0bc6db1f094500a0605ce488869a1765" prot="public" virt="non-virtual"><scope>mCmd</scope><name>mCmd</name></member>
+      <member refid="structm_cmd_1a390b853a14509e41006a0d873899b234" prot="public" virt="non-virtual"><scope>mCmd</scope><name>mCmd</name></member>
+      <member refid="structm_cmd_1a861a79ec71e76fa61603073aa6969551" prot="public" virt="non-virtual"><scope>mCmd</scope><name>operator=</name></member>
+      <member refid="structm_cmd_1a5a637df37056ccbe63f6fe600222c003" prot="public" virt="non-virtual"><scope>mCmd</scope><name>operator=</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

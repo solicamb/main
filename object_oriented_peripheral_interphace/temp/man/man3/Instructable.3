@@ -1,0 +1,140 @@
+.TH "Instructable" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Instructable \- A class which models a Sensor/peripheral as entity which can recieve commands\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <Instructable\&.h>\fP
+.PP
+Inherited by \fBSensor\fP\&.
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBInstructable\fP (const int ChipSelect)"
+.br
+.RI "A constructor\&. "
+.ti -1c
+.RI "bool \fBissueCommand\fP (\fBmInstruct\fP)"
+.br
+.RI "Issues a command to the peripheral\&. "
+.ti -1c
+.RI "bool \fBissueCommand\fP (\fBmInstruct\fP, int)"
+.br
+.RI "Issues a command to the peripheral\&. "
+.ti -1c
+.RI "bool \fBissueCommand\fP (\fBmInstruct\fP, float)"
+.br
+.RI "Issues a command to the peripheral\&. "
+.ti -1c
+.RI "bool \fBissueCommand\fP (\fBmInstruct\fP, int, float)"
+.br
+.RI "Issues a command to the peripheral\&. "
+.ti -1c
+.RI "bool \fBareYouConnected\fP (void)"
+.br
+.RI "Checks to see whether the peripheral is connected\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+A class which models a Sensor/peripheral as entity which can recieve commands\&. 
+
+This class models a peripheral as an entity which can be issued commands\&. The commands issued are elements of the set defined by the mInstruct type\&. Each instruction can be accompanied by and integer and/or float as required to act as parameters to qualify the command\&. For example, if the peripheral is commanded to pause for an interval, the integer parameter is used by the peripheral to determine the length of time for which to pause\&. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "\fBInstructable\fP (const int ChipSelect)"
+
+.PP
+A constructor\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIThe\fP Slave Select pin of the SPI peripheral in question\&. 
+.RE
+.PP
+
+.SH "Member Function Documentation"
+.PP 
+.SS "bool areYouConnected (void)"
+
+.PP
+Checks to see whether the peripheral is connected\&. Initiates handshake and nop transaction with the sensor to ensure that it is connected and responding appropriately\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+True if the peripheral is connected and communicating effectively\&. 
+.RE
+.PP
+
+.SS "bool issueCommand (\fBmInstruct\fP Command)"
+
+.PP
+Issues a command to the peripheral\&. Sends a command which is an element of the mInstruct type\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImInstruct\fP is the command issued to the peripheral\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if the peripheral acknowledges the command\&. 
+.RE
+.PP
+
+.SS "bool issueCommand (\fBmInstruct\fP Command, int intParam)"
+
+.PP
+Issues a command to the peripheral\&. Sends a command which is an element of the mInstruct type qualified by an integer parameter (generally used to instruct on wait time or similar)\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImInstruct\fP is the command issued to the peripheral and int is the integer qualifier\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if the peripheral acknowledges the command\&. 
+.RE
+.PP
+
+.SS "bool issueCommand (\fBmInstruct\fP Command, float floatParam)"
+
+.PP
+Issues a command to the peripheral\&. Sends a command which is an element of the mInstruct type qualified by a float parameter\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImInstruct\fP is the command issued to the peripheral and float is the floating point qualifier\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if the peripheral acknowledges the command\&. 
+.RE
+.PP
+
+.SS "bool issueCommand (\fBmInstruct\fP Command, int intParam, float floatParam)"
+
+.PP
+Issues a command to the peripheral\&. Sends a command which is an element of the mInstruct type qualified by an integer parameter (generally used to instruct on wait time or similar) and a floating point parameter\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fImInstruct\fP is the command issued to the peripheral, int is the integer qualifier and float is the floating point qualifier\&. 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+True if the peripheral acknowledges the command\&. 
+.RE
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

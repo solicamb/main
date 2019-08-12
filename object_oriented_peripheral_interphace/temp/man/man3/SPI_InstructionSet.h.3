@@ -1,0 +1,178 @@
+.TH "SPI_InstructionSet.h" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+SPI_InstructionSet.h
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBsCmd\fP"
+.br
+.RI "Type used by slave to send reply to master,\&. "
+.ti -1c
+.RI "struct \fBmCmd\fP"
+.br
+.RI "Type used by master to send requests to slave\&. "
+.ti -1c
+.RI "struct \fBIdentity\fP"
+.br
+.RI "Type used to convey the Slave identity\&. "
+.ti -1c
+.RI "struct \fBData\fP"
+.br
+.RI "Type used to encapsulate the data collected by the slave\&. "
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBsInstruct\fP { \fBDisplayInstructionAndWait\fP, \fBDisplayInstructionAndWaitForUser\fP, \fBDontDisplayAndWait\fP, \fBDontDisplayAndContinue\fP, \fBACK\fP, \fBYes\fP, \fBNo\fP, \fBNAK\fP, \fBReferToInt\fP, \fBReferToFloat\fP, \fBReferToString\fP }"
+.br
+.RI "Instruction set used by slave to instruct master\&. "
+.ti -1c
+.RI "enum \fBmInstruct\fP { \fBPauseMeasurementForiParam\fP, \fBRestartMeasurementProcedure\fP, \fBResetDevice\fP, \fBHowManyInstructions\fP, \fBNextCommandPlease\fP, \fBIsThereData\fP, \fBSendDataPlease\fP, \fBWhoAreYou\fP, \fBHowLongShouldIWait\fP, \fBBeginMeasurement\fP, \fBSitRep\fP }"
+.br
+.RI "Instruction set used by \fBMaster\fP to instruct/request responses from Slave\&. "
+.ti -1c
+.RI "enum \fBMeasurementVectors\fP { \fBFirst\fP, \fBSecond\fP, \fBThird\fP }"
+.br
+.RI "Enumeration to provide human-readable references to different rows in the \fBData\fP array\&. "
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "const int \fBSLAVE_COMMMAND_STRING_LENGTH\fP = 40"
+.br
+.ti -1c
+.RI "const int \fBIDENTITY_SENSOR_NAME_LENGTH\fP = 25"
+.br
+.ti -1c
+.RI "const int \fBNUMBER_OF_DATA_ROWS\fP = 3"
+.br
+.ti -1c
+.RI "const int \fBROW_HEADING_LENGTH\fP = 10"
+.br
+.ti -1c
+.RI "const int \fBROW_UNIT_LENGTH\fP = 5"
+.br
+.ti -1c
+.RI "const int \fBDATA_ROW_LENGTH\fP = 64"
+.br
+.in -1c
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBMeasurementVectors\fP"
+
+.PP
+Enumeration to provide human-readable references to different rows in the \fBData\fP array\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIFirst \fP\fP
+.TP
+\fB\fISecond \fP\fP
+.TP
+\fB\fIThird \fP\fP
+.SS "enum \fBmInstruct\fP"
+
+.PP
+Instruction set used by \fBMaster\fP to instruct/request responses from Slave\&. During a single transaction, the \fBMaster\fP will send a request, characterised by an \fBmCmd\fP object, which contains an mInstruct object, integer and float\&. The mInstruct object will determine how the request is processed by the slave and will define the object type which the master must expect in reply\&. In general, the master will expect replies in the form of \fBsCmd\fP objects\&. However, the slave may also send \fBData\fP and \fBIdentity\fP objects in repsonse to specific mInstruct instances; in particular: SendDataPlease and WhoAreYou\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIPauseMeasurementForiParam \fP\fP
+Require Slave to pause for a duration specified by the integer parameter of \fBmCmd\fP\&. Expects \fBsCmd\fP{ACK or NAK} in response\&. 
+.TP
+\fB\fIRestartMeasurementProcedure \fP\fP
+Require Slave to restart the measurement procedure from the first instruction\&. Expects \fBsCmd\fP{ACK or NAK} in response\&. 
+.TP
+\fB\fIResetDevice \fP\fP
+Require Slave to reset\&. Expects \fBsCmd\fP{ACK or NAK} in response\&. 
+.TP
+\fB\fIHowManyInstructions \fP\fP
+Request the slave to confirm the number of instructions in a measurement cycle\&. Expects \fBsCmd\fP{ReferToInt, int NumberOfInstructions} in response\&. 
+.TP
+\fB\fINextCommandPlease \fP\fP
+Request the next instrction in the measurement cycle from the slave\&. Expects \fBsCmd\fP{sInstruct SomeInstruction, int PotentialIntParam, float PotentialFloatParam, char* PotentialStringParam} or \fBsCmd\fP{No} in response\&. 
+.TP
+\fB\fIIsThereData \fP\fP
+Requests slave to confirm that \fBData\fP is ready for collection by master\&. Expects \fBsCmd\fP{Yes or No}\&. 
+.TP
+\fB\fISendDataPlease \fP\fP
+Require slave to send the data object\&. Expects \fBData\fP object in response\&. 
+.TP
+\fB\fIWhoAreYou \fP\fP
+Require the slave to send its \fBIdentity\fP object; contains char* Name and int SensorID\&. Expects \fBIdentity\fP object in response\&. 
+.TP
+\fB\fIHowLongShouldIWait \fP\fP
+Ask the slave whether the \fBMaster\fP should pause before calling for the next instruction\&. Unused\&. Expects \fBsCmd\fP{ReferToInt, int PauseDuration} in reply\&. 
+.TP
+\fB\fIBeginMeasurement \fP\fP
+Instruct the slave to initiate its measurement cycle and expect the first instruction to be called for\&. Expects \fBsCmd\fP{ACK or NAK}\&. 
+.TP
+\fB\fISitRep \fP\fP
+Request good/bad status from slave\&. Unused\&. Expects \fBsCmd\fP{} in reply\&. 
+.SS "enum \fBsInstruct\fP"
+
+.PP
+Instruction set used by slave to instruct master\&. During a single transaction, the master will request a reply, \fBData\fP or \fBIdentity\fP\&. Replies are characterised by an \fBsCmd\fP object, which contains an sInstruct object, which defines the action which the slave requires of the master\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIDisplayInstructionAndWait \fP\fP
+Require the master to display the string contained within the \fBsCmd\fP object and pause for a duration defined by the integer parameter of the \fBsCmd\fP object 
+.TP
+\fB\fIDisplayInstructionAndWaitForUser \fP\fP
+Require the master to display the string contained within the \fBsCmd\fP object and pause until the user has confirmed adherence to the instruction\&. 
+.TP
+\fB\fIDontDisplayAndWait \fP\fP
+Require the master to pause for a duration defined by the integer parameter of the \fBsCmd\fP object 
+.TP
+\fB\fIDontDisplayAndContinue \fP\fP
+Require the master to take no action\&. Essentially a nop\&. 
+.TP
+\fB\fIACK \fP\fP
+Slave acknowleges the master's command/response\&. 
+.TP
+\fB\fIYes \fP\fP
+Respond affirmative\&. 
+.TP
+\fB\fINo \fP\fP
+Respond negative\&. 
+.TP
+\fB\fINAK \fP\fP
+Slave unable to adhere to \fBMaster\fP's command or understand it\&. 
+.TP
+\fB\fIReferToInt \fP\fP
+Points master to the integer parameter of \fBsCmd\fP\&. 
+.TP
+\fB\fIReferToFloat \fP\fP
+Points master to the float parameter of \fBsCmd\fP 
+.TP
+\fB\fIReferToString \fP\fP
+Points master to the string parameter of \fBsCmd\fP 
+.SH "Variable Documentation"
+.PP 
+.SS "const int DATA_ROW_LENGTH = 64"
+
+.SS "const int IDENTITY_SENSOR_NAME_LENGTH = 25"
+
+.SS "const int NUMBER_OF_DATA_ROWS = 3"
+
+.SS "const int ROW_HEADING_LENGTH = 10"
+
+.SS "const int ROW_UNIT_LENGTH = 5"
+
+.SS "const int SLAVE_COMMMAND_STRING_LENGTH = 40"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

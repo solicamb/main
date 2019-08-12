@@ -1,0 +1,1029 @@
+
+# File mpi-%s.md
+
+[**File List**](files.md) **>** [**mpi-%s.md**](mpi-_06s_8md.md)
+
+[Go to the documentation of this file.](mpi-_06s_8md.md) 
+
+
+````cpp
+# Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`class `[`Communicative`](#class_communicative) | A class to manage communication with slave module.
+`class `[`DataSource`](#class_data_source) | A class which models a Sensor/peripheral as an entity which is a source of data.
+`class `[`Identifiable`](#class_identifiable) | A class which models a Sensor/peripheral as an identifiable entity.
+`class `[`Instructable`](#class_instructable) | A class which models a Sensor/peripheral as entity which can recieve commands.
+`class `[`Instructor`](#class_instructor) | A class which models a Sensor/peripheral as entity which can issue instructions to the master.
+`class `[`Master`](#class_master) | A monolithic class to encapsulate and abstract the slave's communication with the master.
+`class `[`Sensor`](#class_sensor) | A class which models a Sensor/peripheral.
+`struct `[`Data`](#struct_data) | Type used to encapsulate the data collected by the slave.
+`struct `[`Identity`](#struct_identity) | Type used to convey the Slave identity.
+`struct `[`mCmd`](#structm_cmd) | Type used by master to send requests to slave.
+`struct `[`sCmd`](#structs_cmd) | Type used by slave to send reply to master,.
+`struct `[`UserInstructions`](#struct_user_instructions) | 
+
+# class `Communicative` {#class_communicative}
+
+A class to manage communication with slave module.
+
+This class is designed for SPI communication with a slave device. The class responsibilities include both SPI initialisation and fundamental transactions. The transaction protocol implemented follows the following flow: Clear SS -> Send '?' to slave -> recieve 'ACK' (0x06) from slave -> send request [mCmd](#structm_cmd) -> recieve sCmd/Data/Identity as expected -> set SS. Where [mCmd](#structm_cmd), [sCmd](#structs_cmd), [Data](#struct_data) and [Identity](#struct_identity) are structures defined as types.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public  `[`Communicative`](#class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a)`(const int CS)` | Constructor.
+`public  `[`~Communicative`](#class_communicative_1a53c7f2ec58bfb99f0ea10e238705c3ce)`(void)` | Destructor.
+`public bool `[`isPeripheralConnected`](#class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046)`(void)` | Checks whether Slave is connected.
+`public `[`sCmd`](#structs_cmd)` `[`RequestReply`](#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1)`(const mCmd)` | Performs a complete transaction; expects Slave to Reply with [sCmd](#structs_cmd) object.
+`public `[`Identity`](#struct_identity)` `[`RequestIdentity`](#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d)`(const mCmd)` | Performs a complete transaction; expects Slave to Reply with [Identity](#struct_identity) object.
+`public `[`Data`](#struct_data)` `[`RequestData`](#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a)`(const mCmd)` | Performs a complete transaction; expects Slave to Reply with a [Data](#struct_data) object.
+
+## Members
+
+#### `public  `[`Communicative`](#class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a)`(const int CS)` {#class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a}
+
+Constructor.
+
+Constructor initialises the SS pin to be used in communications and initialises SPI as [Master](#class_master). 
+#### Parameters
+* `CS` is the Slave Select pin designation; most commonly PA4. 
+
+**See also**: SPISetup()
+
+#### `public  `[`~Communicative`](#class_communicative_1a53c7f2ec58bfb99f0ea10e238705c3ce)`(void)` {#class_communicative_1a53c7f2ec58bfb99f0ea10e238705c3ce}
+
+Destructor.
+
+Executes SPI.end();
+
+#### `public bool `[`isPeripheralConnected`](#class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046)`(void)` {#class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046}
+
+Checks whether Slave is connected.
+
+Executes a nop transaction. 
+#### Returns
+true if handshake is successful and Slave responds to '?' with 'ACK' 
+
+**See also**: areYouAlive()
+
+#### `public `[`sCmd`](#structs_cmd)` `[`RequestReply`](#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1)`(const mCmd)` {#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1}
+
+Performs a complete transaction; expects Slave to Reply with [sCmd](#structs_cmd) object.
+
+Executes a complete transaction: Clear SS -> Send '?' to slave -> recieve 'ACK' (0x06) from slave -> send request [mCmd](#structm_cmd) -> recieve [sCmd](#structs_cmd) -> set SS. 
+#### Parameters
+* `[mCmd](#structm_cmd)` is the [mCmd](#structm_cmd) object which constitutes the Request made to the slave. 
+
+#### Returns
+The [sCmd](#structs_cmd) object generated by the Slave as the reply to the request. 
+
+**See also**: [RequestIdentity()](#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d), [RequestData()](#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a)
+
+#### `public `[`Identity`](#struct_identity)` `[`RequestIdentity`](#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d)`(const mCmd)` {#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d}
+
+Performs a complete transaction; expects Slave to Reply with [Identity](#struct_identity) object.
+
+Executes a complete transaction: Clear SS -> Send '?' to slave -> recieve 'ACK' (0x06) from slave -> send request [mCmd](#structm_cmd) -> recieve [Identity](#struct_identity) -> set SS. 
+#### Parameters
+* `[mCmd](#structm_cmd)` is the [mCmd](#structm_cmd) object which constitutes the Request made to the slave. 
+
+#### Returns
+The Idenity object generated by the Slave containing the Slave ID and name. 
+
+**See also**: [RequestReply()](#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1), [RequestData()](#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a)
+
+#### `public `[`Data`](#struct_data)` `[`RequestData`](#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a)`(const mCmd)` {#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a}
+
+Performs a complete transaction; expects Slave to Reply with a [Data](#struct_data) object.
+
+Executes a complete transaction: Clear SS -> Send '?' to slave -> recieve 'ACK' (0x06) from slave -> send request [mCmd](#structm_cmd) -> recieve [Data](#struct_data) -> set SS. 
+#### Parameters
+* `[mCmd](#structm_cmd)` is the [mCmd](#structm_cmd) object which constitutes the Request made to the slave. 
+
+#### Returns
+The [Data](#struct_data) object generated by the Slave containing a two dimensional array of data points and the length, headings and units of the data array rows. 
+
+**See also**: [RequestReply()](#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1), [RequestIdentity()](#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d)
+
+# class `DataSource` {#class_data_source}
+
+A class which models a Sensor/peripheral as an entity which is a source of data.
+
+This class models a [Sensor](#class_sensor) as a source of data. The convention in use is that any [Sensor](#class_sensor) can store data such that it occupies a two dimensional float array with maximum dimensions NUMBER_OF_DATA_ROWS x DATA_ROW_LENGTH. The data can either be treated as a square array, the dimensions of which can be requested, or as a series of 'vectors', the length of which can be requested.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public  `[`DataSource`](#class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d)`(const int ChipSelect)` | Constructor.
+`public bool `[`isThereData`](#class_data_source_1a7d92295e088894b5417729a814e49e01)`(void)` | Asks Sensor/peripheral whether there is [Data](#struct_data) ready to be collected.
+`public `[`Data`](#struct_data)` `[`loadData`](#class_data_source_1a81aac807bfb601c2ac1da78f69d31d48)`(void)` | Loads [Data](#struct_data) from the [Sensor](#class_sensor).
+`public int `[`getNumberOfDataColumns`](#class_data_source_1ac15f241362d7c22c75c42c2bb16315bf)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber)` | Gets the number of data points along a particular row of the data array.
+`public int `[`getNumberOfDataRows`](#class_data_source_1a52269fa43b741f1ab431aac56d3aedb5)`(void)` | Gets the number of rows used in the data array.
+`public void `[`getRowHeadings`](#class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d)`(char)` | Gets string headings of all the vectors in the data array.
+`public void `[`getRowUnits`](#class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e)`(char)` | Gets string units of all the vectors in the data array.
+`public void `[`getDataArray`](#class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6)`(float)` | Gets the entire data array.
+`public void `[`getDataVector`](#class_data_source_1a924875bd657b56f140604551270cdbc0)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,float)` | Gets the indicated data vector.
+`public int `[`getVectorLength`](#class_data_source_1a49998f22c00d924daf7b67af48e10a30)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber)` | Gets the indicated data vector length.
+`public void `[`getVectorHeading`](#class_data_source_1a79d69573a651290750aa8c08d24f3b64)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,char)` | Gets the string heading for the vector in question.
+`public void `[`getVectorUnits`](#class_data_source_1af2a2f33b9970ecff75894134498ff2cd)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,char)` | Gets the string units for the vector in question.
+`public float `[`getValueOne`](#class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b)`(void)` | Gets the first data point in the first vector.
+`public float `[`getValueTwo`](#class_data_source_1accbfa79e7afee154b4332483181f27ec)`(void)` | Gets the second data point in the first vector.
+`public float `[`getValueThree`](#class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf)`(void)` | Gets the third data point in the first vector.
+
+## Members
+
+#### `public  `[`DataSource`](#class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d)`(const int ChipSelect)` {#class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d}
+
+Constructor.
+
+#### Parameters
+* `ChipSelect` is the Slave Select pin of the SPI peripheral in question.
+
+#### `public bool `[`isThereData`](#class_data_source_1a7d92295e088894b5417729a814e49e01)`(void)` {#class_data_source_1a7d92295e088894b5417729a814e49e01}
+
+Asks Sensor/peripheral whether there is [Data](#struct_data) ready to be collected.
+
+Asks the sensor whether the data is ready to be retrieved by the master. Slave's are, however, required to instantiate a [Data](#struct_data) object and so premature loads thereof will not fail. 
+#### Returns
+True if the data is ready to be collected from the [Sensor](#class_sensor).
+
+#### `public `[`Data`](#struct_data)` `[`loadData`](#class_data_source_1a81aac807bfb601c2ac1da78f69d31d48)`(void)` {#class_data_source_1a81aac807bfb601c2ac1da78f69d31d48}
+
+Loads [Data](#struct_data) from the [Sensor](#class_sensor).
+
+Loads the [Data](#struct_data) object from the [Sensor](#class_sensor) into local memory. 
+#### Returns
+The [Data](#struct_data) object loaded into local memory. User of accessors preffered. 
+
+**See also**: [getNumberOfDataColumns()](#class_data_source_1ac15f241362d7c22c75c42c2bb16315bf), [getNumberOfDataRows()](#class_data_source_1a52269fa43b741f1ab431aac56d3aedb5), [getRowHeadings()](#class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d), [getRowUnits()](#class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e), [getDataArray()](#class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6), [getDataVector()](#class_data_source_1a924875bd657b56f140604551270cdbc0), [getVectorLength()](#class_data_source_1a49998f22c00d924daf7b67af48e10a30), [getVectorHeading()](#class_data_source_1a79d69573a651290750aa8c08d24f3b64),[getVectorUnits()](#class_data_source_1af2a2f33b9970ecff75894134498ff2cd), [getValueOne()](#class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b),[getValueTwo()](#class_data_source_1accbfa79e7afee154b4332483181f27ec),[getValueThree()](#class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf)
+
+#### `public int `[`getNumberOfDataColumns`](#class_data_source_1ac15f241362d7c22c75c42c2bb16315bf)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber)` {#class_data_source_1ac15f241362d7c22c75c42c2bb16315bf}
+
+Gets the number of data points along a particular row of the data array.
+
+#### Parameters
+* `VectorNumber` is an enumerated type referring to the row in the two dimensional data array. 
+
+#### Returns
+The number of data points along a particular row/vector. 
+
+**See also**: [MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5), [Data](#struct_data)
+
+#### `public int `[`getNumberOfDataRows`](#class_data_source_1a52269fa43b741f1ab431aac56d3aedb5)`(void)` {#class_data_source_1a52269fa43b741f1ab431aac56d3aedb5}
+
+Gets the number of rows used in the data array.
+
+Returns the number of 'vectors' (rows) which the sensor has used to store data. Ideally, one should utilise the result of this function to iterate through the vectors. 
+#### Returns
+The number of vectors in use. 
+
+**See also**: [Data](#struct_data)
+
+#### `public void `[`getRowHeadings`](#class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d)`(char)` {#class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d}
+
+Gets string headings of all the vectors in the data array.
+
+Each vector/row is assigned a heading to describe the nature of the data contained within that vector. Such as "Ambient Temperature". 
+#### Parameters
+* `char` is the array of character arrays into which the headings are loaded. 
+
+**See also**: [Data](#struct_data)
+
+#### `public void `[`getRowUnits`](#class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e)`(char)` {#class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e}
+
+Gets string units of all the vectors in the data array.
+
+Each vector/row is assigned a Units string to define the units of the data contained within that vector. Such as "V" or "Amperes". 
+#### Parameters
+* `char` is the array of character arrays into which the units are loaded. 
+
+**See also**: [Data](#struct_data)
+
+#### `public void `[`getDataArray`](#class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6)`(float)` {#class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6}
+
+Gets the entire data array.
+
+Retrieves the entire two dimensionsal data array, irrespective of which elements/vectors are actually in use. 
+#### Parameters
+* `float` is the array into which the data is written. 
+
+**See also**: [Data](#struct_data)
+
+#### `public void `[`getDataVector`](#class_data_source_1a924875bd657b56f140604551270cdbc0)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,float)` {#class_data_source_1a924875bd657b56f140604551270cdbc0}
+
+Gets the indicated data vector.
+
+Retrieves a singel row in the two dimesnional data array. 
+#### Parameters
+* `VectorNumber` is the row in the data array to be retrieved. 
+
+* `float` is the floating point array into which the data points will be written. 
+
+**See also**: [Data](#struct_data), [MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)
+
+#### `public int `[`getVectorLength`](#class_data_source_1a49998f22c00d924daf7b67af48e10a30)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber)` {#class_data_source_1a49998f22c00d924daf7b67af48e10a30}
+
+Gets the indicated data vector length.
+
+The data vectors (rows) have a max length of DATA_ROW_LENGTH and the [Sensor](#class_sensor) will push data points into said vector. As the [Sensor](#class_sensor) may not utilise the entire width of the data array, the length indicates the number of values which the [Sensor](#class_sensor) has pushed into the vector in question. 
+#### Parameters
+* `VectorNumber` is the row in the data array. 
+
+**See also**: [Data](#struct_data), [MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)
+
+#### `public void `[`getVectorHeading`](#class_data_source_1a79d69573a651290750aa8c08d24f3b64)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,char)` {#class_data_source_1a79d69573a651290750aa8c08d24f3b64}
+
+Gets the string heading for the vector in question.
+
+#### Parameters
+* `VectorNumber` is the row in the data array to which the heading coresponds. 
+
+**See also**: [getRowHeadings()](#class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d), [Data](#struct_data), [MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)
+
+#### `public void `[`getVectorUnits`](#class_data_source_1af2a2f33b9970ecff75894134498ff2cd)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,char)` {#class_data_source_1af2a2f33b9970ecff75894134498ff2cd}
+
+Gets the string units for the vector in question.
+
+#### Parameters
+* `VectorNumber` is the row in the data array to which the heading coresponds. 
+
+**See also**: [getRowUnits()](#class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e), [Data](#struct_data), [MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)
+
+#### `public float `[`getValueOne`](#class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b)`(void)` {#class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b}
+
+Gets the first data point in the first vector.
+
+#### Returns
+The first data point in the first vector. DataArray[0][0]. 
+
+**See also**: [Data](#struct_data), [MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)
+
+#### `public float `[`getValueTwo`](#class_data_source_1accbfa79e7afee154b4332483181f27ec)`(void)` {#class_data_source_1accbfa79e7afee154b4332483181f27ec}
+
+Gets the second data point in the first vector.
+
+#### Returns
+The second data point in the first vector. DataArray[1][0]. 
+
+**See also**: [Data](#struct_data), [MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)
+
+#### `public float `[`getValueThree`](#class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf)`(void)` {#class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf}
+
+Gets the third data point in the first vector.
+
+#### Returns
+The third data point in the first vector. DataArray[2][0]. 
+
+**See also**: [Data](#struct_data), [MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)
+
+# class `Identifiable` {#class_identifiable}
+
+A class which models a Sensor/peripheral as an identifiable entity.
+
+This class models a peripheral as an identifiable entity with ID number and string name. The class allows for the identity to be loaded from the peripheral and interrogated.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public  `[`Identifiable`](#class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e)`(const int ChipSelect)` | A constructor.
+`public bool `[`hasIdentityChanged`](#class_identifiable_1adbc1a3f62e543a0df002a43413998a26)`(void)` | Checks to seee whether the [Identity](#struct_identity) in local memory is different to the [Identity](#struct_identity) advertised by peripheral.
+`public void `[`updateIdentity`](#class_identifiable_1ae99f8914426041ea02932d0ed00b29c3)`(void)` | Loads the [Identity](#struct_identity) advertised by the peripheral into local memory.
+`public int `[`getIDNumber`](#class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae)`(void)` | Gets the identity number of the attached peripheral.
+`public void `[`getSensorName`](#class_identifiable_1a7942e337c1303ce42cc822032465c66a)`(char name)` | Gets the sensor name of the attached peripheral.
+
+## Members
+
+#### `public  `[`Identifiable`](#class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e)`(const int ChipSelect)` {#class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e}
+
+A constructor.
+
+Constructor for class which loads the identity of any connected SPI peripheral into local memory. 
+#### Parameters
+* `The` Slave Select pin of the SPI peripheral in question. 
+
+**See also**: [updateIdentity](#class_identifiable_1ae99f8914426041ea02932d0ed00b29c3).
+
+#### `public bool `[`hasIdentityChanged`](#class_identifiable_1adbc1a3f62e543a0df002a43413998a26)`(void)` {#class_identifiable_1adbc1a3f62e543a0df002a43413998a26}
+
+Checks to seee whether the [Identity](#struct_identity) in local memory is different to the [Identity](#struct_identity) advertised by peripheral.
+
+#### Returns
+True if the stored [Identity](#struct_identity) is different than the [Identity](#struct_identity) advertised by the peripheral. 
+
+**See also**: [Identity](#struct_identity)
+
+#### `public void `[`updateIdentity`](#class_identifiable_1ae99f8914426041ea02932d0ed00b29c3)`(void)` {#class_identifiable_1ae99f8914426041ea02932d0ed00b29c3}
+
+Loads the [Identity](#struct_identity) advertised by the peripheral into local memory.
+
+#### `public int `[`getIDNumber`](#class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae)`(void)` {#class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae}
+
+Gets the identity number of the attached peripheral.
+
+Reports the identity number of the peripheral currently stored in local memory. 
+#### Returns
+The sensor ID number.
+
+#### `public void `[`getSensorName`](#class_identifiable_1a7942e337c1303ce42cc822032465c66a)`(char name)` {#class_identifiable_1a7942e337c1303ce42cc822032465c66a}
+
+Gets the sensor name of the attached peripheral.
+
+Reports the sensor name of the peripheral currently stored in local memory. 
+#### Parameters
+* `name` is the character array into which the sensor name is loaded.
+
+# class `Instructable` {#class_instructable}
+
+A class which models a Sensor/peripheral as entity which can recieve commands.
+
+This class models a peripheral as an entity which can be issued commands. The commands issued are elements of the set defined by the mInstruct type. Each instruction can be accompanied by and integer and/or float as required to act as parameters to qualify the command. For example, if the peripheral is commanded to pause for an interval, the integer parameter is used by the peripheral to determine the length of time for which to pause.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public  `[`Instructable`](#class_instructable_1a688587b062ae8f3979bf7567041b86c1)`(const int ChipSelect)` | A constructor.
+`public bool `[`issueCommand`](#class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`)` | Issues a command to the peripheral.
+`public bool `[`issueCommand`](#class_instructable_1ae1de225deda4decc52ce8e06efa8c547)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,int)` | Issues a command to the peripheral.
+`public bool `[`issueCommand`](#class_instructable_1a556e6313ec5ac21a30efe8a5ef28a486)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,float)` | Issues a command to the peripheral.
+`public bool `[`issueCommand`](#class_instructable_1ac2d69c105880162fed7b7be07228cfa7)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,int,float)` | Issues a command to the peripheral.
+`public bool `[`areYouConnected`](#class_instructable_1a2bdcc11cead0067e963c524968d0d3e1)`(void)` | Checks to see whether the peripheral is connected.
+
+## Members
+
+#### `public  `[`Instructable`](#class_instructable_1a688587b062ae8f3979bf7567041b86c1)`(const int ChipSelect)` {#class_instructable_1a688587b062ae8f3979bf7567041b86c1}
+
+A constructor.
+
+#### Parameters
+* `The` Slave Select pin of the SPI peripheral in question.
+
+#### `public bool `[`issueCommand`](#class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`)` {#class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f}
+
+Issues a command to the peripheral.
+
+Sends a command which is an element of the mInstruct type. 
+#### Parameters
+* `mInstruct` is the command issued to the peripheral. 
+
+#### Returns
+True if the peripheral acknowledges the command.
+
+#### `public bool `[`issueCommand`](#class_instructable_1ae1de225deda4decc52ce8e06efa8c547)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,int)` {#class_instructable_1ae1de225deda4decc52ce8e06efa8c547}
+
+Issues a command to the peripheral.
+
+Sends a command which is an element of the mInstruct type qualified by an integer parameter (generally used to instruct on wait time or similar). 
+#### Parameters
+* `mInstruct` is the command issued to the peripheral and int is the integer qualifier. 
+
+#### Returns
+True if the peripheral acknowledges the command.
+
+#### `public bool `[`issueCommand`](#class_instructable_1a556e6313ec5ac21a30efe8a5ef28a486)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,float)` {#class_instructable_1a556e6313ec5ac21a30efe8a5ef28a486}
+
+Issues a command to the peripheral.
+
+Sends a command which is an element of the mInstruct type qualified by a float parameter. 
+#### Parameters
+* `mInstruct` is the command issued to the peripheral and float is the floating point qualifier. 
+
+#### Returns
+True if the peripheral acknowledges the command.
+
+#### `public bool `[`issueCommand`](#class_instructable_1ac2d69c105880162fed7b7be07228cfa7)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,int,float)` {#class_instructable_1ac2d69c105880162fed7b7be07228cfa7}
+
+Issues a command to the peripheral.
+
+Sends a command which is an element of the mInstruct type qualified by an integer parameter (generally used to instruct on wait time or similar) and a floating point parameter. 
+#### Parameters
+* `mInstruct` is the command issued to the peripheral, int is the integer qualifier and float is the floating point qualifier. 
+
+#### Returns
+True if the peripheral acknowledges the command.
+
+#### `public bool `[`areYouConnected`](#class_instructable_1a2bdcc11cead0067e963c524968d0d3e1)`(void)` {#class_instructable_1a2bdcc11cead0067e963c524968d0d3e1}
+
+Checks to see whether the peripheral is connected.
+
+Initiates handshake and nop transaction with the sensor to ensure that it is connected and responding appropriately. 
+#### Returns
+True if the peripheral is connected and communicating effectively.
+
+# class `Instructor` {#class_instructor}
+
+A class which models a Sensor/peripheral as entity which can issue instructions to the master.
+
+This class models a peripheral as an entity which can issue commands to the master. The premise is that a sensor peripheral will conduct a measurement by cycling through a number of steps. At each step the sensor may wish for the [Master](#class_master) to perform certain actions, such as display a message to the user, pause for a certain period of time or wait until the user has acknowledged an instruction by button press. In general, the master is expected to iterate through the instruction set, loading an instruction each iteration and repsonding appropriately. i.e. follow the procedure: [howManyInstructions()](#class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8)->start loop->[loadNextCommand()](#class_instructor_1a43cbe18547a30108219f3aa2945fc9ca)->React to command->repeat until all instructions have been processed.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public  `[`Instructor`](#class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823)`(const int ChipSelect)` | Constructor.
+`public int `[`howManyInstructions`](#class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8)`(void)` | Asks the [Sensor](#class_sensor) how many instructions there are in a measurement cycle.
+`public int `[`howLongShouldIWait`](#class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f)`(void)` | Asks the sensor how long the master should pause for. Deprecated.
+`public void `[`loadNextCommand`](#class_instructor_1a43cbe18547a30108219f3aa2945fc9ca)`(void)` | Fetches the next instruction issued by the sensor in its instruction cycle.
+`public void `[`getCurrentCommandString`](#class_instructor_1a8c66f480a7b5a6b434f613bc7197e824)`(char)` | Returns the character array which qualifies the instruction currently loaded into local memory as issued by the [Sensor](#class_sensor).
+`public int `[`getCurrentCommandInt`](#class_instructor_1adcbf1cb6d2739539465edc6d996d2987)`(void)` | Returns the integer which qualifies the instruction currently loaded into local memory as issued by the [Sensor](#class_sensor).
+`public float `[`getCurrentCommandFloat`](#class_instructor_1ae81f8123893b582fd32a71601471cff8)`(void)` | Returns the float which qualifies the instruction currently loaded into local memory as issued by the [Sensor](#class_sensor).
+`public `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` `[`getCurrentCommandInstruction`](#class_instructor_1a1e54d05ded7ecf88f0205b52901df681)`(void)` | Returns the sinstruct object which defines the instruction currently loaded into local memory as issued by the [Sensor](#class_sensor).
+
+## Members
+
+#### `public  `[`Instructor`](#class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823)`(const int ChipSelect)` {#class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823}
+
+Constructor.
+
+#### Parameters
+* `ChipSelect` is the Slave Select pin of the SPI peripheral in question.
+
+#### `public int `[`howManyInstructions`](#class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8)`(void)` {#class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8}
+
+Asks the [Sensor](#class_sensor) how many instructions there are in a measurement cycle.
+
+In general, the master is expected to iterate through the instrcution set. 
+#### Returns
+The number of instructions in a measurement cycle.
+
+#### `public int `[`howLongShouldIWait`](#class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f)`(void)` {#class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f}
+
+Asks the sensor how long the master should pause for. Deprecated.
+
+#### Returns
+The duration, in milliseconds, the master should pause for.
+
+#### `public void `[`loadNextCommand`](#class_instructor_1a43cbe18547a30108219f3aa2945fc9ca)`(void)` {#class_instructor_1a43cbe18547a30108219f3aa2945fc9ca}
+
+Fetches the next instruction issued by the sensor in its instruction cycle.
+
+Fetches the next instruction from the [Sensor](#class_sensor) and loads it into local memory. Instructions are issued in the [sCmd](#structs_cmd) type and are therefore consititute an element of the sInstruct instruction set, qualified by a character array (string), integer and float.
+
+#### `public void `[`getCurrentCommandString`](#class_instructor_1a8c66f480a7b5a6b434f613bc7197e824)`(char)` {#class_instructor_1a8c66f480a7b5a6b434f613bc7197e824}
+
+Returns the character array which qualifies the instruction currently loaded into local memory as issued by the [Sensor](#class_sensor).
+
+The character array (string) issued by the [Sensor](#class_sensor) is generally intended to be displayed to the user, to update the user on the progress of the measurement procedure or instruct the user on the next step in the measurement procedure, such as inserting the probe into the measurement environment. 
+#### Parameters
+* `char` is the character array into which the instruction string is loaded.
+
+#### `public int `[`getCurrentCommandInt`](#class_instructor_1adcbf1cb6d2739539465edc6d996d2987)`(void)` {#class_instructor_1adcbf1cb6d2739539465edc6d996d2987}
+
+Returns the integer which qualifies the instruction currently loaded into local memory as issued by the [Sensor](#class_sensor).
+
+The integer which qualifies the instruction issued by the sensor is generally used to either augment the information displayed to the user to instruct the master as to how it should carry out the request of the slave, such as how long to pasue for. 
+#### Returns
+The integer which qualifies the instruction.
+
+#### `public float `[`getCurrentCommandFloat`](#class_instructor_1ae81f8123893b582fd32a71601471cff8)`(void)` {#class_instructor_1ae81f8123893b582fd32a71601471cff8}
+
+Returns the float which qualifies the instruction currently loaded into local memory as issued by the [Sensor](#class_sensor).
+
+The float which qualifies the instruction issued by the sensor is generally used to either augment the information displayed to the user to instruct the master as to how it should carry out the request of the slave.
+
+#### `public `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` `[`getCurrentCommandInstruction`](#class_instructor_1a1e54d05ded7ecf88f0205b52901df681)`(void)` {#class_instructor_1a1e54d05ded7ecf88f0205b52901df681}
+
+Returns the sinstruct object which defines the instruction currently loaded into local memory as issued by the [Sensor](#class_sensor).
+
+Elements of the sInstruct type define all the potential instructions which can be issued by a Slave. 
+#### Returns
+The instruction issued by the slave.
+
+# class `Master` {#class_master}
+
+A monolithic class to encapsulate and abstract the slave's communication with the master.
+
+A single transaction is characterised by the following flow of control: Clear SS -> Enter IRQ -> Recieve '?' from master -> send 'ACK' (0x06) to master -> recieve request [mCmd](#structm_cmd) -> send sCmd/Data/Identity as expected -> exit IRQ. Where [mCmd](#structm_cmd), [sCmd](#structs_cmd), [Data](#struct_data) and [Identity](#struct_identity) are structures defined as types. The intial Recieve '?' -> send 'ACK' is known as the handshake. This class' responsibilities include intitialising and handling the SPI, attaching the interrupt and providing the IRQ, managing the handshake and encapsulating the reponse mechanism. Note the use of a volatile interface to allow for safe use of the interrupt.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public  `[`Master`](#class_master_1afd2e9903066a53c737be92639cfa15b0)`(const int SensorIDNumber,const char SensorName,const char InstructionSet,const int NumberOfInstructions,const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` MasterInstructionSet,const int intParams,const float floatParams)` | 
+`public  `[`Master`](#class_master_1a89241ed8839b9fe5ec29d904630a9d3e)`(void)` | 
+`public  `[`~Master`](#class_master_1a58d721f62d1c8bbf84840b864f2e482a)`(void)` | 
+`public  `[`Master`](#class_master_1a339116daf8910b52da4d608c8c7b3944)`(volatile const `[`Master`](#class_master)` &)` | 
+`public inline `[`Master`](#class_master)` & `[`operator=`](#class_master_1a54259c8db640b88dcf5de5594a947b1c)`(const `[`Master`](#class_master)` & rhs)` | 
+`public inline `[`Master`](#class_master)` & `[`operator=`](#class_master_1a0ce51778d73a67179e58ecc6e136bef9)`(volatile const `[`Master`](#class_master)` & rhs)` | 
+`public void `[`SETUP`](#class_master_1a5af38dc77ec10af275ed892e756aee64)`(const int SensorIDNumber,volatile char SensorName,volatile char InstructionSet,const int NumberOfInstructions,volatile `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` MasterInstructionSet,volatile int intParams,volatile float floatParams)` | Set up of the commuication mechanism.
+`public void `[`SPISetup`](#class_master_1a23aca637cd51c40ae469a9ee48725edf)`(void)` | Sets up SPI and attaches interrupt.
+`public bool `[`Handshake`](#class_master_1a2bc479ad10a53f31c4833668cc9cfac4)`(void)` | Manages the handshake component of any transaction.
+`public `[`mCmd`](#structm_cmd)` `[`loadRequest`](#class_master_1a3a3fce38be9020bb12ab595c4adc59ed)`(void)` | Retrieve the request sent by the master.
+`public `[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)` `[`getCurrentInstruction`](#class_master_1af892816882821b107d888f3fe3d7dddd)`(void)` | Returns the mInstruct component of the most recently loaded request sent by the master.
+`public int `[`getCurrentInstructionIntParameter`](#class_master_1a918b5964fa7cfc2ef6cf54960a80ced5)`(void)` | Returns the integer parameter of the most recently loaded request sent by the master.
+`public float `[`getCurrentInstructionFloatParameter`](#class_master_1a32c23c46b93673a8817bf54cf4a52372)`(void)` | Returns the floating point parameter of the most recently loaded request sent by the master.
+`public void `[`sendReply`](#class_master_1a7d0570bae901dbbd7c88db131fea03c5)`(const `[`sCmd`](#structs_cmd)` Reply)` | Send an [sCmd](#structs_cmd) object in reply to the request recieved from [Master](#class_master).
+`public void `[`sendReply`](#class_master_1a109e347c1b70f26a82d48dfb13af3fe8)`(const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction)` | Send a reply to the request recieved from master.
+`public void `[`sendReply`](#class_master_1abebea7ffc56886ac9b59980312ea19f9)`(const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,volatile char InstructionString)` | Send a reply to the request recieved from master.
+`public void `[`sendReply`](#class_master_1a26d84a77b85fdd81db98ccd23d0e882f)`(const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,const int iParam)` | Send a reply to the request recieved from master.
+`public void `[`sendReply`](#class_master_1a68d7ac6a3680ac2b4c3620b6e175d97f)`(const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,const float fParam)` | Send a reply to the request recieved from master.
+`public void `[`sendReply`](#class_master_1aa0f969c879b7d6ca105162ea2ca2c87e)`(const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,const int iParam,const int fParam)` | Send a reply to the request recieved from master.
+`public void `[`sendReply`](#class_master_1a075da7da71f50da0a5973ff65cc1a485)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,int iParam,volatile char InstructionString)` | Send a reply to the request recieved from master.
+`public void `[`sendReply`](#class_master_1acca62a1478bc305cdd8496f684ea3f9d)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,float fParam,volatile char InstructionString)` | Send a reply to the request recieved from master.
+`public void `[`sendReply`](#class_master_1a88fd38997e4ee0c26fd09a85477487fa)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,int iParam,float fParam,volatile char InstructionString)` | Send a reply to the request recieved from master.
+`public void `[`sendData`](#class_master_1a7e73d29d4d8d714b9c5ea69f18cad396)`(void)` | Sends the local [Data](#struct_data) object to the master in reply to appropriate request.
+`public void `[`sendIdentity`](#class_master_1a9ebd71ad45ea73524c87724b9c5e5e2f)`(void)` | Sends slave [Identity](#struct_identity) object to the master in reply to appropriate request.
+`public bool `[`PushMeasurementVector`](#class_master_1ac907bfa48b84098a906c63c933cc373d)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,const float Measurement)` | Pushes a data point onto one of the data vectors.
+`public bool `[`PopMeasurementVector`](#class_master_1ad64bb8e32e356747d0f80fce966a3574)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber)` | Pops a data point from the tail end of a designated vector.
+`public void `[`ClearMeasurementVector`](#class_master_1a94625b59aceffeceeae3b050885968ef)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber)` | Clears all data points from a particular vector.
+`public void `[`setMeasurementVectorHeading`](#class_master_1a49e434ca3d09d56bac2a2d45c86661ac)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,volatile char Heading)` | Sets the string heading assigned to a paritcular data vector.
+`public void `[`setMeasurementVectorUnits`](#class_master_1a5f955da291f31441d726c4ded74c32bd)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,volatile char Units)` | Sets the string Units assigned to a paritcular data vector.
+`public bool `[`isThereData`](#class_master_1a23536349ac40fc9cc030e9bc5d0c5945)`(void)` | Checks to see whether any data has been pushed to any of the data vectors locally.
+`public void `[`sendTotalNumOfInstructions`](#class_master_1aa68bb1327d506c42b6b7ab54fd73ca62)`(void)` | Sends a reply to [Master](#class_master) specifiying the total number of instructions in a measurement procedure.
+`public int `[`getCurrentInstructionNumber`](#class_master_1a250b4f7cdb96abb0be9ffdc54d00be31)`(void)` | Gets the value of the counter which tracks the current instruction number throughout the measurement procedure.
+`public bool `[`sendNextUserInstruction`](#class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a)`(void)` | Sends the next instruction in the measurement cycle to the master.
+`public void `[`resendCurrentUserInstruction`](#class_master_1a8a9c9670d31af14e65157879963e0cf1)`(void)` | Resends the cuurent instruction in the measurement procedure to the master.
+`public void `[`restartUserInstructionCycle`](#class_master_1ad50d30dbd09d40661bbdbc1527ff07bf)`(void)` | Restarts the measurement prcedure.
+`public void `[`beginMeasurement`](#class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c)`(void)` | Updates state to indicate that [Master](#class_master) has requested the intitiation of the measurement procedure.
+`public bool `[`shallIStart`](#class_master_1a5d83f02bd26fbe40f249c052454b327b)`(void)` | Checks whether the [beginMeasurement()](#class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c) method has been called.
+
+## Members
+
+#### `public  `[`Master`](#class_master_1afd2e9903066a53c737be92639cfa15b0)`(const int SensorIDNumber,const char SensorName,const char InstructionSet,const int NumberOfInstructions,const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` MasterInstructionSet,const int intParams,const float floatParams)` {#class_master_1afd2e9903066a53c737be92639cfa15b0}
+
+#### `public  `[`Master`](#class_master_1a89241ed8839b9fe5ec29d904630a9d3e)`(void)` {#class_master_1a89241ed8839b9fe5ec29d904630a9d3e}
+
+#### `public  `[`~Master`](#class_master_1a58d721f62d1c8bbf84840b864f2e482a)`(void)` {#class_master_1a58d721f62d1c8bbf84840b864f2e482a}
+
+#### `public  `[`Master`](#class_master_1a339116daf8910b52da4d608c8c7b3944)`(volatile const `[`Master`](#class_master)` &)` {#class_master_1a339116daf8910b52da4d608c8c7b3944}
+
+#### `public inline `[`Master`](#class_master)` & `[`operator=`](#class_master_1a54259c8db640b88dcf5de5594a947b1c)`(const `[`Master`](#class_master)` & rhs)` {#class_master_1a54259c8db640b88dcf5de5594a947b1c}
+
+#### `public inline `[`Master`](#class_master)` & `[`operator=`](#class_master_1a0ce51778d73a67179e58ecc6e136bef9)`(volatile const `[`Master`](#class_master)` & rhs)` {#class_master_1a0ce51778d73a67179e58ecc6e136bef9}
+
+#### `public void `[`SETUP`](#class_master_1a5af38dc77ec10af275ed892e756aee64)`(const int SensorIDNumber,volatile char SensorName,volatile char InstructionSet,const int NumberOfInstructions,volatile `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` MasterInstructionSet,volatile int intParams,volatile float floatParams)` {#class_master_1a5af38dc77ec10af275ed892e756aee64}
+
+Set up of the commuication mechanism.
+
+Intialised the auto-instantiated [Master](#class_master) object, attaches the IRQ and sets up SPI communications. 
+#### Parameters
+* `SensorIDNumber` is the identity number of th slave. 
+
+* `SensorName` is the string name of the slave. 
+
+* `InstructionSet` is the array of strings associated with each instruction in the measuremnt cycle. Generally to be displayed to the user. 
+
+* `NumberOfInstructions` is the number of instructions in a single measurement cycle/procedure. 
+
+* `MasterInstructionSet` is the array of sInstruct objects associated with each instruction in the measurement cycle. Defines the required action by the master for each step of the measurement procedure. 
+
+* `IntParams` is the array of integer parameter associated with each instruction. 
+
+* `FloatParams` is the array of floating point parameters accosiated with each instruction.
+
+#### `public void `[`SPISetup`](#class_master_1a23aca637cd51c40ae469a9ee48725edf)`(void)` {#class_master_1a23aca637cd51c40ae469a9ee48725edf}
+
+Sets up SPI and attaches interrupt.
+
+#### `public bool `[`Handshake`](#class_master_1a2bc479ad10a53f31c4833668cc9cfac4)`(void)` {#class_master_1a2bc479ad10a53f31c4833668cc9cfac4}
+
+Manages the handshake component of any transaction.
+
+Manages the handshake between master and slave; defined by: Recieve '?' -> send 'ACK' (0x06). 
+#### Returns
+True if the handshake was successful.
+
+#### `public `[`mCmd`](#structm_cmd)` `[`loadRequest`](#class_master_1a3a3fce38be9020bb12ab595c4adc59ed)`(void)` {#class_master_1a3a3fce38be9020bb12ab595c4adc59ed}
+
+Retrieve the request sent by the master.
+
+After each handshake, the master will proceed to send a request, defined by an [mCmd](#structm_cmd) object. This function must runafter each handshake. This function reassembles the [mCmd](#structm_cmd) request sent by the master, byte by byte and stores it in local memory. 
+#### Returns
+the [mCmd](#structm_cmd) object sent by the master.
+
+#### `public `[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)` `[`getCurrentInstruction`](#class_master_1af892816882821b107d888f3fe3d7dddd)`(void)` {#class_master_1af892816882821b107d888f3fe3d7dddd}
+
+Returns the mInstruct component of the most recently loaded request sent by the master.
+
+#### `public int `[`getCurrentInstructionIntParameter`](#class_master_1a918b5964fa7cfc2ef6cf54960a80ced5)`(void)` {#class_master_1a918b5964fa7cfc2ef6cf54960a80ced5}
+
+Returns the integer parameter of the most recently loaded request sent by the master.
+
+#### `public float `[`getCurrentInstructionFloatParameter`](#class_master_1a32c23c46b93673a8817bf54cf4a52372)`(void)` {#class_master_1a32c23c46b93673a8817bf54cf4a52372}
+
+Returns the floating point parameter of the most recently loaded request sent by the master.
+
+#### `public void `[`sendReply`](#class_master_1a7d0570bae901dbbd7c88db131fea03c5)`(const `[`sCmd`](#structs_cmd)` Reply)` {#class_master_1a7d0570bae901dbbd7c88db131fea03c5}
+
+Send an [sCmd](#structs_cmd) object in reply to the request recieved from [Master](#class_master).
+
+#### `public void `[`sendReply`](#class_master_1a109e347c1b70f26a82d48dfb13af3fe8)`(const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction)` {#class_master_1a109e347c1b70f26a82d48dfb13af3fe8}
+
+Send a reply to the request recieved from master.
+
+Assembles the [sCmd](#structs_cmd) object from the supplied parameters. Overloaded.
+
+#### `public void `[`sendReply`](#class_master_1abebea7ffc56886ac9b59980312ea19f9)`(const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,volatile char InstructionString)` {#class_master_1abebea7ffc56886ac9b59980312ea19f9}
+
+Send a reply to the request recieved from master.
+
+Assembles the [sCmd](#structs_cmd) object from the supplied parameters. Overloaded. Note the need for the char* to be defined locally as volatile char[]. Cannot pass string literals.
+
+#### `public void `[`sendReply`](#class_master_1a26d84a77b85fdd81db98ccd23d0e882f)`(const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,const int iParam)` {#class_master_1a26d84a77b85fdd81db98ccd23d0e882f}
+
+Send a reply to the request recieved from master.
+
+Assembles the [sCmd](#structs_cmd) object from the supplied parameters. Overloaded.
+
+#### `public void `[`sendReply`](#class_master_1a68d7ac6a3680ac2b4c3620b6e175d97f)`(const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,const float fParam)` {#class_master_1a68d7ac6a3680ac2b4c3620b6e175d97f}
+
+Send a reply to the request recieved from master.
+
+Assembles the [sCmd](#structs_cmd) object from the supplied parameters. Overloaded.
+
+#### `public void `[`sendReply`](#class_master_1aa0f969c879b7d6ca105162ea2ca2c87e)`(const `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,const int iParam,const int fParam)` {#class_master_1aa0f969c879b7d6ca105162ea2ca2c87e}
+
+Send a reply to the request recieved from master.
+
+Assembles the [sCmd](#structs_cmd) object from the supplied parameters. Overloaded.
+
+#### `public void `[`sendReply`](#class_master_1a075da7da71f50da0a5973ff65cc1a485)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,int iParam,volatile char InstructionString)` {#class_master_1a075da7da71f50da0a5973ff65cc1a485}
+
+Send a reply to the request recieved from master.
+
+Assembles the [sCmd](#structs_cmd) object from the supplied parameters. Overloaded. Note the need for the char* to be defined locally as volatile char[]. Cannot pass string literals.
+
+#### `public void `[`sendReply`](#class_master_1acca62a1478bc305cdd8496f684ea3f9d)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,float fParam,volatile char InstructionString)` {#class_master_1acca62a1478bc305cdd8496f684ea3f9d}
+
+Send a reply to the request recieved from master.
+
+Assembles the [sCmd](#structs_cmd) object from the supplied parameters. Overloaded. Note the need for the char* to be defined locally as volatile char[]. Cannot pass string literals.
+
+#### `public void `[`sendReply`](#class_master_1a88fd38997e4ee0c26fd09a85477487fa)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` Instruction,int iParam,float fParam,volatile char InstructionString)` {#class_master_1a88fd38997e4ee0c26fd09a85477487fa}
+
+Send a reply to the request recieved from master.
+
+Assembles the [sCmd](#structs_cmd) object from the supplied parameters. Overloaded. Note the need for the char* to be defined locally as volatile char[]. Cannot pass string literals.
+
+#### `public void `[`sendData`](#class_master_1a7e73d29d4d8d714b9c5ea69f18cad396)`(void)` {#class_master_1a7e73d29d4d8d714b9c5ea69f18cad396}
+
+Sends the local [Data](#struct_data) object to the master in reply to appropriate request.
+
+Sends [Data](#struct_data) object to the master in reponse to a request made by the master for [Data](#struct_data). NOTE: This must be used as the response to the appropriate mInstruct request. In paricular, (mInstruct)SendDataPlease
+
+#### `public void `[`sendIdentity`](#class_master_1a9ebd71ad45ea73524c87724b9c5e5e2f)`(void)` {#class_master_1a9ebd71ad45ea73524c87724b9c5e5e2f}
+
+Sends slave [Identity](#struct_identity) object to the master in reply to appropriate request.
+
+Sends the slave [Identity](#struct_identity) object in response to an appropriate request made by master. NOTE: This must be used as the response to the appropriate mInstruct request. In paricular, (mInstruct)WhoAreYou
+
+#### `public bool `[`PushMeasurementVector`](#class_master_1ac907bfa48b84098a906c63c933cc373d)`(const `[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,const float Measurement)` {#class_master_1ac907bfa48b84098a906c63c933cc373d}
+
+Pushes a data point onto one of the data vectors.
+
+Adds a data point to the next available slot in a particular vector until the vector (row) in the data array is full. 
+#### Parameters
+* `VectorNumber` is the enumerated reference to the row/vector in the data array being accessed. 
+
+* `Measurement` is the data point to be stored. 
+
+#### Returns
+False if the vector/row in question is full. (See DATA_ROW_LENGTH).
+
+#### `public bool `[`PopMeasurementVector`](#class_master_1ad64bb8e32e356747d0f80fce966a3574)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber)` {#class_master_1ad64bb8e32e356747d0f80fce966a3574}
+
+Pops a data point from the tail end of a designated vector.
+
+Removes the most recent data point from the vector in question by marking said data slot writeable to be the next [PushMeasurementVector()](#class_master_1ac907bfa48b84098a906c63c933cc373d). 
+#### Parameters
+* `VectorNumber` is the enumerated reference to the row/vector in the data array being accessed. 
+
+#### Returns
+False if the vector/row in question is empty.
+
+#### `public void `[`ClearMeasurementVector`](#class_master_1a94625b59aceffeceeae3b050885968ef)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber)` {#class_master_1a94625b59aceffeceeae3b050885968ef}
+
+Clears all data points from a particular vector.
+
+#### Parameters
+* `VectorNumber` is the enumerated reference to the row/vector in the data array being accessed.
+
+#### `public void `[`setMeasurementVectorHeading`](#class_master_1a49e434ca3d09d56bac2a2d45c86661ac)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,volatile char Heading)` {#class_master_1a49e434ca3d09d56bac2a2d45c86661ac}
+
+Sets the string heading assigned to a paritcular data vector.
+
+NOTE: The Heading parameter must be declared locally as volatile char[]. Literal strings cannot be passed to this function. 
+#### Parameters
+* `VectorNumber` is the enumerated reference to the row/vector in the data array in question. 
+
+* `Heading[]` is the character array containing the string heading.
+
+#### `public void `[`setMeasurementVectorUnits`](#class_master_1a5f955da291f31441d726c4ded74c32bd)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)` VectorNumber,volatile char Units)` {#class_master_1a5f955da291f31441d726c4ded74c32bd}
+
+Sets the string Units assigned to a paritcular data vector.
+
+NOTE: The Units parameter must be declared locally as volatile char[]. Literal strings cannot be passed to this function. 
+#### Parameters
+* `VectorNumber` is the enumerated reference to the row/vector in the data array in question. 
+
+* `Units[]` is the character array containing the string heading.
+
+#### `public bool `[`isThereData`](#class_master_1a23536349ac40fc9cc030e9bc5d0c5945)`(void)` {#class_master_1a23536349ac40fc9cc030e9bc5d0c5945}
+
+Checks to see whether any data has been pushed to any of the data vectors locally.
+
+#### Returns
+True if any data points exist in the data vectors locally.
+
+#### `public void `[`sendTotalNumOfInstructions`](#class_master_1aa68bb1327d506c42b6b7ab54fd73ca62)`(void)` {#class_master_1aa68bb1327d506c42b6b7ab54fd73ca62}
+
+Sends a reply to [Master](#class_master) specifiying the total number of instructions in a measurement procedure.
+
+#### `public int `[`getCurrentInstructionNumber`](#class_master_1a250b4f7cdb96abb0be9ffdc54d00be31)`(void)` {#class_master_1a250b4f7cdb96abb0be9ffdc54d00be31}
+
+Gets the value of the counter which tracks the current instruction number throughout the measurement procedure.
+
+#### `public bool `[`sendNextUserInstruction`](#class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a)`(void)` {#class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a}
+
+Sends the next instruction in the measurement cycle to the master.
+
+Sends the next instruction in the measurement cycle array in reponse to the appropriate request from master. Specifically, (mInstruct)NextCommandPlease. This method will auto-advance the measurement cycle to the next instruction and re-define the 'current instruction'. 
+#### Returns
+False if the final instruction in the measurement procedure has already been sent and the measurement procedure is now complete.
+
+#### `public void `[`resendCurrentUserInstruction`](#class_master_1a8a9c9670d31af14e65157879963e0cf1)`(void)` {#class_master_1a8a9c9670d31af14e65157879963e0cf1}
+
+Resends the cuurent instruction in the measurement procedure to the master.
+
+This method will NOT advance the measurement cycle.
+
+#### `public void `[`restartUserInstructionCycle`](#class_master_1ad50d30dbd09d40661bbdbc1527ff07bf)`(void)` {#class_master_1ad50d30dbd09d40661bbdbc1527ff07bf}
+
+Restarts the measurement prcedure.
+
+Restarts the measuement procedure such that the next instruction sent will be the first instruction in the measurement cycle.
+
+#### `public void `[`beginMeasurement`](#class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c)`(void)` {#class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c}
+
+Updates state to indicate that [Master](#class_master) has requested the intitiation of the measurement procedure.
+
+Designed to allow the IRQ to update the slave state so that the procedural code in main() can initiate the measurement procedure.
+
+#### `public bool `[`shallIStart`](#class_master_1a5d83f02bd26fbe40f249c052454b327b)`(void)` {#class_master_1a5d83f02bd26fbe40f249c052454b327b}
+
+Checks whether the [beginMeasurement()](#class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c) method has been called.
+
+Allows procedural code in main() to determine whether the system state has changed during an interrupt in response to a request by the master to initiate the measurement procedure.
+
+# class `Sensor` {#class_sensor}
+
+```
+class Sensor
+  : public Instructable
+  : public Instructor
+  : public DataSource
+  : public Identifiable
+```  
+
+A class which models a Sensor/peripheral.
+
+This class models a sensor peripheral as an entity which has a queriable [Identity](#struct_identity), is a source of [Data](#struct_data), can be issued commands and can issue a series of instructions in turn. In particular, a sensor is considered to perform a measurement procedure consisting of a series of steps; at each step, the sensor will issue instructions to the master to be acted upon and/or displayed to the user. The sensor may also require feedback from the user such as confirmation of the completion of an instruction, before proceeding to the next instruction in the measurement procedure. While the sensor dictates the flow of the measurement procedure, a master reserves the right to initiate the procedure, pause the procedure and restart the procedure.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public  `[`Sensor`](#class_sensor_1a370005d04d3566c21b9190e1442fa4e8)`(const int ChipSelect)` | Constructor.
+`public int `[`StartMeasurement`](#class_sensor_1af0e64874a3d1b8ae19e3b623d244342a)`(void)` | Instruct the sensor to initiate the measurement procedure.
+`public int `[`PauseMeasurementForMillis`](#class_sensor_1afdcc3b63357bd24f519e0cbc85454a52)`(int)` | Instruct the sensor to pause the measurement procedure for a brief period.
+`public int `[`RestartMeasurement`](#class_sensor_1ad58e9acfc23f07af433f0e2596d786d7)`(void)` | Instruct the sensor to restart the measurement procedure.
+
+## Members
+
+#### `public  `[`Sensor`](#class_sensor_1a370005d04d3566c21b9190e1442fa4e8)`(const int ChipSelect)` {#class_sensor_1a370005d04d3566c21b9190e1442fa4e8}
+
+Constructor.
+
+#### Parameters
+* `ChipSelect` is the Slave Select pin of the SPI peripheral in question.
+
+#### `public int `[`StartMeasurement`](#class_sensor_1af0e64874a3d1b8ae19e3b623d244342a)`(void)` {#class_sensor_1af0e64874a3d1b8ae19e3b623d244342a}
+
+Instruct the sensor to initiate the measurement procedure.
+
+Informs the sensor to start the measurement procedure and proceed to the first instruction step. 
+#### Returns
+True if the sensor acknowledges the request.
+
+#### `public int `[`PauseMeasurementForMillis`](#class_sensor_1afdcc3b63357bd24f519e0cbc85454a52)`(int)` {#class_sensor_1afdcc3b63357bd24f519e0cbc85454a52}
+
+Instruct the sensor to pause the measurement procedure for a brief period.
+
+Instructs the sensor to temporarily pause the measurement procedure for a period defined in milliseconds. 
+#### Parameters
+* `int` is the number of milliseconds for which the sensor is to pause. 
+
+#### Returns
+True if the sensor acknowledges the request.
+
+#### `public int `[`RestartMeasurement`](#class_sensor_1ad58e9acfc23f07af433f0e2596d786d7)`(void)` {#class_sensor_1ad58e9acfc23f07af433f0e2596d786d7}
+
+Instruct the sensor to restart the measurement procedure.
+
+Instructs the sensor to restart the measurement procedure. The sensor will wait revert to its initial state, waiting for a [StartMeasurement()](#class_sensor_1af0e64874a3d1b8ae19e3b623d244342a) command before proceeding to the first instruction in the procedure. 
+#### Returns
+True if the sensor acknowledges the request.
+
+# struct `Data` {#struct_data}
+
+Type used to encapsulate the data collected by the slave.
+
+[Data](#struct_data) is contained in a two dimensional array but generally modelled as a collection of 'vectors' or rows of data. Each row is allowed a variable number of data points, a string heading and a string unit.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public int `[`NumColumns`](#struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336) | Number of data points currently stored in each row.
+`public int `[`NumRows`](#struct_data_1ac0883de785701631da0e099578c748ca) | Number of rows. Defined at compilation.
+`public char `[`RowHeadings`](#struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01) | String headings to describe the data in each row.
+`public char `[`rowUnits`](#struct_data_1a004891d89fb41172310a55947f922a54) | String units to qualify the data in each row.
+`public float `[`DataPoints`](#struct_data_1a1984363a7b509590c1bae03601360a0e) | Two dimensional array of data. Each row generally treated as an independent vector.
+`public inline `[`Data`](#struct_data)` & `[`operator=`](#struct_data_1a3ae506c712bc36c15533f5499608a047)`(const volatile `[`Data`](#struct_data)` & rhs)` | 
+`public inline `[`Data`](#struct_data)` & `[`operator=`](#struct_data_1a7c50ba562a0dcddc5ca2c733f1bbcb61)`(const `[`Data`](#struct_data)` & rhs)` | 
+
+## Members
+
+#### `public int `[`NumColumns`](#struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336) {#struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336}
+
+Number of data points currently stored in each row.
+
+#### `public int `[`NumRows`](#struct_data_1ac0883de785701631da0e099578c748ca) {#struct_data_1ac0883de785701631da0e099578c748ca}
+
+Number of rows. Defined at compilation.
+
+#### `public char `[`RowHeadings`](#struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01) {#struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01}
+
+String headings to describe the data in each row.
+
+#### `public char `[`rowUnits`](#struct_data_1a004891d89fb41172310a55947f922a54) {#struct_data_1a004891d89fb41172310a55947f922a54}
+
+String units to qualify the data in each row.
+
+#### `public float `[`DataPoints`](#struct_data_1a1984363a7b509590c1bae03601360a0e) {#struct_data_1a1984363a7b509590c1bae03601360a0e}
+
+Two dimensional array of data. Each row generally treated as an independent vector.
+
+#### `public inline `[`Data`](#struct_data)` & `[`operator=`](#struct_data_1a3ae506c712bc36c15533f5499608a047)`(const volatile `[`Data`](#struct_data)` & rhs)` {#struct_data_1a3ae506c712bc36c15533f5499608a047}
+
+#### `public inline `[`Data`](#struct_data)` & `[`operator=`](#struct_data_1a7c50ba562a0dcddc5ca2c733f1bbcb61)`(const `[`Data`](#struct_data)` & rhs)` {#struct_data_1a7c50ba562a0dcddc5ca2c733f1bbcb61}
+
+# struct `Identity` {#struct_identity}
+
+Type used to convey the Slave identity.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public char `[`SensorName`](#struct_identity_1adc4d380bde0772c5d53a6383e36178cb) | String name of the slave. Used for informative reporting to user.
+`public int `[`sensorID`](#struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac) | Single byte identitfication number.
+`public int `[`sensorChipSelect`](#struct_identity_1a219419d57e4c4e0d53ddcb44af330f32) | SPI chip select of the peripheral in question. Used by slave, but used by [Master](#class_master).
+`public inline `[`Identity`](#struct_identity)` & `[`operator=`](#struct_identity_1ae7ccf6e408df14fac9dc856f53d81718)`(const volatile `[`Identity`](#struct_identity)` & rhs)` | 
+`public inline `[`Identity`](#struct_identity)` & `[`operator=`](#struct_identity_1a64f9786e3b6cd410406d14d124be1e7c)`(const `[`Identity`](#struct_identity)` & rhs)` | 
+
+## Members
+
+#### `public char `[`SensorName`](#struct_identity_1adc4d380bde0772c5d53a6383e36178cb) {#struct_identity_1adc4d380bde0772c5d53a6383e36178cb}
+
+String name of the slave. Used for informative reporting to user.
+
+#### `public int `[`sensorID`](#struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac) {#struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac}
+
+Single byte identitfication number.
+
+#### `public int `[`sensorChipSelect`](#struct_identity_1a219419d57e4c4e0d53ddcb44af330f32) {#struct_identity_1a219419d57e4c4e0d53ddcb44af330f32}
+
+SPI chip select of the peripheral in question. Used by slave, but used by [Master](#class_master).
+
+#### `public inline `[`Identity`](#struct_identity)` & `[`operator=`](#struct_identity_1ae7ccf6e408df14fac9dc856f53d81718)`(const volatile `[`Identity`](#struct_identity)` & rhs)` {#struct_identity_1ae7ccf6e408df14fac9dc856f53d81718}
+
+#### `public inline `[`Identity`](#struct_identity)` & `[`operator=`](#struct_identity_1a64f9786e3b6cd410406d14d124be1e7c)`(const `[`Identity`](#struct_identity)` & rhs)` {#struct_identity_1a64f9786e3b6cd410406d14d124be1e7c}
+
+# struct `mCmd` {#structm_cmd}
+
+Type used by master to send requests to slave.
+
+Each transaction, following the initial handshake, the master will send a request and the slave will send a reply. Requests made by the master will always take the form of an [mCmd](#structm_cmd) object, which contains a parameterised instance of the instruction set, mInstruct, which defines the class of repsonse expected by the slave.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public `[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)` `[`Instruction`](#structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d) | Instruction to slave.
+`public int `[`iParam`](#structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888) | Integer paramter which qualifies the instruction.
+`public float `[`fParam`](#structm_cmd_1af05b89ac7edf2c67bb3386c902369313) | Floating point parameter which wualifies the instruction.
+`public inline  `[`mCmd`](#structm_cmd_1a15d47aa62e963ba62b9b5df21ff7c3b3)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)` Instruct,int i,float f)` | 
+`public inline  `[`mCmd`](#structm_cmd_1a0bc6db1f094500a0605ce488869a1765)`()` | 
+`public inline  `[`mCmd`](#structm_cmd_1a390b853a14509e41006a0d873899b234)`(volatile `[`mCmd`](#structm_cmd)` & rhs)` | 
+`public inline `[`mCmd`](#structm_cmd)` & `[`operator=`](#structm_cmd_1a861a79ec71e76fa61603073aa6969551)`(const volatile `[`mCmd`](#structm_cmd)` & rhs)` | 
+`public inline `[`mCmd`](#structm_cmd)` & `[`operator=`](#structm_cmd_1a5a637df37056ccbe63f6fe600222c003)`(const `[`mCmd`](#structm_cmd)` & rhs)` | 
+
+## Members
+
+#### `public `[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)` `[`Instruction`](#structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d) {#structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d}
+
+Instruction to slave.
+
+Defines the request made of the slave by the master during any transacion. mInstruct defines a finite set of requests which the master can make of the slave.
+
+#### `public int `[`iParam`](#structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888) {#structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888}
+
+Integer paramter which qualifies the instruction.
+
+#### `public float `[`fParam`](#structm_cmd_1af05b89ac7edf2c67bb3386c902369313) {#structm_cmd_1af05b89ac7edf2c67bb3386c902369313}
+
+Floating point parameter which wualifies the instruction.
+
+#### `public inline  `[`mCmd`](#structm_cmd_1a15d47aa62e963ba62b9b5df21ff7c3b3)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)` Instruct,int i,float f)` {#structm_cmd_1a15d47aa62e963ba62b9b5df21ff7c3b3}
+
+#### `public inline  `[`mCmd`](#structm_cmd_1a0bc6db1f094500a0605ce488869a1765)`()` {#structm_cmd_1a0bc6db1f094500a0605ce488869a1765}
+
+#### `public inline  `[`mCmd`](#structm_cmd_1a390b853a14509e41006a0d873899b234)`(volatile `[`mCmd`](#structm_cmd)` & rhs)` {#structm_cmd_1a390b853a14509e41006a0d873899b234}
+
+#### `public inline `[`mCmd`](#structm_cmd)` & `[`operator=`](#structm_cmd_1a861a79ec71e76fa61603073aa6969551)`(const volatile `[`mCmd`](#structm_cmd)` & rhs)` {#structm_cmd_1a861a79ec71e76fa61603073aa6969551}
+
+#### `public inline `[`mCmd`](#structm_cmd)` & `[`operator=`](#structm_cmd_1a5a637df37056ccbe63f6fe600222c003)`(const `[`mCmd`](#structm_cmd)` & rhs)` {#structm_cmd_1a5a637df37056ccbe63f6fe600222c003}
+
+# struct `sCmd` {#structs_cmd}
+
+Type used by slave to send reply to master,.
+
+Each transaction, following the initial handshake, the master will send a request and the slave will send a reply. Replied made by the slave are generally in the form of an [sCmd](#structs_cmd) object, which contains a parameterised instance of the slave instruction set, sInstruct, which defines the action which the slave requires the master to carry out. Other acceptable replies to particular requests from the master are [Data](#struct_data) and [Identity](#struct_identity) objects.
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` `[`Instruction`](#structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc) | Instruction to master.
+`public char `[`sParam`](#structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f) | String parameter which qualifies the instruction. Often used to convey instructions which are to be displayed to the user.
+`public int `[`iParam`](#structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888) | Integer parameter which qualifies the instruction.
+`public float `[`fParam`](#structs_cmd_1af05b89ac7edf2c67bb3386c902369313) | Floating point parameter which qualifies the instruction.
+`public inline `[`sCmd`](#structs_cmd)` & `[`operator=`](#structs_cmd_1a3b1f47c680cdde48d2c8679599547516)`(const volatile `[`sCmd`](#structs_cmd)` & rhs)` | 
+`public inline `[`sCmd`](#structs_cmd)` & `[`operator=`](#structs_cmd_1a88ec1d5b2730bd3e2e2c9902c3ccde34)`(const `[`sCmd`](#structs_cmd)` & rhs)` | 
+
+## Members
+
+#### `public `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` `[`Instruction`](#structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc) {#structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc}
+
+Instruction to master.
+
+Defines the reply made by the slave in repsonse to the request posed by the master during a single transaction. Used to confirm commands issued by the master or issue commands to the master.
+
+#### `public char `[`sParam`](#structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f) {#structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f}
+
+String parameter which qualifies the instruction. Often used to convey instructions which are to be displayed to the user.
+
+#### `public int `[`iParam`](#structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888) {#structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888}
+
+Integer parameter which qualifies the instruction.
+
+#### `public float `[`fParam`](#structs_cmd_1af05b89ac7edf2c67bb3386c902369313) {#structs_cmd_1af05b89ac7edf2c67bb3386c902369313}
+
+Floating point parameter which qualifies the instruction.
+
+#### `public inline `[`sCmd`](#structs_cmd)` & `[`operator=`](#structs_cmd_1a3b1f47c680cdde48d2c8679599547516)`(const volatile `[`sCmd`](#structs_cmd)` & rhs)` {#structs_cmd_1a3b1f47c680cdde48d2c8679599547516}
+
+#### `public inline `[`sCmd`](#structs_cmd)` & `[`operator=`](#structs_cmd_1a88ec1d5b2730bd3e2e2c9902c3ccde34)`(const `[`sCmd`](#structs_cmd)` & rhs)` {#structs_cmd_1a88ec1d5b2730bd3e2e2c9902c3ccde34}
+
+# struct `UserInstructions` {#struct_user_instructions}
+
+## Summary
+
+ Members                        | Descriptions                                
+--------------------------------|---------------------------------------------
+`public int `[`NumOfInstructions`](#struct_user_instructions_1a801574205a73598195471b820f1763be) | 
+`public int `[`InstructionCounter`](#struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4) | 
+`public char `[`InstructionSet`](#struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca) | 
+`public `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` `[`MasterInstructionSet`](#struct_user_instructions_1a2776e44080e40571fdf163b46b013aef) | 
+`public int `[`iParams`](#struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63) | 
+`public float `[`fParams`](#struct_user_instructions_1a2f3be588265c4ed198e1687433e53754) | 
+`public inline `[`UserInstructions`](#struct_user_instructions)` & `[`operator=`](#struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196)`(const volatile `[`UserInstructions`](#struct_user_instructions)` & rhs)` | 
+`public inline `[`UserInstructions`](#struct_user_instructions)` & `[`operator=`](#struct_user_instructions_1a70e5ef4407c43d8e574dfe4b46083d56)`(const `[`UserInstructions`](#struct_user_instructions)` & rhs)` | 
+
+## Members
+
+#### `public int `[`NumOfInstructions`](#struct_user_instructions_1a801574205a73598195471b820f1763be) {#struct_user_instructions_1a801574205a73598195471b820f1763be}
+
+#### `public int `[`InstructionCounter`](#struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4) {#struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4}
+
+#### `public char `[`InstructionSet`](#struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca) {#struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca}
+
+#### `public `[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)` `[`MasterInstructionSet`](#struct_user_instructions_1a2776e44080e40571fdf163b46b013aef) {#struct_user_instructions_1a2776e44080e40571fdf163b46b013aef}
+
+#### `public int `[`iParams`](#struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63) {#struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63}
+
+#### `public float `[`fParams`](#struct_user_instructions_1a2f3be588265c4ed198e1687433e53754) {#struct_user_instructions_1a2f3be588265c4ed198e1687433e53754}
+
+#### `public inline `[`UserInstructions`](#struct_user_instructions)` & `[`operator=`](#struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196)`(const volatile `[`UserInstructions`](#struct_user_instructions)` & rhs)` {#struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196}
+
+#### `public inline `[`UserInstructions`](#struct_user_instructions)` & `[`operator=`](#struct_user_instructions_1a70e5ef4407c43d8e574dfe4b46083d56)`(const `[`UserInstructions`](#struct_user_instructions)` & rhs)` {#struct_user_instructions_1a70e5ef4407c43d8e574dfe4b46083d56}
+
+Generated by [Moxygen](https://sourcey.com/moxygen)
+````
+

@@ -1,0 +1,4 @@
+<map id="howManyInstructions" name="howManyInstructions">
+<area shape="rect" id="node1" title="Asks the Sensor how many instructions there are in a measurement cycle." alt="" coords="5,5,149,32"/>
+<area shape="rect" id="node2" href="$class_communicative.html#a4fe112ad5a3d693e39ae44dd43eaf0c1" title="Performs a complete transaction; expects Slave to Reply with sCmd object." alt="" coords="197,5,396,32"/>
+</map>

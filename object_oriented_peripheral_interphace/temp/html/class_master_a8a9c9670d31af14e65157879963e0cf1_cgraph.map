@@ -1,0 +1,4 @@
+<map id="resendCurrentUserInstruction" name="resendCurrentUserInstruction">
+<area shape="rect" id="node1" title="Resends the cuurent instruction in the measurement procedure to the master." alt="" coords="5,5,196,32"/>
+<area shape="rect" id="node2" href="$class_master.html#a7d0570bae901dbbd7c88db131fea03c5" title="Send an sCmd object in reply to the request recieved from Master." alt="" coords="244,5,327,32"/>
+</map>

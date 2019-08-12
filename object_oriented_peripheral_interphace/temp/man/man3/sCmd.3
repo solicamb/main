@@ -1,0 +1,74 @@
+.TH "sCmd" 3 "Mon Aug 12 2019" "OOPI" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+sCmd \- Type used by slave to send reply to master,\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <SPI_InstructionSet\&.h>\fP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBsCmd\fP & \fBoperator=\fP (const volatile \fBsCmd\fP &rhs) volatile"
+.br
+.ti -1c
+.RI "volatile \fBsCmd\fP & \fBoperator=\fP (const \fBsCmd\fP &rhs) volatile"
+.br
+.in -1c
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "\fBsInstruct\fP \fBInstruction\fP"
+.br
+.RI "Instruction to master\&. "
+.ti -1c
+.RI "char \fBsParam\fP [\fBSLAVE_COMMMAND_STRING_LENGTH\fP]"
+.br
+.RI "String parameter which qualifies the instruction\&. Often used to convey instructions which are to be displayed to the user\&. "
+.ti -1c
+.RI "int \fBiParam\fP"
+.br
+.RI "Integer parameter which qualifies the instruction\&. "
+.ti -1c
+.RI "float \fBfParam\fP"
+.br
+.RI "Floating point parameter which qualifies the instruction\&. "
+.in -1c
+.SH "Detailed Description"
+.PP 
+Type used by slave to send reply to master,\&. 
+
+Each transaction, following the initial handshake, the master will send a request and the slave will send a reply\&. Replied made by the slave are generally in the form of an \fBsCmd\fP object, which contains a parameterised instance of the slave instruction set, sInstruct, which defines the action which the slave requires the master to carry out\&. Other acceptable replies to particular requests from the master are \fBData\fP and \fBIdentity\fP objects\&. 
+.SH "Member Function Documentation"
+.PP 
+.SS "\fBsCmd\fP& operator= (const volatile \fBsCmd\fP & rhs) volatile\fC [inline]\fP"
+
+.SS "volatile \fBsCmd\fP& operator= (const \fBsCmd\fP & rhs) volatile\fC [inline]\fP"
+
+.SH "Field Documentation"
+.PP 
+.SS "float fParam"
+
+.PP
+Floating point parameter which qualifies the instruction\&. 
+.SS "\fBsInstruct\fP Instruction"
+
+.PP
+Instruction to master\&. Defines the reply made by the slave in repsonse to the request posed by the master during a single transaction\&. Used to confirm commands issued by the master or issue commands to the master\&. 
+.SS "int iParam"
+
+.PP
+Integer parameter which qualifies the instruction\&. 
+.SS "char sParam[\fBSLAVE_COMMMAND_STRING_LENGTH\fP]"
+
+.PP
+String parameter which qualifies the instruction\&. Often used to convey instructions which are to be displayed to the user\&. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for OOPI from the source code\&.

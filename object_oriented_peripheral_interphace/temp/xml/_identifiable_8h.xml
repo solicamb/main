@@ -1,0 +1,109 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="_identifiable_8h" kind="file" language="C++">
+    <compoundname>Identifiable.h</compoundname>
+    <includes local="no">Arduino.h</includes>
+    <includes refid="_s_p_i___instruction_set_8h" local="yes">SPI_InstructionSet.h</includes>
+    <includes refid="_communicative_8h" local="yes">Communicative.h</includes>
+    <includedby refid="_identifiable_8cpp" local="yes">Identifiable.cpp</includedby>
+    <includedby refid="_sensor_8cpp" local="yes">Sensor.cpp</includedby>
+    <includedby refid="_sensor_8h" local="yes">Sensor.h</includedby>
+    <incdepgraph>
+      <node id="49">
+        <label>Communicative.h</label>
+        <link refid="_communicative_8h"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+      </node>
+      <node id="47">
+        <label>Arduino.h</label>
+      </node>
+      <node id="48">
+        <label>SPI_InstructionSet.h</label>
+        <link refid="_s_p_i___instruction_set_8h"/>
+      </node>
+      <node id="46">
+        <label>Identifiable.h</label>
+        <link refid="_identifiable_8h"/>
+        <childnode refid="47" relation="include">
+        </childnode>
+        <childnode refid="48" relation="include">
+        </childnode>
+        <childnode refid="49" relation="include">
+        </childnode>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="52">
+        <label>Sensor.cpp</label>
+        <link refid="_sensor_8cpp"/>
+      </node>
+      <node id="53">
+        <label>Sensor.h</label>
+        <link refid="_sensor_8h"/>
+        <childnode refid="52" relation="include">
+        </childnode>
+      </node>
+      <node id="50">
+        <label>Identifiable.h</label>
+        <link refid="_identifiable_8h"/>
+        <childnode refid="51" relation="include">
+        </childnode>
+        <childnode refid="52" relation="include">
+        </childnode>
+        <childnode refid="53" relation="include">
+        </childnode>
+      </node>
+      <node id="51">
+        <label>Identifiable.cpp</label>
+        <link refid="_identifiable_8cpp"/>
+      </node>
+    </invincdepgraph>
+    <innerclass refid="class_identifiable" prot="public">Identifiable</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="normal"></highlight></codeline>
+<codeline lineno="2"><highlight class="normal"></highlight><highlight class="comment">//<sp/>ensure<sp/>this<sp/>library<sp/>description<sp/>is<sp/>only<sp/>included<sp/>once</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="3"><highlight class="normal"></highlight><highlight class="preprocessor">#ifndef<sp/>Identifiable_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#define<sp/>Identifiable_h</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="comment">//<sp/>include<sp/>types<sp/>&amp;<sp/>constants<sp/>of<sp/>Wiring<sp/>core<sp/>API</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;Arduino.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_s_p_i___instruction_set_8h" kindref="compound">SPI_InstructionSet.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="_communicative_8h" kindref="compound">Communicative.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight><highlight class="comment">//<sp/>library<sp/>interface<sp/>description</highlight></codeline>
+<codeline lineno="12"><highlight class="comment"></highlight></codeline>
+<codeline lineno="16" refid="class_identifiable" refkind="compound"><highlight class="keyword">class<sp/></highlight><highlight class="normal"><ref refid="class_identifiable" kindref="compound">Identifiable</ref></highlight></codeline>
+<codeline lineno="17"><highlight class="normal">{</highlight></codeline>
+<codeline lineno="18"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>user-accessible<sp/>&quot;public&quot;<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="19"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">public</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="comment">//Instructable(void);</highlight></codeline>
+<codeline lineno="23"><highlight class="comment"></highlight></codeline>
+<codeline lineno="28"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e" kindref="member">Identifiable</ref>(</highlight><highlight class="keyword">const</highlight><highlight class="normal"><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/>ChipSelect);</highlight></codeline>
+<codeline lineno="29"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"></codeline>
+<codeline lineno="35"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">bool</highlight><highlight class="normal"><sp/><ref refid="class_identifiable_1adbc1a3f62e543a0df002a43413998a26" kindref="member">hasIdentityChanged</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="37"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_identifiable_1ae99f8914426041ea02932d0ed00b29c3" kindref="member">updateIdentity</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="39"></codeline>
+<codeline lineno="43"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">int</highlight><highlight class="normal"><sp/><ref refid="class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae" kindref="member">getIDNumber</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">);</highlight></codeline>
+<codeline lineno="45"></codeline>
+<codeline lineno="49"><highlight class="normal"><sp/><sp/><sp/><sp/></highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="class_identifiable_1a7942e337c1303ce42cc822032465c66a" kindref="member">getSensorName</ref>(</highlight><highlight class="keywordtype">char</highlight><highlight class="normal"><sp/>name[<ref refid="_s_p_i___instruction_set_8h_1addd001d124aca0fe92b3e484732fb7c8" kindref="member">IDENTITY_SENSOR_NAME_LENGTH</ref>]);</highlight></codeline>
+<codeline lineno="50"><highlight class="normal"></highlight></codeline>
+<codeline lineno="51"><highlight class="normal"><sp/><sp/></highlight><highlight class="comment">//<sp/>library-accessible<sp/>&quot;private&quot;<sp/>interface</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="52"><highlight class="normal"><sp/><sp/></highlight><highlight class="keyword">private</highlight><highlight class="normal">:</highlight></codeline>
+<codeline lineno="53"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="class_communicative" kindref="compound">Communicative</ref><sp/>CommsModule;</highlight></codeline>
+<codeline lineno="54"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="struct_identity" kindref="compound">Identity</ref><sp/>ThisSensor;</highlight></codeline>
+<codeline lineno="55"><highlight class="normal"></highlight></codeline>
+<codeline lineno="56"><highlight class="normal">};</highlight></codeline>
+<codeline lineno="57"><highlight class="normal"></highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight><highlight class="preprocessor">#endif</highlight></codeline>
+    </programlisting>
+    <location file="Identifiable.h"/>
+  </compounddef>
+</doxygen>

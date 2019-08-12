@@ -1,0 +1,4 @@
+<map id="Instructable" name="Instructable">
+<area shape="rect" id="node1" title="A class which models a Sensor/peripheral as entity which can recieve commands." alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node2" href="$class_sensor.html" title="A class which models a Sensor/peripheral." alt="" coords="19,80,81,107"/>
+</map>

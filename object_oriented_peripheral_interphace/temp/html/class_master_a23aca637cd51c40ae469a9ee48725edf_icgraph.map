@@ -1,0 +1,4 @@
+<map id="SPISetup" name="SPISetup">
+<area shape="rect" id="node1" title="Sets up SPI and attaches interrupt." alt="" coords="119,5,196,32"/>
+<area shape="rect" id="node2" href="$class_master.html#a5af38dc77ec10af275ed892e756aee64" title="Set up of the commuication mechanism." alt="" coords="5,5,71,32"/>
+</map>

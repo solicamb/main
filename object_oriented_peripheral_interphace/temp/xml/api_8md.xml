@@ -1,0 +1,1031 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="api_8md" kind="file" language="Markdown">
+    <compoundname>api.md</compoundname>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline><highlight class="normal">#<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`class<sp/>`[`Communicative`](#class_communicative)<sp/>|<sp/>A<sp/>class<sp/>to<sp/>manage<sp/>communication<sp/>with<sp/>slave<sp/>module.</highlight></codeline>
+<codeline><highlight class="normal">`class<sp/>`[`DataSource`](#class_data_source)<sp/>|<sp/>A<sp/>class<sp/>which<sp/>models<sp/>a<sp/>Sensor/peripheral<sp/>as<sp/>an<sp/>entity<sp/>which<sp/>is<sp/>a<sp/>source<sp/>of<sp/>data.</highlight></codeline>
+<codeline><highlight class="normal">`class<sp/>`[`Identifiable`](#class_identifiable)<sp/>|<sp/>A<sp/>class<sp/>which<sp/>models<sp/>a<sp/>Sensor/peripheral<sp/>as<sp/>an<sp/>identifiable<sp/>entity.</highlight></codeline>
+<codeline><highlight class="normal">`class<sp/>`[`Instructable`](#class_instructable)<sp/>|<sp/>A<sp/>class<sp/>which<sp/>models<sp/>a<sp/>Sensor/peripheral<sp/>as<sp/>entity<sp/>which<sp/>can<sp/>recieve<sp/>commands.</highlight></codeline>
+<codeline><highlight class="normal">`class<sp/>`[`Instructor`](#class_instructor)<sp/>|<sp/>A<sp/>class<sp/>which<sp/>models<sp/>a<sp/>Sensor/peripheral<sp/>as<sp/>entity<sp/>which<sp/>can<sp/>issue<sp/>instructions<sp/>to<sp/>the<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`class<sp/>`[`Master`](#class_master)<sp/>|<sp/>A<sp/>monolithic<sp/>class<sp/>to<sp/>encapsulate<sp/>and<sp/>abstract<sp/>the<sp/>slave&apos;s<sp/>communication<sp/>with<sp/>the<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`class<sp/>`[`Sensor`](#class_sensor)<sp/>|<sp/>A<sp/>class<sp/>which<sp/>models<sp/>a<sp/>Sensor/peripheral.</highlight></codeline>
+<codeline><highlight class="normal">`struct<sp/>`[`Data`](#struct_data)<sp/>|<sp/>Type<sp/>used<sp/>to<sp/>encapsulate<sp/>the<sp/>data<sp/>collected<sp/>by<sp/>the<sp/>slave.</highlight></codeline>
+<codeline><highlight class="normal">`struct<sp/>`[`Identity`](#struct_identity)<sp/>|<sp/>Type<sp/>used<sp/>to<sp/>convey<sp/>the<sp/>Slave<sp/>identity.</highlight></codeline>
+<codeline><highlight class="normal">`struct<sp/>`[`mCmd`](#structm_cmd)<sp/>|<sp/>Type<sp/>used<sp/>by<sp/>master<sp/>to<sp/>send<sp/>requests<sp/>to<sp/>slave.</highlight></codeline>
+<codeline><highlight class="normal">`struct<sp/>`[`sCmd`](#structs_cmd)<sp/>|<sp/>Type<sp/>used<sp/>by<sp/>slave<sp/>to<sp/>send<sp/>reply<sp/>to<sp/>master,.</highlight></codeline>
+<codeline><highlight class="normal">`struct<sp/>`[`UserInstructions`](#struct_user_instructions)<sp/>|<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>class<sp/>`Communicative`<sp/>{#class_communicative}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>class<sp/>to<sp/>manage<sp/>communication<sp/>with<sp/>slave<sp/>module.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>class<sp/>is<sp/>designed<sp/>for<sp/>SPI<sp/>communication<sp/>with<sp/>a<sp/>slave<sp/>device.<sp/>The<sp/>class<sp/>responsibilities<sp/>include<sp/>both<sp/>SPI<sp/>initialisation<sp/>and<sp/>fundamental<sp/>transactions.<sp/>The<sp/>transaction<sp/>protocol<sp/>implemented<sp/>follows<sp/>the<sp/>following<sp/>flow:<sp/>Clear<sp/>SS<sp/>-&gt;<sp/>Send<sp/>&apos;?&apos;<sp/>to<sp/>slave<sp/>-&gt;<sp/>recieve<sp/>&apos;ACK&apos;<sp/>(0x06)<sp/>from<sp/>slave<sp/>-&gt;<sp/>send<sp/>request<sp/>[mCmd](#structm_cmd)<sp/>-&gt;<sp/>recieve<sp/>sCmd/Data/Identity<sp/>as<sp/>expected<sp/>-&gt;<sp/>set<sp/>SS.<sp/>Where<sp/>[mCmd](#structm_cmd),<sp/>[sCmd](#structs_cmd),<sp/>[Data](#struct_data)<sp/>and<sp/>[Identity](#struct_identity)<sp/>are<sp/>structures<sp/>defined<sp/>as<sp/>types.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/><sp/>`[`Communicative`](#class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a)`(const<sp/>int<sp/>CS)`<sp/>|<sp/>Constructor.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/><sp/>`[`~Communicative`](#class_communicative_1a53c7f2ec58bfb99f0ea10e238705c3ce)`(void)`<sp/>|<sp/>Destructor.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`isPeripheralConnected`](#class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046)`(void)`<sp/>|<sp/>Checks<sp/>whether<sp/>Slave<sp/>is<sp/>connected.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>`[`sCmd`](#structs_cmd)`<sp/>`[`RequestReply`](#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1)`(const<sp/>mCmd)`<sp/>|<sp/>Performs<sp/>a<sp/>complete<sp/>transaction;<sp/>expects<sp/>Slave<sp/>to<sp/>Reply<sp/>with<sp/>[sCmd](#structs_cmd)<sp/>object.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>`[`Identity`](#struct_identity)`<sp/>`[`RequestIdentity`](#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d)`(const<sp/>mCmd)`<sp/>|<sp/>Performs<sp/>a<sp/>complete<sp/>transaction;<sp/>expects<sp/>Slave<sp/>to<sp/>Reply<sp/>with<sp/>[Identity](#struct_identity)<sp/>object.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>`[`Data`](#struct_data)`<sp/>`[`RequestData`](#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a)`(const<sp/>mCmd)`<sp/>|<sp/>Performs<sp/>a<sp/>complete<sp/>transaction;<sp/>expects<sp/>Slave<sp/>to<sp/>Reply<sp/>with<sp/>a<sp/>[Data](#struct_data)<sp/>object.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/><sp/>`[`Communicative`](#class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a)`(const<sp/>int<sp/>CS)`<sp/>{#class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Constructor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Constructor<sp/>initialises<sp/>the<sp/>SS<sp/>pin<sp/>to<sp/>be<sp/>used<sp/>in<sp/>communications<sp/>and<sp/>initialises<sp/>SPI<sp/>as<sp/>[Master](#class_master).<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`CS`<sp/>is<sp/>the<sp/>Slave<sp/>Select<sp/>pin<sp/>designation;<sp/>most<sp/>commonly<sp/>PA4.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>SPISetup()</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/><sp/>`[`~Communicative`](#class_communicative_1a53c7f2ec58bfb99f0ea10e238705c3ce)`(void)`<sp/>{#class_communicative_1a53c7f2ec58bfb99f0ea10e238705c3ce}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Destructor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Executes<sp/>SPI.end();</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`isPeripheralConnected`](#class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046)`(void)`<sp/>{#class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Checks<sp/>whether<sp/>Slave<sp/>is<sp/>connected.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Executes<sp/>a<sp/>nop<sp/>transaction.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">true<sp/>if<sp/>handshake<sp/>is<sp/>successful<sp/>and<sp/>Slave<sp/>responds<sp/>to<sp/>&apos;?&apos;<sp/>with<sp/>&apos;ACK&apos;<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>areYouAlive()</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>`[`sCmd`](#structs_cmd)`<sp/>`[`RequestReply`](#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1)`(const<sp/>mCmd)`<sp/>{#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Performs<sp/>a<sp/>complete<sp/>transaction;<sp/>expects<sp/>Slave<sp/>to<sp/>Reply<sp/>with<sp/>[sCmd](#structs_cmd)<sp/>object.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Executes<sp/>a<sp/>complete<sp/>transaction:<sp/>Clear<sp/>SS<sp/>-&gt;<sp/>Send<sp/>&apos;?&apos;<sp/>to<sp/>slave<sp/>-&gt;<sp/>recieve<sp/>&apos;ACK&apos;<sp/>(0x06)<sp/>from<sp/>slave<sp/>-&gt;<sp/>send<sp/>request<sp/>[mCmd](#structm_cmd)<sp/>-&gt;<sp/>recieve<sp/>[sCmd](#structs_cmd)<sp/>-&gt;<sp/>set<sp/>SS.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`[mCmd](#structm_cmd)`<sp/>is<sp/>the<sp/>[mCmd](#structm_cmd)<sp/>object<sp/>which<sp/>constitutes<sp/>the<sp/>Request<sp/>made<sp/>to<sp/>the<sp/>slave.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>[sCmd](#structs_cmd)<sp/>object<sp/>generated<sp/>by<sp/>the<sp/>Slave<sp/>as<sp/>the<sp/>reply<sp/>to<sp/>the<sp/>request.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[RequestIdentity()](#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d),<sp/>[RequestData()](#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>`[`Identity`](#struct_identity)`<sp/>`[`RequestIdentity`](#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d)`(const<sp/>mCmd)`<sp/>{#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Performs<sp/>a<sp/>complete<sp/>transaction;<sp/>expects<sp/>Slave<sp/>to<sp/>Reply<sp/>with<sp/>[Identity](#struct_identity)<sp/>object.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Executes<sp/>a<sp/>complete<sp/>transaction:<sp/>Clear<sp/>SS<sp/>-&gt;<sp/>Send<sp/>&apos;?&apos;<sp/>to<sp/>slave<sp/>-&gt;<sp/>recieve<sp/>&apos;ACK&apos;<sp/>(0x06)<sp/>from<sp/>slave<sp/>-&gt;<sp/>send<sp/>request<sp/>[mCmd](#structm_cmd)<sp/>-&gt;<sp/>recieve<sp/>[Identity](#struct_identity)<sp/>-&gt;<sp/>set<sp/>SS.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`[mCmd](#structm_cmd)`<sp/>is<sp/>the<sp/>[mCmd](#structm_cmd)<sp/>object<sp/>which<sp/>constitutes<sp/>the<sp/>Request<sp/>made<sp/>to<sp/>the<sp/>slave.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>Idenity<sp/>object<sp/>generated<sp/>by<sp/>the<sp/>Slave<sp/>containing<sp/>the<sp/>Slave<sp/>ID<sp/>and<sp/>name.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[RequestReply()](#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1),<sp/>[RequestData()](#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>`[`Data`](#struct_data)`<sp/>`[`RequestData`](#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a)`(const<sp/>mCmd)`<sp/>{#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Performs<sp/>a<sp/>complete<sp/>transaction;<sp/>expects<sp/>Slave<sp/>to<sp/>Reply<sp/>with<sp/>a<sp/>[Data](#struct_data)<sp/>object.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Executes<sp/>a<sp/>complete<sp/>transaction:<sp/>Clear<sp/>SS<sp/>-&gt;<sp/>Send<sp/>&apos;?&apos;<sp/>to<sp/>slave<sp/>-&gt;<sp/>recieve<sp/>&apos;ACK&apos;<sp/>(0x06)<sp/>from<sp/>slave<sp/>-&gt;<sp/>send<sp/>request<sp/>[mCmd](#structm_cmd)<sp/>-&gt;<sp/>recieve<sp/>[Data](#struct_data)<sp/>-&gt;<sp/>set<sp/>SS.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`[mCmd](#structm_cmd)`<sp/>is<sp/>the<sp/>[mCmd](#structm_cmd)<sp/>object<sp/>which<sp/>constitutes<sp/>the<sp/>Request<sp/>made<sp/>to<sp/>the<sp/>slave.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>[Data](#struct_data)<sp/>object<sp/>generated<sp/>by<sp/>the<sp/>Slave<sp/>containing<sp/>a<sp/>two<sp/>dimensional<sp/>array<sp/>of<sp/>data<sp/>points<sp/>and<sp/>the<sp/>length,<sp/>headings<sp/>and<sp/>units<sp/>of<sp/>the<sp/>data<sp/>array<sp/>rows.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[RequestReply()](#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1),<sp/>[RequestIdentity()](#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>class<sp/>`DataSource`<sp/>{#class_data_source}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>class<sp/>which<sp/>models<sp/>a<sp/>Sensor/peripheral<sp/>as<sp/>an<sp/>entity<sp/>which<sp/>is<sp/>a<sp/>source<sp/>of<sp/>data.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>class<sp/>models<sp/>a<sp/>[Sensor](#class_sensor)<sp/>as<sp/>a<sp/>source<sp/>of<sp/>data.<sp/>The<sp/>convention<sp/>in<sp/>use<sp/>is<sp/>that<sp/>any<sp/>[Sensor](#class_sensor)<sp/>can<sp/>store<sp/>data<sp/>such<sp/>that<sp/>it<sp/>occupies<sp/>a<sp/>two<sp/>dimensional<sp/>float<sp/>array<sp/>with<sp/>maximum<sp/>dimensions<sp/>NUMBER_OF_DATA_ROWS<sp/>x<sp/>DATA_ROW_LENGTH.<sp/>The<sp/>data<sp/>can<sp/>either<sp/>be<sp/>treated<sp/>as<sp/>a<sp/>square<sp/>array,<sp/>the<sp/>dimensions<sp/>of<sp/>which<sp/>can<sp/>be<sp/>requested,<sp/>or<sp/>as<sp/>a<sp/>series<sp/>of<sp/>&apos;vectors&apos;,<sp/>the<sp/>length<sp/>of<sp/>which<sp/>can<sp/>be<sp/>requested.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/><sp/>`[`DataSource`](#class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d)`(const<sp/>int<sp/>ChipSelect)`<sp/>|<sp/>Constructor.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`isThereData`](#class_data_source_1a7d92295e088894b5417729a814e49e01)`(void)`<sp/>|<sp/>Asks<sp/>Sensor/peripheral<sp/>whether<sp/>there<sp/>is<sp/>[Data](#struct_data)<sp/>ready<sp/>to<sp/>be<sp/>collected.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>`[`Data`](#struct_data)`<sp/>`[`loadData`](#class_data_source_1a81aac807bfb601c2ac1da78f69d31d48)`(void)`<sp/>|<sp/>Loads<sp/>[Data](#struct_data)<sp/>from<sp/>the<sp/>[Sensor](#class_sensor).</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`getNumberOfDataColumns`](#class_data_source_1ac15f241362d7c22c75c42c2bb16315bf)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber)`<sp/>|<sp/>Gets<sp/>the<sp/>number<sp/>of<sp/>data<sp/>points<sp/>along<sp/>a<sp/>particular<sp/>row<sp/>of<sp/>the<sp/>data<sp/>array.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`getNumberOfDataRows`](#class_data_source_1a52269fa43b741f1ab431aac56d3aedb5)`(void)`<sp/>|<sp/>Gets<sp/>the<sp/>number<sp/>of<sp/>rows<sp/>used<sp/>in<sp/>the<sp/>data<sp/>array.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`getRowHeadings`](#class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d)`(char)`<sp/>|<sp/>Gets<sp/>string<sp/>headings<sp/>of<sp/>all<sp/>the<sp/>vectors<sp/>in<sp/>the<sp/>data<sp/>array.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`getRowUnits`](#class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e)`(char)`<sp/>|<sp/>Gets<sp/>string<sp/>units<sp/>of<sp/>all<sp/>the<sp/>vectors<sp/>in<sp/>the<sp/>data<sp/>array.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`getDataArray`](#class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6)`(float)`<sp/>|<sp/>Gets<sp/>the<sp/>entire<sp/>data<sp/>array.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`getDataVector`](#class_data_source_1a924875bd657b56f140604551270cdbc0)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,float)`<sp/>|<sp/>Gets<sp/>the<sp/>indicated<sp/>data<sp/>vector.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`getVectorLength`](#class_data_source_1a49998f22c00d924daf7b67af48e10a30)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber)`<sp/>|<sp/>Gets<sp/>the<sp/>indicated<sp/>data<sp/>vector<sp/>length.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`getVectorHeading`](#class_data_source_1a79d69573a651290750aa8c08d24f3b64)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,char)`<sp/>|<sp/>Gets<sp/>the<sp/>string<sp/>heading<sp/>for<sp/>the<sp/>vector<sp/>in<sp/>question.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`getVectorUnits`](#class_data_source_1af2a2f33b9970ecff75894134498ff2cd)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,char)`<sp/>|<sp/>Gets<sp/>the<sp/>string<sp/>units<sp/>for<sp/>the<sp/>vector<sp/>in<sp/>question.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>float<sp/>`[`getValueOne`](#class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b)`(void)`<sp/>|<sp/>Gets<sp/>the<sp/>first<sp/>data<sp/>point<sp/>in<sp/>the<sp/>first<sp/>vector.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>float<sp/>`[`getValueTwo`](#class_data_source_1accbfa79e7afee154b4332483181f27ec)`(void)`<sp/>|<sp/>Gets<sp/>the<sp/>second<sp/>data<sp/>point<sp/>in<sp/>the<sp/>first<sp/>vector.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>float<sp/>`[`getValueThree`](#class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf)`(void)`<sp/>|<sp/>Gets<sp/>the<sp/>third<sp/>data<sp/>point<sp/>in<sp/>the<sp/>first<sp/>vector.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/><sp/>`[`DataSource`](#class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d)`(const<sp/>int<sp/>ChipSelect)`<sp/>{#class_data_source_1a9c3258c608e4fdf9436e8cd32d677e7d}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Constructor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`ChipSelect`<sp/>is<sp/>the<sp/>Slave<sp/>Select<sp/>pin<sp/>of<sp/>the<sp/>SPI<sp/>peripheral<sp/>in<sp/>question.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`isThereData`](#class_data_source_1a7d92295e088894b5417729a814e49e01)`(void)`<sp/>{#class_data_source_1a7d92295e088894b5417729a814e49e01}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asks<sp/>Sensor/peripheral<sp/>whether<sp/>there<sp/>is<sp/>[Data](#struct_data)<sp/>ready<sp/>to<sp/>be<sp/>collected.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asks<sp/>the<sp/>sensor<sp/>whether<sp/>the<sp/>data<sp/>is<sp/>ready<sp/>to<sp/>be<sp/>retrieved<sp/>by<sp/>the<sp/>master.<sp/>Slave&apos;s<sp/>are,<sp/>however,<sp/>required<sp/>to<sp/>instantiate<sp/>a<sp/>[Data](#struct_data)<sp/>object<sp/>and<sp/>so<sp/>premature<sp/>loads<sp/>thereof<sp/>will<sp/>not<sp/>fail.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>the<sp/>data<sp/>is<sp/>ready<sp/>to<sp/>be<sp/>collected<sp/>from<sp/>the<sp/>[Sensor](#class_sensor).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>`[`Data`](#struct_data)`<sp/>`[`loadData`](#class_data_source_1a81aac807bfb601c2ac1da78f69d31d48)`(void)`<sp/>{#class_data_source_1a81aac807bfb601c2ac1da78f69d31d48}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Loads<sp/>[Data](#struct_data)<sp/>from<sp/>the<sp/>[Sensor](#class_sensor).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Loads<sp/>the<sp/>[Data](#struct_data)<sp/>object<sp/>from<sp/>the<sp/>[Sensor](#class_sensor)<sp/>into<sp/>local<sp/>memory.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>[Data](#struct_data)<sp/>object<sp/>loaded<sp/>into<sp/>local<sp/>memory.<sp/>User<sp/>of<sp/>accessors<sp/>preffered.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[getNumberOfDataColumns()](#class_data_source_1ac15f241362d7c22c75c42c2bb16315bf),<sp/>[getNumberOfDataRows()](#class_data_source_1a52269fa43b741f1ab431aac56d3aedb5),<sp/>[getRowHeadings()](#class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d),<sp/>[getRowUnits()](#class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e),<sp/>[getDataArray()](#class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6),<sp/>[getDataVector()](#class_data_source_1a924875bd657b56f140604551270cdbc0),<sp/>[getVectorLength()](#class_data_source_1a49998f22c00d924daf7b67af48e10a30),<sp/>[getVectorHeading()](#class_data_source_1a79d69573a651290750aa8c08d24f3b64),[getVectorUnits()](#class_data_source_1af2a2f33b9970ecff75894134498ff2cd),<sp/>[getValueOne()](#class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b),[getValueTwo()](#class_data_source_1accbfa79e7afee154b4332483181f27ec),[getValueThree()](#class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`getNumberOfDataColumns`](#class_data_source_1ac15f241362d7c22c75c42c2bb16315bf)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber)`<sp/>{#class_data_source_1ac15f241362d7c22c75c42c2bb16315bf}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>number<sp/>of<sp/>data<sp/>points<sp/>along<sp/>a<sp/>particular<sp/>row<sp/>of<sp/>the<sp/>data<sp/>array.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`VectorNumber`<sp/>is<sp/>an<sp/>enumerated<sp/>type<sp/>referring<sp/>to<sp/>the<sp/>row<sp/>in<sp/>the<sp/>two<sp/>dimensional<sp/>data<sp/>array.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>number<sp/>of<sp/>data<sp/>points<sp/>along<sp/>a<sp/>particular<sp/>row/vector.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5),<sp/>[Data](#struct_data)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`getNumberOfDataRows`](#class_data_source_1a52269fa43b741f1ab431aac56d3aedb5)`(void)`<sp/>{#class_data_source_1a52269fa43b741f1ab431aac56d3aedb5}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>number<sp/>of<sp/>rows<sp/>used<sp/>in<sp/>the<sp/>data<sp/>array.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Returns<sp/>the<sp/>number<sp/>of<sp/>&apos;vectors&apos;<sp/>(rows)<sp/>which<sp/>the<sp/>sensor<sp/>has<sp/>used<sp/>to<sp/>store<sp/>data.<sp/>Ideally,<sp/>one<sp/>should<sp/>utilise<sp/>the<sp/>result<sp/>of<sp/>this<sp/>function<sp/>to<sp/>iterate<sp/>through<sp/>the<sp/>vectors.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>number<sp/>of<sp/>vectors<sp/>in<sp/>use.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[Data](#struct_data)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`getRowHeadings`](#class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d)`(char)`<sp/>{#class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>string<sp/>headings<sp/>of<sp/>all<sp/>the<sp/>vectors<sp/>in<sp/>the<sp/>data<sp/>array.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>vector/row<sp/>is<sp/>assigned<sp/>a<sp/>heading<sp/>to<sp/>describe<sp/>the<sp/>nature<sp/>of<sp/>the<sp/>data<sp/>contained<sp/>within<sp/>that<sp/>vector.<sp/>Such<sp/>as<sp/>&quot;Ambient<sp/>Temperature&quot;.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`char`<sp/>is<sp/>the<sp/>array<sp/>of<sp/>character<sp/>arrays<sp/>into<sp/>which<sp/>the<sp/>headings<sp/>are<sp/>loaded.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[Data](#struct_data)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`getRowUnits`](#class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e)`(char)`<sp/>{#class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>string<sp/>units<sp/>of<sp/>all<sp/>the<sp/>vectors<sp/>in<sp/>the<sp/>data<sp/>array.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>vector/row<sp/>is<sp/>assigned<sp/>a<sp/>Units<sp/>string<sp/>to<sp/>define<sp/>the<sp/>units<sp/>of<sp/>the<sp/>data<sp/>contained<sp/>within<sp/>that<sp/>vector.<sp/>Such<sp/>as<sp/>&quot;V&quot;<sp/>or<sp/>&quot;Amperes&quot;.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`char`<sp/>is<sp/>the<sp/>array<sp/>of<sp/>character<sp/>arrays<sp/>into<sp/>which<sp/>the<sp/>units<sp/>are<sp/>loaded.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[Data](#struct_data)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`getDataArray`](#class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6)`(float)`<sp/>{#class_data_source_1a83bdf3c6a0c54d468dad3e73509c90e6}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>entire<sp/>data<sp/>array.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Retrieves<sp/>the<sp/>entire<sp/>two<sp/>dimensionsal<sp/>data<sp/>array,<sp/>irrespective<sp/>of<sp/>which<sp/>elements/vectors<sp/>are<sp/>actually<sp/>in<sp/>use.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`float`<sp/>is<sp/>the<sp/>array<sp/>into<sp/>which<sp/>the<sp/>data<sp/>is<sp/>written.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[Data](#struct_data)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`getDataVector`](#class_data_source_1a924875bd657b56f140604551270cdbc0)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,float)`<sp/>{#class_data_source_1a924875bd657b56f140604551270cdbc0}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>indicated<sp/>data<sp/>vector.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Retrieves<sp/>a<sp/>singel<sp/>row<sp/>in<sp/>the<sp/>two<sp/>dimesnional<sp/>data<sp/>array.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`VectorNumber`<sp/>is<sp/>the<sp/>row<sp/>in<sp/>the<sp/>data<sp/>array<sp/>to<sp/>be<sp/>retrieved.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`float`<sp/>is<sp/>the<sp/>floating<sp/>point<sp/>array<sp/>into<sp/>which<sp/>the<sp/>data<sp/>points<sp/>will<sp/>be<sp/>written.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[Data](#struct_data),<sp/>[MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`getVectorLength`](#class_data_source_1a49998f22c00d924daf7b67af48e10a30)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber)`<sp/>{#class_data_source_1a49998f22c00d924daf7b67af48e10a30}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>indicated<sp/>data<sp/>vector<sp/>length.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>data<sp/>vectors<sp/>(rows)<sp/>have<sp/>a<sp/>max<sp/>length<sp/>of<sp/>DATA_ROW_LENGTH<sp/>and<sp/>the<sp/>[Sensor](#class_sensor)<sp/>will<sp/>push<sp/>data<sp/>points<sp/>into<sp/>said<sp/>vector.<sp/>As<sp/>the<sp/>[Sensor](#class_sensor)<sp/>may<sp/>not<sp/>utilise<sp/>the<sp/>entire<sp/>width<sp/>of<sp/>the<sp/>data<sp/>array,<sp/>the<sp/>length<sp/>indicates<sp/>the<sp/>number<sp/>of<sp/>values<sp/>which<sp/>the<sp/>[Sensor](#class_sensor)<sp/>has<sp/>pushed<sp/>into<sp/>the<sp/>vector<sp/>in<sp/>question.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`VectorNumber`<sp/>is<sp/>the<sp/>row<sp/>in<sp/>the<sp/>data<sp/>array.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[Data](#struct_data),<sp/>[MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`getVectorHeading`](#class_data_source_1a79d69573a651290750aa8c08d24f3b64)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,char)`<sp/>{#class_data_source_1a79d69573a651290750aa8c08d24f3b64}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>string<sp/>heading<sp/>for<sp/>the<sp/>vector<sp/>in<sp/>question.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`VectorNumber`<sp/>is<sp/>the<sp/>row<sp/>in<sp/>the<sp/>data<sp/>array<sp/>to<sp/>which<sp/>the<sp/>heading<sp/>coresponds.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[getRowHeadings()](#class_data_source_1acdeb2ae03f2c70d19565381d111a1a4d),<sp/>[Data](#struct_data),<sp/>[MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`getVectorUnits`](#class_data_source_1af2a2f33b9970ecff75894134498ff2cd)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,char)`<sp/>{#class_data_source_1af2a2f33b9970ecff75894134498ff2cd}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>string<sp/>units<sp/>for<sp/>the<sp/>vector<sp/>in<sp/>question.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`VectorNumber`<sp/>is<sp/>the<sp/>row<sp/>in<sp/>the<sp/>data<sp/>array<sp/>to<sp/>which<sp/>the<sp/>heading<sp/>coresponds.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[getRowUnits()](#class_data_source_1abf7e2f4954b1c314fba8f0ac3194306e),<sp/>[Data](#struct_data),<sp/>[MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>float<sp/>`[`getValueOne`](#class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b)`(void)`<sp/>{#class_data_source_1ac70e056b629dd62379c42af3e6ca6b1b}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>first<sp/>data<sp/>point<sp/>in<sp/>the<sp/>first<sp/>vector.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>first<sp/>data<sp/>point<sp/>in<sp/>the<sp/>first<sp/>vector.<sp/>DataArray[0][0].<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[Data](#struct_data),<sp/>[MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>float<sp/>`[`getValueTwo`](#class_data_source_1accbfa79e7afee154b4332483181f27ec)`(void)`<sp/>{#class_data_source_1accbfa79e7afee154b4332483181f27ec}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>second<sp/>data<sp/>point<sp/>in<sp/>the<sp/>first<sp/>vector.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>second<sp/>data<sp/>point<sp/>in<sp/>the<sp/>first<sp/>vector.<sp/>DataArray[1][0].<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[Data](#struct_data),<sp/>[MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>float<sp/>`[`getValueThree`](#class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf)`(void)`<sp/>{#class_data_source_1ad7870f61cbf33ac7a284b47930ff5bcf}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>third<sp/>data<sp/>point<sp/>in<sp/>the<sp/>first<sp/>vector.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>third<sp/>data<sp/>point<sp/>in<sp/>the<sp/>first<sp/>vector.<sp/>DataArray[2][0].<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[Data](#struct_data),<sp/>[MeasurementVectors](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>class<sp/>`Identifiable`<sp/>{#class_identifiable}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>class<sp/>which<sp/>models<sp/>a<sp/>Sensor/peripheral<sp/>as<sp/>an<sp/>identifiable<sp/>entity.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>class<sp/>models<sp/>a<sp/>peripheral<sp/>as<sp/>an<sp/>identifiable<sp/>entity<sp/>with<sp/>ID<sp/>number<sp/>and<sp/>string<sp/>name.<sp/>The<sp/>class<sp/>allows<sp/>for<sp/>the<sp/>identity<sp/>to<sp/>be<sp/>loaded<sp/>from<sp/>the<sp/>peripheral<sp/>and<sp/>interrogated.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/><sp/>`[`Identifiable`](#class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e)`(const<sp/>int<sp/>ChipSelect)`<sp/>|<sp/>A<sp/>constructor.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`hasIdentityChanged`](#class_identifiable_1adbc1a3f62e543a0df002a43413998a26)`(void)`<sp/>|<sp/>Checks<sp/>to<sp/>seee<sp/>whether<sp/>the<sp/>[Identity](#struct_identity)<sp/>in<sp/>local<sp/>memory<sp/>is<sp/>different<sp/>to<sp/>the<sp/>[Identity](#struct_identity)<sp/>advertised<sp/>by<sp/>peripheral.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`updateIdentity`](#class_identifiable_1ae99f8914426041ea02932d0ed00b29c3)`(void)`<sp/>|<sp/>Loads<sp/>the<sp/>[Identity](#struct_identity)<sp/>advertised<sp/>by<sp/>the<sp/>peripheral<sp/>into<sp/>local<sp/>memory.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`getIDNumber`](#class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae)`(void)`<sp/>|<sp/>Gets<sp/>the<sp/>identity<sp/>number<sp/>of<sp/>the<sp/>attached<sp/>peripheral.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`getSensorName`](#class_identifiable_1a7942e337c1303ce42cc822032465c66a)`(char<sp/>name)`<sp/>|<sp/>Gets<sp/>the<sp/>sensor<sp/>name<sp/>of<sp/>the<sp/>attached<sp/>peripheral.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/><sp/>`[`Identifiable`](#class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e)`(const<sp/>int<sp/>ChipSelect)`<sp/>{#class_identifiable_1a107ce612ee60e9be98085abdfbfdc83e}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>constructor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Constructor<sp/>for<sp/>class<sp/>which<sp/>loads<sp/>the<sp/>identity<sp/>of<sp/>any<sp/>connected<sp/>SPI<sp/>peripheral<sp/>into<sp/>local<sp/>memory.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`The`<sp/>Slave<sp/>Select<sp/>pin<sp/>of<sp/>the<sp/>SPI<sp/>peripheral<sp/>in<sp/>question.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[updateIdentity](#class_identifiable_1ae99f8914426041ea02932d0ed00b29c3).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`hasIdentityChanged`](#class_identifiable_1adbc1a3f62e543a0df002a43413998a26)`(void)`<sp/>{#class_identifiable_1adbc1a3f62e543a0df002a43413998a26}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Checks<sp/>to<sp/>seee<sp/>whether<sp/>the<sp/>[Identity](#struct_identity)<sp/>in<sp/>local<sp/>memory<sp/>is<sp/>different<sp/>to<sp/>the<sp/>[Identity](#struct_identity)<sp/>advertised<sp/>by<sp/>peripheral.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>the<sp/>stored<sp/>[Identity](#struct_identity)<sp/>is<sp/>different<sp/>than<sp/>the<sp/>[Identity](#struct_identity)<sp/>advertised<sp/>by<sp/>the<sp/>peripheral.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">**See<sp/>also**:<sp/>[Identity](#struct_identity)</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`updateIdentity`](#class_identifiable_1ae99f8914426041ea02932d0ed00b29c3)`(void)`<sp/>{#class_identifiable_1ae99f8914426041ea02932d0ed00b29c3}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Loads<sp/>the<sp/>[Identity](#struct_identity)<sp/>advertised<sp/>by<sp/>the<sp/>peripheral<sp/>into<sp/>local<sp/>memory.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`getIDNumber`](#class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae)`(void)`<sp/>{#class_identifiable_1a85d8439d79bd15eeb1c40d694d3d49ae}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>identity<sp/>number<sp/>of<sp/>the<sp/>attached<sp/>peripheral.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Reports<sp/>the<sp/>identity<sp/>number<sp/>of<sp/>the<sp/>peripheral<sp/>currently<sp/>stored<sp/>in<sp/>local<sp/>memory.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>sensor<sp/>ID<sp/>number.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`getSensorName`](#class_identifiable_1a7942e337c1303ce42cc822032465c66a)`(char<sp/>name)`<sp/>{#class_identifiable_1a7942e337c1303ce42cc822032465c66a}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>sensor<sp/>name<sp/>of<sp/>the<sp/>attached<sp/>peripheral.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Reports<sp/>the<sp/>sensor<sp/>name<sp/>of<sp/>the<sp/>peripheral<sp/>currently<sp/>stored<sp/>in<sp/>local<sp/>memory.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`name`<sp/>is<sp/>the<sp/>character<sp/>array<sp/>into<sp/>which<sp/>the<sp/>sensor<sp/>name<sp/>is<sp/>loaded.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>class<sp/>`Instructable`<sp/>{#class_instructable}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>class<sp/>which<sp/>models<sp/>a<sp/>Sensor/peripheral<sp/>as<sp/>entity<sp/>which<sp/>can<sp/>recieve<sp/>commands.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>class<sp/>models<sp/>a<sp/>peripheral<sp/>as<sp/>an<sp/>entity<sp/>which<sp/>can<sp/>be<sp/>issued<sp/>commands.<sp/>The<sp/>commands<sp/>issued<sp/>are<sp/>elements<sp/>of<sp/>the<sp/>set<sp/>defined<sp/>by<sp/>the<sp/>mInstruct<sp/>type.<sp/>Each<sp/>instruction<sp/>can<sp/>be<sp/>accompanied<sp/>by<sp/>and<sp/>integer<sp/>and/or<sp/>float<sp/>as<sp/>required<sp/>to<sp/>act<sp/>as<sp/>parameters<sp/>to<sp/>qualify<sp/>the<sp/>command.<sp/>For<sp/>example,<sp/>if<sp/>the<sp/>peripheral<sp/>is<sp/>commanded<sp/>to<sp/>pause<sp/>for<sp/>an<sp/>interval,<sp/>the<sp/>integer<sp/>parameter<sp/>is<sp/>used<sp/>by<sp/>the<sp/>peripheral<sp/>to<sp/>determine<sp/>the<sp/>length<sp/>of<sp/>time<sp/>for<sp/>which<sp/>to<sp/>pause.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/><sp/>`[`Instructable`](#class_instructable_1a688587b062ae8f3979bf7567041b86c1)`(const<sp/>int<sp/>ChipSelect)`<sp/>|<sp/>A<sp/>constructor.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`issueCommand`](#class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`)`<sp/>|<sp/>Issues<sp/>a<sp/>command<sp/>to<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`issueCommand`](#class_instructable_1ae1de225deda4decc52ce8e06efa8c547)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,int)`<sp/>|<sp/>Issues<sp/>a<sp/>command<sp/>to<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`issueCommand`](#class_instructable_1a556e6313ec5ac21a30efe8a5ef28a486)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,float)`<sp/>|<sp/>Issues<sp/>a<sp/>command<sp/>to<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`issueCommand`](#class_instructable_1ac2d69c105880162fed7b7be07228cfa7)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,int,float)`<sp/>|<sp/>Issues<sp/>a<sp/>command<sp/>to<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`areYouConnected`](#class_instructable_1a2bdcc11cead0067e963c524968d0d3e1)`(void)`<sp/>|<sp/>Checks<sp/>to<sp/>see<sp/>whether<sp/>the<sp/>peripheral<sp/>is<sp/>connected.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/><sp/>`[`Instructable`](#class_instructable_1a688587b062ae8f3979bf7567041b86c1)`(const<sp/>int<sp/>ChipSelect)`<sp/>{#class_instructable_1a688587b062ae8f3979bf7567041b86c1}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>constructor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`The`<sp/>Slave<sp/>Select<sp/>pin<sp/>of<sp/>the<sp/>SPI<sp/>peripheral<sp/>in<sp/>question.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`issueCommand`](#class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`)`<sp/>{#class_instructable_1a26afb4fb25fe8a13e268544d0850fe3f}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Issues<sp/>a<sp/>command<sp/>to<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sends<sp/>a<sp/>command<sp/>which<sp/>is<sp/>an<sp/>element<sp/>of<sp/>the<sp/>mInstruct<sp/>type.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`mInstruct`<sp/>is<sp/>the<sp/>command<sp/>issued<sp/>to<sp/>the<sp/>peripheral.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>the<sp/>peripheral<sp/>acknowledges<sp/>the<sp/>command.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`issueCommand`](#class_instructable_1ae1de225deda4decc52ce8e06efa8c547)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,int)`<sp/>{#class_instructable_1ae1de225deda4decc52ce8e06efa8c547}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Issues<sp/>a<sp/>command<sp/>to<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sends<sp/>a<sp/>command<sp/>which<sp/>is<sp/>an<sp/>element<sp/>of<sp/>the<sp/>mInstruct<sp/>type<sp/>qualified<sp/>by<sp/>an<sp/>integer<sp/>parameter<sp/>(generally<sp/>used<sp/>to<sp/>instruct<sp/>on<sp/>wait<sp/>time<sp/>or<sp/>similar).<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`mInstruct`<sp/>is<sp/>the<sp/>command<sp/>issued<sp/>to<sp/>the<sp/>peripheral<sp/>and<sp/>int<sp/>is<sp/>the<sp/>integer<sp/>qualifier.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>the<sp/>peripheral<sp/>acknowledges<sp/>the<sp/>command.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`issueCommand`](#class_instructable_1a556e6313ec5ac21a30efe8a5ef28a486)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,float)`<sp/>{#class_instructable_1a556e6313ec5ac21a30efe8a5ef28a486}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Issues<sp/>a<sp/>command<sp/>to<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sends<sp/>a<sp/>command<sp/>which<sp/>is<sp/>an<sp/>element<sp/>of<sp/>the<sp/>mInstruct<sp/>type<sp/>qualified<sp/>by<sp/>a<sp/>float<sp/>parameter.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`mInstruct`<sp/>is<sp/>the<sp/>command<sp/>issued<sp/>to<sp/>the<sp/>peripheral<sp/>and<sp/>float<sp/>is<sp/>the<sp/>floating<sp/>point<sp/>qualifier.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>the<sp/>peripheral<sp/>acknowledges<sp/>the<sp/>command.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`issueCommand`](#class_instructable_1ac2d69c105880162fed7b7be07228cfa7)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`,int,float)`<sp/>{#class_instructable_1ac2d69c105880162fed7b7be07228cfa7}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Issues<sp/>a<sp/>command<sp/>to<sp/>the<sp/>peripheral.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sends<sp/>a<sp/>command<sp/>which<sp/>is<sp/>an<sp/>element<sp/>of<sp/>the<sp/>mInstruct<sp/>type<sp/>qualified<sp/>by<sp/>an<sp/>integer<sp/>parameter<sp/>(generally<sp/>used<sp/>to<sp/>instruct<sp/>on<sp/>wait<sp/>time<sp/>or<sp/>similar)<sp/>and<sp/>a<sp/>floating<sp/>point<sp/>parameter.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`mInstruct`<sp/>is<sp/>the<sp/>command<sp/>issued<sp/>to<sp/>the<sp/>peripheral,<sp/>int<sp/>is<sp/>the<sp/>integer<sp/>qualifier<sp/>and<sp/>float<sp/>is<sp/>the<sp/>floating<sp/>point<sp/>qualifier.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>the<sp/>peripheral<sp/>acknowledges<sp/>the<sp/>command.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`areYouConnected`](#class_instructable_1a2bdcc11cead0067e963c524968d0d3e1)`(void)`<sp/>{#class_instructable_1a2bdcc11cead0067e963c524968d0d3e1}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Checks<sp/>to<sp/>see<sp/>whether<sp/>the<sp/>peripheral<sp/>is<sp/>connected.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Initiates<sp/>handshake<sp/>and<sp/>nop<sp/>transaction<sp/>with<sp/>the<sp/>sensor<sp/>to<sp/>ensure<sp/>that<sp/>it<sp/>is<sp/>connected<sp/>and<sp/>responding<sp/>appropriately.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>the<sp/>peripheral<sp/>is<sp/>connected<sp/>and<sp/>communicating<sp/>effectively.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>class<sp/>`Instructor`<sp/>{#class_instructor}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>class<sp/>which<sp/>models<sp/>a<sp/>Sensor/peripheral<sp/>as<sp/>entity<sp/>which<sp/>can<sp/>issue<sp/>instructions<sp/>to<sp/>the<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>class<sp/>models<sp/>a<sp/>peripheral<sp/>as<sp/>an<sp/>entity<sp/>which<sp/>can<sp/>issue<sp/>commands<sp/>to<sp/>the<sp/>master.<sp/>The<sp/>premise<sp/>is<sp/>that<sp/>a<sp/>sensor<sp/>peripheral<sp/>will<sp/>conduct<sp/>a<sp/>measurement<sp/>by<sp/>cycling<sp/>through<sp/>a<sp/>number<sp/>of<sp/>steps.<sp/>At<sp/>each<sp/>step<sp/>the<sp/>sensor<sp/>may<sp/>wish<sp/>for<sp/>the<sp/>[Master](#class_master)<sp/>to<sp/>perform<sp/>certain<sp/>actions,<sp/>such<sp/>as<sp/>display<sp/>a<sp/>message<sp/>to<sp/>the<sp/>user,<sp/>pause<sp/>for<sp/>a<sp/>certain<sp/>period<sp/>of<sp/>time<sp/>or<sp/>wait<sp/>until<sp/>the<sp/>user<sp/>has<sp/>acknowledged<sp/>an<sp/>instruction<sp/>by<sp/>button<sp/>press.<sp/>In<sp/>general,<sp/>the<sp/>master<sp/>is<sp/>expected<sp/>to<sp/>iterate<sp/>through<sp/>the<sp/>instruction<sp/>set,<sp/>loading<sp/>an<sp/>instruction<sp/>each<sp/>iteration<sp/>and<sp/>repsonding<sp/>appropriately.<sp/>i.e.<sp/>follow<sp/>the<sp/>procedure:<sp/>[howManyInstructions()](#class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8)-&gt;start<sp/>loop-&gt;[loadNextCommand()](#class_instructor_1a43cbe18547a30108219f3aa2945fc9ca)-&gt;React<sp/>to<sp/>command-&gt;repeat<sp/>until<sp/>all<sp/>instructions<sp/>have<sp/>been<sp/>processed.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/><sp/>`[`Instructor`](#class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823)`(const<sp/>int<sp/>ChipSelect)`<sp/>|<sp/>Constructor.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`howManyInstructions`](#class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8)`(void)`<sp/>|<sp/>Asks<sp/>the<sp/>[Sensor](#class_sensor)<sp/>how<sp/>many<sp/>instructions<sp/>there<sp/>are<sp/>in<sp/>a<sp/>measurement<sp/>cycle.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`howLongShouldIWait`](#class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f)`(void)`<sp/>|<sp/>Asks<sp/>the<sp/>sensor<sp/>how<sp/>long<sp/>the<sp/>master<sp/>should<sp/>pause<sp/>for.<sp/>Deprecated.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`loadNextCommand`](#class_instructor_1a43cbe18547a30108219f3aa2945fc9ca)`(void)`<sp/>|<sp/>Fetches<sp/>the<sp/>next<sp/>instruction<sp/>issued<sp/>by<sp/>the<sp/>sensor<sp/>in<sp/>its<sp/>instruction<sp/>cycle.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`getCurrentCommandString`](#class_instructor_1a8c66f480a7b5a6b434f613bc7197e824)`(char)`<sp/>|<sp/>Returns<sp/>the<sp/>character<sp/>array<sp/>which<sp/>qualifies<sp/>the<sp/>instruction<sp/>currently<sp/>loaded<sp/>into<sp/>local<sp/>memory<sp/>as<sp/>issued<sp/>by<sp/>the<sp/>[Sensor](#class_sensor).</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`getCurrentCommandInt`](#class_instructor_1adcbf1cb6d2739539465edc6d996d2987)`(void)`<sp/>|<sp/>Returns<sp/>the<sp/>integer<sp/>which<sp/>qualifies<sp/>the<sp/>instruction<sp/>currently<sp/>loaded<sp/>into<sp/>local<sp/>memory<sp/>as<sp/>issued<sp/>by<sp/>the<sp/>[Sensor](#class_sensor).</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>float<sp/>`[`getCurrentCommandFloat`](#class_instructor_1ae81f8123893b582fd32a71601471cff8)`(void)`<sp/>|<sp/>Returns<sp/>the<sp/>float<sp/>which<sp/>qualifies<sp/>the<sp/>instruction<sp/>currently<sp/>loaded<sp/>into<sp/>local<sp/>memory<sp/>as<sp/>issued<sp/>by<sp/>the<sp/>[Sensor](#class_sensor).</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>`[`getCurrentCommandInstruction`](#class_instructor_1a1e54d05ded7ecf88f0205b52901df681)`(void)`<sp/>|<sp/>Returns<sp/>the<sp/>sinstruct<sp/>object<sp/>which<sp/>defines<sp/>the<sp/>instruction<sp/>currently<sp/>loaded<sp/>into<sp/>local<sp/>memory<sp/>as<sp/>issued<sp/>by<sp/>the<sp/>[Sensor](#class_sensor).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/><sp/>`[`Instructor`](#class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823)`(const<sp/>int<sp/>ChipSelect)`<sp/>{#class_instructor_1afd38d621d3d07ecb0e9c7f522a1b1823}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Constructor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`ChipSelect`<sp/>is<sp/>the<sp/>Slave<sp/>Select<sp/>pin<sp/>of<sp/>the<sp/>SPI<sp/>peripheral<sp/>in<sp/>question.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`howManyInstructions`](#class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8)`(void)`<sp/>{#class_instructor_1abfe73e27d6364bf5cad80f30f6833ec8}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asks<sp/>the<sp/>[Sensor](#class_sensor)<sp/>how<sp/>many<sp/>instructions<sp/>there<sp/>are<sp/>in<sp/>a<sp/>measurement<sp/>cycle.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">In<sp/>general,<sp/>the<sp/>master<sp/>is<sp/>expected<sp/>to<sp/>iterate<sp/>through<sp/>the<sp/>instrcution<sp/>set.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>number<sp/>of<sp/>instructions<sp/>in<sp/>a<sp/>measurement<sp/>cycle.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`howLongShouldIWait`](#class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f)`(void)`<sp/>{#class_instructor_1a2e9afbb8e6ce1c671e8e9dc29cf4715f}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Asks<sp/>the<sp/>sensor<sp/>how<sp/>long<sp/>the<sp/>master<sp/>should<sp/>pause<sp/>for.<sp/>Deprecated.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>duration,<sp/>in<sp/>milliseconds,<sp/>the<sp/>master<sp/>should<sp/>pause<sp/>for.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`loadNextCommand`](#class_instructor_1a43cbe18547a30108219f3aa2945fc9ca)`(void)`<sp/>{#class_instructor_1a43cbe18547a30108219f3aa2945fc9ca}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Fetches<sp/>the<sp/>next<sp/>instruction<sp/>issued<sp/>by<sp/>the<sp/>sensor<sp/>in<sp/>its<sp/>instruction<sp/>cycle.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Fetches<sp/>the<sp/>next<sp/>instruction<sp/>from<sp/>the<sp/>[Sensor](#class_sensor)<sp/>and<sp/>loads<sp/>it<sp/>into<sp/>local<sp/>memory.<sp/>Instructions<sp/>are<sp/>issued<sp/>in<sp/>the<sp/>[sCmd](#structs_cmd)<sp/>type<sp/>and<sp/>are<sp/>therefore<sp/>consititute<sp/>an<sp/>element<sp/>of<sp/>the<sp/>sInstruct<sp/>instruction<sp/>set,<sp/>qualified<sp/>by<sp/>a<sp/>character<sp/>array<sp/>(string),<sp/>integer<sp/>and<sp/>float.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`getCurrentCommandString`](#class_instructor_1a8c66f480a7b5a6b434f613bc7197e824)`(char)`<sp/>{#class_instructor_1a8c66f480a7b5a6b434f613bc7197e824}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Returns<sp/>the<sp/>character<sp/>array<sp/>which<sp/>qualifies<sp/>the<sp/>instruction<sp/>currently<sp/>loaded<sp/>into<sp/>local<sp/>memory<sp/>as<sp/>issued<sp/>by<sp/>the<sp/>[Sensor](#class_sensor).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>character<sp/>array<sp/>(string)<sp/>issued<sp/>by<sp/>the<sp/>[Sensor](#class_sensor)<sp/>is<sp/>generally<sp/>intended<sp/>to<sp/>be<sp/>displayed<sp/>to<sp/>the<sp/>user,<sp/>to<sp/>update<sp/>the<sp/>user<sp/>on<sp/>the<sp/>progress<sp/>of<sp/>the<sp/>measurement<sp/>procedure<sp/>or<sp/>instruct<sp/>the<sp/>user<sp/>on<sp/>the<sp/>next<sp/>step<sp/>in<sp/>the<sp/>measurement<sp/>procedure,<sp/>such<sp/>as<sp/>inserting<sp/>the<sp/>probe<sp/>into<sp/>the<sp/>measurement<sp/>environment.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`char`<sp/>is<sp/>the<sp/>character<sp/>array<sp/>into<sp/>which<sp/>the<sp/>instruction<sp/>string<sp/>is<sp/>loaded.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`getCurrentCommandInt`](#class_instructor_1adcbf1cb6d2739539465edc6d996d2987)`(void)`<sp/>{#class_instructor_1adcbf1cb6d2739539465edc6d996d2987}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Returns<sp/>the<sp/>integer<sp/>which<sp/>qualifies<sp/>the<sp/>instruction<sp/>currently<sp/>loaded<sp/>into<sp/>local<sp/>memory<sp/>as<sp/>issued<sp/>by<sp/>the<sp/>[Sensor](#class_sensor).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>integer<sp/>which<sp/>qualifies<sp/>the<sp/>instruction<sp/>issued<sp/>by<sp/>the<sp/>sensor<sp/>is<sp/>generally<sp/>used<sp/>to<sp/>either<sp/>augment<sp/>the<sp/>information<sp/>displayed<sp/>to<sp/>the<sp/>user<sp/>to<sp/>instruct<sp/>the<sp/>master<sp/>as<sp/>to<sp/>how<sp/>it<sp/>should<sp/>carry<sp/>out<sp/>the<sp/>request<sp/>of<sp/>the<sp/>slave,<sp/>such<sp/>as<sp/>how<sp/>long<sp/>to<sp/>pasue<sp/>for.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>integer<sp/>which<sp/>qualifies<sp/>the<sp/>instruction.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>float<sp/>`[`getCurrentCommandFloat`](#class_instructor_1ae81f8123893b582fd32a71601471cff8)`(void)`<sp/>{#class_instructor_1ae81f8123893b582fd32a71601471cff8}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Returns<sp/>the<sp/>float<sp/>which<sp/>qualifies<sp/>the<sp/>instruction<sp/>currently<sp/>loaded<sp/>into<sp/>local<sp/>memory<sp/>as<sp/>issued<sp/>by<sp/>the<sp/>[Sensor](#class_sensor).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">The<sp/>float<sp/>which<sp/>qualifies<sp/>the<sp/>instruction<sp/>issued<sp/>by<sp/>the<sp/>sensor<sp/>is<sp/>generally<sp/>used<sp/>to<sp/>either<sp/>augment<sp/>the<sp/>information<sp/>displayed<sp/>to<sp/>the<sp/>user<sp/>to<sp/>instruct<sp/>the<sp/>master<sp/>as<sp/>to<sp/>how<sp/>it<sp/>should<sp/>carry<sp/>out<sp/>the<sp/>request<sp/>of<sp/>the<sp/>slave.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>`[`getCurrentCommandInstruction`](#class_instructor_1a1e54d05ded7ecf88f0205b52901df681)`(void)`<sp/>{#class_instructor_1a1e54d05ded7ecf88f0205b52901df681}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Returns<sp/>the<sp/>sinstruct<sp/>object<sp/>which<sp/>defines<sp/>the<sp/>instruction<sp/>currently<sp/>loaded<sp/>into<sp/>local<sp/>memory<sp/>as<sp/>issued<sp/>by<sp/>the<sp/>[Sensor](#class_sensor).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Elements<sp/>of<sp/>the<sp/>sInstruct<sp/>type<sp/>define<sp/>all<sp/>the<sp/>potential<sp/>instructions<sp/>which<sp/>can<sp/>be<sp/>issued<sp/>by<sp/>a<sp/>Slave.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">The<sp/>instruction<sp/>issued<sp/>by<sp/>the<sp/>slave.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>class<sp/>`Master`<sp/>{#class_master}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>monolithic<sp/>class<sp/>to<sp/>encapsulate<sp/>and<sp/>abstract<sp/>the<sp/>slave&apos;s<sp/>communication<sp/>with<sp/>the<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>single<sp/>transaction<sp/>is<sp/>characterised<sp/>by<sp/>the<sp/>following<sp/>flow<sp/>of<sp/>control:<sp/>Clear<sp/>SS<sp/>-&gt;<sp/>Enter<sp/>IRQ<sp/>-&gt;<sp/>Recieve<sp/>&apos;?&apos;<sp/>from<sp/>master<sp/>-&gt;<sp/>send<sp/>&apos;ACK&apos;<sp/>(0x06)<sp/>to<sp/>master<sp/>-&gt;<sp/>recieve<sp/>request<sp/>[mCmd](#structm_cmd)<sp/>-&gt;<sp/>send<sp/>sCmd/Data/Identity<sp/>as<sp/>expected<sp/>-&gt;<sp/>exit<sp/>IRQ.<sp/>Where<sp/>[mCmd](#structm_cmd),<sp/>[sCmd](#structs_cmd),<sp/>[Data](#struct_data)<sp/>and<sp/>[Identity](#struct_identity)<sp/>are<sp/>structures<sp/>defined<sp/>as<sp/>types.<sp/>The<sp/>intial<sp/>Recieve<sp/>&apos;?&apos;<sp/>-&gt;<sp/>send<sp/>&apos;ACK&apos;<sp/>is<sp/>known<sp/>as<sp/>the<sp/>handshake.<sp/>This<sp/>class&apos;<sp/>responsibilities<sp/>include<sp/>intitialising<sp/>and<sp/>handling<sp/>the<sp/>SPI,<sp/>attaching<sp/>the<sp/>interrupt<sp/>and<sp/>providing<sp/>the<sp/>IRQ,<sp/>managing<sp/>the<sp/>handshake<sp/>and<sp/>encapsulating<sp/>the<sp/>reponse<sp/>mechanism.<sp/>Note<sp/>the<sp/>use<sp/>of<sp/>a<sp/>volatile<sp/>interface<sp/>to<sp/>allow<sp/>for<sp/>safe<sp/>use<sp/>of<sp/>the<sp/>interrupt.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/><sp/>`[`Master`](#class_master_1afd2e9903066a53c737be92639cfa15b0)`(const<sp/>int<sp/>SensorIDNumber,const<sp/>char<sp/>SensorName,const<sp/>char<sp/>InstructionSet,const<sp/>int<sp/>NumberOfInstructions,const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>MasterInstructionSet,const<sp/>int<sp/>intParams,const<sp/>float<sp/>floatParams)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/><sp/>`[`Master`](#class_master_1a89241ed8839b9fe5ec29d904630a9d3e)`(void)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/><sp/>`[`~Master`](#class_master_1a58d721f62d1c8bbf84840b864f2e482a)`(void)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/><sp/>`[`Master`](#class_master_1a339116daf8910b52da4d608c8c7b3944)`(volatile<sp/>const<sp/>`[`Master`](#class_master)`<sp/>&amp;)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`Master`](#class_master)`<sp/>&amp;<sp/>`[`operator=`](#class_master_1a54259c8db640b88dcf5de5594a947b1c)`(const<sp/>`[`Master`](#class_master)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`Master`](#class_master)`<sp/>&amp;<sp/>`[`operator=`](#class_master_1a0ce51778d73a67179e58ecc6e136bef9)`(volatile<sp/>const<sp/>`[`Master`](#class_master)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`SETUP`](#class_master_1a5af38dc77ec10af275ed892e756aee64)`(const<sp/>int<sp/>SensorIDNumber,volatile<sp/>char<sp/>SensorName,volatile<sp/>char<sp/>InstructionSet,const<sp/>int<sp/>NumberOfInstructions,volatile<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>MasterInstructionSet,volatile<sp/>int<sp/>intParams,volatile<sp/>float<sp/>floatParams)`<sp/>|<sp/>Set<sp/>up<sp/>of<sp/>the<sp/>commuication<sp/>mechanism.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`SPISetup`](#class_master_1a23aca637cd51c40ae469a9ee48725edf)`(void)`<sp/>|<sp/>Sets<sp/>up<sp/>SPI<sp/>and<sp/>attaches<sp/>interrupt.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`Handshake`](#class_master_1a2bc479ad10a53f31c4833668cc9cfac4)`(void)`<sp/>|<sp/>Manages<sp/>the<sp/>handshake<sp/>component<sp/>of<sp/>any<sp/>transaction.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>`[`mCmd`](#structm_cmd)`<sp/>`[`loadRequest`](#class_master_1a3a3fce38be9020bb12ab595c4adc59ed)`(void)`<sp/>|<sp/>Retrieve<sp/>the<sp/>request<sp/>sent<sp/>by<sp/>the<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`<sp/>`[`getCurrentInstruction`](#class_master_1af892816882821b107d888f3fe3d7dddd)`(void)`<sp/>|<sp/>Returns<sp/>the<sp/>mInstruct<sp/>component<sp/>of<sp/>the<sp/>most<sp/>recently<sp/>loaded<sp/>request<sp/>sent<sp/>by<sp/>the<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`getCurrentInstructionIntParameter`](#class_master_1a918b5964fa7cfc2ef6cf54960a80ced5)`(void)`<sp/>|<sp/>Returns<sp/>the<sp/>integer<sp/>parameter<sp/>of<sp/>the<sp/>most<sp/>recently<sp/>loaded<sp/>request<sp/>sent<sp/>by<sp/>the<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>float<sp/>`[`getCurrentInstructionFloatParameter`](#class_master_1a32c23c46b93673a8817bf54cf4a52372)`(void)`<sp/>|<sp/>Returns<sp/>the<sp/>floating<sp/>point<sp/>parameter<sp/>of<sp/>the<sp/>most<sp/>recently<sp/>loaded<sp/>request<sp/>sent<sp/>by<sp/>the<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendReply`](#class_master_1a7d0570bae901dbbd7c88db131fea03c5)`(const<sp/>`[`sCmd`](#structs_cmd)`<sp/>Reply)`<sp/>|<sp/>Send<sp/>an<sp/>[sCmd](#structs_cmd)<sp/>object<sp/>in<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>[Master](#class_master).</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendReply`](#class_master_1a109e347c1b70f26a82d48dfb13af3fe8)`(const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction)`<sp/>|<sp/>Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendReply`](#class_master_1abebea7ffc56886ac9b59980312ea19f9)`(const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,volatile<sp/>char<sp/>InstructionString)`<sp/>|<sp/>Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendReply`](#class_master_1a26d84a77b85fdd81db98ccd23d0e882f)`(const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,const<sp/>int<sp/>iParam)`<sp/>|<sp/>Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendReply`](#class_master_1a68d7ac6a3680ac2b4c3620b6e175d97f)`(const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,const<sp/>float<sp/>fParam)`<sp/>|<sp/>Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendReply`](#class_master_1aa0f969c879b7d6ca105162ea2ca2c87e)`(const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,const<sp/>int<sp/>iParam,const<sp/>int<sp/>fParam)`<sp/>|<sp/>Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendReply`](#class_master_1a075da7da71f50da0a5973ff65cc1a485)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,int<sp/>iParam,volatile<sp/>char<sp/>InstructionString)`<sp/>|<sp/>Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendReply`](#class_master_1acca62a1478bc305cdd8496f684ea3f9d)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,float<sp/>fParam,volatile<sp/>char<sp/>InstructionString)`<sp/>|<sp/>Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendReply`](#class_master_1a88fd38997e4ee0c26fd09a85477487fa)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,int<sp/>iParam,float<sp/>fParam,volatile<sp/>char<sp/>InstructionString)`<sp/>|<sp/>Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendData`](#class_master_1a7e73d29d4d8d714b9c5ea69f18cad396)`(void)`<sp/>|<sp/>Sends<sp/>the<sp/>local<sp/>[Data](#struct_data)<sp/>object<sp/>to<sp/>the<sp/>master<sp/>in<sp/>reply<sp/>to<sp/>appropriate<sp/>request.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendIdentity`](#class_master_1a9ebd71ad45ea73524c87724b9c5e5e2f)`(void)`<sp/>|<sp/>Sends<sp/>slave<sp/>[Identity](#struct_identity)<sp/>object<sp/>to<sp/>the<sp/>master<sp/>in<sp/>reply<sp/>to<sp/>appropriate<sp/>request.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`PushMeasurementVector`](#class_master_1ac907bfa48b84098a906c63c933cc373d)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,const<sp/>float<sp/>Measurement)`<sp/>|<sp/>Pushes<sp/>a<sp/>data<sp/>point<sp/>onto<sp/>one<sp/>of<sp/>the<sp/>data<sp/>vectors.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`PopMeasurementVector`](#class_master_1ad64bb8e32e356747d0f80fce966a3574)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber)`<sp/>|<sp/>Pops<sp/>a<sp/>data<sp/>point<sp/>from<sp/>the<sp/>tail<sp/>end<sp/>of<sp/>a<sp/>designated<sp/>vector.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`ClearMeasurementVector`](#class_master_1a94625b59aceffeceeae3b050885968ef)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber)`<sp/>|<sp/>Clears<sp/>all<sp/>data<sp/>points<sp/>from<sp/>a<sp/>particular<sp/>vector.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`setMeasurementVectorHeading`](#class_master_1a49e434ca3d09d56bac2a2d45c86661ac)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,volatile<sp/>char<sp/>Heading)`<sp/>|<sp/>Sets<sp/>the<sp/>string<sp/>heading<sp/>assigned<sp/>to<sp/>a<sp/>paritcular<sp/>data<sp/>vector.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`setMeasurementVectorUnits`](#class_master_1a5f955da291f31441d726c4ded74c32bd)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,volatile<sp/>char<sp/>Units)`<sp/>|<sp/>Sets<sp/>the<sp/>string<sp/>Units<sp/>assigned<sp/>to<sp/>a<sp/>paritcular<sp/>data<sp/>vector.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`isThereData`](#class_master_1a23536349ac40fc9cc030e9bc5d0c5945)`(void)`<sp/>|<sp/>Checks<sp/>to<sp/>see<sp/>whether<sp/>any<sp/>data<sp/>has<sp/>been<sp/>pushed<sp/>to<sp/>any<sp/>of<sp/>the<sp/>data<sp/>vectors<sp/>locally.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`sendTotalNumOfInstructions`](#class_master_1aa68bb1327d506c42b6b7ab54fd73ca62)`(void)`<sp/>|<sp/>Sends<sp/>a<sp/>reply<sp/>to<sp/>[Master](#class_master)<sp/>specifiying<sp/>the<sp/>total<sp/>number<sp/>of<sp/>instructions<sp/>in<sp/>a<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`getCurrentInstructionNumber`](#class_master_1a250b4f7cdb96abb0be9ffdc54d00be31)`(void)`<sp/>|<sp/>Gets<sp/>the<sp/>value<sp/>of<sp/>the<sp/>counter<sp/>which<sp/>tracks<sp/>the<sp/>current<sp/>instruction<sp/>number<sp/>throughout<sp/>the<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`sendNextUserInstruction`](#class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a)`(void)`<sp/>|<sp/>Sends<sp/>the<sp/>next<sp/>instruction<sp/>in<sp/>the<sp/>measurement<sp/>cycle<sp/>to<sp/>the<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`resendCurrentUserInstruction`](#class_master_1a8a9c9670d31af14e65157879963e0cf1)`(void)`<sp/>|<sp/>Resends<sp/>the<sp/>cuurent<sp/>instruction<sp/>in<sp/>the<sp/>measurement<sp/>procedure<sp/>to<sp/>the<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`restartUserInstructionCycle`](#class_master_1ad50d30dbd09d40661bbdbc1527ff07bf)`(void)`<sp/>|<sp/>Restarts<sp/>the<sp/>measurement<sp/>prcedure.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>void<sp/>`[`beginMeasurement`](#class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c)`(void)`<sp/>|<sp/>Updates<sp/>state<sp/>to<sp/>indicate<sp/>that<sp/>[Master](#class_master)<sp/>has<sp/>requested<sp/>the<sp/>intitiation<sp/>of<sp/>the<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>bool<sp/>`[`shallIStart`](#class_master_1a5d83f02bd26fbe40f249c052454b327b)`(void)`<sp/>|<sp/>Checks<sp/>whether<sp/>the<sp/>[beginMeasurement()](#class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c)<sp/>method<sp/>has<sp/>been<sp/>called.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/><sp/>`[`Master`](#class_master_1afd2e9903066a53c737be92639cfa15b0)`(const<sp/>int<sp/>SensorIDNumber,const<sp/>char<sp/>SensorName,const<sp/>char<sp/>InstructionSet,const<sp/>int<sp/>NumberOfInstructions,const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>MasterInstructionSet,const<sp/>int<sp/>intParams,const<sp/>float<sp/>floatParams)`<sp/>{#class_master_1afd2e9903066a53c737be92639cfa15b0}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/><sp/>`[`Master`](#class_master_1a89241ed8839b9fe5ec29d904630a9d3e)`(void)`<sp/>{#class_master_1a89241ed8839b9fe5ec29d904630a9d3e}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/><sp/>`[`~Master`](#class_master_1a58d721f62d1c8bbf84840b864f2e482a)`(void)`<sp/>{#class_master_1a58d721f62d1c8bbf84840b864f2e482a}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/><sp/>`[`Master`](#class_master_1a339116daf8910b52da4d608c8c7b3944)`(volatile<sp/>const<sp/>`[`Master`](#class_master)`<sp/>&amp;)`<sp/>{#class_master_1a339116daf8910b52da4d608c8c7b3944}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`Master`](#class_master)`<sp/>&amp;<sp/>`[`operator=`](#class_master_1a54259c8db640b88dcf5de5594a947b1c)`(const<sp/>`[`Master`](#class_master)`<sp/>&amp;<sp/>rhs)`<sp/>{#class_master_1a54259c8db640b88dcf5de5594a947b1c}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`Master`](#class_master)`<sp/>&amp;<sp/>`[`operator=`](#class_master_1a0ce51778d73a67179e58ecc6e136bef9)`(volatile<sp/>const<sp/>`[`Master`](#class_master)`<sp/>&amp;<sp/>rhs)`<sp/>{#class_master_1a0ce51778d73a67179e58ecc6e136bef9}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`SETUP`](#class_master_1a5af38dc77ec10af275ed892e756aee64)`(const<sp/>int<sp/>SensorIDNumber,volatile<sp/>char<sp/>SensorName,volatile<sp/>char<sp/>InstructionSet,const<sp/>int<sp/>NumberOfInstructions,volatile<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>MasterInstructionSet,volatile<sp/>int<sp/>intParams,volatile<sp/>float<sp/>floatParams)`<sp/>{#class_master_1a5af38dc77ec10af275ed892e756aee64}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Set<sp/>up<sp/>of<sp/>the<sp/>commuication<sp/>mechanism.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Intialised<sp/>the<sp/>auto-instantiated<sp/>[Master](#class_master)<sp/>object,<sp/>attaches<sp/>the<sp/>IRQ<sp/>and<sp/>sets<sp/>up<sp/>SPI<sp/>communications.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`SensorIDNumber`<sp/>is<sp/>the<sp/>identity<sp/>number<sp/>of<sp/>th<sp/>slave.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`SensorName`<sp/>is<sp/>the<sp/>string<sp/>name<sp/>of<sp/>the<sp/>slave.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`InstructionSet`<sp/>is<sp/>the<sp/>array<sp/>of<sp/>strings<sp/>associated<sp/>with<sp/>each<sp/>instruction<sp/>in<sp/>the<sp/>measuremnt<sp/>cycle.<sp/>Generally<sp/>to<sp/>be<sp/>displayed<sp/>to<sp/>the<sp/>user.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`NumberOfInstructions`<sp/>is<sp/>the<sp/>number<sp/>of<sp/>instructions<sp/>in<sp/>a<sp/>single<sp/>measurement<sp/>cycle/procedure.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`MasterInstructionSet`<sp/>is<sp/>the<sp/>array<sp/>of<sp/>sInstruct<sp/>objects<sp/>associated<sp/>with<sp/>each<sp/>instruction<sp/>in<sp/>the<sp/>measurement<sp/>cycle.<sp/>Defines<sp/>the<sp/>required<sp/>action<sp/>by<sp/>the<sp/>master<sp/>for<sp/>each<sp/>step<sp/>of<sp/>the<sp/>measurement<sp/>procedure.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`IntParams`<sp/>is<sp/>the<sp/>array<sp/>of<sp/>integer<sp/>parameter<sp/>associated<sp/>with<sp/>each<sp/>instruction.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`FloatParams`<sp/>is<sp/>the<sp/>array<sp/>of<sp/>floating<sp/>point<sp/>parameters<sp/>accosiated<sp/>with<sp/>each<sp/>instruction.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`SPISetup`](#class_master_1a23aca637cd51c40ae469a9ee48725edf)`(void)`<sp/>{#class_master_1a23aca637cd51c40ae469a9ee48725edf}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sets<sp/>up<sp/>SPI<sp/>and<sp/>attaches<sp/>interrupt.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`Handshake`](#class_master_1a2bc479ad10a53f31c4833668cc9cfac4)`(void)`<sp/>{#class_master_1a2bc479ad10a53f31c4833668cc9cfac4}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Manages<sp/>the<sp/>handshake<sp/>component<sp/>of<sp/>any<sp/>transaction.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Manages<sp/>the<sp/>handshake<sp/>between<sp/>master<sp/>and<sp/>slave;<sp/>defined<sp/>by:<sp/>Recieve<sp/>&apos;?&apos;<sp/>-&gt;<sp/>send<sp/>&apos;ACK&apos;<sp/>(0x06).<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>the<sp/>handshake<sp/>was<sp/>successful.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>`[`mCmd`](#structm_cmd)`<sp/>`[`loadRequest`](#class_master_1a3a3fce38be9020bb12ab595c4adc59ed)`(void)`<sp/>{#class_master_1a3a3fce38be9020bb12ab595c4adc59ed}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Retrieve<sp/>the<sp/>request<sp/>sent<sp/>by<sp/>the<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">After<sp/>each<sp/>handshake,<sp/>the<sp/>master<sp/>will<sp/>proceed<sp/>to<sp/>send<sp/>a<sp/>request,<sp/>defined<sp/>by<sp/>an<sp/>[mCmd](#structm_cmd)<sp/>object.<sp/>This<sp/>function<sp/>must<sp/>runafter<sp/>each<sp/>handshake.<sp/>This<sp/>function<sp/>reassembles<sp/>the<sp/>[mCmd](#structm_cmd)<sp/>request<sp/>sent<sp/>by<sp/>the<sp/>master,<sp/>byte<sp/>by<sp/>byte<sp/>and<sp/>stores<sp/>it<sp/>in<sp/>local<sp/>memory.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">the<sp/>[mCmd](#structm_cmd)<sp/>object<sp/>sent<sp/>by<sp/>the<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`<sp/>`[`getCurrentInstruction`](#class_master_1af892816882821b107d888f3fe3d7dddd)`(void)`<sp/>{#class_master_1af892816882821b107d888f3fe3d7dddd}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Returns<sp/>the<sp/>mInstruct<sp/>component<sp/>of<sp/>the<sp/>most<sp/>recently<sp/>loaded<sp/>request<sp/>sent<sp/>by<sp/>the<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`getCurrentInstructionIntParameter`](#class_master_1a918b5964fa7cfc2ef6cf54960a80ced5)`(void)`<sp/>{#class_master_1a918b5964fa7cfc2ef6cf54960a80ced5}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Returns<sp/>the<sp/>integer<sp/>parameter<sp/>of<sp/>the<sp/>most<sp/>recently<sp/>loaded<sp/>request<sp/>sent<sp/>by<sp/>the<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>float<sp/>`[`getCurrentInstructionFloatParameter`](#class_master_1a32c23c46b93673a8817bf54cf4a52372)`(void)`<sp/>{#class_master_1a32c23c46b93673a8817bf54cf4a52372}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Returns<sp/>the<sp/>floating<sp/>point<sp/>parameter<sp/>of<sp/>the<sp/>most<sp/>recently<sp/>loaded<sp/>request<sp/>sent<sp/>by<sp/>the<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendReply`](#class_master_1a7d0570bae901dbbd7c88db131fea03c5)`(const<sp/>`[`sCmd`](#structs_cmd)`<sp/>Reply)`<sp/>{#class_master_1a7d0570bae901dbbd7c88db131fea03c5}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Send<sp/>an<sp/>[sCmd](#structs_cmd)<sp/>object<sp/>in<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>[Master](#class_master).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendReply`](#class_master_1a109e347c1b70f26a82d48dfb13af3fe8)`(const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction)`<sp/>{#class_master_1a109e347c1b70f26a82d48dfb13af3fe8}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assembles<sp/>the<sp/>[sCmd](#structs_cmd)<sp/>object<sp/>from<sp/>the<sp/>supplied<sp/>parameters.<sp/>Overloaded.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendReply`](#class_master_1abebea7ffc56886ac9b59980312ea19f9)`(const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,volatile<sp/>char<sp/>InstructionString)`<sp/>{#class_master_1abebea7ffc56886ac9b59980312ea19f9}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assembles<sp/>the<sp/>[sCmd](#structs_cmd)<sp/>object<sp/>from<sp/>the<sp/>supplied<sp/>parameters.<sp/>Overloaded.<sp/>Note<sp/>the<sp/>need<sp/>for<sp/>the<sp/>char*<sp/>to<sp/>be<sp/>defined<sp/>locally<sp/>as<sp/>volatile<sp/>char[].<sp/>Cannot<sp/>pass<sp/>string<sp/>literals.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendReply`](#class_master_1a26d84a77b85fdd81db98ccd23d0e882f)`(const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,const<sp/>int<sp/>iParam)`<sp/>{#class_master_1a26d84a77b85fdd81db98ccd23d0e882f}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assembles<sp/>the<sp/>[sCmd](#structs_cmd)<sp/>object<sp/>from<sp/>the<sp/>supplied<sp/>parameters.<sp/>Overloaded.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendReply`](#class_master_1a68d7ac6a3680ac2b4c3620b6e175d97f)`(const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,const<sp/>float<sp/>fParam)`<sp/>{#class_master_1a68d7ac6a3680ac2b4c3620b6e175d97f}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assembles<sp/>the<sp/>[sCmd](#structs_cmd)<sp/>object<sp/>from<sp/>the<sp/>supplied<sp/>parameters.<sp/>Overloaded.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendReply`](#class_master_1aa0f969c879b7d6ca105162ea2ca2c87e)`(const<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,const<sp/>int<sp/>iParam,const<sp/>int<sp/>fParam)`<sp/>{#class_master_1aa0f969c879b7d6ca105162ea2ca2c87e}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assembles<sp/>the<sp/>[sCmd](#structs_cmd)<sp/>object<sp/>from<sp/>the<sp/>supplied<sp/>parameters.<sp/>Overloaded.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendReply`](#class_master_1a075da7da71f50da0a5973ff65cc1a485)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,int<sp/>iParam,volatile<sp/>char<sp/>InstructionString)`<sp/>{#class_master_1a075da7da71f50da0a5973ff65cc1a485}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assembles<sp/>the<sp/>[sCmd](#structs_cmd)<sp/>object<sp/>from<sp/>the<sp/>supplied<sp/>parameters.<sp/>Overloaded.<sp/>Note<sp/>the<sp/>need<sp/>for<sp/>the<sp/>char*<sp/>to<sp/>be<sp/>defined<sp/>locally<sp/>as<sp/>volatile<sp/>char[].<sp/>Cannot<sp/>pass<sp/>string<sp/>literals.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendReply`](#class_master_1acca62a1478bc305cdd8496f684ea3f9d)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,float<sp/>fParam,volatile<sp/>char<sp/>InstructionString)`<sp/>{#class_master_1acca62a1478bc305cdd8496f684ea3f9d}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assembles<sp/>the<sp/>[sCmd](#structs_cmd)<sp/>object<sp/>from<sp/>the<sp/>supplied<sp/>parameters.<sp/>Overloaded.<sp/>Note<sp/>the<sp/>need<sp/>for<sp/>the<sp/>char*<sp/>to<sp/>be<sp/>defined<sp/>locally<sp/>as<sp/>volatile<sp/>char[].<sp/>Cannot<sp/>pass<sp/>string<sp/>literals.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendReply`](#class_master_1a88fd38997e4ee0c26fd09a85477487fa)`(`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>Instruction,int<sp/>iParam,float<sp/>fParam,volatile<sp/>char<sp/>InstructionString)`<sp/>{#class_master_1a88fd38997e4ee0c26fd09a85477487fa}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Send<sp/>a<sp/>reply<sp/>to<sp/>the<sp/>request<sp/>recieved<sp/>from<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Assembles<sp/>the<sp/>[sCmd](#structs_cmd)<sp/>object<sp/>from<sp/>the<sp/>supplied<sp/>parameters.<sp/>Overloaded.<sp/>Note<sp/>the<sp/>need<sp/>for<sp/>the<sp/>char*<sp/>to<sp/>be<sp/>defined<sp/>locally<sp/>as<sp/>volatile<sp/>char[].<sp/>Cannot<sp/>pass<sp/>string<sp/>literals.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendData`](#class_master_1a7e73d29d4d8d714b9c5ea69f18cad396)`(void)`<sp/>{#class_master_1a7e73d29d4d8d714b9c5ea69f18cad396}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sends<sp/>the<sp/>local<sp/>[Data](#struct_data)<sp/>object<sp/>to<sp/>the<sp/>master<sp/>in<sp/>reply<sp/>to<sp/>appropriate<sp/>request.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sends<sp/>[Data](#struct_data)<sp/>object<sp/>to<sp/>the<sp/>master<sp/>in<sp/>reponse<sp/>to<sp/>a<sp/>request<sp/>made<sp/>by<sp/>the<sp/>master<sp/>for<sp/>[Data](#struct_data).<sp/>NOTE:<sp/>This<sp/>must<sp/>be<sp/>used<sp/>as<sp/>the<sp/>response<sp/>to<sp/>the<sp/>appropriate<sp/>mInstruct<sp/>request.<sp/>In<sp/>paricular,<sp/>(mInstruct)SendDataPlease</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendIdentity`](#class_master_1a9ebd71ad45ea73524c87724b9c5e5e2f)`(void)`<sp/>{#class_master_1a9ebd71ad45ea73524c87724b9c5e5e2f}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sends<sp/>slave<sp/>[Identity](#struct_identity)<sp/>object<sp/>to<sp/>the<sp/>master<sp/>in<sp/>reply<sp/>to<sp/>appropriate<sp/>request.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sends<sp/>the<sp/>slave<sp/>[Identity](#struct_identity)<sp/>object<sp/>in<sp/>response<sp/>to<sp/>an<sp/>appropriate<sp/>request<sp/>made<sp/>by<sp/>master.<sp/>NOTE:<sp/>This<sp/>must<sp/>be<sp/>used<sp/>as<sp/>the<sp/>response<sp/>to<sp/>the<sp/>appropriate<sp/>mInstruct<sp/>request.<sp/>In<sp/>paricular,<sp/>(mInstruct)WhoAreYou</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`PushMeasurementVector`](#class_master_1ac907bfa48b84098a906c63c933cc373d)`(const<sp/>`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,const<sp/>float<sp/>Measurement)`<sp/>{#class_master_1ac907bfa48b84098a906c63c933cc373d}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Pushes<sp/>a<sp/>data<sp/>point<sp/>onto<sp/>one<sp/>of<sp/>the<sp/>data<sp/>vectors.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Adds<sp/>a<sp/>data<sp/>point<sp/>to<sp/>the<sp/>next<sp/>available<sp/>slot<sp/>in<sp/>a<sp/>particular<sp/>vector<sp/>until<sp/>the<sp/>vector<sp/>(row)<sp/>in<sp/>the<sp/>data<sp/>array<sp/>is<sp/>full.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`VectorNumber`<sp/>is<sp/>the<sp/>enumerated<sp/>reference<sp/>to<sp/>the<sp/>row/vector<sp/>in<sp/>the<sp/>data<sp/>array<sp/>being<sp/>accessed.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`Measurement`<sp/>is<sp/>the<sp/>data<sp/>point<sp/>to<sp/>be<sp/>stored.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">False<sp/>if<sp/>the<sp/>vector/row<sp/>in<sp/>question<sp/>is<sp/>full.<sp/>(See<sp/>DATA_ROW_LENGTH).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`PopMeasurementVector`](#class_master_1ad64bb8e32e356747d0f80fce966a3574)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber)`<sp/>{#class_master_1ad64bb8e32e356747d0f80fce966a3574}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Pops<sp/>a<sp/>data<sp/>point<sp/>from<sp/>the<sp/>tail<sp/>end<sp/>of<sp/>a<sp/>designated<sp/>vector.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Removes<sp/>the<sp/>most<sp/>recent<sp/>data<sp/>point<sp/>from<sp/>the<sp/>vector<sp/>in<sp/>question<sp/>by<sp/>marking<sp/>said<sp/>data<sp/>slot<sp/>writeable<sp/>to<sp/>be<sp/>the<sp/>next<sp/>[PushMeasurementVector()](#class_master_1ac907bfa48b84098a906c63c933cc373d).<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`VectorNumber`<sp/>is<sp/>the<sp/>enumerated<sp/>reference<sp/>to<sp/>the<sp/>row/vector<sp/>in<sp/>the<sp/>data<sp/>array<sp/>being<sp/>accessed.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">False<sp/>if<sp/>the<sp/>vector/row<sp/>in<sp/>question<sp/>is<sp/>empty.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`ClearMeasurementVector`](#class_master_1a94625b59aceffeceeae3b050885968ef)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber)`<sp/>{#class_master_1a94625b59aceffeceeae3b050885968ef}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Clears<sp/>all<sp/>data<sp/>points<sp/>from<sp/>a<sp/>particular<sp/>vector.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`VectorNumber`<sp/>is<sp/>the<sp/>enumerated<sp/>reference<sp/>to<sp/>the<sp/>row/vector<sp/>in<sp/>the<sp/>data<sp/>array<sp/>being<sp/>accessed.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`setMeasurementVectorHeading`](#class_master_1a49e434ca3d09d56bac2a2d45c86661ac)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,volatile<sp/>char<sp/>Heading)`<sp/>{#class_master_1a49e434ca3d09d56bac2a2d45c86661ac}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sets<sp/>the<sp/>string<sp/>heading<sp/>assigned<sp/>to<sp/>a<sp/>paritcular<sp/>data<sp/>vector.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">NOTE:<sp/>The<sp/>Heading<sp/>parameter<sp/>must<sp/>be<sp/>declared<sp/>locally<sp/>as<sp/>volatile<sp/>char[].<sp/>Literal<sp/>strings<sp/>cannot<sp/>be<sp/>passed<sp/>to<sp/>this<sp/>function.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`VectorNumber`<sp/>is<sp/>the<sp/>enumerated<sp/>reference<sp/>to<sp/>the<sp/>row/vector<sp/>in<sp/>the<sp/>data<sp/>array<sp/>in<sp/>question.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`Heading[]`<sp/>is<sp/>the<sp/>character<sp/>array<sp/>containing<sp/>the<sp/>string<sp/>heading.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`setMeasurementVectorUnits`](#class_master_1a5f955da291f31441d726c4ded74c32bd)`(`[`MeasurementVectors`](#_s_p_i___instruction_set_8h_1a9d8048399836e11887f85cc8dc3d75d5)`<sp/>VectorNumber,volatile<sp/>char<sp/>Units)`<sp/>{#class_master_1a5f955da291f31441d726c4ded74c32bd}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sets<sp/>the<sp/>string<sp/>Units<sp/>assigned<sp/>to<sp/>a<sp/>paritcular<sp/>data<sp/>vector.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">NOTE:<sp/>The<sp/>Units<sp/>parameter<sp/>must<sp/>be<sp/>declared<sp/>locally<sp/>as<sp/>volatile<sp/>char[].<sp/>Literal<sp/>strings<sp/>cannot<sp/>be<sp/>passed<sp/>to<sp/>this<sp/>function.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`VectorNumber`<sp/>is<sp/>the<sp/>enumerated<sp/>reference<sp/>to<sp/>the<sp/>row/vector<sp/>in<sp/>the<sp/>data<sp/>array<sp/>in<sp/>question.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">*<sp/>`Units[]`<sp/>is<sp/>the<sp/>character<sp/>array<sp/>containing<sp/>the<sp/>string<sp/>heading.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`isThereData`](#class_master_1a23536349ac40fc9cc030e9bc5d0c5945)`(void)`<sp/>{#class_master_1a23536349ac40fc9cc030e9bc5d0c5945}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Checks<sp/>to<sp/>see<sp/>whether<sp/>any<sp/>data<sp/>has<sp/>been<sp/>pushed<sp/>to<sp/>any<sp/>of<sp/>the<sp/>data<sp/>vectors<sp/>locally.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>any<sp/>data<sp/>points<sp/>exist<sp/>in<sp/>the<sp/>data<sp/>vectors<sp/>locally.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`sendTotalNumOfInstructions`](#class_master_1aa68bb1327d506c42b6b7ab54fd73ca62)`(void)`<sp/>{#class_master_1aa68bb1327d506c42b6b7ab54fd73ca62}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sends<sp/>a<sp/>reply<sp/>to<sp/>[Master](#class_master)<sp/>specifiying<sp/>the<sp/>total<sp/>number<sp/>of<sp/>instructions<sp/>in<sp/>a<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`getCurrentInstructionNumber`](#class_master_1a250b4f7cdb96abb0be9ffdc54d00be31)`(void)`<sp/>{#class_master_1a250b4f7cdb96abb0be9ffdc54d00be31}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Gets<sp/>the<sp/>value<sp/>of<sp/>the<sp/>counter<sp/>which<sp/>tracks<sp/>the<sp/>current<sp/>instruction<sp/>number<sp/>throughout<sp/>the<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`sendNextUserInstruction`](#class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a)`(void)`<sp/>{#class_master_1a6445732d38d6bac09ab8c8bd66bd4e2a}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sends<sp/>the<sp/>next<sp/>instruction<sp/>in<sp/>the<sp/>measurement<sp/>cycle<sp/>to<sp/>the<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Sends<sp/>the<sp/>next<sp/>instruction<sp/>in<sp/>the<sp/>measurement<sp/>cycle<sp/>array<sp/>in<sp/>reponse<sp/>to<sp/>the<sp/>appropriate<sp/>request<sp/>from<sp/>master.<sp/>Specifically,<sp/>(mInstruct)NextCommandPlease.<sp/>This<sp/>method<sp/>will<sp/>auto-advance<sp/>the<sp/>measurement<sp/>cycle<sp/>to<sp/>the<sp/>next<sp/>instruction<sp/>and<sp/>re-define<sp/>the<sp/>&apos;current<sp/>instruction&apos;.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">False<sp/>if<sp/>the<sp/>final<sp/>instruction<sp/>in<sp/>the<sp/>measurement<sp/>procedure<sp/>has<sp/>already<sp/>been<sp/>sent<sp/>and<sp/>the<sp/>measurement<sp/>procedure<sp/>is<sp/>now<sp/>complete.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`resendCurrentUserInstruction`](#class_master_1a8a9c9670d31af14e65157879963e0cf1)`(void)`<sp/>{#class_master_1a8a9c9670d31af14e65157879963e0cf1}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Resends<sp/>the<sp/>cuurent<sp/>instruction<sp/>in<sp/>the<sp/>measurement<sp/>procedure<sp/>to<sp/>the<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>method<sp/>will<sp/>NOT<sp/>advance<sp/>the<sp/>measurement<sp/>cycle.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`restartUserInstructionCycle`](#class_master_1ad50d30dbd09d40661bbdbc1527ff07bf)`(void)`<sp/>{#class_master_1ad50d30dbd09d40661bbdbc1527ff07bf}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Restarts<sp/>the<sp/>measurement<sp/>prcedure.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Restarts<sp/>the<sp/>measuement<sp/>procedure<sp/>such<sp/>that<sp/>the<sp/>next<sp/>instruction<sp/>sent<sp/>will<sp/>be<sp/>the<sp/>first<sp/>instruction<sp/>in<sp/>the<sp/>measurement<sp/>cycle.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>void<sp/>`[`beginMeasurement`](#class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c)`(void)`<sp/>{#class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Updates<sp/>state<sp/>to<sp/>indicate<sp/>that<sp/>[Master](#class_master)<sp/>has<sp/>requested<sp/>the<sp/>intitiation<sp/>of<sp/>the<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Designed<sp/>to<sp/>allow<sp/>the<sp/>IRQ<sp/>to<sp/>update<sp/>the<sp/>slave<sp/>state<sp/>so<sp/>that<sp/>the<sp/>procedural<sp/>code<sp/>in<sp/>main()<sp/>can<sp/>initiate<sp/>the<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>bool<sp/>`[`shallIStart`](#class_master_1a5d83f02bd26fbe40f249c052454b327b)`(void)`<sp/>{#class_master_1a5d83f02bd26fbe40f249c052454b327b}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Checks<sp/>whether<sp/>the<sp/>[beginMeasurement()](#class_master_1a89cc4d6f65ee9922711cde4ed4bdf31c)<sp/>method<sp/>has<sp/>been<sp/>called.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Allows<sp/>procedural<sp/>code<sp/>in<sp/>main()<sp/>to<sp/>determine<sp/>whether<sp/>the<sp/>system<sp/>state<sp/>has<sp/>changed<sp/>during<sp/>an<sp/>interrupt<sp/>in<sp/>response<sp/>to<sp/>a<sp/>request<sp/>by<sp/>the<sp/>master<sp/>to<sp/>initiate<sp/>the<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>class<sp/>`Sensor`<sp/>{#class_sensor}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">```</highlight></codeline>
+<codeline><highlight class="normal">class<sp/>Sensor</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:<sp/>public<sp/>Instructable</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:<sp/>public<sp/>Instructor</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:<sp/>public<sp/>DataSource</highlight></codeline>
+<codeline><highlight class="normal"><sp/><sp/>:<sp/>public<sp/>Identifiable</highlight></codeline>
+<codeline><highlight class="normal">```<sp/><sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">A<sp/>class<sp/>which<sp/>models<sp/>a<sp/>Sensor/peripheral.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">This<sp/>class<sp/>models<sp/>a<sp/>sensor<sp/>peripheral<sp/>as<sp/>an<sp/>entity<sp/>which<sp/>has<sp/>a<sp/>queriable<sp/>[Identity](#struct_identity),<sp/>is<sp/>a<sp/>source<sp/>of<sp/>[Data](#struct_data),<sp/>can<sp/>be<sp/>issued<sp/>commands<sp/>and<sp/>can<sp/>issue<sp/>a<sp/>series<sp/>of<sp/>instructions<sp/>in<sp/>turn.<sp/>In<sp/>particular,<sp/>a<sp/>sensor<sp/>is<sp/>considered<sp/>to<sp/>perform<sp/>a<sp/>measurement<sp/>procedure<sp/>consisting<sp/>of<sp/>a<sp/>series<sp/>of<sp/>steps;<sp/>at<sp/>each<sp/>step,<sp/>the<sp/>sensor<sp/>will<sp/>issue<sp/>instructions<sp/>to<sp/>the<sp/>master<sp/>to<sp/>be<sp/>acted<sp/>upon<sp/>and/or<sp/>displayed<sp/>to<sp/>the<sp/>user.<sp/>The<sp/>sensor<sp/>may<sp/>also<sp/>require<sp/>feedback<sp/>from<sp/>the<sp/>user<sp/>such<sp/>as<sp/>confirmation<sp/>of<sp/>the<sp/>completion<sp/>of<sp/>an<sp/>instruction,<sp/>before<sp/>proceeding<sp/>to<sp/>the<sp/>next<sp/>instruction<sp/>in<sp/>the<sp/>measurement<sp/>procedure.<sp/>While<sp/>the<sp/>sensor<sp/>dictates<sp/>the<sp/>flow<sp/>of<sp/>the<sp/>measurement<sp/>procedure,<sp/>a<sp/>master<sp/>reserves<sp/>the<sp/>right<sp/>to<sp/>initiate<sp/>the<sp/>procedure,<sp/>pause<sp/>the<sp/>procedure<sp/>and<sp/>restart<sp/>the<sp/>procedure.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/><sp/>`[`Sensor`](#class_sensor_1a370005d04d3566c21b9190e1442fa4e8)`(const<sp/>int<sp/>ChipSelect)`<sp/>|<sp/>Constructor.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`StartMeasurement`](#class_sensor_1af0e64874a3d1b8ae19e3b623d244342a)`(void)`<sp/>|<sp/>Instruct<sp/>the<sp/>sensor<sp/>to<sp/>initiate<sp/>the<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`PauseMeasurementForMillis`](#class_sensor_1afdcc3b63357bd24f519e0cbc85454a52)`(int)`<sp/>|<sp/>Instruct<sp/>the<sp/>sensor<sp/>to<sp/>pause<sp/>the<sp/>measurement<sp/>procedure<sp/>for<sp/>a<sp/>brief<sp/>period.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`RestartMeasurement`](#class_sensor_1ad58e9acfc23f07af433f0e2596d786d7)`(void)`<sp/>|<sp/>Instruct<sp/>the<sp/>sensor<sp/>to<sp/>restart<sp/>the<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/><sp/>`[`Sensor`](#class_sensor_1a370005d04d3566c21b9190e1442fa4e8)`(const<sp/>int<sp/>ChipSelect)`<sp/>{#class_sensor_1a370005d04d3566c21b9190e1442fa4e8}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Constructor.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`ChipSelect`<sp/>is<sp/>the<sp/>Slave<sp/>Select<sp/>pin<sp/>of<sp/>the<sp/>SPI<sp/>peripheral<sp/>in<sp/>question.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`StartMeasurement`](#class_sensor_1af0e64874a3d1b8ae19e3b623d244342a)`(void)`<sp/>{#class_sensor_1af0e64874a3d1b8ae19e3b623d244342a}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Instruct<sp/>the<sp/>sensor<sp/>to<sp/>initiate<sp/>the<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Informs<sp/>the<sp/>sensor<sp/>to<sp/>start<sp/>the<sp/>measurement<sp/>procedure<sp/>and<sp/>proceed<sp/>to<sp/>the<sp/>first<sp/>instruction<sp/>step.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>the<sp/>sensor<sp/>acknowledges<sp/>the<sp/>request.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`PauseMeasurementForMillis`](#class_sensor_1afdcc3b63357bd24f519e0cbc85454a52)`(int)`<sp/>{#class_sensor_1afdcc3b63357bd24f519e0cbc85454a52}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Instruct<sp/>the<sp/>sensor<sp/>to<sp/>pause<sp/>the<sp/>measurement<sp/>procedure<sp/>for<sp/>a<sp/>brief<sp/>period.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Instructs<sp/>the<sp/>sensor<sp/>to<sp/>temporarily<sp/>pause<sp/>the<sp/>measurement<sp/>procedure<sp/>for<sp/>a<sp/>period<sp/>defined<sp/>in<sp/>milliseconds.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Parameters</highlight></codeline>
+<codeline><highlight class="normal">*<sp/>`int`<sp/>is<sp/>the<sp/>number<sp/>of<sp/>milliseconds<sp/>for<sp/>which<sp/>the<sp/>sensor<sp/>is<sp/>to<sp/>pause.<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>the<sp/>sensor<sp/>acknowledges<sp/>the<sp/>request.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`RestartMeasurement`](#class_sensor_1ad58e9acfc23f07af433f0e2596d786d7)`(void)`<sp/>{#class_sensor_1ad58e9acfc23f07af433f0e2596d786d7}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Instruct<sp/>the<sp/>sensor<sp/>to<sp/>restart<sp/>the<sp/>measurement<sp/>procedure.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Instructs<sp/>the<sp/>sensor<sp/>to<sp/>restart<sp/>the<sp/>measurement<sp/>procedure.<sp/>The<sp/>sensor<sp/>will<sp/>wait<sp/>revert<sp/>to<sp/>its<sp/>initial<sp/>state,<sp/>waiting<sp/>for<sp/>a<sp/>[StartMeasurement()](#class_sensor_1af0e64874a3d1b8ae19e3b623d244342a)<sp/>command<sp/>before<sp/>proceeding<sp/>to<sp/>the<sp/>first<sp/>instruction<sp/>in<sp/>the<sp/>procedure.<sp/></highlight></codeline>
+<codeline><highlight class="normal">####<sp/>Returns</highlight></codeline>
+<codeline><highlight class="normal">True<sp/>if<sp/>the<sp/>sensor<sp/>acknowledges<sp/>the<sp/>request.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>struct<sp/>`Data`<sp/>{#struct_data}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Type<sp/>used<sp/>to<sp/>encapsulate<sp/>the<sp/>data<sp/>collected<sp/>by<sp/>the<sp/>slave.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">[Data](#struct_data)<sp/>is<sp/>contained<sp/>in<sp/>a<sp/>two<sp/>dimensional<sp/>array<sp/>but<sp/>generally<sp/>modelled<sp/>as<sp/>a<sp/>collection<sp/>of<sp/>&apos;vectors&apos;<sp/>or<sp/>rows<sp/>of<sp/>data.<sp/>Each<sp/>row<sp/>is<sp/>allowed<sp/>a<sp/>variable<sp/>number<sp/>of<sp/>data<sp/>points,<sp/>a<sp/>string<sp/>heading<sp/>and<sp/>a<sp/>string<sp/>unit.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`NumColumns`](#struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336)<sp/>|<sp/>Number<sp/>of<sp/>data<sp/>points<sp/>currently<sp/>stored<sp/>in<sp/>each<sp/>row.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`NumRows`](#struct_data_1ac0883de785701631da0e099578c748ca)<sp/>|<sp/>Number<sp/>of<sp/>rows.<sp/>Defined<sp/>at<sp/>compilation.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>char<sp/>`[`RowHeadings`](#struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01)<sp/>|<sp/>String<sp/>headings<sp/>to<sp/>describe<sp/>the<sp/>data<sp/>in<sp/>each<sp/>row.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>char<sp/>`[`rowUnits`](#struct_data_1a004891d89fb41172310a55947f922a54)<sp/>|<sp/>String<sp/>units<sp/>to<sp/>qualify<sp/>the<sp/>data<sp/>in<sp/>each<sp/>row.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>float<sp/>`[`DataPoints`](#struct_data_1a1984363a7b509590c1bae03601360a0e)<sp/>|<sp/>Two<sp/>dimensional<sp/>array<sp/>of<sp/>data.<sp/>Each<sp/>row<sp/>generally<sp/>treated<sp/>as<sp/>an<sp/>independent<sp/>vector.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`Data`](#struct_data)`<sp/>&amp;<sp/>`[`operator=`](#struct_data_1a3ae506c712bc36c15533f5499608a047)`(const<sp/>volatile<sp/>`[`Data`](#struct_data)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`Data`](#struct_data)`<sp/>&amp;<sp/>`[`operator=`](#struct_data_1a7c50ba562a0dcddc5ca2c733f1bbcb61)`(const<sp/>`[`Data`](#struct_data)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`NumColumns`](#struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336)<sp/>{#struct_data_1ab7ad5d3d8f1e4b3f42c5aedb1e74b336}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Number<sp/>of<sp/>data<sp/>points<sp/>currently<sp/>stored<sp/>in<sp/>each<sp/>row.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`NumRows`](#struct_data_1ac0883de785701631da0e099578c748ca)<sp/>{#struct_data_1ac0883de785701631da0e099578c748ca}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Number<sp/>of<sp/>rows.<sp/>Defined<sp/>at<sp/>compilation.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>char<sp/>`[`RowHeadings`](#struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01)<sp/>{#struct_data_1a653f4e0cb59f5c3f36f5664be1f11c01}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">String<sp/>headings<sp/>to<sp/>describe<sp/>the<sp/>data<sp/>in<sp/>each<sp/>row.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>char<sp/>`[`rowUnits`](#struct_data_1a004891d89fb41172310a55947f922a54)<sp/>{#struct_data_1a004891d89fb41172310a55947f922a54}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">String<sp/>units<sp/>to<sp/>qualify<sp/>the<sp/>data<sp/>in<sp/>each<sp/>row.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>float<sp/>`[`DataPoints`](#struct_data_1a1984363a7b509590c1bae03601360a0e)<sp/>{#struct_data_1a1984363a7b509590c1bae03601360a0e}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Two<sp/>dimensional<sp/>array<sp/>of<sp/>data.<sp/>Each<sp/>row<sp/>generally<sp/>treated<sp/>as<sp/>an<sp/>independent<sp/>vector.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`Data`](#struct_data)`<sp/>&amp;<sp/>`[`operator=`](#struct_data_1a3ae506c712bc36c15533f5499608a047)`(const<sp/>volatile<sp/>`[`Data`](#struct_data)`<sp/>&amp;<sp/>rhs)`<sp/>{#struct_data_1a3ae506c712bc36c15533f5499608a047}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`Data`](#struct_data)`<sp/>&amp;<sp/>`[`operator=`](#struct_data_1a7c50ba562a0dcddc5ca2c733f1bbcb61)`(const<sp/>`[`Data`](#struct_data)`<sp/>&amp;<sp/>rhs)`<sp/>{#struct_data_1a7c50ba562a0dcddc5ca2c733f1bbcb61}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>struct<sp/>`Identity`<sp/>{#struct_identity}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Type<sp/>used<sp/>to<sp/>convey<sp/>the<sp/>Slave<sp/>identity.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>char<sp/>`[`SensorName`](#struct_identity_1adc4d380bde0772c5d53a6383e36178cb)<sp/>|<sp/>String<sp/>name<sp/>of<sp/>the<sp/>slave.<sp/>Used<sp/>for<sp/>informative<sp/>reporting<sp/>to<sp/>user.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`sensorID`](#struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac)<sp/>|<sp/>Single<sp/>byte<sp/>identitfication<sp/>number.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`sensorChipSelect`](#struct_identity_1a219419d57e4c4e0d53ddcb44af330f32)<sp/>|<sp/>SPI<sp/>chip<sp/>select<sp/>of<sp/>the<sp/>peripheral<sp/>in<sp/>question.<sp/>Used<sp/>by<sp/>slave,<sp/>but<sp/>used<sp/>by<sp/>[Master](#class_master).</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`Identity`](#struct_identity)`<sp/>&amp;<sp/>`[`operator=`](#struct_identity_1ae7ccf6e408df14fac9dc856f53d81718)`(const<sp/>volatile<sp/>`[`Identity`](#struct_identity)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`Identity`](#struct_identity)`<sp/>&amp;<sp/>`[`operator=`](#struct_identity_1a64f9786e3b6cd410406d14d124be1e7c)`(const<sp/>`[`Identity`](#struct_identity)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>char<sp/>`[`SensorName`](#struct_identity_1adc4d380bde0772c5d53a6383e36178cb)<sp/>{#struct_identity_1adc4d380bde0772c5d53a6383e36178cb}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">String<sp/>name<sp/>of<sp/>the<sp/>slave.<sp/>Used<sp/>for<sp/>informative<sp/>reporting<sp/>to<sp/>user.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`sensorID`](#struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac)<sp/>{#struct_identity_1a4f5a5e2cb7ee061dd0bd29b7086d89ac}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Single<sp/>byte<sp/>identitfication<sp/>number.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`sensorChipSelect`](#struct_identity_1a219419d57e4c4e0d53ddcb44af330f32)<sp/>{#struct_identity_1a219419d57e4c4e0d53ddcb44af330f32}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">SPI<sp/>chip<sp/>select<sp/>of<sp/>the<sp/>peripheral<sp/>in<sp/>question.<sp/>Used<sp/>by<sp/>slave,<sp/>but<sp/>used<sp/>by<sp/>[Master](#class_master).</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`Identity`](#struct_identity)`<sp/>&amp;<sp/>`[`operator=`](#struct_identity_1ae7ccf6e408df14fac9dc856f53d81718)`(const<sp/>volatile<sp/>`[`Identity`](#struct_identity)`<sp/>&amp;<sp/>rhs)`<sp/>{#struct_identity_1ae7ccf6e408df14fac9dc856f53d81718}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`Identity`](#struct_identity)`<sp/>&amp;<sp/>`[`operator=`](#struct_identity_1a64f9786e3b6cd410406d14d124be1e7c)`(const<sp/>`[`Identity`](#struct_identity)`<sp/>&amp;<sp/>rhs)`<sp/>{#struct_identity_1a64f9786e3b6cd410406d14d124be1e7c}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>struct<sp/>`mCmd`<sp/>{#structm_cmd}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Type<sp/>used<sp/>by<sp/>master<sp/>to<sp/>send<sp/>requests<sp/>to<sp/>slave.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>transaction,<sp/>following<sp/>the<sp/>initial<sp/>handshake,<sp/>the<sp/>master<sp/>will<sp/>send<sp/>a<sp/>request<sp/>and<sp/>the<sp/>slave<sp/>will<sp/>send<sp/>a<sp/>reply.<sp/>Requests<sp/>made<sp/>by<sp/>the<sp/>master<sp/>will<sp/>always<sp/>take<sp/>the<sp/>form<sp/>of<sp/>an<sp/>[mCmd](#structm_cmd)<sp/>object,<sp/>which<sp/>contains<sp/>a<sp/>parameterised<sp/>instance<sp/>of<sp/>the<sp/>instruction<sp/>set,<sp/>mInstruct,<sp/>which<sp/>defines<sp/>the<sp/>class<sp/>of<sp/>repsonse<sp/>expected<sp/>by<sp/>the<sp/>slave.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`<sp/>`[`Instruction`](#structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d)<sp/>|<sp/>Instruction<sp/>to<sp/>slave.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`iParam`](#structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888)<sp/>|<sp/>Integer<sp/>paramter<sp/>which<sp/>qualifies<sp/>the<sp/>instruction.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>float<sp/>`[`fParam`](#structm_cmd_1af05b89ac7edf2c67bb3386c902369313)<sp/>|<sp/>Floating<sp/>point<sp/>parameter<sp/>which<sp/>wualifies<sp/>the<sp/>instruction.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/><sp/>`[`mCmd`](#structm_cmd_1a15d47aa62e963ba62b9b5df21ff7c3b3)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`<sp/>Instruct,int<sp/>i,float<sp/>f)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/><sp/>`[`mCmd`](#structm_cmd_1a0bc6db1f094500a0605ce488869a1765)`()`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/><sp/>`[`mCmd`](#structm_cmd_1a390b853a14509e41006a0d873899b234)`(volatile<sp/>`[`mCmd`](#structm_cmd)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`mCmd`](#structm_cmd)`<sp/>&amp;<sp/>`[`operator=`](#structm_cmd_1a861a79ec71e76fa61603073aa6969551)`(const<sp/>volatile<sp/>`[`mCmd`](#structm_cmd)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`mCmd`](#structm_cmd)`<sp/>&amp;<sp/>`[`operator=`](#structm_cmd_1a5a637df37056ccbe63f6fe600222c003)`(const<sp/>`[`mCmd`](#structm_cmd)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`<sp/>`[`Instruction`](#structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d)<sp/>{#structm_cmd_1a7adb91eb9d020c0f2650e99a857d2c3d}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Instruction<sp/>to<sp/>slave.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Defines<sp/>the<sp/>request<sp/>made<sp/>of<sp/>the<sp/>slave<sp/>by<sp/>the<sp/>master<sp/>during<sp/>any<sp/>transacion.<sp/>mInstruct<sp/>defines<sp/>a<sp/>finite<sp/>set<sp/>of<sp/>requests<sp/>which<sp/>the<sp/>master<sp/>can<sp/>make<sp/>of<sp/>the<sp/>slave.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`iParam`](#structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888)<sp/>{#structm_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Integer<sp/>paramter<sp/>which<sp/>qualifies<sp/>the<sp/>instruction.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>float<sp/>`[`fParam`](#structm_cmd_1af05b89ac7edf2c67bb3386c902369313)<sp/>{#structm_cmd_1af05b89ac7edf2c67bb3386c902369313}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Floating<sp/>point<sp/>parameter<sp/>which<sp/>wualifies<sp/>the<sp/>instruction.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/><sp/>`[`mCmd`](#structm_cmd_1a15d47aa62e963ba62b9b5df21ff7c3b3)`(`[`mInstruct`](#_s_p_i___instruction_set_8h_1afefab269eb3692ecb3e5fcdbb9440792)`<sp/>Instruct,int<sp/>i,float<sp/>f)`<sp/>{#structm_cmd_1a15d47aa62e963ba62b9b5df21ff7c3b3}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/><sp/>`[`mCmd`](#structm_cmd_1a0bc6db1f094500a0605ce488869a1765)`()`<sp/>{#structm_cmd_1a0bc6db1f094500a0605ce488869a1765}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/><sp/>`[`mCmd`](#structm_cmd_1a390b853a14509e41006a0d873899b234)`(volatile<sp/>`[`mCmd`](#structm_cmd)`<sp/>&amp;<sp/>rhs)`<sp/>{#structm_cmd_1a390b853a14509e41006a0d873899b234}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`mCmd`](#structm_cmd)`<sp/>&amp;<sp/>`[`operator=`](#structm_cmd_1a861a79ec71e76fa61603073aa6969551)`(const<sp/>volatile<sp/>`[`mCmd`](#structm_cmd)`<sp/>&amp;<sp/>rhs)`<sp/>{#structm_cmd_1a861a79ec71e76fa61603073aa6969551}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`mCmd`](#structm_cmd)`<sp/>&amp;<sp/>`[`operator=`](#structm_cmd_1a5a637df37056ccbe63f6fe600222c003)`(const<sp/>`[`mCmd`](#structm_cmd)`<sp/>&amp;<sp/>rhs)`<sp/>{#structm_cmd_1a5a637df37056ccbe63f6fe600222c003}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>struct<sp/>`sCmd`<sp/>{#structs_cmd}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Type<sp/>used<sp/>by<sp/>slave<sp/>to<sp/>send<sp/>reply<sp/>to<sp/>master,.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Each<sp/>transaction,<sp/>following<sp/>the<sp/>initial<sp/>handshake,<sp/>the<sp/>master<sp/>will<sp/>send<sp/>a<sp/>request<sp/>and<sp/>the<sp/>slave<sp/>will<sp/>send<sp/>a<sp/>reply.<sp/>Replied<sp/>made<sp/>by<sp/>the<sp/>slave<sp/>are<sp/>generally<sp/>in<sp/>the<sp/>form<sp/>of<sp/>an<sp/>[sCmd](#structs_cmd)<sp/>object,<sp/>which<sp/>contains<sp/>a<sp/>parameterised<sp/>instance<sp/>of<sp/>the<sp/>slave<sp/>instruction<sp/>set,<sp/>sInstruct,<sp/>which<sp/>defines<sp/>the<sp/>action<sp/>which<sp/>the<sp/>slave<sp/>requires<sp/>the<sp/>master<sp/>to<sp/>carry<sp/>out.<sp/>Other<sp/>acceptable<sp/>replies<sp/>to<sp/>particular<sp/>requests<sp/>from<sp/>the<sp/>master<sp/>are<sp/>[Data](#struct_data)<sp/>and<sp/>[Identity](#struct_identity)<sp/>objects.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>`[`Instruction`](#structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc)<sp/>|<sp/>Instruction<sp/>to<sp/>master.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>char<sp/>`[`sParam`](#structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f)<sp/>|<sp/>String<sp/>parameter<sp/>which<sp/>qualifies<sp/>the<sp/>instruction.<sp/>Often<sp/>used<sp/>to<sp/>convey<sp/>instructions<sp/>which<sp/>are<sp/>to<sp/>be<sp/>displayed<sp/>to<sp/>the<sp/>user.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`iParam`](#structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888)<sp/>|<sp/>Integer<sp/>parameter<sp/>which<sp/>qualifies<sp/>the<sp/>instruction.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>float<sp/>`[`fParam`](#structs_cmd_1af05b89ac7edf2c67bb3386c902369313)<sp/>|<sp/>Floating<sp/>point<sp/>parameter<sp/>which<sp/>qualifies<sp/>the<sp/>instruction.</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`sCmd`](#structs_cmd)`<sp/>&amp;<sp/>`[`operator=`](#structs_cmd_1a3b1f47c680cdde48d2c8679599547516)`(const<sp/>volatile<sp/>`[`sCmd`](#structs_cmd)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`sCmd`](#structs_cmd)`<sp/>&amp;<sp/>`[`operator=`](#structs_cmd_1a88ec1d5b2730bd3e2e2c9902c3ccde34)`(const<sp/>`[`sCmd`](#structs_cmd)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>`[`Instruction`](#structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc)<sp/>{#structs_cmd_1ae44f8e2a61a9d80037ef1379815d51cc}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Instruction<sp/>to<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Defines<sp/>the<sp/>reply<sp/>made<sp/>by<sp/>the<sp/>slave<sp/>in<sp/>repsonse<sp/>to<sp/>the<sp/>request<sp/>posed<sp/>by<sp/>the<sp/>master<sp/>during<sp/>a<sp/>single<sp/>transaction.<sp/>Used<sp/>to<sp/>confirm<sp/>commands<sp/>issued<sp/>by<sp/>the<sp/>master<sp/>or<sp/>issue<sp/>commands<sp/>to<sp/>the<sp/>master.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>char<sp/>`[`sParam`](#structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f)<sp/>{#structs_cmd_1ae61e22459fa014bbc635b6280b5a5e1f}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">String<sp/>parameter<sp/>which<sp/>qualifies<sp/>the<sp/>instruction.<sp/>Often<sp/>used<sp/>to<sp/>convey<sp/>instructions<sp/>which<sp/>are<sp/>to<sp/>be<sp/>displayed<sp/>to<sp/>the<sp/>user.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`iParam`](#structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888)<sp/>{#structs_cmd_1a4d0a4aab326d0ba8eb8128adb61c0888}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Integer<sp/>parameter<sp/>which<sp/>qualifies<sp/>the<sp/>instruction.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>float<sp/>`[`fParam`](#structs_cmd_1af05b89ac7edf2c67bb3386c902369313)<sp/>{#structs_cmd_1af05b89ac7edf2c67bb3386c902369313}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Floating<sp/>point<sp/>parameter<sp/>which<sp/>qualifies<sp/>the<sp/>instruction.</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`sCmd`](#structs_cmd)`<sp/>&amp;<sp/>`[`operator=`](#structs_cmd_1a3b1f47c680cdde48d2c8679599547516)`(const<sp/>volatile<sp/>`[`sCmd`](#structs_cmd)`<sp/>&amp;<sp/>rhs)`<sp/>{#structs_cmd_1a3b1f47c680cdde48d2c8679599547516}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`sCmd`](#structs_cmd)`<sp/>&amp;<sp/>`[`operator=`](#structs_cmd_1a88ec1d5b2730bd3e2e2c9902c3ccde34)`(const<sp/>`[`sCmd`](#structs_cmd)`<sp/>&amp;<sp/>rhs)`<sp/>{#structs_cmd_1a88ec1d5b2730bd3e2e2c9902c3ccde34}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">#<sp/>struct<sp/>`UserInstructions`<sp/>{#struct_user_instructions}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Summary</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal"><sp/>Members<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/>|<sp/>Descriptions<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline><highlight class="normal">--------------------------------|---------------------------------------------</highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`NumOfInstructions`](#struct_user_instructions_1a801574205a73598195471b820f1763be)<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`InstructionCounter`](#struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4)<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>char<sp/>`[`InstructionSet`](#struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca)<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>`[`MasterInstructionSet`](#struct_user_instructions_1a2776e44080e40571fdf163b46b013aef)<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>int<sp/>`[`iParams`](#struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63)<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>float<sp/>`[`fParams`](#struct_user_instructions_1a2f3be588265c4ed198e1687433e53754)<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`UserInstructions`](#struct_user_instructions)`<sp/>&amp;<sp/>`[`operator=`](#struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196)`(const<sp/>volatile<sp/>`[`UserInstructions`](#struct_user_instructions)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline><highlight class="normal">`public<sp/>inline<sp/>`[`UserInstructions`](#struct_user_instructions)`<sp/>&amp;<sp/>`[`operator=`](#struct_user_instructions_1a70e5ef4407c43d8e574dfe4b46083d56)`(const<sp/>`[`UserInstructions`](#struct_user_instructions)`<sp/>&amp;<sp/>rhs)`<sp/>|<sp/></highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">##<sp/>Members</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`NumOfInstructions`](#struct_user_instructions_1a801574205a73598195471b820f1763be)<sp/>{#struct_user_instructions_1a801574205a73598195471b820f1763be}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`InstructionCounter`](#struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4)<sp/>{#struct_user_instructions_1a26a097e6ac6075df0ef181583a49dbc4}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>char<sp/>`[`InstructionSet`](#struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca)<sp/>{#struct_user_instructions_1aa855f63db27eea10ab7868ae1e145eca}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>`[`sInstruct`](#_s_p_i___instruction_set_8h_1a949ec019a0f52780dcdd7d5a5ba73e47)`<sp/>`[`MasterInstructionSet`](#struct_user_instructions_1a2776e44080e40571fdf163b46b013aef)<sp/>{#struct_user_instructions_1a2776e44080e40571fdf163b46b013aef}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>int<sp/>`[`iParams`](#struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63)<sp/>{#struct_user_instructions_1a4ba3c6344f3e8a9eb013e2da82940d63}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>float<sp/>`[`fParams`](#struct_user_instructions_1a2f3be588265c4ed198e1687433e53754)<sp/>{#struct_user_instructions_1a2f3be588265c4ed198e1687433e53754}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`UserInstructions`](#struct_user_instructions)`<sp/>&amp;<sp/>`[`operator=`](#struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196)`(const<sp/>volatile<sp/>`[`UserInstructions`](#struct_user_instructions)`<sp/>&amp;<sp/>rhs)`<sp/>{#struct_user_instructions_1a5fe93c82cf239bddd972595fe71a2196}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">####<sp/>`public<sp/>inline<sp/>`[`UserInstructions`](#struct_user_instructions)`<sp/>&amp;<sp/>`[`operator=`](#struct_user_instructions_1a70e5ef4407c43d8e574dfe4b46083d56)`(const<sp/>`[`UserInstructions`](#struct_user_instructions)`<sp/>&amp;<sp/>rhs)`<sp/>{#struct_user_instructions_1a70e5ef4407c43d8e574dfe4b46083d56}</highlight></codeline>
+<codeline></codeline>
+<codeline><highlight class="normal">Generated<sp/>by<sp/>[Moxygen](https://sourcey.com/moxygen)</highlight></codeline>
+    </programlisting>
+    <location file="api.md"/>
+  </compounddef>
+</doxygen>

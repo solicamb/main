@@ -1,0 +1,11 @@
+<map id="RequestReply" name="RequestReply">
+<area shape="rect" id="node1" title="Performs a complete transaction; expects Slave to Reply with sCmd object." alt="" coords="500,115,603,141"/>
+<area shape="rect" id="node2" href="$class_data_source.html#a7d92295e088894b5417729a814e49e01" title="Asks Sensor/peripheral whether there is Data ready to be collected." alt="" coords="265,13,432,40"/>
+<area shape="rect" id="node3" href="$class_instructable.html#a26afb4fb25fe8a13e268544d0850fe3f" title="Issues a command to the peripheral." alt="" coords="255,64,442,91"/>
+<area shape="rect" id="node7" href="$class_instructor.html#abfe73e27d6364bf5cad80f30f6833ec8" title="Asks the Sensor how many instructions there are in a measurement cycle." alt="" coords="245,115,452,141"/>
+<area shape="rect" id="node8" href="$class_instructor.html#a2e9afbb8e6ce1c671e8e9dc29cf4715f" title="Asks the sensor how long the master should pause for. Deprecated." alt="" coords="261,166,436,207"/>
+<area shape="rect" id="node9" href="$class_instructor.html#a43cbe18547a30108219f3aa2945fc9ca" title="Fetches the next instruction issued by the sensor in its instruction cycle." alt="" coords="251,232,446,259"/>
+<area shape="rect" id="node4" href="$class_sensor.html#af0e64874a3d1b8ae19e3b623d244342a" title="Instruct the sensor to initiate the measurement procedure." alt="" coords="12,5,191,32"/>
+<area shape="rect" id="node5" href="$class_sensor.html#afdcc3b63357bd24f519e0cbc85454a52" title="Instruct the sensor to pause the measurement procedure for a brief period." alt="" coords="8,57,195,98"/>
+<area shape="rect" id="node6" href="$class_sensor.html#ad58e9acfc23f07af433f0e2596d786d7" title="Instruct the sensor to restart the measurement procedure." alt="" coords="5,123,197,149"/>
+</map>

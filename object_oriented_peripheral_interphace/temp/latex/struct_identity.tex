@@ -1,0 +1,83 @@
+\hypertarget{struct_identity}{}\section{Identity Struct Reference}
+\label{struct_identity}\index{Identity@{Identity}}
+
+
+Type used to convey the Slave identity.  
+
+
+
+
+{\ttfamily \#include $<$S\+P\+I\+\_\+\+Instruction\+Set.\+h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_identity}{Identity}} \& \mbox{\hyperlink{struct_identity_ae7ccf6e408df14fac9dc856f53d81718}{operator=}} (const volatile \mbox{\hyperlink{struct_identity}{Identity}} \&rhs) volatile
+\item 
+volatile \mbox{\hyperlink{struct_identity}{Identity}} \& \mbox{\hyperlink{struct_identity_a64f9786e3b6cd410406d14d124be1e7c}{operator=}} (const \mbox{\hyperlink{struct_identity}{Identity}} \&rhs) volatile
+\end{DoxyCompactItemize}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char \mbox{\hyperlink{struct_identity_adc4d380bde0772c5d53a6383e36178cb}{Sensor\+Name}} \mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_addd001d124aca0fe92b3e484732fb7c8}{I\+D\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}
+\begin{DoxyCompactList}\small\item\em String name of the slave. Used for informative reporting to user. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_identity_a4f5a5e2cb7ee061dd0bd29b7086d89ac}{sensor\+ID}}
+\begin{DoxyCompactList}\small\item\em Single byte identitfication number. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{struct_identity_a219419d57e4c4e0d53ddcb44af330f32}{sensor\+Chip\+Select}}
+\begin{DoxyCompactList}\small\item\em S\+PI chip select of the peripheral in question. Used by slave, but used by \mbox{\hyperlink{class_master}{Master}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Type used to convey the Slave identity. 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{struct_identity_ae7ccf6e408df14fac9dc856f53d81718}\label{struct_identity_ae7ccf6e408df14fac9dc856f53d81718}} 
+\index{Identity@{Identity}!operator=@{operator=}}
+\index{operator=@{operator=}!Identity@{Identity}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily \mbox{\hyperlink{struct_identity}{Identity}}\& operator= (\begin{DoxyParamCaption}\item[{const volatile \mbox{\hyperlink{struct_identity}{Identity}} \&}]{rhs }\end{DoxyParamCaption}) volatile\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{struct_identity_a64f9786e3b6cd410406d14d124be1e7c}\label{struct_identity_a64f9786e3b6cd410406d14d124be1e7c}} 
+\index{Identity@{Identity}!operator=@{operator=}}
+\index{operator=@{operator=}!Identity@{Identity}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily volatile \mbox{\hyperlink{struct_identity}{Identity}}\& operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{struct_identity}{Identity}} \&}]{rhs }\end{DoxyParamCaption}) volatile\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{struct_identity_a219419d57e4c4e0d53ddcb44af330f32}\label{struct_identity_a219419d57e4c4e0d53ddcb44af330f32}} 
+\index{Identity@{Identity}!sensorChipSelect@{sensorChipSelect}}
+\index{sensorChipSelect@{sensorChipSelect}!Identity@{Identity}}
+\subsubsection{\texorpdfstring{sensorChipSelect}{sensorChipSelect}}
+{\footnotesize\ttfamily int sensor\+Chip\+Select}
+
+
+
+S\+PI chip select of the peripheral in question. Used by slave, but used by \mbox{\hyperlink{class_master}{Master}}. 
+
+\mbox{\Hypertarget{struct_identity_a4f5a5e2cb7ee061dd0bd29b7086d89ac}\label{struct_identity_a4f5a5e2cb7ee061dd0bd29b7086d89ac}} 
+\index{Identity@{Identity}!sensorID@{sensorID}}
+\index{sensorID@{sensorID}!Identity@{Identity}}
+\subsubsection{\texorpdfstring{sensorID}{sensorID}}
+{\footnotesize\ttfamily int sensor\+ID}
+
+
+
+Single byte identitfication number. 
+
+\mbox{\Hypertarget{struct_identity_adc4d380bde0772c5d53a6383e36178cb}\label{struct_identity_adc4d380bde0772c5d53a6383e36178cb}} 
+\index{Identity@{Identity}!SensorName@{SensorName}}
+\index{SensorName@{SensorName}!Identity@{Identity}}
+\subsubsection{\texorpdfstring{SensorName}{SensorName}}
+{\footnotesize\ttfamily char Sensor\+Name\mbox{[}\mbox{\hyperlink{_s_p_i___instruction_set_8h_addd001d124aca0fe92b3e484732fb7c8}{I\+D\+E\+N\+T\+I\+T\+Y\+\_\+\+S\+E\+N\+S\+O\+R\+\_\+\+N\+A\+M\+E\+\_\+\+L\+E\+N\+G\+TH}}\mbox{]}}
+
+
+
+String name of the slave. Used for informative reporting to user. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_s_p_i___instruction_set_8h}{S\+P\+I\+\_\+\+Instruction\+Set.\+h}}\end{DoxyCompactItemize}

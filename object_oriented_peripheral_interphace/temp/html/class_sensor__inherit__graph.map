@@ -1,0 +1,7 @@
+<map id="Sensor" name="Sensor">
+<area shape="rect" id="node1" title="A class which models a Sensor/peripheral." alt="" coords="179,80,241,107"/>
+<area shape="rect" id="node2" href="$class_instructable.html" title="A class which models a Sensor/peripheral as entity which can recieve commands." alt="" coords="5,5,95,32"/>
+<area shape="rect" id="node3" href="$class_instructor.html" title="A class which models a Sensor/peripheral as entity which can issue instructions to the master." alt="" coords="119,5,195,32"/>
+<area shape="rect" id="node4" href="$class_data_source.html" title="A class which models a Sensor/peripheral as an entity which is a source of data." alt="" coords="219,5,310,32"/>
+<area shape="rect" id="node5" href="$class_identifiable.html" title="A class which models a Sensor/peripheral as an identifiable entity." alt="" coords="334,5,417,32"/>
+</map>

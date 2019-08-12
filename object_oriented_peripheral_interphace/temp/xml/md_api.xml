@@ -1,0 +1,100 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.15">
+  <compounddef id="md_api" kind="page">
+    <compoundname>md_api</compoundname>
+    <title>Summary</title>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+<para><table rows="12" cols="2"><row>
+<entry thead="yes"><para>Members  </para>
+</entry><entry thead="yes"><para>Descriptions   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>class</computeroutput><ulink url="#class_communicative"><computeroutput>Communicative</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>A class to manage communication with slave module.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>class</computeroutput><ulink url="#class_data_source"><computeroutput>DataSource</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>A class which models a Sensor/peripheral as an entity which is a source of data.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>class</computeroutput><ulink url="#class_identifiable"><computeroutput>Identifiable</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>A class which models a Sensor/peripheral as an identifiable entity.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>class</computeroutput><ulink url="#class_instructable"><computeroutput>Instructable</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>A class which models a Sensor/peripheral as entity which can recieve commands.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>class</computeroutput><ulink url="#class_instructor"><computeroutput>Instructor</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>A class which models a Sensor/peripheral as entity which can issue instructions to the master.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>class</computeroutput><ulink url="#class_master"><computeroutput>Master</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>A monolithic class to encapsulate and abstract the slave&apos;s communication with the master.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>class</computeroutput><ulink url="#class_sensor"><computeroutput>Sensor</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>A class which models a Sensor/peripheral.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>struct</computeroutput><ulink url="#struct_data"><computeroutput>Data</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>Type used to encapsulate the data collected by the slave.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>struct</computeroutput><ulink url="#struct_identity"><computeroutput>Identity</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>Type used to convey the Slave identity.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>struct</computeroutput><ulink url="#structm_cmd"><computeroutput>mCmd</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>Type used by master to send requests to slave.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>struct</computeroutput><ulink url="#structs_cmd"><computeroutput>sCmd</computeroutput></ulink>  </para>
+</entry><entry thead="no"><para>Type used by slave to send reply to master,.   </para>
+</entry></row>
+</table>
+<computeroutput>struct</computeroutput><ulink url="#struct_user_instructions"><computeroutput>UserInstructions</computeroutput></ulink> |</para>
+<sect1 id="md_mpi-_1class_communicative">
+<title>class &lt;tt&gt;Communicative&lt;/tt&gt;</title>
+<para>A class to manage communication with slave module.</para>
+<para>This class is designed for SPI communication with a slave device. The class responsibilities include both SPI initialisation and fundamental transactions. The transaction protocol implemented follows the following flow: Clear SS -&gt; Send &apos;?&apos; to slave -&gt; recieve &apos;ACK&apos; (0x06) from slave -&gt; send request <ulink url="#structm_cmd">mCmd</ulink> -&gt; recieve sCmd/Data/Identity as expected -&gt; set SS. Where <ulink url="#structm_cmd">mCmd</ulink>, <ulink url="#structs_cmd">sCmd</ulink>, <ulink url="#struct_data">Data</ulink> and <ulink url="#struct_identity">Identity</ulink> are structures defined as types.</para>
+<para><heading level="2">Summary</heading>
+</para>
+<para><table rows="7" cols="2"><row>
+<entry thead="yes"><para>Members  </para>
+</entry><entry thead="yes"><para>Descriptions   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>public</computeroutput><ulink url="#class_communicative_1aa92e21c2c2b3ee8dda993872f6b0c73a"><computeroutput>Communicative</computeroutput></ulink><computeroutput>(const int CS)</computeroutput>  </para>
+</entry><entry thead="no"><para>Constructor.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>public</computeroutput><ulink url="#class_communicative_1a53c7f2ec58bfb99f0ea10e238705c3ce"><computeroutput>~Communicative</computeroutput></ulink><computeroutput>(void)</computeroutput>  </para>
+</entry><entry thead="no"><para>Destructor.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>public bool</computeroutput><ulink url="#class_communicative_1ac3d11fc6a7b276a19b1d92cd19e9a046"><computeroutput>isPeripheralConnected</computeroutput></ulink><computeroutput>(void)</computeroutput>  </para>
+</entry><entry thead="no"><para>Checks whether Slave is connected.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>public</computeroutput><ulink url="#structs_cmd"><computeroutput>sCmd</computeroutput></ulink><ulink url="#class_communicative_1a4fe112ad5a3d693e39ae44dd43eaf0c1"><computeroutput>RequestReply</computeroutput></ulink><computeroutput>(const <ref refid="structm_cmd" kindref="compound">mCmd</ref>)</computeroutput>  </para>
+</entry><entry thead="no"><para>Performs a complete transaction; expects Slave to Reply with <ulink url="#structs_cmd">sCmd</ulink> object.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>public</computeroutput><ulink url="#struct_identity"><computeroutput>Identity</computeroutput></ulink><ulink url="#class_communicative_1a01ee3d76d85bad6123c4d4f6262c6c2d"><computeroutput>RequestIdentity</computeroutput></ulink><computeroutput>(const <ref refid="structm_cmd" kindref="compound">mCmd</ref>)</computeroutput>  </para>
+</entry><entry thead="no"><para>Performs a complete transaction; expects Slave to Reply with <ulink url="#struct_identity">Identity</ulink> object.   </para>
+</entry></row>
+<row>
+<entry thead="no"><para><computeroutput>public</computeroutput><ulink url="#struct_data"><computeroutput>Data</computeroutput></ulink><ulink url="#class_communicative_1a0a56aaa3248edae66ccb13cbf2bf156a"><computeroutput>RequestData</computeroutput></ulink><computeroutput>(const <ref refid="structm_cmd" kindref="compound">mCmd</ref>)</computeroutput>  </para>
+</entry><entry thead="no"><para>Performs a complete transaction; expects Slave to Reply with a <ulink url="#struct_data">Data</ulink> object.   </para>
+</entry></row>
+</table>
+</para>
+<para><heading level="2">Members</heading>
+</para>
+</sect1>
+    </detaileddescription>
+  </compounddef>
+</doxygen>
