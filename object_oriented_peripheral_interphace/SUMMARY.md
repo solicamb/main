@@ -1,8 +1,6 @@
 # Table of contents
 
 * [Object Oriented Peripheral Interface (OOPI)](README.md)
-* [Related Pages](docs/api/pages.md)
-  * [Modules](docs/api/modules.md)
   * [Class List](docs/api/annotated.md)
     * [class Communicative](docs/api/class_communicative.md)
     * [struct Data](docs/api/struct_data.md)
@@ -16,12 +14,6 @@
     * [struct UserInstructions](docs/api/struct_user_instructions.md)
     * [struct mCmd](docs/api/structm_cmd.md)
     * [struct sCmd](docs/api/structs_cmd.md)
-  * [Namespace List](docs/api/namespaces.md)
-  * [Namespace Members](docs/api/namespace_members.md)
-  * [Namespace Member Functions](docs/api/namespace_member_functions.md)
-  * [Namespace Member Variables](docs/api/namespace_member_variables.md)
-  * [Namespace Member Typedefs](docs/api/namespace_member_typedefs.md)
-  * [Namespace Member Enumerations](docs/api/namespace_member_enums.md)
   * [Class Index](docs/api/classes.md)
   * [Class Hierarchy](docs/api/hierarchy.md)
   * [Class Members](docs/api/class_members.md)
