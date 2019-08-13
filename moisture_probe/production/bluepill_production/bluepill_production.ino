@@ -19,7 +19,7 @@
 
 // Debugging Switches
 const bool DEBUGGING = true;
-const bool DEBUG_WAIT_FOR_MASTER = true;
+const bool DEBUG_WAIT_FOR_MASTER = false;
 
 // Protocol Constants
 const int SLAVE_DEVICE_TYPE = 0b00100000;				// Identifies us to the master as a moisture sensor slave device
@@ -57,6 +57,8 @@ const float MOISTURE_RETENTION_SCORE_MINIMUM_VELOCITY = 1.0;   // Velocities slo
 float calibration[NUMBER_OF_SIGNALS] = {};
 bool measurement_in_progress = false;
 unsigned long signal_detected_timer[NUMBER_OF_SIGNALS] = {};
+bool signal_detected_bool[NUMBER_OF_SIGNALS] = { false, false, false};
+
 
 void setup() {
 	// Initialise serial
@@ -155,7 +157,7 @@ void evaluate_moisture_retention_score(float signals[], unsigned long signal_det
 	// Higher scores mean better quality, i.e. allows for water to percolate into the ground quicker
 
 	// Topsoil to Midsoil
-	long time_difference = (signal_detected_timer[1] - signal_detected_timer[0]) * 1000; // ms -> s
+	long time_difference = (signal_detected_timer[1] - signal_detected_timer[0]) / 1000; // ms -> s
 
 	if (time_difference < 0){
 		Serial.println("WARN: Middle probe reached before top one. Invalid measurement");
@@ -167,7 +169,7 @@ void evaluate_moisture_retention_score(float signals[], unsigned long signal_det
 	}
 
 	// Midsoil to Bottomsoil
-	time_difference = (signal_detected_timer[2] - signal_detected_timer[1]) * 1000; // ms -> s
+	time_difference = (signal_detected_timer[2] - signal_detected_timer[1]) / 1000; // ms -> s
 
 	if (time_difference < 0){
 		Serial.println("WARN: Bottom probe reached before middle one. Invalid measurement");
@@ -184,21 +186,30 @@ bool is_measurement_complete(float signals[], unsigned long signal_detected_time
 	// or second one has never been wetted (very bad soil))
 
 	for (int i = 0; i < NUMBER_OF_SIGNALS; i++){
-		if ((calibration[i] - signals[i]) > SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE && signal_detected_timer[i] != 0){
+		/*if ((calibration[i] - signals[i]) > SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE && signal_detected_timer[i] != 0){*/
+		if (abs(signals[i]) > SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE && signal_detected_timer[i] != 0){
 			// Signal threshold has been reached (for the *first* time)
+			Serial.print("INFO: Signal threshold reached on probe A");
+			Serial.println(i);
 			signal_detected_timer[i] = millis();
+			signal_detected_bool[i] = true;
 		}
 	}
 
 	if (signal_detected_timer[0] != 0){
-		if ((millis() - signal_detected_timer[0]) > SIGNAL_THRESHOLD_TIMEOUT_MS){
-			Serial.println("INFO: Timeout to have all probes register a moisture reading (water has not reached down all the way)");
+		unsigned long time_elapsed = millis() - signal_detected_timer[0];
+		if (time_elapsed > SIGNAL_THRESHOLD_TIMEOUT_MS){
+			Serial.print("INFO: Timeout to have all probes register a moisture reading (water has not reached down all the way) after ");
+			Serial.print(time_elapsed);
+			Serial.println("ms");
 			Serial.println("INFO: Finishing measurement");
 			return true;
 		}
 	}
 
-	return DEBUG_WAIT_FOR_MASTER; // False in normal operation; in debugging, this means we never reach measurement done to keep logging indefinitely
+	/*return DEBUG_WAIT_FOR_MASTER; // True in normal operation; in debugging, this means we never reach measurement done to keep logging indefinitely*/
+	bool all_probes_registered_reading = (signal_detected_bool[0] == true) && (signal_detected_bool[1] == true) && (signal_detected_bool[2] == true);
+	return all_probes_registered_reading;
 }
 
 uint8_t getMoistureLevel(float raw_voltages[], int signal_id){
@@ -251,7 +262,14 @@ void loop() {
 			}
 
 			// Start timer for irrigation measurement (moisture retention)
-			memset(&signal_detected_timer, millis(), sizeof(signal_detected_timer));
+			Serial.print("INFO: Starting irrigation measurement at ");
+			/*memset(&signal_detected_timer, millis(), sizeof(signal_detected_timer));*/
+			unsigned long time_now = millis();
+			signal_detected_timer[0] = time_now;
+			signal_detected_timer[1] = time_now;
+			signal_detected_timer[2] = time_now;
+			Serial.print(signal_detected_timer[0]);
+			Serial.println("ms");
 
 			// Return to main loop, starting continuous measurements
 			return;
@@ -264,6 +282,11 @@ void loop() {
 			// Moisture retention algorithm
 			uint8_t moisture_retention_scores[NUMBER_OF_SIGNALS - 2] = {};
 			evaluate_moisture_retention_score(signals, signal_detected_timer, moisture_retention_scores);
+
+			if (DEBUG_WAIT_FOR_MASTER == false){
+				Serial.println("INFO: DEBUG: Measurement completed, skipping transfer to master");
+				return;
+			}
 		
 			// Communicate result to master via SPI
 			send_measurement_to_master(MEASUREMENT_TYPE_MOISTURE_RETENTION_TOPSOIL, moisture_retention_scores[0]);
