@@ -30,7 +30,7 @@ const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION_TOPSOIL = 0x4;
 const uint8_t MEASUREMENT_TYPE_MOISTURE_RETENTION_MIDSOIL = 0x5;
 
 // Measurement Constants (field-independent calibration)
-const float SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE = 0.25; // threshold to consider a probe wetted. In the future, can extract quantitative (non-binary switchover) data, too
+const float SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE = -0.40; // threshold to consider a probe wetted. In the future, can extract quantitative (non-binary switchover) data, too
 const unsigned long SIGNAL_THRESHOLD_TIMEOUT_MS = 5 * 60 * 1000; // after 5min, stop waiting for bottom-most probe to register a measurement
 const float MOISTURE_LEVEL_THRESHOLD_DRY = 2.5;   // voltage above which soil is considered "dry". Only rough estimates are possible, but can still offer a rough guide for the user
 const float MOISTURE_LEVEL_THRESHOLD_MOIST = 2.0; // voltage above which soil is considered "moist"
@@ -185,7 +185,7 @@ bool is_measurement_complete(float signals[], unsigned long signal_detected_time
 	// or second one has never been wetted (very bad soil))
 
 	for (int i = 0; i < NUMBER_OF_SIGNALS; i++){
-		if (abs(signals[i]) > SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE && signal_detected_timer[i] != 0){
+		if (signals[i]) < SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE && signal_detected_timer[i] != 0){
 			// TODO we might have to consider signals going up because of probe movement -- only look at downwards signal, and increase threshold
 			// Signal threshold has been reached (for the *first* time)
 			Serial.print("INFO: Signal threshold reached on probe A");
