@@ -36,9 +36,8 @@ const float MOISTURE_LEVEL_THRESHOLD_DRY = 2.5;   // voltage above which soil is
 const float MOISTURE_LEVEL_THRESHOLD_MOIST = 2.0; // voltage above which soil is considered "moist"
 //                                                // voltages below are considered "wet"
 
-const float MOISTURE_RETENTION_SCORE_TIMESCALE_TOPMID = 100.0; // time scaling for moisture retention score. Scoring also takes care of constraining to 1..100
-const float MOISTURE_RETENTION_SCORE_TIMESCALE_MIDBOT = 100.0;
-const float MOISTURE_RETENTION_SCORE_MINIMUM_VELOCITY = 1.0;   // Velocities slower than this (cm/s) are considered worst-case and give a score of 1
+const float MOISTURE_RETENTION_SCORE_TIMESCALE_TOPMID = 60.0; // time scaling for moisture retention score. Score is constrained to 0 (measurement failed, e.g. no probes see anything); 1 (very slow, see below); and 2..255 (soil moisture velocity in cm/min)
+const float MOISTURE_RETENTION_SCORE_TIMESCALE_MIDBOT = 60.0;
 
 // Pin Config
 #define SPI1_SS PA4
@@ -165,7 +164,7 @@ void evaluate_moisture_retention_score(float signals[], unsigned long signal_det
 	}
 	else {
 		float moisture_velocity = PROBE_SPACING_CM / (time_difference / MOISTURE_RETENTION_SCORE_TIMESCALE_TOPMID);
-		moisture_retention_scores[0] = constrain((uint8_t)moisture_velocity, 1, 100);
+		moisture_retention_scores[0] = constrain((uint8_t)moisture_velocity, 1, 255);
 	}
 
 	// Midsoil to Bottomsoil
@@ -177,7 +176,7 @@ void evaluate_moisture_retention_score(float signals[], unsigned long signal_det
 	}
 	else {
 		float moisture_velocity = PROBE_SPACING_CM / (time_difference / MOISTURE_RETENTION_SCORE_TIMESCALE_MIDBOT);
-		moisture_retention_scores[1] = constrain((uint8_t)moisture_velocity, 1, 100);
+		moisture_retention_scores[1] = constrain((uint8_t)moisture_velocity, 1, 255);
 	}
 }
 
@@ -186,8 +185,8 @@ bool is_measurement_complete(float signals[], unsigned long signal_detected_time
 	// or second one has never been wetted (very bad soil))
 
 	for (int i = 0; i < NUMBER_OF_SIGNALS; i++){
-		/*if ((calibration[i] - signals[i]) > SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE && signal_detected_timer[i] != 0){*/
 		if (abs(signals[i]) > SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE && signal_detected_timer[i] != 0){
+			// TODO we might have to consider signals going up because of probe movement -- only look at downwards signal, and increase threshold
 			// Signal threshold has been reached (for the *first* time)
 			Serial.print("INFO: Signal threshold reached on probe A");
 			Serial.println(i);
