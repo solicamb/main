@@ -1,0 +1,21 @@
+EESchema-LIBRARY Version 2.4
+#encoding utf-8
+#
+# reg
+#
+DEF reg U 0 40 Y Y 1 F N
+F0 "U" 50 250 50 H V C CNN
+F1 "reg" -350 250 50 H V C CNN
+F2 "" -350 250 50 H I C CNN
+F3 "" -350 250 50 H I C CNN
+DRAW
+S 150 450 -450 -50 0 1 0 N
+X Vin 1 -250 -150 100 U 50 50 1 1 I
+X Inhibit 2 -200 550 100 D 50 50 1 1 I
+X Set 3 -100 550 100 D 50 50 1 1 I
+X Vout 4 -50 -150 100 U 50 50 1 1 I
+X GND 5 -150 -150 100 U 50 50 1 1 I
+ENDDRAW
+ENDDEF
+#
+#End Library

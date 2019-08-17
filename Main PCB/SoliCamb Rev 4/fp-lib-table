@@ -1,0 +1,8 @@
+(fp_lib_table
+  (lib (name Battery_Charger)(type KiCad)(uri "${KIPRJMOD}/Custom PCB Footprints/Battery_Charger.pretty")(options "")(descr ""))
+  (lib (name Blue_pill)(type KiCad)(uri "${KIPRJMOD}/Custom PCB Footprints/Blue_pill.pretty")(options "")(descr ""))
+  (lib (name Display)(type KiCad)(uri "${KIPRJMOD}/Custom PCB Footprints/Display.pretty")(options "")(descr ""))
+  (lib (name Regulator)(type KiCad)(uri "${KIPRJMOD}/Custom PCB Footprints/Regulator.pretty")(options "")(descr ""))
+  (lib (name USB)(type KiCad)(uri "${KIPRJMOD}/Custom PCB Footprints/USB.pretty")(options "")(descr ""))
+  (lib (name GPS)(type KiCad)(uri "${KIPRJMOD}/Custom PCB Footprints/GPS.pretty")(options "")(descr ""))
+)

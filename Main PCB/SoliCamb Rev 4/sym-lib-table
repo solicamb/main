@@ -1,0 +1,10 @@
+(sym_lib_table
+  (lib (name Battery_Charger)(type Legacy)(uri "${KIPRJMOD}/Custom Schematic Symbols/Battery_Charger.lib")(options "")(descr ""))
+  (lib (name Blue_Pill)(type Legacy)(uri "${KIPRJMOD}/Custom Schematic Symbols/Blue_Pill.lib")(options "")(descr ""))
+  (lib (name Display)(type Legacy)(uri "${KIPRJMOD}/Custom Schematic Symbols/Display.lib")(options "")(descr ""))
+  (lib (name GPS)(type Legacy)(uri "${KIPRJMOD}/Custom Schematic Symbols/GPS.lib")(options "")(descr ""))
+  (lib (name Reg)(type Legacy)(uri "${KIPRJMOD}/Custom Schematic Symbols/Reg.lib")(options "")(descr ""))
+  (lib (name RFID)(type Legacy)(uri "${KIPRJMOD}/Custom Schematic Symbols/RFID.lib")(options "")(descr ""))
+  (lib (name USB)(type Legacy)(uri "${KIPRJMOD}/Custom Schematic Symbols/USB.lib")(options "")(descr ""))
+  (lib (name Breakout_SD)(type Legacy)(uri "${KIPRJMOD}/Custom Schematic Symbols/Breakout_SD.lib")(options "")(descr ""))
+)
