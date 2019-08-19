@@ -185,7 +185,7 @@ bool is_measurement_complete(float signals[], unsigned long signal_detected_time
 	// or second one has never been wetted (very bad soil))
 
 	for (int i = 0; i < NUMBER_OF_SIGNALS; i++){
-		if (signals[i]) < SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE && signal_detected_timer[i] != 0){
+		if (signals[i] < SIGNAL_THRESHOLD_VOLTAGE_DIFFERENCE && signal_detected_timer[i] != 0){
 			// TODO we might have to consider signals going up because of probe movement -- only look at downwards signal, and increase threshold
 			// Signal threshold has been reached (for the *first* time)
 			Serial.print("INFO: Signal threshold reached on probe A");
