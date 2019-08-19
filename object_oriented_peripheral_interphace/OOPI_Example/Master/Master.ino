@@ -55,7 +55,7 @@ void loop (void) //Serial.prints have been used where screen.dispays schould be 
 */												
 
 //Instantiate Sensor object
-	Sensor MySensor(SPI1_NSS_PIN);
+	Sensor MySensor(SPI1_NSS_PIN); 
 
 //Wait until Sensor is connected
   Serial.println("Please connect a sensor to begin"); //Display this on screen
@@ -86,7 +86,7 @@ void loop (void) //Serial.prints have been used where screen.dispays schould be 
 	if (!MySensor.issueCommand(BeginMeasurement)){ //If sensor doesn't acknowledge the begin measurement command, restart loop
 		Serial.println("Sensor not responding, check connection");
 		return;
-	}
+	} 
 
 //Start instruction loop
 	int NumInstructions = MySensor.howManyInstructions();
