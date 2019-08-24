@@ -6,3 +6,5 @@ https://www.arduino.cc/en/guide/libraries
 
 Follow these instructions to program the microcontroller: 
 https://circuitdigest.com/microcontroller-projects/programming-stm32f103c8-board-using-usb-port
+
+Authored by Sagnik Middya and James Meech
